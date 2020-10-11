@@ -181,6 +181,8 @@ Error message and password prompt
 
 <li>AWS EC2</li>
 
+<li>AWS Security</li>
+
 <li>AWS SQS &amp; SNS</li>
 
 <li>AWS Strategies</li>
@@ -190,8 +192,6 @@ Error message and password prompt
 <li>Draft of 'AWS EC2' by 0neir0s</li>
 
 <li>Draft of 'AWS Strategies' by 0neir0s</li>
-
-<li>Draft of 'New Tiddler' by 0neir0s</li>
 
 <li>Motivation</li>
 
@@ -9625,7 +9625,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201011134633421" creator="0neir0s" list="[[Draft of 'New Tiddler' by 0neir0s]] [[Draft of 'AWS Strategies' by 0neir0s]] [[AWS SQS &amp; SNS]] [[Cloud Definitions]] [[Draft of 'AWS EC2' by 0neir0s]] Synopsis GettingStarted" modified="20201011134633421" modifier="0neir0s" title="$:/StoryList">
+<div created="20201011134633421" creator="0neir0s" list="[[AWS Security]] [[Draft of 'AWS Strategies' by 0neir0s]] [[AWS SQS &amp; SNS]] [[Cloud Definitions]] [[Draft of 'AWS EC2' by 0neir0s]] Synopsis GettingStarted" modified="20201011134633421" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9806,6 +9806,12 @@ GettingStarted
 * By default, when an EBS volume is attached to an instance, the delete on termination setting for the block device mapping is set to false.
 </pre>
 </div>
+<div created="20201011163446337" creator="0neir0s" modified="20201011165351076" modifier="0neir0s" tags="" title="AWS Security">
+<pre>* Temporary security credentials are defined by a username and a policy giving permissions to resources.
+* If the IAM user is trying to perform a bucket operation, S3 will first verify whether the IAM user belongs to the same root account or another account. If it belongs to another AWS account, it will first verify whether the IAM user account’s parent has provided sufficient permissions to perform such activities. (User context eval followed by Bucket context - [[Details|https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-auth-workflow-bucket-operation.html]
+* By default, Windows RDP servers use self-signed certificates, which are not trusted, and should be avoided, if encryption in transit is a requirement. SSH 2 using non-privileged user accounts is also a recommended approach for connecting Linux instances.
+*  AWS customers should undertake a number of security control testing approaches: External Vulnerability Assessment, External Penetration Tests, and Internal Gray/White-box Review of Applications and Platforms.</pre>
+</div>
 <div created="20201011140841846" creator="0neir0s" modified="20201011152042804" modifier="0neir0s" tags="aws notes" title="AWS SQS &amp; SNS">
 <pre>* Amazon SQS provides short polling (default) and long polling to receive messages from a queue. 
 * Short polling - request queries only a subset of the servers and sends the response right away. Long polling - request queries all of the servers for messages and sends a response after it collects at least one available message.</pre>
@@ -9846,12 +9852,6 @@ GettingStarted
 * When a bucket policy is applied the permissions assigned apply to all objects within that Bucket. This policy introduces a new attribute called ‘principal’. Principals are not needed for IAM policies, as it is already defined by who is associated with that policy.
 * Internet gateway additionally performs network address translation for the instances with public IPs.
 * When controlling access to Amazon EC2 resources, each Amazon EBS Snapshot has a 	createVolumePermission attribute that controls which AWS accounts can use the snapshot.</pre>
-</div>
-<div created="20201011163446337" creator="0neir0s" draft.of="New Tiddler" draft.title="AWS Security" modified="20201011165228616" modifier="0neir0s" tags="" title="Draft of 'New Tiddler' by 0neir0s">
-<pre>* Temporary security credentials are defined by a username and a policy giving permissions to resources.
-* If the IAM user is trying to perform a bucket operation, S3 will first verify whether the IAM user belongs to the same root account or another account. If it belongs to another AWS account, it will first verify whether the IAM user account’s parent has provided sufficient permissions to perform such activities. (User context eval followed by Bucket context - 
-* By default, Windows RDP servers use self-signed certificates, which are not trusted, and should be avoided, if encryption in transit is a requirement. SSH 2 using non-privileged user accounts is also a recommended approach for connecting Linux instances.
-*  AWS customers should undertake a number of security control testing approaches: External Vulnerability Assessment, External Penetration Tests, and Internal Gray/White-box Review of Applications and Platforms.</pre>
 </div>
 <div created="20200818173814631" creator="0neir0s" modified="20200920162936500" modifier="0neir0s" published="" tags="goal published" title="Motivation" type="metadata">
 <pre>The idea is to make sure the snippets entered here, while trivial or meaningless individually, will start making sense in its entirety. That is, the total is hopefully more than the sum of its pieces. 
