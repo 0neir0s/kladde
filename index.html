@@ -189,10 +189,6 @@ Error message and password prompt
 
 <li>Cloud Definitions</li>
 
-<li>Draft of 'AWS EC2' by 0neir0s</li>
-
-<li>Draft of 'AWS Strategies' by 0neir0s</li>
-
 <li>Motivation</li>
 
 <li>Synopsis</li>
@@ -9625,7 +9621,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201011134633421" creator="0neir0s" list="[[AWS Security]] [[Draft of 'AWS Strategies' by 0neir0s]] [[AWS SQS &amp; SNS]] [[Cloud Definitions]] [[Draft of 'AWS EC2' by 0neir0s]] Synopsis GettingStarted" modified="20201011134633421" modifier="0neir0s" title="$:/StoryList">
+<div created="20201011134633421" creator="0neir0s" list="[[AWS Security]] [[AWS Strategies]] [[AWS SQS &amp; SNS]] [[Cloud Definitions]] [[AWS EC2]] Synopsis GettingStarted" modified="20201011134633421" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9798,17 +9794,22 @@ GettingStarted
     }
 }</pre>
 </div>
-<div created="20201011134639869" creator="0neir0s" modified="20201011152504703" modifier="0neir0s" tags="notes aws" title="AWS EC2">
+<div created="20201011134639869" creator="0neir0s" modified="20201011165438256" modifier="0neir0s" tags="notes aws" title="AWS EC2">
 <pre>* Creating an EC2 instance is by selecting the instance type (hardware type) and AMI (software) and optionally, with a database. 
 * Enhanced networking uses single root I/O virtualization (SR-IOV) to provide high-performance networking capabilities - higher I/O performance, lower CPU utilisation, higher bandwidth, higher packets per second, lower inter-instance latencies(jitter) - on supported instance types.
 * EC2 Bootstrapping can enroll an instance to the directory service but cannot bid on spot instances.
 * EBS Volume attached to an EC2 needs to be detached before attaching to another running instance
 * By default, when an EBS volume is attached to an instance, the delete on termination setting for the block device mapping is set to false.
+* Key pairs, public key-private key combos, encrypt and decrypt the login information. 
+* Key pairs in EC2 are specific to a region. To launch instances in multiple regions, you'll need to create a key pair in each region.
 </pre>
 </div>
-<div created="20201011163446337" creator="0neir0s" modified="20201011165351076" modifier="0neir0s" tags="" title="AWS Security">
-<pre>* Temporary security credentials are defined by a username and a policy giving permissions to resources.
-* If the IAM user is trying to perform a bucket operation, S3 will first verify whether the IAM user belongs to the same root account or another account. If it belongs to another AWS account, it will first verify whether the IAM user account’s parent has provided sufficient permissions to perform such activities. (User context eval followed by Bucket context - [[Details|https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-auth-workflow-bucket-operation.html]
+<div created="20201011163446337" creator="0neir0s" modified="20201011174223300" modifier="0neir0s" tags="" title="AWS Security">
+<pre>* A policy usually contains the following:
+** A
+** B
+* Temporary security credentials are defined by a username and a policy giving permissions to resources.
+* If the IAM user is trying to perform a bucket operation, S3 will first verify whether the IAM user belongs to the same root account or another account. If it belongs to another AWS account, it will first verify whether the IAM user account’s parent has provided sufficient permissions to perform such activities. (User context eval followed by Bucket context - [[more details|https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-auth-workflow-bucket-operation.html]])
 * By default, Windows RDP servers use self-signed certificates, which are not trusted, and should be avoided, if encryption in transit is a requirement. SSH 2 using non-privileged user accounts is also a recommended approach for connecting Linux instances.
 *  AWS customers should undertake a number of security control testing approaches: External Vulnerability Assessment, External Penetration Tests, and Internal Gray/White-box Review of Applications and Platforms.</pre>
 </div>
@@ -9816,12 +9817,15 @@ GettingStarted
 <pre>* Amazon SQS provides short polling (default) and long polling to receive messages from a queue. 
 * Short polling - request queries only a subset of the servers and sends the response right away. Long polling - request queries all of the servers for messages and sends a response after it collects at least one available message.</pre>
 </div>
-<div created="20201011150936485" creator="0neir0s" modified="20201011153251859" modifier="0neir0s" tags="aws notes" title="AWS Strategies">
+<div created="20201011150936485" creator="0neir0s" modified="20201011165433616" modifier="0neir0s" tags="aws notes" title="AWS Strategies">
 <pre>* Use an Elastic Network Interface (ENI) to create a management network, to use network and security appliances in your VPC, to create dual-homed instances with workloads/roles on distinct subnets or to create a low-budget, high-availability solution.
 * Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses.
 * Rebooting primary database instance is the strategy to consistently test db failovers. 
 * Virtual Private Gateway - is the only route in a VPN only subnet
-* Decoupling can be done using SQS (store requests) or s3 + Autoscaling worker instances.</pre>
+* Decoupling can be done using SQS (store requests) or s3 + Autoscaling worker instances.
+* When a bucket policy is applied the permissions assigned apply to all objects within that Bucket. This policy introduces a new attribute called ‘principal’. Principals are not needed for IAM policies, as it is already defined by who is associated with that policy.
+* Internet gateway additionally performs network address translation for the instances with public IPs.
+* When controlling access to Amazon EC2 resources, each Amazon EBS Snapshot has a 	createVolumePermission attribute that controls which AWS accounts can use the snapshot.</pre>
 </div>
 <div created="20201011140533219" creator="0neir0s" modified="20201011152604822" modifier="0neir0s" tags="aws notes" title="Cloud Definitions">
 <pre>* A recovery time objective (RTO) - the maximum acceptable time to restore system service after a disruption
@@ -9832,26 +9836,6 @@ GettingStarted
 * Dual-homed is an Ethernet device that has more than one network interface, for redundancy purposes.
 * Stop guessing capacity is usually done by auto deployments based on performance metrics.
 </pre>
-</div>
-<div created="20201011134639869" creator="0neir0s" draft.of="AWS EC2" draft.title="AWS EC2" modified="20201011163624791" modifier="0neir0s" tags="notes aws" title="Draft of 'AWS EC2' by 0neir0s">
-<pre>* Creating an EC2 instance is by selecting the instance type (hardware type) and AMI (software) and optionally, with a database. 
-* Enhanced networking uses single root I/O virtualization (SR-IOV) to provide high-performance networking capabilities - higher I/O performance, lower CPU utilisation, higher bandwidth, higher packets per second, lower inter-instance latencies(jitter) - on supported instance types.
-* EC2 Bootstrapping can enroll an instance to the directory service but cannot bid on spot instances.
-* EBS Volume attached to an EC2 needs to be detached before attaching to another running instance
-* By default, when an EBS volume is attached to an instance, the delete on termination setting for the block device mapping is set to false.
-* Key pairs, public key-private key combos, encrypt and decrypt the login information. 
-* Key pairs in EC2 are specific to a region. To launch instances in multiple regions, you'll need to create a key pair in each region.
-</pre>
-</div>
-<div created="20201011150936485" creator="0neir0s" draft.of="AWS Strategies" draft.title="AWS Strategies" modified="20201011164830595" modifier="0neir0s" tags="aws notes" title="Draft of 'AWS Strategies' by 0neir0s">
-<pre>* Use an Elastic Network Interface (ENI) to create a management network, to use network and security appliances in your VPC, to create dual-homed instances with workloads/roles on distinct subnets or to create a low-budget, high-availability solution.
-* Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses.
-* Rebooting primary database instance is the strategy to consistently test db failovers. 
-* Virtual Private Gateway - is the only route in a VPN only subnet
-* Decoupling can be done using SQS (store requests) or s3 + Autoscaling worker instances.
-* When a bucket policy is applied the permissions assigned apply to all objects within that Bucket. This policy introduces a new attribute called ‘principal’. Principals are not needed for IAM policies, as it is already defined by who is associated with that policy.
-* Internet gateway additionally performs network address translation for the instances with public IPs.
-* When controlling access to Amazon EC2 resources, each Amazon EBS Snapshot has a 	createVolumePermission attribute that controls which AWS accounts can use the snapshot.</pre>
 </div>
 <div created="20200818173814631" creator="0neir0s" modified="20200920162936500" modifier="0neir0s" published="" tags="goal published" title="Motivation" type="metadata">
 <pre>The idea is to make sure the snippets entered here, while trivial or meaningless individually, will start making sense in its entirety. That is, the total is hopefully more than the sum of its pieces. 
