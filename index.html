@@ -181,9 +181,13 @@ Error message and password prompt
 
 <li>AWS EC2</li>
 
+<li>AWS Strategies</li>
+
 <li>Cloud Definitions</li>
 
 <li>Draft of 'AWS EC2' by 0neir0s</li>
+
+<li>Draft of 'Cloud Definitions' by 0neir0s</li>
 
 <li>Draft of 'New Tiddler' by 0neir0s</li>
 
@@ -9619,7 +9623,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201011134633421" creator="0neir0s" list="[[Draft of 'New Tiddler' by 0neir0s]] [[Cloud Definitions]] [[Draft of 'AWS EC2' by 0neir0s]] Synopsis GettingStarted" modified="20201011134633421" modifier="0neir0s" title="$:/StoryList">
+<div created="20201011134633421" creator="0neir0s" list="[[AWS Strategies]] [[Draft of 'New Tiddler' by 0neir0s]] [[Draft of 'Cloud Definitions' by 0neir0s]] [[Draft of 'AWS EC2' by 0neir0s]] Synopsis GettingStarted" modified="20201011134633421" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9796,6 +9800,13 @@ GettingStarted
 <pre>* Creating an EC2 instance is by selecting the instance type (hardware type) and AMI (software) and optionally, with a database.
 </pre>
 </div>
+<div created="20201011150936485" creator="0neir0s" modified="20201011152041147" modifier="0neir0s" tags="" title="AWS Strategies">
+<pre>* Use an Elastic Network Interface (ENI) to create a management network, to use network and security appliances in your VPC, to create dual-homed instances with workloads/roles on distinct subnets or to create a low-budget, high-availability solution.
+* Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses.
+* Rebooting primary database instance is the strategy to consistently test db failovers. 
+* Virtual Private Gateway - is the only route in a VPN only subnet
+</pre>
+</div>
 <div created="20201011140533219" creator="0neir0s" modified="20201011150446264" modifier="0neir0s" tags="aws notes" title="Cloud Definitions">
 <pre>* A recovery time objective (RTO) - the maximum acceptable time to restore system service after a disruption
 * A recovery point objective (RPO) - the maximum acceptable amount of data loss measured in time. 
@@ -9808,8 +9819,18 @@ GettingStarted
 * Enhanced networking uses single root I/O virtualization (SR-IOV) to provide high-performance networking capabilities - higher I/O performance, lower CPU utilisation, higher bandwidth, higher packets per second, lower inter-instance latencies(jitter) - on supported instance types.
 </pre>
 </div>
-<div created="20201011140841846" creator="0neir0s" draft.of="New Tiddler" draft.title="AWS SQS &amp; SNS" modified="20201011140905110" modifier="0neir0s" tags="aws notes" title="Draft of 'New Tiddler' by 0neir0s">
-<pre></pre>
+<div created="20201011140533219" creator="0neir0s" draft.of="Cloud Definitions" draft.title="Cloud Definitions" modified="20201011152024342" modifier="0neir0s" tags="aws notes" title="Draft of 'Cloud Definitions' by 0neir0s">
+<pre>* A recovery time objective (RTO) - the maximum acceptable time to restore system service after a disruption
+* A recovery point objective (RPO) - the maximum acceptable amount of data loss measured in time. 
+* IOPS optimised -  SSD-backed storage for transactional workloads, such as databases and boot volumes
+* Throughput optimised - HDD-backed storage for throughput intensive workloads, such as MapReduce and log processing
+* HA in EC2 - The user can achieve high availability by deploying instances in multiple availability zones, using elastic IP because when one of the instances fails, the elastic IP keeps the failed instances URL and Load balancing as it helps with distribution of traffic and auto-scales its request handling capacity.
+* Dual-homed is an Ethernet device that has more than one network interface, for redundancy purposes.
+</pre>
+</div>
+<div created="20201011140841846" creator="0neir0s" draft.of="New Tiddler" draft.title="AWS SQS &amp; SNS" modified="20201011152035489" modifier="0neir0s" tags="aws notes" title="Draft of 'New Tiddler' by 0neir0s">
+<pre>* Amazon SQS provides short polling (default) and long polling to receive messages from a queue. 
+* Short polling - request queries only a subset of the servers and sends the response right away. Long polling - request queries all of the servers for messages and sends a response after it collects at least one available message.</pre>
 </div>
 <div created="20200818173814631" creator="0neir0s" modified="20200920162936500" modifier="0neir0s" published="" tags="goal published" title="Motivation" type="metadata">
 <pre>The idea is to make sure the snippets entered here, while trivial or meaningless individually, will start making sense in its entirety. That is, the total is hopefully more than the sum of its pieces. 
