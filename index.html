@@ -187,8 +187,6 @@ Error message and password prompt
 
 <li>Cloud Definitions</li>
 
-<li>Draft of 'AWS Strategies' by 0neir0s</li>
-
 <li>Motivation</li>
 
 <li>Synopsis</li>
@@ -9621,7 +9619,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201011134633421" creator="0neir0s" list="[[Draft of 'AWS Strategies' by 0neir0s]] [[AWS SQS &amp; SNS]] [[Cloud Definitions]] [[AWS EC2]] Synopsis GettingStarted" modified="20201011134633421" modifier="0neir0s" title="$:/StoryList">
+<div created="20201011134633421" creator="0neir0s" list="[[AWS Strategies]] [[AWS SQS &amp; SNS]] [[Cloud Definitions]] [[AWS EC2]] Synopsis GettingStarted" modified="20201011134633421" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9806,12 +9804,12 @@ GettingStarted
 <pre>* Amazon SQS provides short polling (default) and long polling to receive messages from a queue. 
 * Short polling - request queries only a subset of the servers and sends the response right away. Long polling - request queries all of the servers for messages and sends a response after it collects at least one available message.</pre>
 </div>
-<div created="20201011150936485" creator="0neir0s" modified="20201011152041147" modifier="0neir0s" tags="" title="AWS Strategies">
+<div created="20201011150936485" creator="0neir0s" modified="20201011152726681" modifier="0neir0s" tags="" title="AWS Strategies">
 <pre>* Use an Elastic Network Interface (ENI) to create a management network, to use network and security appliances in your VPC, to create dual-homed instances with workloads/roles on distinct subnets or to create a low-budget, high-availability solution.
 * Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses.
 * Rebooting primary database instance is the strategy to consistently test db failovers. 
 * Virtual Private Gateway - is the only route in a VPN only subnet
-</pre>
+* Decoupling can be done using SQS (store requests) or s3 + Autoscaling worker instances.</pre>
 </div>
 <div created="20201011140533219" creator="0neir0s" modified="20201011152604822" modifier="0neir0s" tags="aws notes" title="Cloud Definitions">
 <pre>* A recovery time objective (RTO) - the maximum acceptable time to restore system service after a disruption
@@ -9822,13 +9820,6 @@ GettingStarted
 * Dual-homed is an Ethernet device that has more than one network interface, for redundancy purposes.
 * Stop guessing capacity is usually done by auto deployments based on performance metrics.
 </pre>
-</div>
-<div created="20201011150936485" creator="0neir0s" draft.of="AWS Strategies" draft.title="AWS Strategies" modified="20201011152149358" modifier="0neir0s" tags="" title="Draft of 'AWS Strategies' by 0neir0s">
-<pre>* Use an Elastic Network Interface (ENI) to create a management network, to use network and security appliances in your VPC, to create dual-homed instances with workloads/roles on distinct subnets or to create a low-budget, high-availability solution.
-* Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses.
-* Rebooting primary database instance is the strategy to consistently test db failovers. 
-* Virtual Private Gateway - is the only route in a VPN only subnet
-* Decoupling can be done using SQS (store requests) or s3 + Autoscaling worker instances.</pre>
 </div>
 <div created="20200818173814631" creator="0neir0s" modified="20200920162936500" modifier="0neir0s" published="" tags="goal published" title="Motivation" type="metadata">
 <pre>The idea is to make sure the snippets entered here, while trivial or meaningless individually, will start making sense in its entirety. That is, the total is hopefully more than the sum of its pieces. 
