@@ -9804,10 +9804,12 @@ GettingStarted
 * Key pairs in EC2 are specific to a region. To launch instances in multiple regions, you'll need to create a key pair in each region.
 </pre>
 </div>
-<div created="20201011163446337" creator="0neir0s" modified="20201011174223300" modifier="0neir0s" tags="" title="AWS Security">
-<pre>* A policy usually contains the following:
-** A
-** B
+<div created="20201011163446337" creator="0neir0s" modified="20201011174421651" modifier="0neir0s" tags="" title="AWS Security">
+<pre>* A policy usually contains the following: [[Link|https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html]]
+** Resources/ARN - Buckets, objects, access points, and jobs
+** Actions and Effect
+** Principals
+** Conditions
 * Temporary security credentials are defined by a username and a policy giving permissions to resources.
 * If the IAM user is trying to perform a bucket operation, S3 will first verify whether the IAM user belongs to the same root account or another account. If it belongs to another AWS account, it will first verify whether the IAM user account’s parent has provided sufficient permissions to perform such activities. (User context eval followed by Bucket context - [[more details|https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-auth-workflow-bucket-operation.html]])
 * By default, Windows RDP servers use self-signed certificates, which are not trusted, and should be avoided, if encryption in transit is a requirement. SSH 2 using non-privileged user accounts is also a recommended approach for connecting Linux instances.
