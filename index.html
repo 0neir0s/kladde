@@ -183,6 +183,8 @@ Error message and password prompt
 
 <li>AWS &amp; Cloud Definitions</li>
 
+<li>AWS Databases</li>
+
 <li>AWS EC2</li>
 
 <li>AWS S3, SQS &amp; SNS</li>
@@ -191,9 +193,9 @@ Error message and password prompt
 
 <li>AWS Strategies</li>
 
-<li>Draft of 'AWS S3, SQS &amp; SNS' by 0neir0s</li>
+<li>Draft of 'AWS &amp; Cloud Definitions' by 0neir0s</li>
 
-<li>Draft of 'New Tiddler' by 0neir0s</li>
+<li>Draft of 'AWS Strategies' by 0neir0s</li>
 
 <li>Motivation</li>
 
@@ -9627,7 +9629,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201013052354612" creator="0neir0s" list="[[Draft of 'New Tiddler' by 0neir0s]] Synopsis AWS [[AWS &amp; Cloud Definitions]] [[AWS EC2]] [[Draft of 'AWS S3, SQS &amp; SNS' by 0neir0s]] [[AWS Strategies]] GettingStarted" modified="20201013052405053" modifier="0neir0s" title="$:/StoryList">
+<div created="20201013052354612" creator="0neir0s" list="[[AWS Databases]] Synopsis AWS [[Draft of 'AWS &amp; Cloud Definitions' by 0neir0s]] [[AWS EC2]] [[AWS S3, SQS &amp; SNS]] [[Draft of 'AWS Strategies' by 0neir0s]] GettingStarted" modified="20201013052405053" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9817,6 +9819,9 @@ GettingStarted
 * AWS Backup is a fully managed backup service that makes it easy to centralize and automate the backup of data across AWS services. It supports backup policies and monitor backup activity of EBS, EC2, RDS databases, DynamoDB tables, EFS, and Storage Gateway volumes. It uses GB-Month as the pricing metric.
 * AWS Storage Gateway is a hybrid cloud storage service that gives you on-premises access to cloud storage. It offers three types - File Gateway, Tape Gateway, and Volume Gateway - for connect on-premises applications to cloud storage, caching data locally for low-latency access. Connect using protocols like NFS, SMB, and iSCSI.</pre>
 </div>
+<div created="20201013054457687" creator="0neir0s" modified="20201013095707988" modifier="0neir0s" tags="aws notes" title="AWS Databases">
+<pre>* Read Replicas are for scaling, not for failover</pre>
+</div>
 <div created="20201011134639869" creator="0neir0s" modified="20201011191452993" modifier="0neir0s" tags="notes aws" title="AWS EC2">
 <pre>* Creating an EC2 instance is by selecting the instance type (hardware type) and AMI (software) and optionally, with a database. 
 * Enhanced networking uses single root I/O virtualization (SR-IOV) to provide high-performance networking capabilities - higher I/O performance, lower CPU utilisation, higher bandwidth, higher packets per second, lower inter-instance latencies(jitter) - on supported instance types.
@@ -9827,15 +9832,17 @@ GettingStarted
 * Key pairs in EC2 are specific to a region. To launch instances in multiple regions, you'll need to create a key pair in each region.
 * There is no upload-key-pair command. The user can use ec2-import-keypair to import an own key-pair.  </pre>
 </div>
-<div created="20201011140841846" creator="0neir0s" modified="20201011191600503" modifier="0neir0s" tags="aws notes" title="AWS S3, SQS &amp; SNS">
+<div created="20201011140841846" creator="0neir0s" modified="20201013191644768" modifier="0neir0s" tags="aws notes" title="AWS S3, SQS &amp; SNS">
 <pre>* Amazon SQS provides short polling (default) and long polling to receive messages from a queue. 
 * Short polling - request queries only a subset of the servers and sends the response right away. Long polling - request queries all of the servers for messages and sends a response after it collects at least one available message.
+* S3
 * Generally if the user is defining the ACL on the s3 bucket, the objects in the bucket do not inherit it and vice a versa. The bucket policy can be defined at the bucket level which allows the objects as well as the bucket to be public with a single policy applied to that bucket. It is therefore recommended over ACLs.
 * But, the bucket policy applies only to objects that are owned by the bucket owner. If your bucket contains objects that aren't owned by the bucket owner, public READ permission on those objects should be granted using the object access control list (ACL).
 *  If you make an object public in a non-public bucket (AWS docs term for private), people can access your objects (read &amp; get), but cannot list what objects are in the related bucket, or read/get other objects stored in the bucket, unless explicitly allowed.
 *  An S3 bucket ACL grantee can be an AWS account or one of the predefined Amazon S3 groups. They are: Authenticated Users group ( all AWS accounts ), All Users group (anyone), Log Delivery group( WRITE permission on a bucket enables this group to write server access logs to the bucket). {[[ACL Overview|https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html]]}
 * For S3 cross-region replica: Turn on versioning in both source and destination buckets, and use an IAM Policy to permit S3 to replicate your objects.
-* For S3 data at REST protection, AWS provides multiple options - Permission (Policy), Encryption (Client and Server Side), Bucket Versioning and MFA based delete. Data replication is an internal facility enabled automatically where S3 automatically replicates each object across all the AZs.</pre>
+* For S3 data at REST protection, AWS provides multiple options - Permission (Policy), Encryption (Client and Server Side), Bucket Versioning and MFA based delete. Data replication is an internal facility enabled automatically where S3 automatically replicates each object across all the AZs.
+* S3 allows multi-part uploading for large files.</pre>
 </div>
 <div created="20201011163446337" creator="0neir0s" modified="20201011191702228" modifier="0neir0s" tags="" title="AWS Security">
 <pre>* A policy usually contains the following: [[Overview|https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html]]
@@ -9864,19 +9871,33 @@ GettingStarted
 * For data transfer to EFS, use DataSync. AWS DataSync is a data transfer service that simplifies, automates, and accelerates moving and replicating data between on-premises storage systems and AWS storage services over the internet or AWS Direct Connect.
 * For SMB based FIle system, AWS FSx for Windows is the recommended service over EFS, whose key attribute is that it uses NFS, one of the first network file sharing protocols native to Unix and Linux. Additionally, FSx also supports [[Lustre|AWS &amp; Cloud Definitions]]</pre>
 </div>
-<div created="20201011140841846" creator="0neir0s" draft.of="AWS S3, SQS &amp; SNS" draft.title="AWS S3, SQS &amp; SNS" modified="20201013052443417" modifier="0neir0s" tags="aws notes" title="Draft of 'AWS S3, SQS &amp; SNS' by 0neir0s">
-<pre>* Amazon SQS provides short polling (default) and long polling to receive messages from a queue. 
-* Short polling - request queries only a subset of the servers and sends the response right away. Long polling - request queries all of the servers for messages and sends a response after it collects at least one available message.
-* S3
-* Generally if the user is defining the ACL on the s3 bucket, the objects in the bucket do not inherit it and vice a versa. The bucket policy can be defined at the bucket level which allows the objects as well as the bucket to be public with a single policy applied to that bucket. It is therefore recommended over ACLs.
-* But, the bucket policy applies only to objects that are owned by the bucket owner. If your bucket contains objects that aren't owned by the bucket owner, public READ permission on those objects should be granted using the object access control list (ACL).
-*  If you make an object public in a non-public bucket (AWS docs term for private), people can access your objects (read &amp; get), but cannot list what objects are in the related bucket, or read/get other objects stored in the bucket, unless explicitly allowed.
-*  An S3 bucket ACL grantee can be an AWS account or one of the predefined Amazon S3 groups. They are: Authenticated Users group ( all AWS accounts ), All Users group (anyone), Log Delivery group( WRITE permission on a bucket enables this group to write server access logs to the bucket). {[[ACL Overview|https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html]]}
-* For S3 cross-region replica: Turn on versioning in both source and destination buckets, and use an IAM Policy to permit S3 to replicate your objects.
-* For S3 data at REST protection, AWS provides multiple options - Permission (Policy), Encryption (Client and Server Side), Bucket Versioning and MFA based delete. Data replication is an internal facility enabled automatically where S3 automatically replicates each object across all the AZs.</pre>
+<div created="20201011140533219" creator="0neir0s" draft.of="AWS &amp; Cloud Definitions" draft.title="AWS &amp; Cloud Definitions" modified="20201013184733926" modifier="0neir0s" tags="aws notes" title="Draft of 'AWS &amp; Cloud Definitions' by 0neir0s">
+<pre>* A recovery time objective (RTO) - the maximum acceptable time to restore system service after a disruption
+* A recovery point objective (RPO) - the maximum acceptable amount of data loss measured in time. 
+* IOPS optimised -  SSD-backed storage for transactional workloads, such as databases and boot volumes
+* Throughput optimised - HDD-backed storage for throughput intensive workloads, such as MapReduce and log processing
+* HA in EC2 - The user can achieve high availability by deploying instances in multiple availability zones, using elastic IP because when one of the instances fails, the elastic IP keeps the failed instances URL and Load balancing as it helps with distribution of traffic and auto-scales its request handling capacity.
+* Dual-homed is an Ethernet device that has more than one network interface, for redundancy purposes.
+* Stop guessing capacity is usually done by auto deployments based on performance metrics.
+* The Lustre file system is an open source parallel distributed file system, designed for high-performance computing workloads that typically run on compute clusters.
+* AWS Backup is a fully managed backup service that makes it easy to centralize and automate the backup of data across AWS services. It supports backup policies and monitor backup activity of EBS, EC2, RDS databases, DynamoDB tables, EFS, and Storage Gateway volumes. It uses GB-Month as the pricing metric.
+* AWS Storage Gateway is a hybrid cloud storage service that gives you on-premises access to cloud storage. It offers three types - File Gateway, Tape Gateway, and Volume Gateway - for connect on-premises applications to cloud storage, caching data locally for low-latency access. Connect using protocols like NFS, SMB, and iSCSI.
+* Data keys are encryption keys that you can use to encrypt data, including large amounts of data and other data encryption keys.</pre>
 </div>
-<div created="20201013054457687" creator="0neir0s" draft.of="New Tiddler" draft.title="AWS Databases" modified="20201013071004682" modifier="0neir0s" tags="aws notes" title="Draft of 'New Tiddler' by 0neir0s">
-<pre>* Read Replicas are for scaling, not for failover</pre>
+<div created="20201011150936485" creator="0neir0s" draft.of="AWS Strategies" draft.title="AWS Strategies" modified="20201013184602677" modifier="0neir0s" tags="aws notes" title="Draft of 'AWS Strategies' by 0neir0s">
+<pre>* Use an Elastic Network Interface (ENI) to create a management network, to use network and security appliances in your VPC, to create dual-homed instances with workloads/roles on distinct subnets or to create a low-budget, high-availability solution.
+* Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses.
+* Rebooting primary database instance is the strategy to consistently test db failovers. 
+* Virtual Private Gateway - is the only route in a VPN only subnet
+* Decoupling can be done using SQS (store requests) or s3 + Autoscaling worker instances.
+* When a bucket policy is applied the permissions assigned apply to all objects within that Bucket. This policy introduces a new attribute called ‘principal’. Principals are not needed for IAM policies, as it is already defined by who is associated with that policy.
+* Internet gateway additionally performs network address translation for the instances with public IPs.
+* When controlling access to Amazon EC2 resources, each Amazon EBS Snapshot has a 	createVolumePermission attribute that controls which AWS accounts can use the snapshot.
+* A cluster placement group provides low-latency networking between all instances in the cluster. It is ideal for high performance analytics systems and many science and engineering applications. 
+* For moving encrypted snapshots/AMIs with encrypted volumes - With KMS, you can assign other accounts as users to these keys. EBS volumes and snapshots of volumes encrypted using custom keys can be shared with other accounts as long as these accounts have been granted user rights on the custom key. Additionally, each account has set of default keys which  can't be shared and you can not assign other accounts to be users of the default keys of another account, so unless you use custom keys you can't assign other accounts as users. AMIs created with encrypted snapshots can now be shared with other accounts, as of May 2019. 
+* For data transfer to EFS, use DataSync. AWS DataSync is a data transfer service that simplifies, automates, and accelerates moving and replicating data between on-premises storage systems and AWS storage services over the internet or AWS Direct Connect.
+* For SMB based FIle system, AWS FSx for Windows is the recommended service over EFS, whose key attribute is that it uses NFS, one of the first network file sharing protocols native to Unix and Linux. Additionally, FSx also supports [[Lustre|AWS &amp; Cloud Definitions]]
+* With S3 Object Lock, you can store objects using a write-once-read-many (WORM) model. You can use it to prevent an object from being deleted or overwritten for a fixed amount of time or indefinitely - retention periods and legal holds</pre>
 </div>
 <div created="20200818173814631" creator="0neir0s" modified="20200920162936500" modifier="0neir0s" published="" tags="goal published" title="Motivation" type="metadata">
 <pre>The idea is to make sure the snippets entered here, while trivial or meaningless individually, will start making sense in its entirety. That is, the total is hopefully more than the sum of its pieces. 
