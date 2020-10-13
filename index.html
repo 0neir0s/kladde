@@ -9622,8 +9622,8 @@ GettingStarted
 <div created="20200818173316134" creator="0neir0s" modified="20201013191758672" modifier="0neir0s" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
 </div>
-<div created="20200818175849863" creator="0neir0s" modified="20200818182224583" modifier="0neir0s" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/More</pre>
+<div created="20200818175849863" creator="0neir0s" modified="20201013200311864" modifier="0neir0s" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
@@ -9631,7 +9631,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201013052354612" creator="0neir0s" list="[[AWS Databases]] Synopsis AWS [[Draft of 'AWS &amp; Cloud Definitions' by 0neir0s]] [[Draft of 'AWS EC2' by 0neir0s]] [[AWS S3, SQS &amp; SNS]] [[Draft of 'AWS Strategies' by 0neir0s]] [[AWS &amp; Cloud Definitions]] GettingStarted" modified="20201013194250900" modifier="0neir0s" title="$:/StoryList">
+<div created="20201013052354612" creator="0neir0s" list="[[AWS Security]] [[AWS Databases]] Synopsis AWS [[Draft of 'AWS &amp; Cloud Definitions' by 0neir0s]] [[Draft of 'AWS EC2' by 0neir0s]] [[AWS S3, SQS &amp; SNS]] [[Draft of 'AWS Strategies' by 0neir0s]] [[AWS &amp; Cloud Definitions]] GettingStarted" modified="20201013200314163" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9821,8 +9821,9 @@ GettingStarted
 * AWS Backup is a fully managed backup service that makes it easy to centralize and automate the backup of data across AWS services. It supports backup policies and monitor backup activity of EBS, EC2, RDS databases, DynamoDB tables, EFS, and Storage Gateway volumes. It uses GB-Month as the pricing metric.
 * AWS Storage Gateway is a hybrid cloud storage service that gives you on-premises access to cloud storage. It offers three types - File Gateway, Tape Gateway, and Volume Gateway - for connect on-premises applications to cloud storage, caching data locally for low-latency access. Connect using protocols like NFS, SMB, and iSCSI.</pre>
 </div>
-<div created="20201013054457687" creator="0neir0s" modified="20201013095707988" modifier="0neir0s" tags="aws notes" title="AWS Databases">
-<pre>* Read Replicas are for scaling, not for failover</pre>
+<div created="20201013054457687" creator="0neir0s" modified="20201013200620331" modifier="0neir0s" tags="aws notes" title="AWS Databases">
+<pre>* Amazon RDS Read Replicas provide enhanced performance and durability for RDS database (DB) instances. They make it easy to elastically scale out beyond the capacity constraints of a single DB instance for read-heavy database workloads. They are for scaling, not for failover.
+* Amazon RDS creates a second DB instance using a snapshot of the source DB instance. It then uses the engines' native asynchronous replication to update the read replica whenever there is a change to the source DB instance. </pre>
 </div>
 <div created="20201011134639869" creator="0neir0s" modified="20201011191452993" modifier="0neir0s" tags="notes aws" title="AWS EC2">
 <pre>* Creating an EC2 instance is by selecting the instance type (hardware type) and AMI (software) and optionally, with a database. 
@@ -9846,7 +9847,7 @@ GettingStarted
 * For S3 data at REST protection, AWS provides multiple options - Permission (Policy), Encryption (Client and Server Side), Bucket Versioning and MFA based delete. Data replication is an internal facility enabled automatically where S3 automatically replicates each object across all the AZs.
 * S3 allows multi-part uploading for large files.</pre>
 </div>
-<div created="20201011163446337" creator="0neir0s" modified="20201011191702228" modifier="0neir0s" tags="" title="AWS Security">
+<div created="20201011163446337" creator="0neir0s" modified="20201013200359491" modifier="0neir0s" tags="aws notes" title="AWS Security">
 <pre>* A policy usually contains the following: [[Overview|https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html]]
 ** Resources/ARN - Buckets, objects, access points, and jobs
 ** Actions and Effect
@@ -9857,7 +9858,8 @@ GettingStarted
 * By default, Windows RDP servers use self-signed certificates, which are not trusted, and should be avoided, if encryption in transit is a requirement. SSH 2 using non-privileged user accounts is also a recommended approach for connecting Linux instances.
 *  AWS customers should undertake a number of security control testing approaches: External Vulnerability Assessment, External Penetration Tests, and Internal Gray/White-box Review of Applications and Platforms.
 * VPC Routing: There is a main route user. And each VPC has an implicit router.
-* The access key for your AWS account root user gives full access to all your resources for all AWS services, including your billing information. You cannot reduce the permissions associated with your AWS account root user access key. So, protect your root user access key.</pre>
+* The access key for your AWS account root user gives full access to all your resources for all AWS services, including your billing information. You cannot reduce the permissions associated with your AWS account root user access key. So, protect your root user access key.
+* When you configure your VPC; you can select its IP address range, create subnets, and configure route tables, network gateways, and security settings.</pre>
 </div>
 <div created="20201011150936485" creator="0neir0s" modified="20201013194320083" modifier="0neir0s" tags="aws notes" title="AWS Strategies">
 <pre>* Use an Elastic Network Interface (ENI) to create a management network, to use network and security appliances in your VPC, to create dual-homed instances with workloads/roles on distinct subnets or to create a low-budget, high-availability solution.
