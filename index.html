@@ -195,7 +195,7 @@ Error message and password prompt
 
 <li>Draft of 'AWS &amp; Cloud Definitions' by 0neir0s</li>
 
-<li>Draft of 'AWS Strategies' by 0neir0s</li>
+<li>Draft of 'AWS EC2' by 0neir0s</li>
 
 <li>Motivation</li>
 
@@ -9617,7 +9617,7 @@ GettingStarted
 <div created="20200818173312666" creator="0neir0s" modified="20200920061919833" modifier="0neir0s" title="$:/state/tab-1749438307">
 <pre>$:/core/ui/ControlPanel/Saving</pre>
 </div>
-<div created="20200818173316134" modified="20200818173316134" title="$:/state/tab-2065006209">
+<div created="20200818173316134" creator="0neir0s" modified="20201013191758672" modifier="0neir0s" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
 </div>
 <div created="20200818175849863" creator="0neir0s" modified="20200818182224583" modifier="0neir0s" title="$:/state/tab/sidebar--595412856">
@@ -9629,7 +9629,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201013052354612" creator="0neir0s" list="[[AWS Databases]] Synopsis AWS [[Draft of 'AWS &amp; Cloud Definitions' by 0neir0s]] [[AWS EC2]] [[AWS S3, SQS &amp; SNS]] [[Draft of 'AWS Strategies' by 0neir0s]] GettingStarted" modified="20201013052405053" modifier="0neir0s" title="$:/StoryList">
+<div created="20201013052354612" creator="0neir0s" list="[[AWS Databases]] Synopsis AWS [[Draft of 'AWS &amp; Cloud Definitions' by 0neir0s]] [[Draft of 'AWS EC2' by 0neir0s]] [[AWS S3, SQS &amp; SNS]] [[AWS Strategies]] GettingStarted" modified="20201013194222061" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9857,7 +9857,7 @@ GettingStarted
 * VPC Routing: There is a main route user. And each VPC has an implicit router.
 * The access key for your AWS account root user gives full access to all your resources for all AWS services, including your billing information. You cannot reduce the permissions associated with your AWS account root user access key. So, protect your root user access key.</pre>
 </div>
-<div created="20201011150936485" creator="0neir0s" modified="20201013071301943" modifier="0neir0s" tags="aws notes" title="AWS Strategies">
+<div created="20201011150936485" creator="0neir0s" modified="20201013194239224" modifier="0neir0s" tags="aws notes" title="AWS Strategies">
 <pre>* Use an Elastic Network Interface (ENI) to create a management network, to use network and security appliances in your VPC, to create dual-homed instances with workloads/roles on distinct subnets or to create a low-budget, high-availability solution.
 * Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses.
 * Rebooting primary database instance is the strategy to consistently test db failovers. 
@@ -9869,7 +9869,9 @@ GettingStarted
 * A cluster placement group provides low-latency networking between all instances in the cluster. It is ideal for high performance analytics systems and many science and engineering applications. 
 * For moving encrypted snapshots/AMIs with encrypted volumes - With KMS, you can assign other accounts as users to these keys. EBS volumes and snapshots of volumes encrypted using custom keys can be shared with other accounts as long as these accounts have been granted user rights on the custom key. Additionally, each account has set of default keys which  can't be shared and you can not assign other accounts to be users of the default keys of another account, so unless you use custom keys you can't assign other accounts as users. AMIs created with encrypted snapshots can now be shared with other accounts, as of May 2019. 
 * For data transfer to EFS, use DataSync. AWS DataSync is a data transfer service that simplifies, automates, and accelerates moving and replicating data between on-premises storage systems and AWS storage services over the internet or AWS Direct Connect.
-* For SMB based FIle system, AWS FSx for Windows is the recommended service over EFS, whose key attribute is that it uses NFS, one of the first network file sharing protocols native to Unix and Linux. Additionally, FSx also supports [[Lustre|AWS &amp; Cloud Definitions]]</pre>
+* For SMB based FIle system, AWS FSx for Windows is the recommended service over EFS, whose key attribute is that it uses NFS, one of the first network file sharing protocols native to Unix and Linux. Additionally, FSx also supports [[Lustre|AWS &amp; Cloud Definitions]]
+* With S3 Object Lock, you can store objects using a write-once-read-many (WORM) model. You can use it to prevent an object from being deleted or overwritten for a fixed amount of time or indefinitely - retention periods and legal holds
+* For creating alerts/alerts pertaining to EC2 instances, the correct permissions need to be assigned to the CloudWatch service as well as SNS needs to be configured for notifications.</pre>
 </div>
 <div created="20201011140533219" creator="0neir0s" draft.of="AWS &amp; Cloud Definitions" draft.title="AWS &amp; Cloud Definitions" modified="20201013184733926" modifier="0neir0s" tags="aws notes" title="Draft of 'AWS &amp; Cloud Definitions' by 0neir0s">
 <pre>* A recovery time objective (RTO) - the maximum acceptable time to restore system service after a disruption
@@ -9884,20 +9886,16 @@ GettingStarted
 * AWS Storage Gateway is a hybrid cloud storage service that gives you on-premises access to cloud storage. It offers three types - File Gateway, Tape Gateway, and Volume Gateway - for connect on-premises applications to cloud storage, caching data locally for low-latency access. Connect using protocols like NFS, SMB, and iSCSI.
 * Data keys are encryption keys that you can use to encrypt data, including large amounts of data and other data encryption keys.</pre>
 </div>
-<div created="20201011150936485" creator="0neir0s" draft.of="AWS Strategies" draft.title="AWS Strategies" modified="20201013184602677" modifier="0neir0s" tags="aws notes" title="Draft of 'AWS Strategies' by 0neir0s">
-<pre>* Use an Elastic Network Interface (ENI) to create a management network, to use network and security appliances in your VPC, to create dual-homed instances with workloads/roles on distinct subnets or to create a low-budget, high-availability solution.
-* Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses.
-* Rebooting primary database instance is the strategy to consistently test db failovers. 
-* Virtual Private Gateway - is the only route in a VPN only subnet
-* Decoupling can be done using SQS (store requests) or s3 + Autoscaling worker instances.
-* When a bucket policy is applied the permissions assigned apply to all objects within that Bucket. This policy introduces a new attribute called ‘principal’. Principals are not needed for IAM policies, as it is already defined by who is associated with that policy.
-* Internet gateway additionally performs network address translation for the instances with public IPs.
-* When controlling access to Amazon EC2 resources, each Amazon EBS Snapshot has a 	createVolumePermission attribute that controls which AWS accounts can use the snapshot.
-* A cluster placement group provides low-latency networking between all instances in the cluster. It is ideal for high performance analytics systems and many science and engineering applications. 
-* For moving encrypted snapshots/AMIs with encrypted volumes - With KMS, you can assign other accounts as users to these keys. EBS volumes and snapshots of volumes encrypted using custom keys can be shared with other accounts as long as these accounts have been granted user rights on the custom key. Additionally, each account has set of default keys which  can't be shared and you can not assign other accounts to be users of the default keys of another account, so unless you use custom keys you can't assign other accounts as users. AMIs created with encrypted snapshots can now be shared with other accounts, as of May 2019. 
-* For data transfer to EFS, use DataSync. AWS DataSync is a data transfer service that simplifies, automates, and accelerates moving and replicating data between on-premises storage systems and AWS storage services over the internet or AWS Direct Connect.
-* For SMB based FIle system, AWS FSx for Windows is the recommended service over EFS, whose key attribute is that it uses NFS, one of the first network file sharing protocols native to Unix and Linux. Additionally, FSx also supports [[Lustre|AWS &amp; Cloud Definitions]]
-* With S3 Object Lock, you can store objects using a write-once-read-many (WORM) model. You can use it to prevent an object from being deleted or overwritten for a fixed amount of time or indefinitely - retention periods and legal holds</pre>
+<div created="20201011134639869" creator="0neir0s" draft.of="AWS EC2" draft.title="AWS EC2" modified="20201013193213852" modifier="0neir0s" tags="notes aws" title="Draft of 'AWS EC2' by 0neir0s">
+<pre>* Creating an EC2 instance is by selecting the instance type (hardware type) and AMI (software) and optionally, with a database. 
+* Enhanced networking uses single root I/O virtualization (SR-IOV) to provide high-performance networking capabilities - higher I/O performance, lower CPU utilisation, higher bandwidth, higher packets per second, lower inter-instance latencies(jitter) - on supported instance types.
+* EC2 Bootstrapping can enroll an instance to the directory service but cannot bid on spot instances.
+* EBS Volume attached to an EC2 needs to be detached before attaching to another running instance
+* By default, when an EBS volume is attached to an instance, the delete on termination setting for the block device mapping is set to false.
+* Key pairs, public key-private key combos, encrypt and decrypt the login information. 
+* Key pairs in EC2 are specific to a region. To launch instances in multiple regions, you'll need to create a key pair in each region.
+* There is no upload-key-pair command. The user can use ec2-import-keypair to import an own key-pair.  
+* AMI defines the OS, Application/System software and the initial state of the patches, but not Virtual CPUs.</pre>
 </div>
 <div created="20200818173814631" creator="0neir0s" modified="20200920162936500" modifier="0neir0s" published="" tags="goal published" title="Motivation" type="metadata">
 <pre>The idea is to make sure the snippets entered here, while trivial or meaningless individually, will start making sense in its entirety. That is, the total is hopefully more than the sum of its pieces. 
