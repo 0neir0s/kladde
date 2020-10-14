@@ -9631,7 +9631,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201014080334473" creator="0neir0s" list="[[Draft of 'New Tiddler' by 0neir0s]] Synopsis AWS [[AWS Security]] [[Draft of 'AWS EC2' by 0neir0s]] GettingStarted" modified="20201014080449722" modifier="0neir0s" title="$:/StoryList">
+<div created="20201014080334473" creator="0neir0s" list="[[Draft of 'New Tiddler' by 0neir0s]] Synopsis AWS [[AWS &amp; Cloud Definitions]] [[AWS Security]] [[Draft of 'AWS EC2' by 0neir0s]] GettingStarted" modified="20201014123511696" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9809,7 +9809,7 @@ GettingStarted
 
 &lt;&lt;list-links &quot;[tag[aws]reverse[]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20201011140533219" creator="0neir0s" modified="20201013200626667" modifier="0neir0s" tags="aws notes" title="AWS &amp; Cloud Definitions">
+<div created="20201011140533219" creator="0neir0s" modified="20201014124156023" modifier="0neir0s" tags="aws notes" title="AWS &amp; Cloud Definitions">
 <pre>* A recovery time objective (RTO) - the maximum acceptable time to restore system service after a disruption
 * A recovery point objective (RPO) - the maximum acceptable amount of data loss measured in time. 
 * IOPS optimised -  SSD-backed storage for transactional workloads, such as databases and boot volumes
@@ -9896,8 +9896,18 @@ GettingStarted
 * AMI defines the OS, Application/System software and the initial state of the patches, but not Virtual CPUs.
 * To allow ALB to receive traffic over HTTPS, it will need a server certificate and an associated security policy.</pre>
 </div>
-<div created="20201014080547604" creator="0neir0s" draft.of="New Tiddler" draft.title="AWS Networking" modified="20201014080557052" modifier="0neir0s" tags="aws notes" title="Draft of 'New Tiddler' by 0neir0s">
-<pre></pre>
+<div created="20201014080547604" creator="0neir0s" draft.of="New Tiddler" draft.title="AWS Networking" modified="20201014124030742" modifier="0neir0s" tags="aws notes" title="Draft of 'New Tiddler' by 0neir0s">
+<pre>* VPC Routing: There is a main route user. And each VPC has an implicit router. And local route in the route table cannot be removed.
+* The access key for your AWS account root user gives full access to all your resources for all AWS services, including your billing information. You cannot reduce the permissions associated with your AWS account root user access key. So, protect your root user access key.
+* When you configure your VPC; you can select its IP address range, create subnets, and configure route tables, network gateways, and security settings.
+* A NAT gateway has an EIP, sits in the public subnet, only accepts outgoing traffic and is resilient. But you need to add it in every public subnet.
+* A Bastion host sits in the public subnet and is the equivalent to the jump host. Need to add the security group to Bastion Host and the private EC2s
+* First 3 IPs of each subnet corresponds to Router, DNS and reserved respectively.
+* Network address is the 0th address and Broadcast address is the last address.
+* VPC Endpoints
+
+*VPN Connections
+** Virtual gateway</pre>
 </div>
 <div created="20200818173814631" creator="0neir0s" modified="20200920162936500" modifier="0neir0s" published="" tags="goal published" title="Motivation" type="metadata">
 <pre>The idea is to make sure the snippets entered here, while trivial or meaningless individually, will start making sense in its entirety. That is, the total is hopefully more than the sum of its pieces. 
