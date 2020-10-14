@@ -9871,7 +9871,7 @@ GettingStarted
 ** WAF
 ** Route 53</pre>
 </div>
-<div created="20201011163446337" creator="0neir0s" modified="20201014192422732" modifier="0neir0s" tags="aws notes" title="AWS Security">
+<div created="20201011163446337" creator="0neir0s" modified="20201014193138018" modifier="0neir0s" tags="aws notes" title="AWS Security">
 <pre>* A policy usually contains the following: [[Overview|https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html]]
 ** Resources/ARN - Buckets, objects, access points, and jobs
 ** Actions and Effect
@@ -9882,7 +9882,8 @@ GettingStarted
 * By default, Windows RDP servers use self-signed certificates, which are not trusted, and should be avoided, if encryption in transit is a requirement. SSH 2 using non-privileged user accounts is also a recommended approach for connecting Linux instances.
 * AWS customers should undertake a number of security control testing approaches: External Vulnerability Assessment, External Penetration Tests, and Internal Gray/White-box Review of Applications and Platforms.
 * By default, the temporary security credentials are valid for only one hour. The user can specify the session duration only if the user uses the IAM user credentials to request a session.
-* [[IAM Roles Documentation|https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html]]</pre>
+* [[IAM Roles Documentation|https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html]]
+* Using SAML for service access - [[link|https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html]]. This requires IAM roles matching AD groups and SAML-based IdP available to be used with company's Identity store (AD)</pre>
 </div>
 <div created="20201011140841846" creator="0neir0s" modified="20201014192018828" modifier="0neir0s" tags="aws notes" title="AWS Services">
 <pre>* SQS structure Producer,  Queue, Consumer. 
