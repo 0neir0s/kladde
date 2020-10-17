@@ -197,10 +197,6 @@ Error message and password prompt
 
 <li>AWS Strategies</li>
 
-<li>Draft of 'AWS Services' by 0neir0s</li>
-
-<li>Draft of 'AWS Strategies' by 0neir0s</li>
-
 <li>Motivation</li>
 
 <li>Synopsis</li>
@@ -9633,7 +9629,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201015193232133" creator="0neir0s" list="Synopsis AWS [[AWS Storage]] [[Draft of 'AWS Services' by 0neir0s]] [[Draft of 'AWS Strategies' by 0neir0s]] GettingStarted" modified="20201015195242271" modifier="0neir0s" title="$:/StoryList">
+<div created="20201017133052790" creator="0neir0s" list="[[AWS Services]] [[AWS Strategies]] Synopsis GettingStarted" modified="20201017133054876" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9681,11 +9677,11 @@ GettingStarted
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1440&quot;
+            &quot;text&quot;: &quot;1366&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;900&quot;
+            &quot;text&quot;: &quot;768&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -9889,75 +9885,7 @@ GettingStarted
 * [[IAM Roles Documentation|https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html]]
 * Using SAML for service access - [[link|https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html]]. This requires IAM roles matching AD groups and SAML-based Identity Provider available to be used with company's Identity store (AD)</pre>
 </div>
-<div created="20201011140841846" creator="0neir0s" modified="20201014192018828" modifier="0neir0s" tags="aws notes" title="AWS Services">
-<pre>* SQS structure Producer,  Queue, Consumer. 
-* The types are standard queues, FIFO queues and dead letter queues.
-* Since AWS is a distributed service, the consumer must delete the message from the queue after receiving and processing it.
-* Visibility timeout is a period of time during which Amazon SQS prevents other consumers from receiving and processing the message. 
-* Amazon SQS provides short polling (default) and long polling to receive messages from a queue. 
-* Short polling - request queries only a subset of the servers and sends the response right away. Long polling - request queries all of the servers for messages and sends a response after it collects at least one available message.
-* SNS is a pub-sub messaging service which integrates with many different types of services.
-* Generally if the user is defining the ACL on the s3 bucket, the objects in the bucket do not inherit it and vice a versa. The bucket policy can be defined at the bucket level which allows the objects as well as the bucket to be public with a single policy applied to that bucket. It is therefore recommended over ACLs.
-* But, the bucket policy applies only to objects that are owned by the bucket owner. If your bucket contains objects that aren't owned by the bucket owner, public READ permission on those objects should be granted using the object access control list (ACL).
-*  If you make an object public in a non-public bucket (AWS docs term for private), people can access your objects (read &amp; get), but cannot list what objects are in the related bucket, or read/get other objects stored in the bucket, unless explicitly allowed.
-*  An S3 bucket ACL grantee can be an AWS account or one of the predefined Amazon S3 groups. They are: Authenticated Users group ( all AWS accounts ), All Users group (anyone), Log Delivery group( WRITE permission on a bucket enables this group to write server access logs to the bucket). {[[ACL Overview|https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html]]}
-* For S3 cross-region replica: Turn on versioning in both source and destination buckets, and use an IAM Policy to permit S3 to replicate your objects.
-* For S3 data at REST protection, AWS provides multiple options - Permission (Policy), Encryption (Client and Server Side), Bucket Versioning and MFA based delete. Data replication is an internal facility enabled automatically where S3 automatically replicates each object across all the AZs.
-* S3 allows multi-part uploading for large files. And it is possible to have different encryption keys for different versions of the same object.
-* Amazon S3 Standard - Infrequent Access (Standard - IA) is an Amazon S3 storage class for data that is accessed less frequently, but requires rapid access when needed. (99.9 Availability as opposed to 99.99)
-* Public URLs allow users to access the following objects:
-** Objects on which there are no restrictions
-** Objects in an Amazon S3 bucket that end users must access through CloudFront but that don't require a signed URL.
-* All Amazon S3 objects by default are private. But the object owner can share objects with others by using a pre-signed URL. The pre-signed URLs are valid only for a specified period of time.  
-* An ACL is a list of grants identifying the grantee and the permission granted. The user can use ACLs to grant basic read/write permissions to other AWS accounts. ACLs use an Amazon S3–specific XML schema. The user cannot grant permissions to other users in his account. 
-* ACLs, compared to IAM and Bucket policies, are far less granular, and different permissions can be applied depending if you are applying an ACL at the bucket or object level.
-
-* Kinesis
-
-* Lambda
-
-*Elasticache
-
-* Consolidated building
-** AWS consolidated billing enables the organization to consolidate payments for multiple Amazon Web Services (AWS) accounts within a single organization by making a single paying account. 
-** Consolidated billing enables the organization to see a combined view of the AWS charges incurred by each account as well as obtain a detailed cost report for each of the individual AWS accounts associated with the paying account.
-** Each AWS account needs to create an AWS billing policy to provide permission to the payee account if multiple account want to use a single payee account through the consolidated billing option. The payee account will not have any other access than billing data of linked accounts.
-
-*Cost Explorer - In your AWS billing account, a forecast is a prediction of how much you will use AWS over the next three months, based on your past usage.</pre>
-</div>
-<div created="20201013201236563" creator="0neir0s" modified="20201015200612667" modifier="0neir0s" tags="aws notes" title="AWS Storage">
-<pre>* AWS Snowball is for transferring petabyte scale data into and out of AWS.
-* AWS Certificate Manager is a service that lets you easily provision, manage, and deploy Secure Sockets Layer/Transport Layer Security (SSL/TLS) certificates for use with AWS services. You can use SSL from your application to encrypt a connection to a DB instance running MySQL, MariaDB, Amazon Aurora, SQL Server, Oracle, or PostgreSQL.
-* Both file gateways and cached volume gateways provide local caches to store frequently accessed data. Stored volume gateways keep all files locally, so all stored data can be retrieve with reduced latency. Tape gateways are an archival method, and not ideal for data that needs to be readily available.
-* An Amazon EFS mount target is not attached to each specific EC2 instance like an EBS volume. A mount target must be created within a VPC in order for the service to work, but it is recommended you create a mount target within each availability zone (AZ) within a VPC.
-* Snowballs don’t need to be packed in a box or container because it already has its own physically rugged shipping container. The E Ink display on the front of the Snowball changes to your return shipping label when the Snowball is turned off.
-* Amazon EFS offers two performance modes: General Purpose mode and Max I/O mode. The performance mode is selected when the file system is created. The Max I/O performance mode is best suited for applications where multiple EC2 instances access the file system, as it can scale to higher levels of aggregate throughput and operations per second with a tradeoff of negligibly higher latencies for file operations.</pre>
-</div>
-<div created="20201011150936485" creator="0neir0s" modified="20201014192024380" modifier="0neir0s" tags="aws notes" title="AWS Strategies">
-<pre>* Use an Elastic Network Interface (ENI) to create a management network, to use network and security appliances in your VPC, to create dual-homed instances with workloads/roles on distinct subnets or to create a low-budget, high-availability solution.
-* Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses.
-* Rebooting primary database instance is the strategy to consistently test db failovers. 
-* Virtual Private Gateway - is the only route in a VPN only subnet
-* Decoupling can be done using SQS (store requests) or s3 + Autoscaling worker instances.
-* When a bucket policy is applied the permissions assigned apply to all objects within that Bucket. This policy introduces a new attribute called ‘principal’. Principals are not needed for IAM policies, as it is already defined by who is associated with that policy.
-* Internet gateway additionally performs network address translation for the instances with public IPs.
-* When controlling access to Amazon EC2 resources, each Amazon EBS Snapshot has a 	createVolumePermission attribute that controls which AWS accounts can use the snapshot.
-* A cluster placement group provides low-latency networking between all instances in the cluster. It is ideal for high performance analytics systems and many science and engineering applications. 
-* For moving encrypted snapshots/AMIs with encrypted volumes - With KMS, you can assign other accounts as users to these keys. EBS volumes and snapshots of volumes encrypted using custom keys can be shared with other accounts as long as these accounts have been granted user rights on the custom key. Additionally, each account has set of default keys which  can't be shared and you can not assign other accounts to be users of the default keys of another account, so unless you use custom keys you can't assign other accounts as users. AMIs created with encrypted snapshots can now be shared with other accounts, as of May 2019. 
-* For data transfer to EFS, use DataSync. AWS DataSync is a data transfer service that simplifies, automates, and accelerates moving and replicating data between on-premises storage systems and AWS storage services over the internet or AWS Direct Connect.
-* For SMB based FIle system, AWS FSx for Windows is the recommended service over EFS, whose key attribute is that it uses NFS, one of the first network file sharing protocols native to Unix and Linux. Additionally, FSx also supports [[Lustre|AWS &amp; Cloud Definitions]]
-* With S3 Object Lock, you can store objects using a write-once-read-many (WORM) model. You can use it to prevent an object from being deleted or overwritten for a fixed amount of time or indefinitely - retention periods and legal holds
-* For creating alerts/alerts pertaining to EC2 instances, the correct permissions need to be assigned to the CloudWatch service as well as SNS needs to be configured for notifications.
-* Dedicated Instances are Amazon EC2 instances that run in a VPC on hardware that's dedicated to a single customer. Dedicated instances are physically isolated at the host hardware level from instances that belong to other AWS accounts.
-* Read replicas in different regions are available in Amazon RDS for MYSQL, MariaDB, PostgreSQL, Oracle, and Aurora. So, if you need read replicas located in a separate AWS region from the primary DB, don't use sql server.
-* General Purpose (SSD), also called gp2, volumes offer cost-effective storage that is ideal for a broad range of workloads - including moderately IO intensive ones.
-* If your workload on Amazon S3 is mainly sending GET requests, you should consider using Amazon CloudFront for performance optimization. Integrating Amazon CloudFront with Amazon S3, you can distribute content to your users with low latency and a high data transfer rate. You will also send fewer direct requests to Amazon S3, which will reduce your costs.
-* In Amazon CloudFront, the Cache-Control max-age directive lets you specify how long (in seconds) you want the object to remain in the cache
-* Applications must sign their API requests with AWS credentials. Therefore, if you are an application developer, you need a strategy for managing credentials for your applications that run on EC2 instances. It is best practice to use IAM roles so that your applications can securely make API requests from your instances, without requiring you to manage the security credentials that the applications use.
-* When you create IAM policies, follow the standard security advice of granting least privilege—that is, granting only the permissions required to perform a task.
-* Since S3 does not store the encryption keys in SSE-C, it is recommended that the user should manage keys securely and keep rotating them regularly.</pre>
-</div>
-<div created="20201011140841846" creator="0neir0s" draft.of="AWS Services" draft.title="AWS Services" modified="20201015195440049" modifier="0neir0s" tags="aws notes" title="Draft of 'AWS Services' by 0neir0s">
+<div created="20201011140841846" creator="0neir0s" modified="20201017133056633" modifier="0neir0s" tags="aws notes" title="AWS Services">
 <pre>* SQS structure Producer,  Queue, Consumer. 
 * The types are standard queues, FIFO queues and dead letter queues.
 * Since AWS is a distributed service, the consumer must delete the message from the queue after receiving and processing it.
@@ -9995,7 +9923,15 @@ GettingStarted
 *Cost Explorer - In your AWS billing account, a forecast is a prediction of how much you will use AWS over the next three months, based on your past usage.
 * In Amazon CloudFront, requests for your dynamic content are carried back to your origin servers running in Amazon Web Services (e.g., Amazon EC2, Elastic Load Balancing) over optimized network paths for a more reliable and consistent experience.</pre>
 </div>
-<div created="20201011150936485" creator="0neir0s" draft.of="AWS Strategies" draft.title="AWS Strategies" modified="20201015195148865" modifier="0neir0s" tags="aws notes" title="Draft of 'AWS Strategies' by 0neir0s">
+<div created="20201013201236563" creator="0neir0s" modified="20201015200612667" modifier="0neir0s" tags="aws notes" title="AWS Storage">
+<pre>* AWS Snowball is for transferring petabyte scale data into and out of AWS.
+* AWS Certificate Manager is a service that lets you easily provision, manage, and deploy Secure Sockets Layer/Transport Layer Security (SSL/TLS) certificates for use with AWS services. You can use SSL from your application to encrypt a connection to a DB instance running MySQL, MariaDB, Amazon Aurora, SQL Server, Oracle, or PostgreSQL.
+* Both file gateways and cached volume gateways provide local caches to store frequently accessed data. Stored volume gateways keep all files locally, so all stored data can be retrieve with reduced latency. Tape gateways are an archival method, and not ideal for data that needs to be readily available.
+* An Amazon EFS mount target is not attached to each specific EC2 instance like an EBS volume. A mount target must be created within a VPC in order for the service to work, but it is recommended you create a mount target within each availability zone (AZ) within a VPC.
+* Snowballs don’t need to be packed in a box or container because it already has its own physically rugged shipping container. The E Ink display on the front of the Snowball changes to your return shipping label when the Snowball is turned off.
+* Amazon EFS offers two performance modes: General Purpose mode and Max I/O mode. The performance mode is selected when the file system is created. The Max I/O performance mode is best suited for applications where multiple EC2 instances access the file system, as it can scale to higher levels of aggregate throughput and operations per second with a tradeoff of negligibly higher latencies for file operations.</pre>
+</div>
+<div created="20201011150936485" creator="0neir0s" modified="20201017133100129" modifier="0neir0s" tags="aws notes" title="AWS Strategies">
 <pre>* Use an Elastic Network Interface (ENI) to create a management network, to use network and security appliances in your VPC, to create dual-homed instances with workloads/roles on distinct subnets or to create a low-budget, high-availability solution.
 * Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses.
 * Rebooting primary database instance is the strategy to consistently test db failovers. 
