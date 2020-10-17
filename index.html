@@ -199,8 +199,6 @@ Error message and password prompt
 
 <li>Draft of 'AWS Databases' by 0neir0s</li>
 
-<li>Draft of 'AWS EC2' by 0neir0s</li>
-
 <li>Motivation</li>
 
 <li>Synopsis</li>
@@ -9633,7 +9631,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201017133052790" creator="0neir0s" list="Synopsis AWS [[AWS Security]] [[AWS Services]] [[Draft of 'AWS EC2' by 0neir0s]] [[Draft of 'AWS Databases' by 0neir0s]] [[AWS Strategies]] Motivation GettingStarted" modified="20201017183923843" modifier="0neir0s" title="$:/StoryList">
+<div created="20201017133052790" creator="0neir0s" list="Synopsis AWS [[AWS Security]] [[AWS Services]] [[AWS EC2]] [[Draft of 'AWS Databases' by 0neir0s]] [[AWS Strategies]] Motivation GettingStarted" modified="20201017183923843" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9840,7 +9838,7 @@ GettingStarted
 * Each query can only use one index. Dynamo DB allows secondary indexes to allow search by other attributes - global indexes to query across entire table to find any record that matches a particular value and local secondary indexes can only help find data within a single partition key.
 * Automatically replicated across 3 AZs. But, it has only eventual consistency for certain types of queries. There are also limits - record size of 400 kb, and 5 secondary indexes per table.</pre>
 </div>
-<div created="20201011134639869" creator="0neir0s" modified="20201014192012201" modifier="0neir0s" tags="notes aws" title="AWS EC2">
+<div created="20201011134639869" creator="0neir0s" modified="20201017200220981" modifier="0neir0s" tags="notes aws" title="AWS EC2">
 <pre>* Creating an EC2 instance is by selecting the instance type (hardware type) and AMI (software) and optionally, with a database. 
 * Enhanced networking uses single root I/O virtualization (SR-IOV) to provide high-performance networking capabilities - higher I/O performance, lower CPU utilisation, higher bandwidth, higher packets per second, lower inter-instance latencies(jitter) - on supported instance types.
 * EC2 Bootstrapping can enroll an instance to the directory service but cannot bid on spot instances.
@@ -9855,7 +9853,8 @@ GettingStarted
 * Ensure that autoscaling is checking instance status and ELB status as part of debugging. 
 * For internal communication between S3 and an application running on EC2 instance, you need two policies:
 ** An IAM trust policy that allows the EC2 instance to assume a role
-** An IAM policy or S3 bucket policy that allows the role to get/put objects to the specific bucket</pre>
+** An IAM policy or S3 bucket policy that allows the role to get/put objects to the specific bucket
+* An Amazon EBS-optimized instance uses an optimized configuration stack with the goal of providing additional, dedicated capacity for Amazon EBS I/O. </pre>
 </div>
 <div created="20201014080547604" creator="0neir0s" modified="20201014134102017" modifier="0neir0s" tags="aws notes" title="AWS Networking">
 <pre>* VPC Routing: There is a main route user. And each VPC has an implicit router. And local route in the route table cannot be removed.
@@ -9914,7 +9913,7 @@ GettingStarted
 * Key administrators have permissions to manage the CMK, but do not have permissions to use the CMK in cryptographic operations.
 * AWS Key Management Service (KMS) has integrated with AWS CloudHSM, and audits can be accessed using Cloud Trail</pre>
 </div>
-<div created="20201011140841846" creator="0neir0s" modified="20201017183921698" modifier="0neir0s" tags="aws notes" title="AWS Services">
+<div created="20201011140841846" creator="0neir0s" modified="20201017200215392" modifier="0neir0s" tags="aws notes" title="AWS Services">
 <pre>* SQS structure Producer,  Queue, Consumer. 
 * The types are standard queues, FIFO queues and dead letter queues.
 * Since AWS is a distributed service, the consumer must delete the message from the queue after receiving and processing it.
@@ -9950,7 +9949,23 @@ GettingStarted
 ** Each AWS account needs to create an AWS billing policy to provide permission to the payee account if multiple account want to use a single payee account through the consolidated billing option. The payee account will not have any other access than billing data of linked accounts.
 
 *Cost Explorer - In your AWS billing account, a forecast is a prediction of how much you will use AWS over the next three months, based on your past usage.
-* In Amazon CloudFront, requests for your dynamic content are carried back to your origin servers running in Amazon Web Services (e.g., Amazon EC2, Elastic Load Balancing) over optimized network paths for a more reliable and consistent experience.</pre>
+* In Amazon CloudFront, requests for your dynamic content are carried back to your origin servers running in Amazon Web Services (e.g., Amazon EC2, Elastic Load Balancing) over optimized network paths for a more reliable and consistent experience.
+
+* AWS Config allows you to utilise config Rules to help you manage and organize this compliance which acts as an automatic resource compliance checker. AWS Config rules are limited to a region scope. 
+* A CI is a JSON file that holds the configuration information, relationship information and other metadata as a point-in-time snapshot view of a supported resource. Used by history, streams and snapshots
+* In Attribute section, there is a unique resource ID and any key-value tags that are associated with the resource.
+* AWS Config has relationships with other services, specifically SNS and S3. IAM policies are used to enable the service.
+* S3 is used to store the Configuration History files and any Configuration snapshots of your data within a single bucket, which is defined within the Configuration recorder. 
+
+* CloudWatch Log Events have a size limitation of 256K. For greater management, new log files are typically created every 5 minutes. 
+* CloudTrail applies and configures a Bucket Policy with the relevant permissions allowing logs to be delivered to the Bucket if you choose to create a new bucket.
+** EventSource refers to the service to which the API called was made.
+** Event selectors allow you to add a level of customization to the type of API requests you want the corresponding trail to capture
+** AWS offers the ability to aggregate CloudTrail logs from multiple accounts into a single S3 bucket and so &quot;AccountId&quot; helps with log identification and management
+* To allow CloudTrail to deliver these logs to CloudWatch, CloudTrail must have the correct permissions, and these are gained by assuming a Role with the relevant permissions needed to run two CloudWatch APIs - CreateLogStream and PutLogEvents
+* Event format: AccountID_CloudTrail_RegionName_YYYYMMDDTHHmmZ_UniqueString.FileNameFormat
+
+</pre>
 </div>
 <div created="20201013201236563" creator="0neir0s" modified="20201015200612667" modifier="0neir0s" tags="aws notes" title="AWS Storage">
 <pre>* AWS Snowball is for transferring petabyte scale data into and out of AWS.
@@ -10012,24 +10027,6 @@ GettingStarted
 ** Loading involves successfully inserting the transform data into the data warehouse.
 * Cluster is the core component of the Amazon Redshift. In every cluster, it runs its own Redshift engine, which will contain at least one database and at least one compute node, (if more, then a leader node as well).
 * Each compute node itself is also split into slices, known as node slice for parallelism </pre>
-</div>
-<div created="20201011134639869" creator="0neir0s" draft.of="AWS EC2" draft.title="AWS EC2" modified="20201017180424763" modifier="0neir0s" tags="notes aws" title="Draft of 'AWS EC2' by 0neir0s">
-<pre>* Creating an EC2 instance is by selecting the instance type (hardware type) and AMI (software) and optionally, with a database. 
-* Enhanced networking uses single root I/O virtualization (SR-IOV) to provide high-performance networking capabilities - higher I/O performance, lower CPU utilisation, higher bandwidth, higher packets per second, lower inter-instance latencies(jitter) - on supported instance types.
-* EC2 Bootstrapping can enroll an instance to the directory service but cannot bid on spot instances.
-* EBS Volume attached to an EC2 needs to be detached before attaching to another running instance
-* By default, when an EBS volume is attached to an instance, the delete on termination setting for the block device mapping is set to false.
-* Key pairs, public key-private key combos, encrypt and decrypt the login information. 
-* Key pairs in EC2 are specific to a region. To launch instances in multiple regions, you'll need to create a key pair in each region.
-* There is no upload-key-pair command. The user can use ec2-import-keypair to import an own key-pair.  
-* AMI defines the OS, Application/System software and the initial state of the patches, but not Virtual CPUs.
-* To allow ALB to receive traffic over HTTPS, it will need a server certificate and an associated security policy.
-* You own your Reserved Instance until it's sold. After sale, you've given up the capacity reservation (if the Reserved Instances were purchased for an Availability Zone) and the discounted recurring fees. If you continue to use your instance, AWS charges you the On-Demand price starting from the time that your Reserved Instance was sold.
-* Ensure that autoscaling is checking instance status and ELB status as part of debugging. 
-* For internal communication between S3 and an application running on EC2 instance, you need two policies:
-** An IAM trust policy that allows the EC2 instance to assume a role
-** An IAM policy or S3 bucket policy that allows the role to get/put objects to the specific bucket
-* An Amazon EBS-optimized instance uses an optimized configuration stack with the goal of providing additional, dedicated capacity for Amazon EBS I/O. </pre>
 </div>
 <div created="20200818173814631" creator="0neir0s" modified="20201017133615024" modifier="0neir0s" published="" tags="goal published" title="Motivation" type="metadata">
 <pre>The idea is to make sure the tiddlers while trivial individually, will start making sense in its entirety - i.e, they form a gestalt. 
