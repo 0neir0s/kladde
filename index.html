@@ -197,6 +197,10 @@ Error message and password prompt
 
 <li>AWS Strategies</li>
 
+<li>Draft of 'AWS Databases' by 0neir0s</li>
+
+<li>Draft of 'AWS EC2' by 0neir0s</li>
+
 <li>Motivation</li>
 
 <li>Synopsis</li>
@@ -9629,7 +9633,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201017133052790" creator="0neir0s" list="Synopsis AWS [[AWS Databases]] [[AWS Strategies]] Motivation GettingStarted" modified="20201017143715688" modifier="0neir0s" title="$:/StoryList">
+<div created="20201017133052790" creator="0neir0s" list="Synopsis AWS [[AWS Services]] [[Draft of 'AWS EC2' by 0neir0s]] [[Draft of 'AWS Databases' by 0neir0s]] [[AWS Strategies]] Motivation GettingStarted" modified="20201017183914372" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9895,7 +9899,7 @@ GettingStarted
 * [[IAM Roles Documentation|https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html]]
 * Using SAML for service access - [[link|https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html]]. This requires IAM roles matching AD groups and SAML-based Identity Provider available to be used with company's Identity store (AD)</pre>
 </div>
-<div created="20201011140841846" creator="0neir0s" modified="20201017133056633" modifier="0neir0s" tags="aws notes" title="AWS Services">
+<div created="20201011140841846" creator="0neir0s" modified="20201017183921698" modifier="0neir0s" tags="aws notes" title="AWS Services">
 <pre>* SQS structure Producer,  Queue, Consumer. 
 * The types are standard queues, FIFO queues and dead letter queues.
 * Since AWS is a distributed service, the consumer must delete the message from the queue after receiving and processing it.
@@ -9965,6 +9969,52 @@ GettingStarted
 * When you create IAM policies, follow the standard security advice of granting least privilege—that is, granting only the permissions required to perform a task.
 * Since S3 does not store the encryption keys in SSE-C, it is recommended that the user should manage keys securely and keep rotating them regularly.
 * Amazon CloudFront is a good choice for distribution of frequently accessed static content that benefits from edge delivery, like popular website images, videos, media files or software downloads.</pre>
+</div>
+<div created="20201013054457687" creator="0neir0s" draft.of="AWS Databases" draft.title="AWS Databases" modified="20201017175441340" modifier="0neir0s" tags="aws notes" title="Draft of 'AWS Databases' by 0neir0s">
+<pre>* Multi AZ data replication happens synchronously. Storage autoscaling and Compute scaling. Aurora also supports backtrack.
+* All RDS except Aurora used EBS for storage - General purpose, Provisioned IOPS SSD, Magnetic Storage. Aurora uses a shared cluster storage.  
+* Amazon RDS Read Replicas provide enhanced performance and durability for RDS database (DB) instances. They make it easy to elastically scale out beyond the capacity constraints of a single DB instance for read-heavy database workloads. They are for scaling, not for failover and replication happens asynchronously (with secondary in case of Multi-AZ).
+* Amazon RDS creates a second DB instance using a snapshot of the source DB instance. It then uses the engines' native asynchronous replication to update the read replica whenever there is a change to the source DB instance. 
+* With optional Multi-AZ deployments, Amazon RDS also manages synchronous data replication across Availability Zones with automatic failover.
+* A DB parameter group acts as a container for engine configuration values that are applied to one or more DB instances.
+* Disaster Recovery techniques: Backup &amp; Restore, Pilot light, Warm standby, Multi-site
+* In Neptune, an endpoint is simply a URL address and a port that points to your components - could be cluster, reader, and instance endpoints.
+* Neptune supports 2 query languages - sparql and gremlin. It has redundancies in at least 3 AZs, and has auto-repair.  Replica data synchronisation happens synchronously.  
+* AWS ElastiCache - For in-memory stores. It supports Memcached and Redis. Former is simpler and faster, while latter has more features. With Redis, you can also enable cluster mode where the number of shards per cluster can be increase upto 90 from 1. 
+* Components of ElasticCache - node ( network attached RAM), shard (node group; upto 6) and cluster (1-90 shards)
+* Dynamo DB is a NoSQL database - ( key, value stores ). Steps: create the table and set the provisioned throughput (could be on-demand too). You are charged for storage + throughput. 
+* Each query can only use one index. Dynamo DB allows secondary indexes to allow search by other attributes - global indexes to query across entire table to find any record that matches a particular value and local secondary indexes can only help find data within a single partition key.
+* Automatically replicated across 3 AZs. But, it has only eventual consistency for certain types of queries. There are also limits - record size of 400 kb, and 5 secondary indexes per table.
+* QLDB -  Data is placed into tables of Amazon ion documents. And rest assured, nothing has changed or can be changed through the use of a database journal, which is configured as append-only.
+* Has integration with Amazon Kinesis through the use of QLDB streams.
+* 2 types of storage: Journal storage for immutable history of changes made within the ledger database. Index storage is used to provision the tables and indexes within the ledger database and is optimised for querying.
+* DocumentDB - Runs in a VPC, fully compatible with MongoDB. The automated backups themselves are performed daily, with retention period set between 0 and 35 days.
+* Endpoints similar to Neptune. Like Neptune, it also shares the same underlying storage of the primary instance across a shared volume.
+* Data is replicated synchronously between both the primary DB instance and each replica in the region.
+* Redshift is based upon PostgreSQL 8.0.2. It does ETL jobs.
+** Extraction is the process of retrieving data from one or more sources.
+** Transformation is the process of mapping, reformatting, conforming, adding meaning and more to prepare the data for easy consumption.
+** Loading involves successfully inserting the transform data into the data warehouse.
+* Cluster is the core component of the Amazon Redshift. In every cluster, it runs its own Redshift engine, which will contain at least one database and at least one compute node, (if more, then a leader node as well).
+* Each compute node itself is also split into slices, known as node slice for parallelism </pre>
+</div>
+<div created="20201011134639869" creator="0neir0s" draft.of="AWS EC2" draft.title="AWS EC2" modified="20201017180424763" modifier="0neir0s" tags="notes aws" title="Draft of 'AWS EC2' by 0neir0s">
+<pre>* Creating an EC2 instance is by selecting the instance type (hardware type) and AMI (software) and optionally, with a database. 
+* Enhanced networking uses single root I/O virtualization (SR-IOV) to provide high-performance networking capabilities - higher I/O performance, lower CPU utilisation, higher bandwidth, higher packets per second, lower inter-instance latencies(jitter) - on supported instance types.
+* EC2 Bootstrapping can enroll an instance to the directory service but cannot bid on spot instances.
+* EBS Volume attached to an EC2 needs to be detached before attaching to another running instance
+* By default, when an EBS volume is attached to an instance, the delete on termination setting for the block device mapping is set to false.
+* Key pairs, public key-private key combos, encrypt and decrypt the login information. 
+* Key pairs in EC2 are specific to a region. To launch instances in multiple regions, you'll need to create a key pair in each region.
+* There is no upload-key-pair command. The user can use ec2-import-keypair to import an own key-pair.  
+* AMI defines the OS, Application/System software and the initial state of the patches, but not Virtual CPUs.
+* To allow ALB to receive traffic over HTTPS, it will need a server certificate and an associated security policy.
+* You own your Reserved Instance until it's sold. After sale, you've given up the capacity reservation (if the Reserved Instances were purchased for an Availability Zone) and the discounted recurring fees. If you continue to use your instance, AWS charges you the On-Demand price starting from the time that your Reserved Instance was sold.
+* Ensure that autoscaling is checking instance status and ELB status as part of debugging. 
+* For internal communication between S3 and an application running on EC2 instance, you need two policies:
+** An IAM trust policy that allows the EC2 instance to assume a role
+** An IAM policy or S3 bucket policy that allows the role to get/put objects to the specific bucket
+* An Amazon EBS-optimized instance uses an optimized configuration stack with the goal of providing additional, dedicated capacity for Amazon EBS I/O. </pre>
 </div>
 <div created="20200818173814631" creator="0neir0s" modified="20201017133615024" modifier="0neir0s" published="" tags="goal published" title="Motivation" type="metadata">
 <pre>The idea is to make sure the tiddlers while trivial individually, will start making sense in its entirety - i.e, they form a gestalt. 
