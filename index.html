@@ -9629,7 +9629,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201017133052790" creator="0neir0s" list="Synopsis Motivation GettingStarted" modified="20201017133116237" modifier="0neir0s" title="$:/StoryList">
+<div created="20201017133052790" creator="0neir0s" list="Synopsis AWS [[AWS Databases]] [[AWS Strategies]] Motivation GettingStarted" modified="20201017143715688" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9820,11 +9820,21 @@ GettingStarted
 * AWS Storage Gateway is a hybrid cloud storage service that gives you on-premises access to cloud storage. It offers three types - File Gateway, Tape Gateway, and Volume Gateway - for connect on-premises applications to cloud storage, caching data locally for low-latency access. Connect using protocols like NFS, SMB, and iSCSI.
 * Data keys are encryption keys that you can use to encrypt data, including large amounts of data and other data encryption keys.</pre>
 </div>
-<div created="20201013054457687" creator="0neir0s" modified="20201013200954579" modifier="0neir0s" tags="aws notes" title="AWS Databases">
-<pre>* Amazon RDS Read Replicas provide enhanced performance and durability for RDS database (DB) instances. They make it easy to elastically scale out beyond the capacity constraints of a single DB instance for read-heavy database workloads. They are for scaling, not for failover.
+<div created="20201013054457687" creator="0neir0s" modified="20201017161147442" modifier="0neir0s" tags="aws notes" title="AWS Databases">
+<pre>* Multi AZ data replication happens synchronously. Storage autoscaling and Compute scaling. Aurora also supports backtrack.
+* All RDS except Aurora used EBS for storage - General purpose, Provisioned IOPS SSD, Magnetic Storage. Aurora uses a shared cluster storage.  
+* Amazon RDS Read Replicas provide enhanced performance and durability for RDS database (DB) instances. They make it easy to elastically scale out beyond the capacity constraints of a single DB instance for read-heavy database workloads. They are for scaling, not for failover and replication happens asynchronously (with secondary in case of Multi-AZ).
 * Amazon RDS creates a second DB instance using a snapshot of the source DB instance. It then uses the engines' native asynchronous replication to update the read replica whenever there is a change to the source DB instance. 
 * With optional Multi-AZ deployments, Amazon RDS also manages synchronous data replication across Availability Zones with automatic failover.
-* Disaster Recovery techniques: Backup &amp; Restore, Pilot light, Warm standby, Multi-site</pre>
+* A DB parameter group acts as a container for engine configuration values that are applied to one or more DB instances.
+* Disaster Recovery techniques: Backup &amp; Restore, Pilot light, Warm standby, Multi-site
+* In Neptune, an endpoint is simply a URL address and a port that points to your components - could be cluster, reader, and instance endpoints.
+* Neptune supports 2 query languages - sparql and gremlin. It has redundancies in at least 3 AZs, and has auto-repair.  Replica data synchronisation happens synchronously.  
+* AWS ElastiCache - For in-memory stores. It supports Memcached and Redis. Former is simpler and faster, while latter has more features. With Redis, you can also enable cluster mode where the number of shards per cluster can be increase upto 90 from 1. 
+* Components of ElasticCache - node ( network attached RAM), shard (node group; upto 6) and cluster (1-90 shards)
+* Dynamo DB is a NoSQL database - ( key, value stores ). Steps: create the table and set the provisioned throughput (could be on-demand too). You are charged for storage + throughput. 
+* Each query can only use one index. Dynamo DB allows secondary indexes to allow search by other attributes - global indexes to query across entire table to find any record that matches a particular value and local secondary indexes can only help find data within a single partition key.
+* Automatically replicated across 3 AZs. But, it has only eventual consistency for certain types of queries. There are also limits - record size of 400 kb, and 5 secondary indexes per table.</pre>
 </div>
 <div created="20201011134639869" creator="0neir0s" modified="20201014192012201" modifier="0neir0s" tags="notes aws" title="AWS EC2">
 <pre>* Creating an EC2 instance is by selecting the instance type (hardware type) and AMI (software) and optionally, with a database. 
