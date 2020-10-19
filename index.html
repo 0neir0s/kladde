@@ -9629,7 +9629,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201019173854142" creator="0neir0s" list="[[AWS Databases]] Synopsis GettingStarted" modified="20201019173854142" modifier="0neir0s" title="$:/StoryList">
+<div created="20201019173854142" creator="0neir0s" list="Synopsis AWS [[AWS Services]] [[AWS EC2]] GettingStarted" modified="20201019173946154" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9848,7 +9848,7 @@ GettingStarted
 * Cluster is the core component of the Amazon Redshift. In every cluster, it runs its own Redshift engine, which will contain at least one database and at least one compute node, (if more, then a leader node as well).
 * Each compute node itself is also split into slices, known as node slice for parallelism </pre>
 </div>
-<div created="20201011134639869" creator="0neir0s" modified="20201017200220981" modifier="0neir0s" tags="notes aws" title="AWS EC2">
+<div created="20201011134639869" creator="0neir0s" modified="20201019173941983" modifier="0neir0s" tags="notes aws" title="AWS EC2">
 <pre>* Creating an EC2 instance is by selecting the instance type (hardware type) and AMI (software) and optionally, with a database. 
 * Enhanced networking uses single root I/O virtualization (SR-IOV) to provide high-performance networking capabilities - higher I/O performance, lower CPU utilisation, higher bandwidth, higher packets per second, lower inter-instance latencies(jitter) - on supported instance types.
 * EC2 Bootstrapping can enroll an instance to the directory service but cannot bid on spot instances.
@@ -9864,7 +9864,8 @@ GettingStarted
 * For internal communication between S3 and an application running on EC2 instance, you need two policies:
 ** An IAM trust policy that allows the EC2 instance to assume a role
 ** An IAM policy or S3 bucket policy that allows the role to get/put objects to the specific bucket
-* An Amazon EBS-optimized instance uses an optimized configuration stack with the goal of providing additional, dedicated capacity for Amazon EBS I/O. </pre>
+* An Amazon EBS-optimized instance uses an optimized configuration stack with the goal of providing additional, dedicated capacity for Amazon EBS I/O. 
+* Hibernating an instance saves the contents of RAM to the Amazon EBS root volume. When the instance restarts, the RAM contents are reloaded.</pre>
 </div>
 <div created="20201014080547604" creator="0neir0s" modified="20201014134102017" modifier="0neir0s" tags="aws notes" title="AWS Networking">
 <pre>* VPC Routing: There is a main route user. And each VPC has an implicit router. And local route in the route table cannot be removed.
@@ -9923,7 +9924,7 @@ GettingStarted
 * Key administrators have permissions to manage the CMK, but do not have permissions to use the CMK in cryptographic operations.
 * AWS Key Management Service (KMS) has integrated with AWS CloudHSM, and audits can be accessed using Cloud Trail</pre>
 </div>
-<div created="20201011140841846" creator="0neir0s" modified="20201017200215392" modifier="0neir0s" tags="aws notes" title="AWS Services">
+<div created="20201011140841846" creator="0neir0s" modified="20201019174021117" modifier="0neir0s" tags="aws notes" title="AWS Services">
 <pre>* SQS structure Producer,  Queue, Consumer. 
 * The types are standard queues, FIFO queues and dead letter queues.
 * Since AWS is a distributed service, the consumer must delete the message from the queue after receiving and processing it.
@@ -9938,6 +9939,7 @@ GettingStarted
 * To retrieve Amazon S3 data stored in the S3 Glacier storage class, initiate a retrieval request using the Amazon S3 APIs or the Amazon S3 Management Console. The retrieval request creates a temporary copy of your data in the S3 RRS or S3 Standard-IA storage class while leaving the archived data intact in S3 Glacier.
 * For S3 cross-region replica: Turn on versioning in both source and destination buckets, and use an IAM Policy to permit S3 to replicate your objects.
 * For S3 data at REST protection, AWS provides multiple options - Permission (Policy), Encryption (Client and Server Side), Bucket Versioning and MFA based delete. Data replication is an internal facility enabled automatically where S3 automatically replicates each object across all the AZs.
+* Web browsers will block the execution of a script that originates from a server with a different domain name than the webpage. Amazon S3 can be configured with CORS to send HTTP headers that allow the script execution.
 * S3 allows multi-part uploading for large files. And it is possible to have different encryption keys for different versions of the same object.
 * Amazon S3 Standard - Infrequent Access (Standard - IA) is an Amazon S3 storage class for data that is accessed less frequently, but requires rapid access when needed. (99.9 Availability as opposed to 99.99)
 * Public URLs allow users to access the following objects:
