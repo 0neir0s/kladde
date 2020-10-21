@@ -9643,7 +9643,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS S3" modified="20201021175612263" modifier="0neir0s" title="$:/StoryList">
+<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS Strategies" modified="20201021182117969" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10180,7 +10180,7 @@ It is not meant to be a daily log. Earlier posts would be updated when mistakes 
 * S3 Inventory - this service allows you to organize a list of objects stored within a bucket into manifests. The manifests are one source of input of relevant objects to apply updates to in S3 batch operations.
 * S3 analytics - Storage Class Analysis feature observes data access patterns to help you determine when to transition less frequently accessed standard storage to the IA. But, no recommendations to one zone or glacier.</pre>
 </div>
-<div created="20201011150936485" creator="0neir0s" modified="20201021171148717" modifier="0neir0s" tags="aws notes" title="Strategies">
+<div created="20201011150936485" creator="0neir0s" modified="20201021182221238" modifier="0neir0s" tags="aws notes" title="Strategies">
 <pre>* Use an Elastic Network Interface (ENI) to create a management network, to use network and security appliances in your VPC, to create dual-homed instances with workloads/roles on distinct subnets or to create a low-budget, high-availability solution.
 * Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses.
 * Rebooting primary database instance is the strategy to consistently test db failovers. 
@@ -10198,7 +10198,8 @@ It is not meant to be a daily log. Earlier posts would be updated when mistakes 
 * You can do all tasks using the AWS CLI but it is better to automate the process using AWS CloudFormation.
 * Using the Range HTTP header in a GET Object request, you can fetch a byte-range from an object, transferring only the specified portion. Use concurrent connections to S3 to fetch different byte ranges from within the same object for higher aggregate throughput versus a single whole-object request. Fetching smaller ranges of a large object also allows your application to improve retry times when requests are interrupted.
 * AWS recommends that you don't use the AWS account root user credentials to make authenticated requests. Instead, create an IAM user and grant that user full access. We refer to these users as administrator users.
-* It is strongly recommended to use the DNS Name to connect to your DB Instance as the underlying IP address can change; for example during failover.</pre>
+* It is strongly recommended to use the DNS Name to connect to your DB Instance as the underlying IP address can change; for example during failover.
+* An Elastic IP address is for use in a specific region only.</pre>
 </div>
 <div created="20200818180806183" creator="0neir0s" modified="20201011191740349" modifier="0neir0s" tags="index contents" title="Synopsis">
 <pre>The list of tiddlers till date. 
