@@ -193,15 +193,17 @@ Error message and password prompt
 
 <li>AWS Storage</li>
 
-<li>AWS Strategies</li>
-
 <li>CloudFront</li>
+
+<li>Config</li>
 
 <li>Databases</li>
 
 <li>DataSync</li>
 
 <li>DDoS</li>
+
+<li>Draft of 'RDS' by 0neir0s</li>
 
 <li>DynamoDB</li>
 
@@ -210,6 +212,8 @@ Error message and password prompt
 <li>RDS</li>
 
 <li>S3</li>
+
+<li>Strategies</li>
 
 <li>Synopsis</li>
 
@@ -9641,7 +9645,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201021052520458" creator="0neir0s" list="RDS Synopsis AWS Databases" modified="20201021154208265" modifier="0neir0s" title="$:/StoryList">
+<div created="20201021052520458" creator="0neir0s" list="Config [[Draft of 'RDS' by 0neir0s]] Synopsis AWS" modified="20201021171119369" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9998,25 +10002,6 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 * With the EBS Elastic Volumes feature you can increase volume size, adjust performance, or change the volume type while the volume is in use. You can continue to use your application while the change takes effect.
 * EBS General Purpose (SSD), also called gp2, volumes offer cost-effective storage that is ideal for a broad range of workloads - including moderately IO intensive ones.</pre>
 </div>
-<div created="20201011150936485" creator="0neir0s" modified="20201021154100155" modifier="0neir0s" tags="aws notes" title="AWS Strategies">
-<pre>* Use an Elastic Network Interface (ENI) to create a management network, to use network and security appliances in your VPC, to create dual-homed instances with workloads/roles on distinct subnets or to create a low-budget, high-availability solution.
-* Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses.
-* Rebooting primary database instance is the strategy to consistently test db failovers. 
-* Decoupling can be done using SQS (store requests) or s3 + Autoscaling worker instances.
-* A cluster placement group provides low-latency networking between all instances in the cluster. It is ideal for high performance analytics systems and many science and engineering applications. 
-* For data transfer to EFS, use DataSync. 
-* For SMB based FIle system, AWS FSx for Windows is recommended over EFS, whose key attribute is that it uses NFS, one of the first network file sharing protocols native to Unix and Linux. Additionally, FSx also supports [[Lustre|AWS &amp; Cloud Definitions]]
-* Dedicated Instances are Amazon EC2 instances that run in a VPC on hardware that's dedicated to a single customer. Dedicated instances are physically isolated at the host hardware level from instances that belong to other AWS accounts.
-* Read replicas in different regions are available in Amazon RDS for MYSQL, MariaDB, PostgreSQL, Oracle, and Aurora. So, if you need read replicas located in a separate AWS region from the primary DB, don't use SQL Server.
-* If your workload on Amazon S3 is mainly sending GET requests, use CloudFront for performance optimization. Integrating CloudFront with S3, you can distribute content to your users with low latency and a high data transfer rate, while sending fewer direct requests to Amazon S3, which will reduce your costs. 
-* It is best practice to use IAM roles so that your applications can securely make API requests from your EC2 instances, without requiring you to manage the security credentials that the applications use.
-* When you create IAM policies, follow the standard security advice of granting least privilege - i.e, granting only the permissions required to perform a task.
-* Since S3 does not store the encryption keys in SSE-C, it is recommended that the user should manage keys securely and keep rotating them regularly.
-* You cannot create a DynamoDB table in a VPC, to connect securely using private addresses you should use a gateway endpoint instead.
-* You can do all tasks using the AWS CLI but it is better to automate the process using AWS CloudFormation.
-* Using the Range HTTP header in a GET Object request, you can fetch a byte-range from an object, transferring only the specified portion. Use concurrent connections to S3 to fetch different byte ranges from within the same object for higher aggregate throughput versus a single whole-object request. Fetching smaller ranges of a large object also allows your application to improve retry times when requests are interrupted.
-* AWS recommends that you don't use the AWS account root user credentials to make authenticated requests. Instead, create an IAM user and grant that user full access. We refer to these users as administrator users.</pre>
-</div>
 <div created="20201021135607248" creator="0neir0s" modified="20201021141948786" modifier="0neir0s" tags="aws notes" title="CloudFront">
 <pre>* Amazon CloudFront is a web service that speeds up distribution of your static and dynamic web content, such as .html, .css, .js, and image files, to your users, using edge locations.
 * An origin server stores the original, definitive version of your objects.
@@ -10040,6 +10025,11 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 * For SSL, AWS Certificate Manager (ACM), IAM Certificate Store ( certs from third party certificate authority) can be associated with CloudFront distributions.
 * Against DDoS, AWS Shield Standard is available at no additional cost.
 * CloudFront distribution can be integrated with WAF, a web application firewall that helps protect web applications from attacks by allowing you to configure rules based on IP addresses, HTTP headers, and custom URI strings.</pre>
+</div>
+<div created="20201021173351555" creator="0neir0s" modified="20201021173743891" modifier="0neir0s" tags="aws notes" title="Config">
+<pre>* AWS Config is a service that enables you to assess, audit, and evaluate the configurations of your AWS resources. 
+* Config continuously monitors and records your AWS resource configurations and allows you to automate the evaluation of recorded configurations against desired configurations.
+* This enables you to simplify compliance auditing, security analysis, change management, and operational troubleshooting.</pre>
 </div>
 <div created="20201013054457687" creator="0neir0s" modified="20201021145934917" modifier="0neir0s" tags="aws notes" title="Databases">
 <pre>* In Neptune, an endpoint is simply a URL address and a port that points to your components - could be cluster, reader, and instance endpoints.
@@ -10067,6 +10057,53 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 </div>
 <div created="20201021142025102" creator="0neir0s" modified="20201021142037646" modifier="0neir0s" tags="definitions" title="DDoS">
 <pre>A distributed denial-of-service (DDoS) attack is a malicious attempt to disrupt the normal traffic of a targeted server, service or network by overwhelming the target or its surrounding infrastructure with a flood of Internet traffic.</pre>
+</div>
+<div created="20201021145856509" creator="0neir0s" draft.of="RDS" draft.title="RDS" modified="20201021172844461" modifier="0neir0s" tags="aws notes" title="Draft of 'RDS' by 0neir0s">
+<pre>* Amazon Relational Database Service (Amazon RDS) is a managed service that makes it easy to set up, operate, and scale a relational database in the cloud.
+* While less-featured, EC2 Relational Database AMIs has more flexibility and control.
+* It can also be hybrid with RDS on premises using Amazon RDS on Outposts and Amazon RDS on VMware. 
+
+* What AWS does:
+** Provisioning the infrastructure capacity as per request
+** Installing the database software. 
+** Automates common administrative tasks such as performing backups, software patches.
+** Optional: managing synchronous data replication across zones with automatic failover for Multi-AZ.
+* What client does:
+** Managing the database settings that are specific to your application. 
+** Building the best-fit relational schemas, doing performance tuning 
+
+* Billing based on DB instance hours, Storage (per GB per month), I/O requests per month, Provisioned IOPS per month, Backup Storage and Internet data transfer.
+* Amazon RDS reserved instances give you the option to reserve a DB instance for a one or three year term for big discounts. RI is associated with a single region and is not refundable.
+* A reservation for a DB engine and license model that is eligible for size-flexibility will automatically apply after scaling up. If license model that is not eligible for size-flexibility, scale up will result in reverting to on-demand pricing.
+* A DB instance reservation can be applied to a read replica, provided the DB instance class and Region are the same.
+* Migration of DB Instances from inside to outside VPC is not supported. But, you can use the AWS Management Console to easily move your DB instance into a VPC.  You can also use a snapshot of your DB Instance outside VPC and restore it by specifying the DB Subnet Group.
+ 
+* Backup
+** Amazon RDS creates a storage volume snapshot of your DB instance, backing up the entire DB instance and not just individual databases.
+** On a Single-AZ DB instance, snapshots results in a brief I/O suspension that typically lasting no more than a few minutes. 
+** Manual snapshots aren't subject to the backup retention period, unlike automated backups.
+** A DB snapshot can be created using the AWS Management Console, the AWS CLI, or the RDS API.
+** Amazon RDS retains the optional final user-created DB snapshot along with all other manually created DB snapshots if the DB instance is deleted.
+
+* Multi AZ
+** Running your DB instance as a Multi-AZ deployment can further reduce the impact of a maintenance event. 
+** Here, billing differs only in Multi-AZ DB instance hours and Provisioned storage.
+** If license supports it, a Multi-AZ reserved instance will cover usage for two Single-AZ DB instances.
+** Except for SQL Server, Multi-AZ DB instances are not affected by this I/O suspension during snapshots since the backup is taken on the standby.  
+
+* DB instance is a database environment in the cloud with the compute and storage resources you specify. 
+* To import data into Amazon RDS, database specific utilities can be used. In addition, AWS Database Migration Service can help you migrate databases to AWS easily and securely. 
+* A DB Subnet Group is a collection of subnets (at least 1 in each AZ) that you may want to designate for your RDS DB Instances in a VPC. RDS uses selected Subnet group and your preferred Availability Zone to select a subnet and associates an ENI to an IP address within that subnet.
+
+* Storage autoscaling and Compute scaling. Aurora also supports backtrack.
+* All RDS except Aurora uses EBS for storage - General purpose, Provisioned IOPS SSD, Magnetic Storage. Aurora uses a shared cluster storage.  
+* Amazon RDS Read Replicas provide enhanced performance and durability for RDS database (DB) instances. They make it easy to elastically scale out beyond the capacity constraints of a single DB instance for read-heavy database workloads. They are for scaling, not for failover and replication happens asynchronously (with secondary in case of Multi-AZ). Also, it cannot increase database service IOPS.
+* You can create a read replica as a Multi-AZ DB instance. Amazon RDS creates a standby of your replica in another Availability Zone for failover support for the replica
+* Amazon RDS creates a second DB instance using a snapshot of the source DB instance. It then uses the engines' native asynchronous replication to update the read replica whenever there is a change to the source DB instance. 
+* A common pattern in DB implementation involves placing databases in private subnets for additional security. If you follow this practice, make sure that the Security Groups provide appropriate ingress and egress to the DB instance.
+
+* A DB parameter group acts as a container for engine configuration values that are applied to one or more DB instances.
+* Disaster Recovery techniques: Backup &amp; Restore, Pilot light, Warm standby, Multi-site</pre>
 </div>
 <div created="20201021104053932" creator="0neir0s" modified="20201021104321907" modifier="0neir0s" tags="aws notes" title="DynamoDB">
 <pre>* DynamoDB is a managed NoSQL database - ( key, value stores )
@@ -10182,6 +10219,26 @@ It is not meant to be a daily log. Earlier posts would be updated when mistakes 
 * S3 batch operations - these are automated batch operations can apply to a select few operations, including applying object tags (PUT object tag.)
 * S3 object tags vs. bucket tags - object tags are metadata (system or user-defined) that can be applied upon object upload. Bucket tags are cost-allocation tags that assist in managing and tracking service usage and billing. These are very different things. Bucket tags do not have a parent-child relationship with object tags for objects stored within a bucket.
 * S3 Inventory - this service allows you to organize a list of objects stored within a bucket into manifests. The manifests are one source of input of relevant objects to apply updates to in S3 batch operations.</pre>
+</div>
+<div created="20201011150936485" creator="0neir0s" modified="20201021171148717" modifier="0neir0s" tags="aws notes" title="Strategies">
+<pre>* Use an Elastic Network Interface (ENI) to create a management network, to use network and security appliances in your VPC, to create dual-homed instances with workloads/roles on distinct subnets or to create a low-budget, high-availability solution.
+* Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses.
+* Rebooting primary database instance is the strategy to consistently test db failovers. 
+* Decoupling can be done using SQS (store requests) or s3 + Autoscaling worker instances.
+* A cluster placement group provides low-latency networking between all instances in the cluster. It is ideal for high performance analytics systems and many science and engineering applications. 
+* For data transfer to EFS, use DataSync. 
+* For SMB based FIle system, AWS FSx for Windows is recommended over EFS, whose key attribute is that it uses NFS, one of the first network file sharing protocols native to Unix and Linux. Additionally, FSx also supports [[Lustre|AWS &amp; Cloud Definitions]]
+* Dedicated Instances are Amazon EC2 instances that run in a VPC on hardware that's dedicated to a single customer. Dedicated instances are physically isolated at the host hardware level from instances that belong to other AWS accounts.
+* Read replicas in different regions are available in Amazon RDS for MYSQL, MariaDB, PostgreSQL, Oracle, and Aurora. So, if you need read replicas located in a separate AWS region from the primary DB, don't use SQL Server.
+* If your workload on Amazon S3 is mainly sending GET requests, use CloudFront for performance optimization. Integrating CloudFront with S3, you can distribute content to your users with low latency and a high data transfer rate, while sending fewer direct requests to Amazon S3, which will reduce your costs. 
+* It is best practice to use IAM roles so that your applications can securely make API requests from your EC2 instances, without requiring you to manage the security credentials that the applications use.
+* When you create IAM policies, follow the standard security advice of granting least privilege - i.e, granting only the permissions required to perform a task.
+* Since S3 does not store the encryption keys in SSE-C, it is recommended that the user should manage keys securely and keep rotating them regularly.
+* You cannot create a DynamoDB table in a VPC, to connect securely using private addresses you should use a gateway endpoint instead.
+* You can do all tasks using the AWS CLI but it is better to automate the process using AWS CloudFormation.
+* Using the Range HTTP header in a GET Object request, you can fetch a byte-range from an object, transferring only the specified portion. Use concurrent connections to S3 to fetch different byte ranges from within the same object for higher aggregate throughput versus a single whole-object request. Fetching smaller ranges of a large object also allows your application to improve retry times when requests are interrupted.
+* AWS recommends that you don't use the AWS account root user credentials to make authenticated requests. Instead, create an IAM user and grant that user full access. We refer to these users as administrator users.
+* It is strongly recommended to use the DNS Name to connect to your DB Instance as the underlying IP address can change; for example during failover.</pre>
 </div>
 <div created="20200818180806183" creator="0neir0s" modified="20201011191740349" modifier="0neir0s" tags="index contents" title="Synopsis">
 <pre>The list of tiddlers till date. 
