@@ -9629,7 +9629,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS [[AWS Storage]] [[AWS EC2]]" modified="20201021054618022" modifier="0neir0s" title="$:/StoryList">
+<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS [[AWS Networking]]" modified="20201021072701599" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9875,7 +9875,7 @@ GettingStarted
 * If the user knows that the instance is healthy then he can manually call the SetInstanceHealth action (or the as-set-instance-health command from CLI) to set the instance's health status back to healthy. Auto Scaling will throw an error if the instance is already terminating or else it will mark it healthy.
 * If a user does not select the security group while creating the instance launch configuration, the Launch wizard automatically defines the &quot;launch-wizard-x&quot; security group to allow the user to connect to the instance, which enables all IP addresses (0.0.0.0/0) to access the instance over the specified ports. At the very least, you need to select an AMI and a key pair to launch an instance. [[Reference|https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/launching-instance.html]]</pre>
 </div>
-<div created="20201014080547604" creator="0neir0s" modified="20201021054355663" modifier="0neir0s" tags="aws notes" title="AWS Networking">
+<div created="20201014080547604" creator="0neir0s" modified="20201021073932227" modifier="0neir0s" tags="aws notes" title="AWS Networking">
 <pre>* VPC Routing: There is a main route user. And each VPC has an implicit router. And local route in the route table cannot be removed.
 * The access key for your AWS account root user gives full access to all your resources for all AWS services, including your billing information. You cannot reduce the permissions associated with your AWS account root user access key. So, protect your root user access key.
 * When you configure your VPC; you can select its IP address range, create subnets, and configure route tables, network gateways, and security settings.
@@ -9891,6 +9891,7 @@ GettingStarted
 ** An interface endpoint is an ENI with a private IP address from the IP address range of your subnet that serves as an entry point for traffic destined to a supported service.
 ** A gateway endpoint is a gateway that you specify as a target for a route in your route table for traffic destined to a supported AWS service. Supported services: DynamoDB, S3
 * VPN Connections
+** With VPC Interface Endpoints, it is possible to connect to a number of AWS services both from resources within your Amazon VPC and from resources in your on-premises environment. This is not possible with VPC Gateway Endpoints. Services cannot initiate requests to resources in your VPC through the endpoint. 
 ** Virtual Private Gateway (VGW) is the Amazon VPC's side of a VPN connection. 
 ** Customer Gateway (CGW) is your side of the VPN connection.
 ** You can create a VPN tunnel using IPSEC to onpremise or co-locations. 
