@@ -10081,7 +10081,7 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 
 It is not meant to be a daily log. Earlier posts would be updated when mistakes are pointed out.</pre>
 </div>
-<div created="20201021145856509" creator="0neir0s" modified="20201021151409227" modifier="0neir0s" tags="aws notes" title="RDS">
+<div created="20201021145856509" creator="0neir0s" modified="20201021154041389" modifier="0neir0s" tags="aws notes" title="RDS">
 <pre>* Amazon Relational Database Service (Amazon RDS) is a managed service that makes it easy to set up, operate, and scale a relational database in the cloud.
 * While less-featured, EC2 Relational Database AMIs has more flexibility and control.
 * It can also be hybrid with RDS on premises using Amazon RDS on Outposts and Amazon RDS on VMware. 
@@ -10095,13 +10095,32 @@ It is not meant to be a daily log. Earlier posts would be updated when mistakes 
 ** Managing the database settings that are specific to your application. 
 ** Building the best-fit relational schemas, doing performance tuning 
 
+* Billing based on DB instance hours, Storage (per GB per month), I/O requests per month, Provisioned IOPS per month, Backup Storage and Internet data transfer.
+* Amazon RDS reserved instances give you the option to reserve a DB instance for a one or three year term for big discounts. RI is associated with a single region and is not refundable.
+* A reservation for a DB engine and license model that is eligible for size-flexibility will automatically apply after scaling up. If license model that is not eligible for size-flexibility, scale up will result in reverting to on-demand pricing.
+* A DB instance reservation can be applied to a read replica, provided the DB instance class and Region are the same.
+
+* Backup
+** Amazon RDS creates a storage volume snapshot of your DB instance, backing up the entire DB instance and not just individual databases.
+** On a Single-AZ DB instance, snapshots results in a brief I/O suspension that typically lasting no more than a few minutes. 
+** Manual snapshots aren't subject to the backup retention period, unlike automated backups.
+** A DB snapshot can be created using the AWS Management Console, the AWS CLI, or the RDS API.
+
+* Multi AZ
+** Running your DB instance as a Multi-AZ deployment can further reduce the impact of a maintenance event. 
+** Here, billing differs only in Multi-AZ DB instance hours and Provisioned storage.
+** If license supports it, a Multi-AZ reserved instance will cover usage for two Single-AZ DB instances.
+** Except for SQL Server, Multi-AZ DB instances are not affected by this I/O suspension during snapshots since the backup is taken on the standby.  
+
+* DB instance is a database environment in the cloud with the compute and storage resources you specify. 
+* To import data into Amazon RDS, database specific utilities can be used. In addition, AWS Database Migration Service can help you migrate databases to AWS easily and securely. 
 * Storage autoscaling and Compute scaling. Aurora also supports backtrack.
 * All RDS except Aurora used EBS for storage - General purpose, Provisioned IOPS SSD, Magnetic Storage. Aurora uses a shared cluster storage.  
 * Amazon RDS Read Replicas provide enhanced performance and durability for RDS database (DB) instances. They make it easy to elastically scale out beyond the capacity constraints of a single DB instance for read-heavy database workloads. They are for scaling, not for failover and replication happens asynchronously (with secondary in case of Multi-AZ). Also, it cannot increase database service IOPS.
 * You can create a read replica as a Multi-AZ DB instance. Amazon RDS creates a standby of your replica in another Availability Zone for failover support for the replica
 * Amazon RDS creates a second DB instance using a snapshot of the source DB instance. It then uses the engines' native asynchronous replication to update the read replica whenever there is a change to the source DB instance. 
 * A common pattern in DB implementation involves placing databases in private subnets for additional security. If you follow this practice, make sure that the Security Groups provide appropriate ingress and egress to the DB instance.
-* With optional Multi-AZ deployments, Amazon RDS also manages synchronous data replication across Availability Zones with automatic failover.
+
 * A DB parameter group acts as a container for engine configuration values that are applied to one or more DB instances.
 * Disaster Recovery techniques: Backup &amp; Restore, Pilot light, Warm standby, Multi-site</pre>
 </div>
