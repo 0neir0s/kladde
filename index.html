@@ -9629,7 +9629,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS [[AWS Security]]" modified="20201021082528567" modifier="0neir0s" title="$:/StoryList">
+<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS [[AWS Security]]" modified="20201021082812130" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9917,7 +9917,7 @@ GettingStarted
 * A virtual private gateway is a logical, fully redundant distributed edge routing function that sits at the edge of your VPC. As it is capable of terminating VPN connections from your on-prem or customer environments, the VPG is the VPN concentrator on the Amazon side of the Site-to-Site VPN connection. 
 * RTMP distributions are not compatible if transfer should be over HTTPS</pre>
 </div>
-<div created="20201011163446337" creator="0neir0s" modified="20201021082609761" modifier="0neir0s" tags="aws notes" title="AWS Security">
+<div created="20201011163446337" creator="0neir0s" modified="20201021083003018" modifier="0neir0s" tags="aws notes" title="AWS Security">
 <pre>* A policy usually contains the following: [[Overview|https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html]]
 ** Resources/ARN - Buckets, objects, access points, and jobs
 ** Actions and Effect
@@ -9946,7 +9946,10 @@ GettingStarted
 * AWS Key Management Service (KMS) has integrated with AWS CloudHSM, and audits can be accessed using Cloud Trail
 * In addition to SSE-C, Customers also have the option to encrypt data client side before
 uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provide an S3 encryption client that streamlines the process. 
-* Service linked roles are pre-defined and has limited opportunities to edit.</pre>
+* Service linked roles are pre-defined and has limited opportunities to edit.
+* Object locks can prevent objects from modification or deletion; objection versioning does not - it only maintains versions of an object until those versions are deleted.
+* Users can only enable Object locks can on new S3 buckets. 
+* Object locks have two retention modes - governance mode and compliance mode. Compliance mode prevents objects from being deleted or updated by users, including the root user. Governance mode allows objects to be modified, but prevents objects from being deleted.</pre>
 </div>
 <div created="20201011140841846" creator="0neir0s" modified="20201021074717028" modifier="0neir0s" tags="aws notes" title="AWS Services">
 <pre>* SQS structure Producer,  Queue, Consumer. 
