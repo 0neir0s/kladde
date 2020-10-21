@@ -10081,13 +10081,19 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 
 It is not meant to be a daily log. Earlier posts would be updated when mistakes are pointed out.</pre>
 </div>
-<div created="20201021145856509" creator="0neir0s" modified="20201021150454225" modifier="0neir0s" tags="aws notes" title="RDS">
+<div created="20201021145856509" creator="0neir0s" modified="20201021151409227" modifier="0neir0s" tags="aws notes" title="RDS">
 <pre>* Amazon Relational Database Service (Amazon RDS) is a managed service that makes it easy to set up, operate, and scale a relational database in the cloud.
+* While less-featured, EC2 Relational Database AMIs has more flexibility and control.
+* It can also be hybrid with RDS on premises using Amazon RDS on Outposts and Amazon RDS on VMware. 
+
 * What AWS does:
 ** Provisioning the infrastructure capacity as per request
 ** Installing the database software. 
 ** Automates common administrative tasks such as performing backups, software patches.
 ** Optional: managing synchronous data replication across zones with automatic failover for Multi-AZ.
+* What client does:
+** Managing the database settings that are specific to your application. 
+** Building the best-fit relational schemas, doing performance tuning 
 
 * Storage autoscaling and Compute scaling. Aurora also supports backtrack.
 * All RDS except Aurora used EBS for storage - General purpose, Provisioned IOPS SSD, Magnetic Storage. Aurora uses a shared cluster storage.  
