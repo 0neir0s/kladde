@@ -199,8 +199,6 @@ Error message and password prompt
 
 <li>DataSync</li>
 
-<li>Draft of 'S3' by 0neir0s</li>
-
 <li>DynamoDB</li>
 
 <li>Motivation</li>
@@ -9637,7 +9635,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201021052520458" creator="0neir0s" list="[[Draft of 'S3' by 0neir0s]] Synopsis AWS [[AWS Strategies]]" modified="20201021132733332" modifier="0neir0s" title="$:/StoryList">
+<div created="20201021052520458" creator="0neir0s" list="S3 Synopsis AWS [[AWS Strategies]]" modified="20201021132733332" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10049,7 +10047,20 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 <div created="20201021103309953" creator="0neir0s" modified="20201021104023451" modifier="0neir0s" tags="aws notes" title="DataSync">
 <pre>AWS DataSync is a data transfer service that simplifies, automates, and accelerates moving and replicating data between on-premises storage systems and AWS storage services over the internet or AWS Direct Connect.</pre>
 </div>
-<div created="20201021104736412" creator="0neir0s" draft.of="S3" draft.title="S3" modified="20201021133031988" modifier="0neir0s" tags="aws notes" title="Draft of 'S3' by 0neir0s">
+<div created="20201021104053932" creator="0neir0s" modified="20201021104321907" modifier="0neir0s" tags="aws notes" title="DynamoDB">
+<pre>* DynamoDB is a managed NoSQL database - ( key, value stores )
+* Steps involved: create the table and set the provisioned throughput (could be on-demand too). You are charged for storage + throughput. 
+* Each query can only use one index. It allows secondary indexes to allow search by other attributes.
+** Global indexes to query across entire table to find any record that matches a particular value
+** Local secondary indexes can only help find data within a single partition key.
+* Automatically replicated across 3 AZs. But, it has only eventual consistency for certain types of queries. There are also limits - record size of 400 kb, and 5 secondary indexes per table.</pre>
+</div>
+<div created="20200818173814631" creator="0neir0s" modified="20201017133615024" modifier="0neir0s" published="" tags="goal published" title="Motivation" type="metadata">
+<pre>The idea is to make sure the tiddlers while trivial individually, will start making sense in its entirety - i.e, they form a gestalt. 
+
+It is not meant to be a daily log. Earlier posts would be updated when mistakes are pointed out.</pre>
+</div>
+<div created="20201021104736412" creator="0neir0s" modified="20201021134747700" modifier="0neir0s" tags="aws notes" title="S3">
 <pre>* AWS Simple Storage Service is storage for the internet. 
 * Bucket name is globally unique, and the namespace is shared by all AWS accounts. 
 * S3 uses the metadata (key-value pairs for storing object info) and sub-resource mechanism to store object-specific additional information.
@@ -10079,67 +10090,27 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 ** Public URLs allow users to access the objects with no restrictions and objects that end users must access through CloudFront but that don't require a signed URL.
 ** It is done using access policies which are resource based ( ACLs, Bucket policies ) or user based. 
 ** S3 evaluates all the relevant access policies, user policies, and resource-based policies (bucket policy, bucket ACL, object ACL) in deciding whether to authorize the request.
+** Use a user policy to grant permission from the parent account and resource policy to grant permission from the resource owner.
+** The authorization steps: 
+*** Convert all access policies at run time into a set of policies for evaluation.
+*** Evaluate the resulting set of policies in the following order - user context, bucket context, object context.
 
 * An {[[ACL|https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html]]} is a XML based list of grants identifying the grantee and the permission granted. It is used to grant basic read/write permissions to other AWS accounts, but not to grant permissions to other users in his account. 
 * ACLs, compared to IAM and Bucket policies, are far less granular, and different permissions can be applied depending on if you are applying an ACL at the bucket or object level. These ACLs are not inherited to objects.
 * ACL grantee can be an AWS account or one of the predefined Amazon S3 groups -  Authenticated Users group ( all AWS accounts ), All Users group (anyone), Log Delivery group( WRITE permission on a bucket enables this group to write server access logs to the bucket). 
-* The only recommended use case for the bucket ACL is to grant write permission to the Amazon S3 Log Delivery group to write access log objects to your bucket.
-* An object ACL is the only way to manage access to objects not owned by the bucket owner
-
 * The bucket policy can be defined at the bucket level which allows the objects as well as the bucket to be public with a single policy applied to that bucket. It is therefore recommended over ACLs.
-* But, the bucket policy applies only to objects that are owned by the bucket owner. If your bucket contains objects that aren't owned by the bucket owner, public READ permission on those objects should be granted using the object access control list (ACL).
-*  If you make an object public in a non-public bucket (AWS docs term for private), people can access your objects (read &amp; get), but cannot list what objects are in the related bucket, or read/get other objects stored in the bucket, unless explicitly allowed.
+*  If you make an object public in a non-public bucket, people can access your objects (read &amp; get), but cannot list what objects are in the related bucket, or read/get other objects stored in the bucket, unless explicitly allowed.
+* A bucket policy has a new attribute called ‘principal’, which is not needed for IAM, as it is already defined by who is associated with that policy.
 
-* When a bucket policy is applied the permissions assigned apply to all objects within that Bucket. This policy introduces a new attribute called ‘principal’. Principals are not needed for IAM policies, as it is already defined by who is associated with that policy.
+* Uses
+** The only recommended use case for the bucket ACL is to grant write permission to the Amazon S3 Log Delivery group to write access log objects to your bucket.
+** An object ACL is the only way to manage access to objects not owned by the bucket owner
+** Use a bucket policy to manage cross-account permissions for all amazon S3 permissions. It is however applicable only for objects owned by bucket owner.
+
+
 * S3 batch operations - these are automated batch operations can apply to a select few operations, including applying object tags (PUT object tag.)
 * S3 object tags vs. bucket tags - object tags are metadata (system or user-defined) that can be applied upon object upload. Bucket tags are cost-allocation tags that assist in managing and tracking service usage and billing. These are very different things. Bucket tags do not have a parent-child relationship with object tags for objects stored within a bucket.
 * S3 Inventory - this service allows you to organize a list of objects stored within a bucket into manifests. The manifests are one source of input of relevant objects to apply updates to in S3 batch operations.</pre>
-</div>
-<div created="20201021104053932" creator="0neir0s" modified="20201021104321907" modifier="0neir0s" tags="aws notes" title="DynamoDB">
-<pre>* DynamoDB is a managed NoSQL database - ( key, value stores )
-* Steps involved: create the table and set the provisioned throughput (could be on-demand too). You are charged for storage + throughput. 
-* Each query can only use one index. It allows secondary indexes to allow search by other attributes.
-** Global indexes to query across entire table to find any record that matches a particular value
-** Local secondary indexes can only help find data within a single partition key.
-* Automatically replicated across 3 AZs. But, it has only eventual consistency for certain types of queries. There are also limits - record size of 400 kb, and 5 secondary indexes per table.</pre>
-</div>
-<div created="20200818173814631" creator="0neir0s" modified="20201017133615024" modifier="0neir0s" published="" tags="goal published" title="Motivation" type="metadata">
-<pre>The idea is to make sure the tiddlers while trivial individually, will start making sense in its entirety - i.e, they form a gestalt. 
-
-It is not meant to be a daily log. Earlier posts would be updated when mistakes are pointed out.</pre>
-</div>
-<div created="20201021104736412" creator="0neir0s" modified="20201021105517618" modifier="0neir0s" tags="aws notes" title="S3">
-<pre>* AWS Simple Storage Service is storage for the internet. 
-
-* Data
-** You can store virtually any kind of data in any format. 
-** All Amazon S3 objects by default are private.
-** Individual Amazon S3 objects can range in size from 0 bytes to 5 TB
-** The largest object that can be uploaded in a single PUT is 5 gigabytes (Multi-part uploads for bigger)
-** The object owner can share objects with others by using a pre-signed URL
-
-* Generally if the user is defining the ACL on the s3 bucket, the objects in the bucket do not inherit it and vice a versa. The bucket policy can be defined at the bucket level which allows the objects as well as the bucket to be public with a single policy applied to that bucket. It is therefore recommended over ACLs.
-* But, the bucket policy applies only to objects that are owned by the bucket owner. If your bucket contains objects that aren't owned by the bucket owner, public READ permission on those objects should be granted using the object access control list (ACL).
-*  If you make an object public in a non-public bucket (AWS docs term for private), people can access your objects (read &amp; get), but cannot list what objects are in the related bucket, or read/get other objects stored in the bucket, unless explicitly allowed.
-*  An S3 bucket ACL grantee can be an AWS account or one of the predefined Amazon S3 groups. They are: Authenticated Users group ( all AWS accounts ), All Users group (anyone), Log Delivery group( WRITE permission on a bucket enables this group to write server access logs to the bucket). {[[ACL Overview|https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html]]}
-* Amazon S3 Transfer Acceleration is used for speeding up uploads of data to Amazon S3 by using the CloudFront network. It is not used for downloading data.
-* When a bucket policy is applied the permissions assigned apply to all objects within that Bucket. This policy introduces a new attribute called ‘principal’. Principals are not needed for IAM policies, as it is already defined by who is associated with that policy.
-* S3 batch operations - these are automated batch operations can apply to a select few operations, including applying object tags (PUT object tag.)
-* S3 object tags vs. bucket tags - object tags are metadata (system or user-defined) that can be applied upon object upload. Bucket tags are cost-allocation tags that assist in managing and tracking service usage and billing. These are very different things. Bucket tags do not have a parent-child relationship with object tags for objects stored within a bucket.
-* S3 Inventory - this service allows you to organize a list of objects stored within a bucket into manifests. The manifests are one source of input of relevant objects to apply updates to in S3 batch operations.
-* To retrieve Amazon S3 data stored in the S3 Glacier storage class, initiate a retrieval request using the Amazon S3 APIs or the Amazon S3 Management Console. The retrieval request creates a temporary copy of your data in the S3 RRS or S3 Standard-IA storage class while leaving the archived data intact in S3 Glacier.
-* For S3 cross-region replica: Turn on versioning in both source and destination buckets, and use an IAM Policy to permit S3 to replicate your objects.
-* For S3 data at REST protection, AWS provides multiple options - Permission (Policy), Encryption (Client and Server Side), Bucket Versioning and MFA based delete. Data replication is an internal facility enabled automatically where S3 automatically replicates each object across all the AZs.
-* AWS S3-IA (infrequently Accessed) comes at a lower monthly cost but has a minimum duration of 30 days. Glacier storage is for archiving data that does not need real-time access. Recovert time is three to five hours.
-* Web browsers will block the execution of a script that originates from a server with a different domain name than the webpage. Amazon S3 can be configured with CORS to send HTTP headers that allow the script execution.
-* S3 allows multi-part uploading for large files. And it is possible to have different encryption keys for different versions of the same object.
-* Using an S3 Bucket Policy, you can specify who can access the bucket, what time of day the can access, from which CIDR block, and by IP address.
-* Amazon S3 Standard - Infrequent Access (Standard - IA) is an Amazon S3 storage class for data that is accessed less frequently, but requires rapid access when needed. (99.9 Availability as opposed to 99.99)
-* Public URLs allow users to access the following objects:
-** Objects on which there are no restrictions
-** Objects in an Amazon S3 bucket that end users must access through CloudFront but that don't require a signed URL.
-* An ACL is a list of grants identifying the grantee and the permission granted. The user can use ACLs to grant basic read/write permissions to other AWS accounts. ACLs use an Amazon S3–specific XML schema. The user cannot grant permissions to other users in his account. 
-* ACLs, compared to IAM and Bucket policies, are far less granular, and different permissions can be applied depending if you are applying an ACL at the bucket or object level.</pre>
 </div>
 <div created="20200818180806183" creator="0neir0s" modified="20201011191740349" modifier="0neir0s" tags="index contents" title="Synopsis">
 <pre>The list of tiddlers till date. 
