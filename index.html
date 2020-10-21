@@ -9995,7 +9995,7 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 * With the new EBS multi-attach feature for Provisioned IOPS volumes, you can attach EBS volumes (of this type only) to more than one EC2 instance. So, yes it is possible, but not for all EBS volume types.
 * With the EBS Elastic Volumes feature you can increase volume size, adjust performance, or change the volume type while the volume is in use. You can continue to use your application while the change takes effect.</pre>
 </div>
-<div created="20201011150936485" creator="0neir0s" modified="20201021132748934" modifier="0neir0s" tags="aws notes" title="AWS Strategies">
+<div created="20201011150936485" creator="0neir0s" modified="20201021133135921" modifier="0neir0s" tags="aws notes" title="AWS Strategies">
 <pre>* Use an Elastic Network Interface (ENI) to create a management network, to use network and security appliances in your VPC, to create dual-homed instances with workloads/roles on distinct subnets or to create a low-budget, high-availability solution.
 * Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses.
 * Rebooting primary database instance is the strategy to consistently test db failovers. 
@@ -10014,8 +10014,7 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 * You cannot create a DynamoDB table in a VPC, to connect securely using private addresses you should use a gateway endpoint instead.
 * You can do all tasks using the AWS CLI but it is better to automate the process using AWS CloudFormation.
 * Using the Range HTTP header in a GET Object request, you can fetch a byte-range from an object, transferring only the specified portion. Use concurrent connections to S3 to fetch different byte ranges from within the same object for higher aggregate throughput versus a single whole-object request. Fetching smaller ranges of a large object also allows your application to improve retry times when requests are interrupted.
-* AWS recommends that you don't use the AWS account root user credentials to make authenticated requests. Instead, create an IAM user and grant that user full access. We refer to these users as administrator users.
-* An object ACL is the only way to manage access to objects not owned by the bucket owner</pre>
+* AWS recommends that you don't use the AWS account root user credentials to make authenticated requests. Instead, create an IAM user and grant that user full access. We refer to these users as administrator users.</pre>
 </div>
 <div created="20201013054457687" creator="0neir0s" modified="20201021104713152" modifier="0neir0s" tags="aws notes" title="Databases">
 <pre>* Multi AZ data replication happens synchronously. Storage autoscaling and Compute scaling. Aurora also supports backtrack.
@@ -10050,7 +10049,7 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 <div created="20201021103309953" creator="0neir0s" modified="20201021104023451" modifier="0neir0s" tags="aws notes" title="DataSync">
 <pre>AWS DataSync is a data transfer service that simplifies, automates, and accelerates moving and replicating data between on-premises storage systems and AWS storage services over the internet or AWS Direct Connect.</pre>
 </div>
-<div created="20201021104736412" creator="0neir0s" draft.of="S3" draft.title="S3" modified="20201021131252073" modifier="0neir0s" tags="aws notes" title="Draft of 'S3' by 0neir0s">
+<div created="20201021104736412" creator="0neir0s" draft.of="S3" draft.title="S3" modified="20201021133031988" modifier="0neir0s" tags="aws notes" title="Draft of 'S3' by 0neir0s">
 <pre>* AWS Simple Storage Service is storage for the internet. 
 * Bucket name is globally unique, and the namespace is shared by all AWS accounts. 
 * S3 uses the metadata (key-value pairs for storing object info) and sub-resource mechanism to store object-specific additional information.
@@ -10084,6 +10083,8 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 * An {[[ACL|https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html]]} is a XML based list of grants identifying the grantee and the permission granted. It is used to grant basic read/write permissions to other AWS accounts, but not to grant permissions to other users in his account. 
 * ACLs, compared to IAM and Bucket policies, are far less granular, and different permissions can be applied depending on if you are applying an ACL at the bucket or object level. These ACLs are not inherited to objects.
 * ACL grantee can be an AWS account or one of the predefined Amazon S3 groups -  Authenticated Users group ( all AWS accounts ), All Users group (anyone), Log Delivery group( WRITE permission on a bucket enables this group to write server access logs to the bucket). 
+* The only recommended use case for the bucket ACL is to grant write permission to the Amazon S3 Log Delivery group to write access log objects to your bucket.
+* An object ACL is the only way to manage access to objects not owned by the bucket owner
 
 * The bucket policy can be defined at the bucket level which allows the objects as well as the bucket to be public with a single policy applied to that bucket. It is therefore recommended over ACLs.
 * But, the bucket policy applies only to objects that are owned by the bucket owner. If your bucket contains objects that aren't owned by the bucket owner, public READ permission on those objects should be granted using the object access control list (ACL).
