@@ -9629,7 +9629,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS [[AWS Networking]] [[AWS Storage]]" modified="20201021081421548" modifier="0neir0s" title="$:/StoryList">
+<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS [[AWS EC2]]" modified="20201021082120095" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9852,7 +9852,7 @@ GettingStarted
 * For AWS Database Migration Service, either the source or the target database (or both) need to reside in RDS or on EC2. 
 * Note an automatic snapshot has a limited retention period, and will be deleted if the original instance is deleted.</pre>
 </div>
-<div created="20201011134639869" creator="0neir0s" modified="20201021080112270" modifier="0neir0s" tags="notes aws" title="AWS EC2">
+<div created="20201011134639869" creator="0neir0s" modified="20201021082227504" modifier="0neir0s" tags="notes aws" title="AWS EC2">
 <pre>* Creating an EC2 instance is by selecting the instance type (hardware type) and AMI (software) and optionally, with a database. 
 * Enhanced networking uses single root I/O virtualization (SR-IOV) to provide high-performance networking capabilities - higher I/O performance, lower CPU utilisation, higher bandwidth, higher packets per second, lower inter-instance latencies(jitter) - on supported instance types.
 * EC2 Bootstrapping can enroll an instance to the directory service but cannot bid on spot instances.
@@ -9878,7 +9878,8 @@ GettingStarted
 * Adjusting the cooldown period also minimizes the likelihood of scaling out again before the instances that were deployed in a previous scale out event have had time to warm up and handle requests to their full capability.
 * An Auto Scaling group can contain EC2 instances that come from one or more Availability Zones within the same region. 
 * RDP Debugging: Verify DNS hostname, instance has public IPv4 address, local configuration if ipv6, security group rules, instance status check and windows firewall
-* Options to avoid creating EC2 instances from scratch: Import virtual instances from AMIs, Import Virtual Machines from on-premises using VM Server Migration Service</pre>
+* Options to avoid creating EC2 instances from scratch: Import virtual instances from AMIs, Import Virtual Machines from on-premises using VM Server Migration Service
+* Generally if the user uses the instances around 30-40% of the year annually it is recommended to use RI. Even a scheduled reserved instance has a key limitation, which is that it cannot be stopped or rebooted, only manually terminated with a possibility that it could be restarted.</pre>
 </div>
 <div created="20201014080547604" creator="0neir0s" modified="20201021082105057" modifier="0neir0s" tags="aws notes" title="AWS Networking">
 <pre>* VPC Routing: There is a main route user. And each VPC has an implicit router. And local route in the route table cannot be removed.
