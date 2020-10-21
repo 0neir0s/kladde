@@ -9643,7 +9643,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS RDS" modified="20201021175403378" modifier="0neir0s" title="$:/StoryList">
+<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS S3" modified="20201021175612263" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10122,10 +10122,11 @@ It is not meant to be a daily log. Earlier posts would be updated when mistakes 
 * Disaster Recovery techniques: Backup &amp; Restore, Pilot light, Warm standby, Multi-site.
 * Debugging connectivity issues: Check whether or not the RDS is in the same region as the app as spanning regions is not possible. The other likely issue is that the Security Group of either the RDS or the EC2 (or both) are not configured properly. </pre>
 </div>
-<div created="20201021104736412" creator="0neir0s" modified="20201021135430203" modifier="0neir0s" tags="aws notes" title="S3">
+<div created="20201021104736412" creator="0neir0s" modified="20201021180608048" modifier="0neir0s" tags="aws notes" title="S3">
 <pre>* AWS Simple Storage Service is storage for the internet. 
 * Bucket name is globally unique, and the namespace is shared by all AWS accounts. 
 * S3 uses the metadata (key-value pairs for storing object info) and sub-resource mechanism to store object-specific additional information.
+* If request rate grows steadily, Amazon S3 automatically partitions the buckets as needed to support higher request rates.
 
 * Data
 ** You can store virtually any kind of data in any format. 
@@ -10134,7 +10135,7 @@ It is not meant to be a daily log. Earlier posts would be updated when mistakes 
 ** The largest object that can be uploaded in a single PUT is 5 gigabytes (Multi-part uploads)
 ** The object owner can share objects with others by using a pre-signed URL
 
-* Data replication is an internal facility enabled automatically where S3 automatically replicates each object across all the AZs.
+* Data replication is an internal facility enabled automatically where S3 automatically asynchronously replicates each object across all the AZs.
 * It is possible to have different encryption keys for different versions of the same object.
 * For S3 cross-region replica: Turn on versioning in both source and destination buckets, and use an IAM Policy to permit S3 to replicate your objects.
 * For S3 data at REST protection, AWS provides multiple options - Permission (Policy), Encryption (Client and Server Side), Bucket Versioning and MFA based delete. 
@@ -10176,7 +10177,8 @@ It is not meant to be a daily log. Earlier posts would be updated when mistakes 
 
 * S3 batch operations - these are automated batch operations can apply to a select few operations, including applying object tags (PUT object tag.)
 * S3 object tags vs. bucket tags - object tags are metadata (system or user-defined) that can be applied upon object upload. Bucket tags are cost-allocation tags that assist in managing and tracking service usage and billing. These are very different things. Bucket tags do not have a parent-child relationship with object tags for objects stored within a bucket.
-* S3 Inventory - this service allows you to organize a list of objects stored within a bucket into manifests. The manifests are one source of input of relevant objects to apply updates to in S3 batch operations.</pre>
+* S3 Inventory - this service allows you to organize a list of objects stored within a bucket into manifests. The manifests are one source of input of relevant objects to apply updates to in S3 batch operations.
+* S3 analytics - Storage Class Analysis feature observes data access patterns to help you determine when to transition less frequently accessed standard storage to the IA. But, no recommendations to one zone or glacier.</pre>
 </div>
 <div created="20201011150936485" creator="0neir0s" modified="20201021171148717" modifier="0neir0s" tags="aws notes" title="Strategies">
 <pre>* Use an Elastic Network Interface (ENI) to create a management network, to use network and security appliances in your VPC, to create dual-homed instances with workloads/roles on distinct subnets or to create a low-budget, high-availability solution.
