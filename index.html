@@ -9629,7 +9629,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS [[AWS Services]]" modified="20201021073936547" modifier="0neir0s" title="$:/StoryList">
+<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS [[AWS EC2]]" modified="20201021074719924" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9852,7 +9852,7 @@ GettingStarted
 * For AWS Database Migration Service, either the source or the target database (or both) need to reside in RDS or on EC2. 
 * Note an automatic snapshot has a limited retention period, and will be deleted if the original instance is deleted.</pre>
 </div>
-<div created="20201011134639869" creator="0neir0s" modified="20201021055429990" modifier="0neir0s" tags="notes aws" title="AWS EC2">
+<div created="20201011134639869" creator="0neir0s" modified="20201021075326781" modifier="0neir0s" tags="notes aws" title="AWS EC2">
 <pre>* Creating an EC2 instance is by selecting the instance type (hardware type) and AMI (software) and optionally, with a database. 
 * Enhanced networking uses single root I/O virtualization (SR-IOV) to provide high-performance networking capabilities - higher I/O performance, lower CPU utilisation, higher bandwidth, higher packets per second, lower inter-instance latencies(jitter) - on supported instance types.
 * EC2 Bootstrapping can enroll an instance to the directory service but cannot bid on spot instances.
@@ -9873,7 +9873,10 @@ GettingStarted
 * Billing begins when EC2 initiates the boot sequence of an AMI instance, and ends when the instance terminates. You pay by the second, with a 60-second minimum.
 * Assuming a Linux operating system is in use, pricing is per instance-second consumed for all instance types except Dedicated instances, which still bills on an hourly basis, where partial instance-hours consumed are billed as full hours. Windows instances of all types are still billed at on a per-hour basis.
 * If the user knows that the instance is healthy then he can manually call the SetInstanceHealth action (or the as-set-instance-health command from CLI) to set the instance's health status back to healthy. Auto Scaling will throw an error if the instance is already terminating or else it will mark it healthy.
-* If a user does not select the security group while creating the instance launch configuration, the Launch wizard automatically defines the &quot;launch-wizard-x&quot; security group to allow the user to connect to the instance, which enables all IP addresses (0.0.0.0/0) to access the instance over the specified ports. At the very least, you need to select an AMI and a key pair to launch an instance. [[Reference|https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/launching-instance.html]]</pre>
+* If a user does not select the security group while creating the instance launch configuration, the Launch wizard automatically defines the &quot;launch-wizard-x&quot; security group to allow the user to connect to the instance, which enables all IP addresses (0.0.0.0/0) to access the instance over the specified ports. At the very least, you need to select an AMI and a key pair to launch an instance. [[Reference|https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/launching-instance.html]]
+* To better control scale-out events, you can create a step scaling policy that dictates different levels of scaling based on different utilization levels of a metric you've selected.
+* Adjusting the cooldown period also minimizes the likelihood of scaling out again before the instances that were deployed in a previous scale out event have had time to warm up and handle requests to their full capability.
+* An Auto Scaling group can contain EC2 instances that come from one or more Availability Zones within the same region. </pre>
 </div>
 <div created="20201014080547604" creator="0neir0s" modified="20201021073932227" modifier="0neir0s" tags="aws notes" title="AWS Networking">
 <pre>* VPC Routing: There is a main route user. And each VPC has an implicit router. And local route in the route table cannot be removed.
