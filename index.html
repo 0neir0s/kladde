@@ -9635,7 +9635,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS S3 Databases" modified="20201021135042733" modifier="0neir0s" title="$:/StoryList">
+<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS [[AWS Strategies]] [[AWS Security]] S3 Databases" modified="20201021135333479" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9901,7 +9901,7 @@ GettingStarted
 * A virtual private gateway is a logical, fully redundant distributed edge routing function that sits at the edge of your VPC. As it is capable of terminating VPN connections from your on-prem or customer environments, the VPG is the VPN concentrator on the Amazon side of the Site-to-Site VPN connection. 
 * RTMP distributions are not compatible if transfer should be over HTTPS</pre>
 </div>
-<div created="20201011163446337" creator="0neir0s" modified="20201021094713948" modifier="0neir0s" tags="aws notes" title="AWS Security">
+<div created="20201011163446337" creator="0neir0s" modified="20201021135144669" modifier="0neir0s" tags="aws notes" title="AWS Security">
 <pre>* A policy usually contains the following: [[Overview|https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html]]
 ** Resources/ARN - Buckets, objects, access points, and jobs
 ** Actions and Effect
@@ -9931,10 +9931,7 @@ GettingStarted
 * AWS Key Management Service (KMS) has integrated with AWS CloudHSM, and audits can be accessed using Cloud Trail
 * In addition to SSE-C, Customers also have the option to encrypt data client side before
 uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provide an S3 encryption client that streamlines the process. 
-* Service linked roles are pre-defined and has limited opportunities to edit.
-* Object locks can prevent objects from modification or deletion; objection versioning does not - it only maintains versions of an object until those versions are deleted.
-* Users can only enable Object locks can on new S3 buckets. 
-* Object locks have two retention modes - governance mode and compliance mode. Compliance mode prevents objects from being deleted or updated by users, including the root user. Governance mode allows objects to be modified, but prevents objects from being deleted.</pre>
+* Service linked roles are pre-defined and has limited opportunities to edit.</pre>
 </div>
 <div created="20201011140841846" creator="0neir0s" modified="20201021111745612" modifier="0neir0s" tags="aws notes" title="AWS Services">
 <pre>* SQS structure Producer,  Queue, Consumer. 
@@ -9993,7 +9990,7 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 * With the new EBS multi-attach feature for Provisioned IOPS volumes, you can attach EBS volumes (of this type only) to more than one EC2 instance. So, yes it is possible, but not for all EBS volume types.
 * With the EBS Elastic Volumes feature you can increase volume size, adjust performance, or change the volume type while the volume is in use. You can continue to use your application while the change takes effect.</pre>
 </div>
-<div created="20201011150936485" creator="0neir0s" modified="20201021133135921" modifier="0neir0s" tags="aws notes" title="AWS Strategies">
+<div created="20201011150936485" creator="0neir0s" modified="20201021135358823" modifier="0neir0s" tags="aws notes" title="AWS Strategies">
 <pre>* Use an Elastic Network Interface (ENI) to create a management network, to use network and security appliances in your VPC, to create dual-homed instances with workloads/roles on distinct subnets or to create a low-budget, high-availability solution.
 * Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses.
 * Rebooting primary database instance is the strategy to consistently test db failovers. 
@@ -10001,7 +9998,6 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 * A cluster placement group provides low-latency networking between all instances in the cluster. It is ideal for high performance analytics systems and many science and engineering applications. 
 * For data transfer to EFS, use DataSync. 
 * For SMB based FIle system, AWS FSx for Windows is recommended over EFS, whose key attribute is that it uses NFS, one of the first network file sharing protocols native to Unix and Linux. Additionally, FSx also supports [[Lustre|AWS &amp; Cloud Definitions]]
-* With S3 Object Lock, you can store objects using a write-once-read-many (WORM) model. You can use it to prevent an object from being deleted or overwritten for a fixed amount of time or indefinitely. 2 retention modes: governance and compliance modes. Independently, with object lock, legal holds can also be applied. 
 * Dedicated Instances are Amazon EC2 instances that run in a VPC on hardware that's dedicated to a single customer. Dedicated instances are physically isolated at the host hardware level from instances that belong to other AWS accounts.
 * Read replicas in different regions are available in Amazon RDS for MYSQL, MariaDB, PostgreSQL, Oracle, and Aurora. So, if you need read replicas located in a separate AWS region from the primary DB, don't use SQL Server.
 * General Purpose (SSD), also called gp2, volumes offer cost-effective storage that is ideal for a broad range of workloads - including moderately IO intensive ones.
@@ -10060,7 +10056,7 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 
 It is not meant to be a daily log. Earlier posts would be updated when mistakes are pointed out.</pre>
 </div>
-<div created="20201021104736412" creator="0neir0s" modified="20201021135112025" modifier="0neir0s" tags="aws notes" title="S3">
+<div created="20201021104736412" creator="0neir0s" modified="20201021135430203" modifier="0neir0s" tags="aws notes" title="S3">
 <pre>* AWS Simple Storage Service is storage for the internet. 
 * Bucket name is globally unique, and the namespace is shared by all AWS accounts. 
 * S3 uses the metadata (key-value pairs for storing object info) and sub-resource mechanism to store object-specific additional information.
@@ -10107,6 +10103,10 @@ It is not meant to be a daily log. Earlier posts would be updated when mistakes 
 ** An object ACL is the only way to manage access to objects not owned by the bucket owner
 ** Use a bucket policy to manage cross-account permissions for all amazon S3 permissions. It is however applicable only for objects owned by bucket owner.
 
+* Object locks can prevent objects from modification or deletion, but it can be enabled only on new s3 buckets (WORM). Independently, with object lock, legal holds can also be applied. 
+* Object locks have two retention modes - governance mode and compliance mode. 
+** Compliance mode prevents objects from being deleted or updated by users, including the root user. 
+** Governance mode allows objects to be modified, but prevents objects from being deleted.
 
 * S3 batch operations - these are automated batch operations can apply to a select few operations, including applying object tags (PUT object tag.)
 * S3 object tags vs. bucket tags - object tags are metadata (system or user-defined) that can be applied upon object upload. Bucket tags are cost-allocation tags that assist in managing and tracking service usage and billing. These are very different things. Bucket tags do not have a parent-child relationship with object tags for objects stored within a bucket.
