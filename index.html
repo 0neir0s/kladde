@@ -183,8 +183,6 @@ Error message and password prompt
 
 <li>AWS &amp; Cloud Definitions</li>
 
-<li>AWS Databases</li>
-
 <li>AWS EC2</li>
 
 <li>AWS Networking</li>
@@ -197,13 +195,17 @@ Error message and password prompt
 
 <li>AWS Strategies</li>
 
+<li>Databases</li>
+
 <li>DataSync</li>
 
-<li>Draft of 'AWS Databases' by 0neir0s</li>
+<li>Draft of 'AWS Services' by 0neir0s</li>
 
 <li>DynamoDB</li>
 
 <li>Motivation</li>
+
+<li>S3</li>
 
 <li>Synopsis</li>
 
@@ -9635,7 +9637,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS [[Draft of 'AWS Databases' by 0neir0s]] DynamoDB [[AWS Strategies]] DataSync" modified="20201021103957068" modifier="0neir0s" title="$:/StoryList">
+<div created="20201021052520458" creator="0neir0s" list="S3 Synopsis AWS [[Draft of 'AWS Services' by 0neir0s]] Databases DynamoDB [[AWS Strategies]] DataSync" modified="20201021104751761" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9825,39 +9827,6 @@ GettingStarted
 * AWS Backup is a fully managed backup service that makes it easy to centralize and automate the backup of data across AWS services. It supports backup policies and monitor backup activity of EBS, EC2, RDS databases, DynamoDB tables, EFS, and Storage Gateway volumes. It uses GB-Month as the pricing metric.
 * AWS Storage Gateway is a hybrid cloud storage service that gives you on-premises access to cloud storage. It offers three types - File Gateway, Tape Gateway, and Volume Gateway - for connect on-premises applications to cloud storage, caching data locally for low-latency access. Connect using protocols like NFS, SMB, and iSCSI.
 * Data keys are encryption keys that you can use to encrypt data, including large amounts of data and other data encryption keys.</pre>
-</div>
-<div created="20201013054457687" creator="0neir0s" modified="20201021092833771" modifier="0neir0s" tags="aws notes" title="AWS Databases">
-<pre>* Multi AZ data replication happens synchronously. Storage autoscaling and Compute scaling. Aurora also supports backtrack.
-* All RDS except Aurora used EBS for storage - General purpose, Provisioned IOPS SSD, Magnetic Storage. Aurora uses a shared cluster storage.  
-* Amazon RDS Read Replicas provide enhanced performance and durability for RDS database (DB) instances. They make it easy to elastically scale out beyond the capacity constraints of a single DB instance for read-heavy database workloads. They are for scaling, not for failover and replication happens asynchronously (with secondary in case of Multi-AZ). Also, it cannot increase database service IOPS.
-* You can create a read replica as a Multi-AZ DB instance. Amazon RDS creates a standby of your replica in another Availability Zone for failover support for the replica
-* Amazon RDS creates a second DB instance using a snapshot of the source DB instance. It then uses the engines' native asynchronous replication to update the read replica whenever there is a change to the source DB instance. 
-* A common pattern in DB implementation involves placing databases in private subnets for additional security. If you follow this practice, make sure that the Security Groups provide appropriate ingress and egress to the DB instance.
-* With optional Multi-AZ deployments, Amazon RDS also manages synchronous data replication across Availability Zones with automatic failover.
-* A DB parameter group acts as a container for engine configuration values that are applied to one or more DB instances.
-* Disaster Recovery techniques: Backup &amp; Restore, Pilot light, Warm standby, Multi-site
-* In Neptune, an endpoint is simply a URL address and a port that points to your components - could be cluster, reader, and instance endpoints.
-* Neptune supports 2 query languages - sparql and gremlin. It has redundancies in at least 3 AZs, and has auto-repair.  Replica data synchronisation happens synchronously.  
-* AWS ElastiCache - For in-memory stores. It supports Memcached and Redis. Former is simpler and faster, while latter has more features. With Redis, you can also enable cluster mode where the number of shards per cluster can be increase upto 90 from 1. 
-* Components of ElasticCache - node ( network attached RAM), shard (node group; upto 6) and cluster (1-90 shards)
-* Dynamo DB is a NoSQL database - ( key, value stores ). Steps: create the table and set the provisioned throughput (could be on-demand too). You are charged for storage + throughput. 
-* Each query can only use one index. Dynamo DB allows secondary indexes to allow search by other attributes - global indexes to query across entire table to find any record that matches a particular value and local secondary indexes can only help find data within a single partition key.
-* Automatically replicated across 3 AZs. But, it has only eventual consistency for certain types of queries. There are also limits - record size of 400 kb, and 5 secondary indexes per table.
-* QLDB -  Data is placed into tables of Amazon ion documents. And rest assured, nothing has changed or can be changed through the use of a database journal, which is configured as append-only.
-* Has integration with Amazon Kinesis through the use of QLDB streams.
-* 2 types of storage: Journal storage for immutable history of changes made within the ledger database. Index storage is used to provision the tables and indexes within the ledger database and is optimised for querying.
-* DocumentDB - Runs in a VPC, fully compatible with MongoDB. The automated backups themselves are performed daily, with retention period set between 0 and 35 days.
-* Endpoints similar to Neptune. Like Neptune, it also shares the same underlying storage of the primary instance across a shared volume.
-* Data is replicated synchronously between both the primary DB instance and each replica in the region.
-* Redshift is based upon PostgreSQL 8.0.2. It does ETL jobs.
-** Extraction is the process of retrieving data from one or more sources.
-** Transformation is the process of mapping, reformatting, conforming, adding meaning and more to prepare the data for easy consumption.
-** Loading involves successfully inserting the transform data into the data warehouse.
-* Cluster is the core component of the Amazon Redshift. In every cluster, it runs its own Redshift engine, which will contain at least one database and at least one compute node, (if more, then a leader node as well).
-* Each compute node itself is also split into slices, known as node slice for parallelism 
-* For AWS Database Migration Service, either the source or the target database (or both) need to reside in RDS or on EC2. 
-* Note an automatic snapshot has a limited retention period, and will be deleted if the original instance is deleted.
-* An eviction occurs when a new item is added and an old item must be removed due to lack of free space in the system. For Memcached, if you are encountering evictions, you can either scale up by adding memory or scale out by adding more nodes. Reserved memory is memory set aside for nondata use (Redis)</pre>
 </div>
 <div created="20201011134639869" creator="0neir0s" modified="20201021103840550" modifier="0neir0s" tags="notes aws" title="AWS EC2">
 <pre>* Creating an EC2 instance is by selecting the instance type (hardware type) and AMI (software) and optionally, with a database. 
@@ -10068,10 +10037,7 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 * You can do all tasks using the AWS CLI but it is better to automate the process using AWS CloudFormation.
 * Using the Range HTTP header in a GET Object request, you can fetch a byte-range from an object, transferring only the specified portion. Use concurrent connections to S3 to fetch different byte ranges from within the same object for higher aggregate throughput versus a single whole-object request. Fetching smaller ranges of a large object also allows your application to improve retry times when requests are interrupted.</pre>
 </div>
-<div created="20201021103309953" creator="0neir0s" modified="20201021104023451" modifier="0neir0s" tags="aws notes" title="DataSync">
-<pre>AWS DataSync is a data transfer service that simplifies, automates, and accelerates moving and replicating data between on-premises storage systems and AWS storage services over the internet or AWS Direct Connect.</pre>
-</div>
-<div created="20201013054457687" creator="0neir0s" draft.of="AWS Databases" draft.title="AWS Databases" modified="20201021104051717" modifier="0neir0s" tags="aws notes" title="Draft of 'AWS Databases' by 0neir0s">
+<div created="20201013054457687" creator="0neir0s" modified="20201021104713152" modifier="0neir0s" tags="aws notes" title="Databases">
 <pre>* Multi AZ data replication happens synchronously. Storage autoscaling and Compute scaling. Aurora also supports backtrack.
 * All RDS except Aurora used EBS for storage - General purpose, Provisioned IOPS SSD, Magnetic Storage. Aurora uses a shared cluster storage.  
 * Amazon RDS Read Replicas provide enhanced performance and durability for RDS database (DB) instances. They make it easy to elastically scale out beyond the capacity constraints of a single DB instance for read-heavy database workloads. They are for scaling, not for failover and replication happens asynchronously (with secondary in case of Multi-AZ). Also, it cannot increase database service IOPS.
@@ -10101,6 +10067,53 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 * Note an automatic snapshot has a limited retention period, and will be deleted if the original instance is deleted.
 * An eviction occurs when a new item is added and an old item must be removed due to lack of free space in the system. For Memcached, if you are encountering evictions, you can either scale up by adding memory or scale out by adding more nodes. Reserved memory is memory set aside for nondata use (Redis)</pre>
 </div>
+<div created="20201021103309953" creator="0neir0s" modified="20201021104023451" modifier="0neir0s" tags="aws notes" title="DataSync">
+<pre>AWS DataSync is a data transfer service that simplifies, automates, and accelerates moving and replicating data between on-premises storage systems and AWS storage services over the internet or AWS Direct Connect.</pre>
+</div>
+<div created="20201011140841846" creator="0neir0s" draft.of="AWS Services" draft.title="AWS Services" modified="20201021104924526" modifier="0neir0s" tags="aws notes" title="Draft of 'AWS Services' by 0neir0s">
+<pre>* SQS structure Producer,  Queue, Consumer. 
+* The types are standard queues, FIFO queues and dead letter queues.
+* Since AWS is a distributed service, the consumer must delete the message from the queue after receiving and processing it.
+* Visibility timeout is a period of time during which Amazon SQS prevents other consumers from receiving and processing the message. 
+* The pricing of SQS is as follows: You pay only for what you use, and there is no minimum fee. The cost of Amazon SQS is calculated per request, plus data transfer charges for data transferred out of Amazon SQS. The Amazon SQS Free Tier provides you with 1 million requests per month at no charge
+* Amazon SQS provides short polling (default) and long polling to receive messages from a queue. When the ReceiveMessageWaitTimeSeconds property of a queue is set to a value greater than zero, long polling is in effect. 
+* Short polling - request queries only a subset of the servers and sends the response right away. Long polling - request queries all of the servers for messages and sends a response after it collects at least one available message.
+* SNS is a pub-sub messaging service which integrates with many different types of services.
+* Route 53 can handle on-premises DNS resolution on its own.
+* Kinesis
+
+* Lambda
+
+* Elasticache
+
+* In Amazon CloudFront, the Cache-Control max-age directive lets you specify how long (in seconds) you want the object to remain in the cache
+
+* AWS Organizations is a web service that enables you to consolidate your multiple AWS accounts into an organization and centrally manage your accounts and their resources.
+
+* Consolidated building
+** AWS consolidated billing enables the organization to consolidate payments for multiple Amazon Web Services (AWS) accounts within a single organization by making a single paying account. 
+** Consolidated billing enables the organization to see a combined view of the AWS charges incurred by each account as well as obtain a detailed cost report for each of the individual AWS accounts associated with the paying account.
+** Each AWS account needs to create an AWS billing policy to provide permission to the payee account if multiple account want to use a single payee account through the consolidated billing option. The payee account will not have any other access than billing data of linked accounts.
+
+*Cost Explorer - In your AWS billing account, a forecast is a prediction of how much you will use AWS over the next three months, based on your past usage.
+* In Amazon CloudFront, requests for your dynamic content are carried back to your origin servers running in Amazon Web Services (e.g., Amazon EC2, Elastic Load Balancing) over optimized network paths for a more reliable and consistent experience.
+
+* AWS Config allows you to utilise config Rules to help you manage and organize this compliance which acts as an automatic resource compliance checker. AWS Config rules are limited to a region scope. 
+* A CI is a JSON file that holds the configuration information, relationship information and other metadata as a point-in-time snapshot view of a supported resource. Used by history, streams and snapshots
+* In Attribute section, there is a unique resource ID and any key-value tags that are associated with the resource.
+* AWS Config has relationships with other services, specifically SNS and S3. IAM policies are used to enable the service.
+* S3 is used to store the Configuration History files and any Configuration snapshots of your data within a single bucket, which is defined within the Configuration recorder. 
+
+* CloudWatch Log Events have a size limitation of 256K. For greater management, new log files are typically created every 5 minutes. 
+* CloudTrail applies and configures a Bucket Policy with the relevant permissions allowing logs to be delivered to the Bucket if you choose to create a new bucket.
+** EventSource refers to the service to which the API called was made.
+** Event selectors allow you to add a level of customization to the type of API requests you want the corresponding trail to capture
+** AWS offers the ability to aggregate CloudTrail logs from multiple accounts into a single S3 bucket and so &quot;AccountId&quot; helps with log identification and management
+* To allow CloudTrail to deliver these logs to CloudWatch, CloudTrail must have the correct permissions, and these are gained by assuming a Role with the relevant permissions needed to run two CloudWatch APIs - CreateLogStream and PutLogEvents
+* Event format: AccountID_CloudTrail_RegionName_YYYYMMDDTHHmmZ_UniqueString.FileNameFormat
+
+</pre>
+</div>
 <div created="20201021104053932" creator="0neir0s" modified="20201021104321907" modifier="0neir0s" tags="aws notes" title="DynamoDB">
 <pre>* DynamoDB is a managed NoSQL database - ( key, value stores )
 * Steps involved: create the table and set the provisioned throughput (could be on-demand too). You are charged for storage + throughput. 
@@ -10113,6 +10126,39 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 <pre>The idea is to make sure the tiddlers while trivial individually, will start making sense in its entirety - i.e, they form a gestalt. 
 
 It is not meant to be a daily log. Earlier posts would be updated when mistakes are pointed out.</pre>
+</div>
+<div created="20201021104736412" creator="0neir0s" modified="20201021105517618" modifier="0neir0s" tags="aws notes" title="S3">
+<pre>* AWS Simple Storage Service is storage for the internet. 
+
+* Data
+** You can store virtually any kind of data in any format. 
+** All Amazon S3 objects by default are private.
+** Individual Amazon S3 objects can range in size from 0 bytes to 5 TB
+** The largest object that can be uploaded in a single PUT is 5 gigabytes (Multi-part uploads for bigger)
+** The object owner can share objects with others by using a pre-signed URL
+
+* Generally if the user is defining the ACL on the s3 bucket, the objects in the bucket do not inherit it and vice a versa. The bucket policy can be defined at the bucket level which allows the objects as well as the bucket to be public with a single policy applied to that bucket. It is therefore recommended over ACLs.
+* But, the bucket policy applies only to objects that are owned by the bucket owner. If your bucket contains objects that aren't owned by the bucket owner, public READ permission on those objects should be granted using the object access control list (ACL).
+*  If you make an object public in a non-public bucket (AWS docs term for private), people can access your objects (read &amp; get), but cannot list what objects are in the related bucket, or read/get other objects stored in the bucket, unless explicitly allowed.
+*  An S3 bucket ACL grantee can be an AWS account or one of the predefined Amazon S3 groups. They are: Authenticated Users group ( all AWS accounts ), All Users group (anyone), Log Delivery group( WRITE permission on a bucket enables this group to write server access logs to the bucket). {[[ACL Overview|https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html]]}
+* Amazon S3 Transfer Acceleration is used for speeding up uploads of data to Amazon S3 by using the CloudFront network. It is not used for downloading data.
+* When a bucket policy is applied the permissions assigned apply to all objects within that Bucket. This policy introduces a new attribute called ‘principal’. Principals are not needed for IAM policies, as it is already defined by who is associated with that policy.
+* S3 batch operations - these are automated batch operations can apply to a select few operations, including applying object tags (PUT object tag.)
+* S3 object tags vs. bucket tags - object tags are metadata (system or user-defined) that can be applied upon object upload. Bucket tags are cost-allocation tags that assist in managing and tracking service usage and billing. These are very different things. Bucket tags do not have a parent-child relationship with object tags for objects stored within a bucket.
+* S3 Inventory - this service allows you to organize a list of objects stored within a bucket into manifests. The manifests are one source of input of relevant objects to apply updates to in S3 batch operations.
+* To retrieve Amazon S3 data stored in the S3 Glacier storage class, initiate a retrieval request using the Amazon S3 APIs or the Amazon S3 Management Console. The retrieval request creates a temporary copy of your data in the S3 RRS or S3 Standard-IA storage class while leaving the archived data intact in S3 Glacier.
+* For S3 cross-region replica: Turn on versioning in both source and destination buckets, and use an IAM Policy to permit S3 to replicate your objects.
+* For S3 data at REST protection, AWS provides multiple options - Permission (Policy), Encryption (Client and Server Side), Bucket Versioning and MFA based delete. Data replication is an internal facility enabled automatically where S3 automatically replicates each object across all the AZs.
+* AWS S3-IA (infrequently Accessed) comes at a lower monthly cost but has a minimum duration of 30 days. Glacier storage is for archiving data that does not need real-time access. Recovert time is three to five hours.
+* Web browsers will block the execution of a script that originates from a server with a different domain name than the webpage. Amazon S3 can be configured with CORS to send HTTP headers that allow the script execution.
+* S3 allows multi-part uploading for large files. And it is possible to have different encryption keys for different versions of the same object.
+* Using an S3 Bucket Policy, you can specify who can access the bucket, what time of day the can access, from which CIDR block, and by IP address.
+* Amazon S3 Standard - Infrequent Access (Standard - IA) is an Amazon S3 storage class for data that is accessed less frequently, but requires rapid access when needed. (99.9 Availability as opposed to 99.99)
+* Public URLs allow users to access the following objects:
+** Objects on which there are no restrictions
+** Objects in an Amazon S3 bucket that end users must access through CloudFront but that don't require a signed URL.
+* An ACL is a list of grants identifying the grantee and the permission granted. The user can use ACLs to grant basic read/write permissions to other AWS accounts. ACLs use an Amazon S3–specific XML schema. The user cannot grant permissions to other users in his account. 
+* ACLs, compared to IAM and Bucket policies, are far less granular, and different permissions can be applied depending if you are applying an ACL at the bucket or object level.</pre>
 </div>
 <div created="20200818180806183" creator="0neir0s" modified="20201011191740349" modifier="0neir0s" tags="index contents" title="Synopsis">
 <pre>The list of tiddlers till date. 
