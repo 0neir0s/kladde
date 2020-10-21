@@ -9850,7 +9850,7 @@ GettingStarted
 * Each compute node itself is also split into slices, known as node slice for parallelism 
 * For AWS Database Migration Service, either the source or the target database (or both) need to reside in RDS or on EC2. </pre>
 </div>
-<div created="20201011134639869" creator="0neir0s" modified="20201019173941983" modifier="0neir0s" tags="notes aws" title="AWS EC2">
+<div created="20201011134639869" creator="0neir0s" modified="20201021054611237" modifier="0neir0s" tags="notes aws" title="AWS EC2">
 <pre>* Creating an EC2 instance is by selecting the instance type (hardware type) and AMI (software) and optionally, with a database. 
 * Enhanced networking uses single root I/O virtualization (SR-IOV) to provide high-performance networking capabilities - higher I/O performance, lower CPU utilisation, higher bandwidth, higher packets per second, lower inter-instance latencies(jitter) - on supported instance types.
 * EC2 Bootstrapping can enroll an instance to the directory service but cannot bid on spot instances.
@@ -9867,7 +9867,9 @@ GettingStarted
 ** An IAM trust policy that allows the EC2 instance to assume a role
 ** An IAM policy or S3 bucket policy that allows the role to get/put objects to the specific bucket
 * An Amazon EBS-optimized instance uses an optimized configuration stack with the goal of providing additional, dedicated capacity for Amazon EBS I/O. 
-* Hibernating an instance saves the contents of RAM to the Amazon EBS root volume. When the instance restarts, the RAM contents are reloaded.</pre>
+* Hibernating an instance saves the contents of RAM to the Amazon EBS root volume. When the instance restarts, the RAM contents are reloaded.
+* Billing begins when EC2 initiates the boot sequence of an AMI instance, and ends when the instance terminates. You pay by the second, with a 60-second minimum.
+* Assuming a Linux operating system is in use, pricing is per instance-second consumed for all instance types except Dedicated instances, which still bills on an hourly basis, where partial instance-hours consumed are billed as full hours. Windows instances of all types are still billed at on a per-hour basis.</pre>
 </div>
 <div created="20201014080547604" creator="0neir0s" modified="20201021054355663" modifier="0neir0s" tags="aws notes" title="AWS Networking">
 <pre>* VPC Routing: There is a main route user. And each VPC has an implicit router. And local route in the route table cannot be removed.
