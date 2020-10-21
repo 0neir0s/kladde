@@ -199,6 +199,10 @@ Error message and password prompt
 
 <li>DataSync</li>
 
+<li>Draft of 'AWS Databases' by 0neir0s</li>
+
+<li>Draft of 'DynamoDB' by 0neir0s</li>
+
 <li>Motivation</li>
 
 <li>Synopsis</li>
@@ -9631,7 +9635,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS [[AWS &amp; Cloud Definitions]] [[AWS Strategies]] DataSync" modified="20201021103257950" modifier="0neir0s" title="$:/StoryList">
+<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS [[Draft of 'AWS Databases' by 0neir0s]] [[AWS &amp; Cloud Definitions]] [[Draft of 'DynamoDB' by 0neir0s]] [[AWS Strategies]] DataSync" modified="20201021103957068" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9692,7 +9696,7 @@ GettingStarted
     }
 }</pre>
 </div>
-<div created="20200818173846533" creator="0neir0s" modified="20200920061907450" modifier="0neir0s" title="$:/temp/NewTagName">
+<div created="20200818173846533" creator="0neir0s" modified="20201021103327089" modifier="0neir0s" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.22">
@@ -9809,19 +9813,18 @@ GettingStarted
 
 &lt;&lt;list-links &quot;[tag[aws]reverse[]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20201011140533219" creator="0neir0s" modified="20201021103114010" modifier="0neir0s" tags="aws notes" title="AWS &amp; Cloud Definitions">
+<div created="20201011140533219" creator="0neir0s" modified="20201021103908050" modifier="0neir0s" tags="aws notes" title="AWS &amp; Cloud Definitions">
 <pre>* A recovery time objective (RTO) - the maximum acceptable time to restore system service after a disruption
 * A recovery point objective (RPO) - the maximum acceptable amount of data loss measured in time. 
 * IOPS optimised -  SSD-backed storage for transactional workloads, such as databases and boot volumes
-* Throughput optimised - HDD-backed storage for throughput intensive workloads, such as MapReduce and log processing
+* Throughput optimised - HDD-backed storage for throughput intensive workloads, such as Map-Reduce and log processing
 * HA in EC2 - The user can achieve high availability by deploying instances in multiple availability zones, using elastic IP because when one of the instances fails, the elastic IP keeps the failed instances URL and Load balancing as it helps with distribution of traffic and auto-scales its request handling capacity.
 * Dual-homed is an Ethernet device that has more than one network interface, for redundancy purposes.
 * Stop guessing capacity is usually done by auto deployments based on performance metrics.
 * The Lustre file system is an open source parallel distributed file system, designed for high-performance computing workloads that typically run on compute clusters.
 * AWS Backup is a fully managed backup service that makes it easy to centralize and automate the backup of data across AWS services. It supports backup policies and monitor backup activity of EBS, EC2, RDS databases, DynamoDB tables, EFS, and Storage Gateway volumes. It uses GB-Month as the pricing metric.
 * AWS Storage Gateway is a hybrid cloud storage service that gives you on-premises access to cloud storage. It offers three types - File Gateway, Tape Gateway, and Volume Gateway - for connect on-premises applications to cloud storage, caching data locally for low-latency access. Connect using protocols like NFS, SMB, and iSCSI.
-* Data keys are encryption keys that you can use to encrypt data, including large amounts of data and other data encryption keys.
-* AWS DataSync is a data transfer service that simplifies, automates, and accelerates moving and replicating data between on-premises storage systems and AWS storage services over the internet or AWS Direct Connect.</pre>
+* Data keys are encryption keys that you can use to encrypt data, including large amounts of data and other data encryption keys.</pre>
 </div>
 <div created="20201013054457687" creator="0neir0s" modified="20201021092833771" modifier="0neir0s" tags="aws notes" title="AWS Databases">
 <pre>* Multi AZ data replication happens synchronously. Storage autoscaling and Compute scaling. Aurora also supports backtrack.
@@ -9856,8 +9859,9 @@ GettingStarted
 * Note an automatic snapshot has a limited retention period, and will be deleted if the original instance is deleted.
 * An eviction occurs when a new item is added and an old item must be removed due to lack of free space in the system. For Memcached, if you are encountering evictions, you can either scale up by adding memory or scale out by adding more nodes. Reserved memory is memory set aside for nondata use (Redis)</pre>
 </div>
-<div created="20201011134639869" creator="0neir0s" modified="20201021100252704" modifier="0neir0s" tags="notes aws" title="AWS EC2">
+<div created="20201011134639869" creator="0neir0s" modified="20201021103840550" modifier="0neir0s" tags="notes aws" title="AWS EC2">
 <pre>* Creating an EC2 instance is by selecting the instance type (hardware type) and AMI (software) and optionally, with a database. 
+* Amazon EC2 uses an instance profile as a container for an IAM role. When you create an IAM role using the IAM console, the console creates an instance profile automatically and gives it the same name as the role to which it corresponds. 
 * Enhanced networking uses single root I/O virtualization (SR-IOV) to provide high-performance networking capabilities - higher I/O performance, lower CPU utilisation, higher bandwidth, higher packets per second, lower inter-instance latencies(jitter) - on supported instance types.
 * EC2 Bootstrapping can enroll an instance to the directory service but cannot bid on spot instances.
 * EBS Volume attached to an EC2 needs to be detached before attaching to another running instance
@@ -10064,8 +10068,44 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 * You can do all tasks using the AWS CLI but it is better to automate the process using AWS CloudFormation.
 * Using the Range HTTP header in a GET Object request, you can fetch a byte-range from an object, transferring only the specified portion. Use concurrent connections to S3 to fetch different byte ranges from within the same object for higher aggregate throughput versus a single whole-object request. Fetching smaller ranges of a large object also allows your application to improve retry times when requests are interrupted.</pre>
 </div>
-<div created="20201021103309953" creator="0neir0s" modified="20201021103317045" modifier="0neir0s" title="DataSync">
+<div created="20201021103309953" creator="0neir0s" modified="20201021104023451" modifier="0neir0s" tags="aws notes" title="DataSync">
 <pre>AWS DataSync is a data transfer service that simplifies, automates, and accelerates moving and replicating data between on-premises storage systems and AWS storage services over the internet or AWS Direct Connect.</pre>
+</div>
+<div created="20201013054457687" creator="0neir0s" draft.of="AWS Databases" draft.title="AWS Databases" modified="20201021103931056" modifier="0neir0s" tags="aws notes" title="Draft of 'AWS Databases' by 0neir0s">
+<pre>* Multi AZ data replication happens synchronously. Storage autoscaling and Compute scaling. Aurora also supports backtrack.
+* All RDS except Aurora used EBS for storage - General purpose, Provisioned IOPS SSD, Magnetic Storage. Aurora uses a shared cluster storage.  
+* Amazon RDS Read Replicas provide enhanced performance and durability for RDS database (DB) instances. They make it easy to elastically scale out beyond the capacity constraints of a single DB instance for read-heavy database workloads. They are for scaling, not for failover and replication happens asynchronously (with secondary in case of Multi-AZ). Also, it cannot increase database service IOPS.
+* You can create a read replica as a Multi-AZ DB instance. Amazon RDS creates a standby of your replica in another Availability Zone for failover support for the replica
+* Amazon RDS creates a second DB instance using a snapshot of the source DB instance. It then uses the engines' native asynchronous replication to update the read replica whenever there is a change to the source DB instance. 
+* A common pattern in DB implementation involves placing databases in private subnets for additional security. If you follow this practice, make sure that the Security Groups provide appropriate ingress and egress to the DB instance.
+* With optional Multi-AZ deployments, Amazon RDS also manages synchronous data replication across Availability Zones with automatic failover.
+* A DB parameter group acts as a container for engine configuration values that are applied to one or more DB instances.
+* Disaster Recovery techniques: Backup &amp; Restore, Pilot light, Warm standby, Multi-site
+* In Neptune, an endpoint is simply a URL address and a port that points to your components - could be cluster, reader, and instance endpoints.
+* Neptune supports 2 query languages - sparql and gremlin. It has redundancies in at least 3 AZs, and has auto-repair.  Replica data synchronisation happens synchronously.  
+* AWS ElastiCache - For in-memory stores. It supports Memcached and Redis. Former is simpler and faster, while latter has more features. With Redis, you can also enable cluster mode where the number of shards per cluster can be increase upto 90 from 1. 
+* Components of ElasticCache - node ( network attached RAM), shard (node group; upto 6) and cluster (1-90 shards)
+* Dynamo DB is a NoSQL database - ( key, value stores ). Steps: create the table and set the provisioned throughput (could be on-demand too). You are charged for storage + throughput. 
+* Each query can only use one index. Dynamo DB allows secondary indexes to allow search by other attributes - global indexes to query across entire table to find any record that matches a particular value and local secondary indexes can only help find data within a single partition key.
+* Automatically replicated across 3 AZs. But, it has only eventual consistency for certain types of queries. There are also limits - record size of 400 kb, and 5 secondary indexes per table.
+* QLDB -  Data is placed into tables of Amazon ion documents. And rest assured, nothing has changed or can be changed through the use of a database journal, which is configured as append-only.
+* Has integration with Amazon Kinesis through the use of QLDB streams.
+* 2 types of storage: Journal storage for immutable history of changes made within the ledger database. Index storage is used to provision the tables and indexes within the ledger database and is optimised for querying.
+* DocumentDB - Runs in a VPC, fully compatible with MongoDB. The automated backups themselves are performed daily, with retention period set between 0 and 35 days.
+* Endpoints similar to Neptune. Like Neptune, it also shares the same underlying storage of the primary instance across a shared volume.
+* Data is replicated synchronously between both the primary DB instance and each replica in the region.
+* Redshift is based upon PostgreSQL 8.0.2. It does ETL jobs.
+** Extraction is the process of retrieving data from one or more sources.
+** Transformation is the process of mapping, reformatting, conforming, adding meaning and more to prepare the data for easy consumption.
+** Loading involves successfully inserting the transform data into the data warehouse.
+* Cluster is the core component of the Amazon Redshift. In every cluster, it runs its own Redshift engine, which will contain at least one database and at least one compute node, (if more, then a leader node as well).
+* Each compute node itself is also split into slices, known as node slice for parallelism 
+* For AWS Database Migration Service, either the source or the target database (or both) need to reside in RDS or on EC2. 
+* Note an automatic snapshot has a limited retention period, and will be deleted if the original instance is deleted.
+* An eviction occurs when a new item is added and an old item must be removed due to lack of free space in the system. For Memcached, if you are encountering evictions, you can either scale up by adding memory or scale out by adding more nodes. Reserved memory is memory set aside for nondata use (Redis)</pre>
+</div>
+<div draft.of="DynamoDB" draft.title="DynamoDB" modified="20201021103951001" modifier="0neir0s" tags="aws notes" title="Draft of 'DynamoDB' by 0neir0s">
+<pre></pre>
 </div>
 <div created="20200818173814631" creator="0neir0s" modified="20201017133615024" modifier="0neir0s" published="" tags="goal published" title="Motivation" type="metadata">
 <pre>The idea is to make sure the tiddlers while trivial individually, will start making sense in its entirety - i.e, they form a gestalt. 
