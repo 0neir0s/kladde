@@ -9635,7 +9635,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201021052520458" creator="0neir0s" list="S3 Synopsis AWS [[AWS Strategies]]" modified="20201021132733332" modifier="0neir0s" title="$:/StoryList">
+<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS S3 Databases" modified="20201021135042733" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10060,7 +10060,7 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 
 It is not meant to be a daily log. Earlier posts would be updated when mistakes are pointed out.</pre>
 </div>
-<div created="20201021104736412" creator="0neir0s" modified="20201021134747700" modifier="0neir0s" tags="aws notes" title="S3">
+<div created="20201021104736412" creator="0neir0s" modified="20201021135112025" modifier="0neir0s" tags="aws notes" title="S3">
 <pre>* AWS Simple Storage Service is storage for the internet. 
 * Bucket name is globally unique, and the namespace is shared by all AWS accounts. 
 * S3 uses the metadata (key-value pairs for storing object info) and sub-resource mechanism to store object-specific additional information.
@@ -10080,8 +10080,8 @@ It is not meant to be a daily log. Earlier posts would be updated when mistakes 
 * Web browsers block the execution of a script that originates from a server with a different domain name than the webpage. So, S3 can be configured with CORS to send HTTP headers that allow the script execution.
 
 * Types
-* To retrieve data stored in S3 Glacier, initiate a retrieval request using the Amazon S3 APIs or the Amazon S3 Management Console. The retrieval request creates a temporary copy of your data in the RRS or Standard-IA while leaving the archived data intact in Glacier. Recovery time is three to five hours.
-* AWS S3-IA (infrequently Accessed) comes at a lower monthly cost compared to standard, but has a minimum duration of 30 days. It is for data that is accessed less frequently, but requires rapid access when needed. (99.9 Availability as opposed to 99.99)
+** To retrieve data stored in S3 Glacier, initiate a retrieval request using the Amazon S3 APIs or the Amazon S3 Management Console. The retrieval request creates a temporary copy of your data in the RRS or Standard-IA while leaving the archived data intact in Glacier. Recovery time is three to five hours.
+** AWS S3-IA (infrequently Accessed) comes at a lower monthly cost compared to standard, but has a minimum duration of 30 days. It is for data that is accessed less frequently, but requires rapid access when needed. (99.9 Availability as opposed to 99.99)
 
 * Access
 ** Public access is granted to buckets and objects through access control lists (ACLs), bucket policies, or both. 
@@ -10095,7 +10095,7 @@ It is not meant to be a daily log. Earlier posts would be updated when mistakes 
 *** Convert all access policies at run time into a set of policies for evaluation.
 *** Evaluate the resulting set of policies in the following order - user context, bucket context, object context.
 
-* An {[[ACL|https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html]]} is a XML based list of grants identifying the grantee and the permission granted. It is used to grant basic read/write permissions to other AWS accounts, but not to grant permissions to other users in his account. 
+* An [[ACL|https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html]] is a XML based list of grants identifying the grantee and the permission granted. It is used to grant basic read/write permissions to other AWS accounts, but not to grant permissions to other users in his account. 
 * ACLs, compared to IAM and Bucket policies, are far less granular, and different permissions can be applied depending on if you are applying an ACL at the bucket or object level. These ACLs are not inherited to objects.
 * ACL grantee can be an AWS account or one of the predefined Amazon S3 groups -  Authenticated Users group ( all AWS accounts ), All Users group (anyone), Log Delivery group( WRITE permission on a bucket enables this group to write server access logs to the bucket). 
 * The bucket policy can be defined at the bucket level which allows the objects as well as the bucket to be public with a single policy applied to that bucket. It is therefore recommended over ACLs.
