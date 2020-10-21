@@ -9629,7 +9629,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS [[AWS EC2]]" modified="20201021082120095" modifier="0neir0s" title="$:/StoryList">
+<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS [[AWS Security]]" modified="20201021082528567" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9917,7 +9917,7 @@ GettingStarted
 * A virtual private gateway is a logical, fully redundant distributed edge routing function that sits at the edge of your VPC. As it is capable of terminating VPN connections from your on-prem or customer environments, the VPG is the VPN concentrator on the Amazon side of the Site-to-Site VPN connection. 
 * RTMP distributions are not compatible if transfer should be over HTTPS</pre>
 </div>
-<div created="20201011163446337" creator="0neir0s" modified="20201019174151488" modifier="0neir0s" tags="aws notes" title="AWS Security">
+<div created="20201011163446337" creator="0neir0s" modified="20201021082609761" modifier="0neir0s" tags="aws notes" title="AWS Security">
 <pre>* A policy usually contains the following: [[Overview|https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html]]
 ** Resources/ARN - Buckets, objects, access points, and jobs
 ** Actions and Effect
@@ -9945,7 +9945,8 @@ GettingStarted
 * Key administrators have permissions to manage the CMK, but do not have permissions to use the CMK in cryptographic operations.
 * AWS Key Management Service (KMS) has integrated with AWS CloudHSM, and audits can be accessed using Cloud Trail
 * In addition to SSE-C, Customers also have the option to encrypt data client side before
-uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provide an S3 encryption client that streamlines the process. </pre>
+uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provide an S3 encryption client that streamlines the process. 
+* Service linked roles are pre-defined and has limited opportunities to edit.</pre>
 </div>
 <div created="20201011140841846" creator="0neir0s" modified="20201021074717028" modifier="0neir0s" tags="aws notes" title="AWS Services">
 <pre>* SQS structure Producer,  Queue, Consumer. 
@@ -10009,7 +10010,7 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 
 </pre>
 </div>
-<div created="20201013201236563" creator="0neir0s" modified="20201021080123315" modifier="0neir0s" tags="aws notes" title="AWS Storage">
+<div created="20201013201236563" creator="0neir0s" modified="20201021082236327" modifier="0neir0s" tags="aws notes" title="AWS Storage">
 <pre>* AWS Snowball is for transferring petabyte scale data into and out of AWS.
 * AWS Certificate Manager is a service that lets you easily provision, manage, and deploy Secure Sockets Layer/Transport Layer Security (SSL/TLS) certificates for use with AWS services. You can use SSL from your application to encrypt a connection to a DB instance running MySQL, MariaDB, Amazon Aurora, SQL Server, Oracle, or PostgreSQL.
 * Both file gateways and cached volume gateways provide local caches to store frequently accessed data. Stored volume gateways keep all files locally, so all stored data can be retrieve with reduced latency. Tape gateways are an archival method, and not ideal for data that needs to be readily available.
@@ -10019,7 +10020,8 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 * Initializing volumes (formerly known as pre-warming) has changed from its prior functionality. Formerly, you would have to initialize (pre-warm) a newly created volume from scratch. This is no longer necessary. Newly created volumes created from snapshots still need to be pre-warmed by reading from the blocks that contain data.
 * EBS volumes are created in a specific Availability Zone, and can then be attached to any instances in that same Availability Zone
 * There is no additional cost for on-premises access to your Amazon EFS file systems. 
-* With the new EBS multi-attach feature for Provisioned IOPS volumes, you can attach EBS volumes (of this type only) to more than one EC2 instance. So, yes it is possible, but not for all EBS volume types.</pre>
+* With the new EBS multi-attach feature for Provisioned IOPS volumes, you can attach EBS volumes (of this type only) to more than one EC2 instance. So, yes it is possible, but not for all EBS volume types.
+* With the EBS Elastic Volumes feature you can increase volume size, adjust performance, or change the volume type while the volume is in use. You can continue to use your application while the change takes effect.</pre>
 </div>
 <div created="20201011150936485" creator="0neir0s" modified="20201019191512942" modifier="0neir0s" tags="aws notes" title="AWS Strategies">
 <pre>* Use an Elastic Network Interface (ENI) to create a management network, to use network and security appliances in your VPC, to create dual-homed instances with workloads/roles on distinct subnets or to create a low-budget, high-availability solution.
