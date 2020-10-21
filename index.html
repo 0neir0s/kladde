@@ -9637,7 +9637,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201021052520458" creator="0neir0s" list="[[Draft of 'S3' by 0neir0s]] Synopsis AWS [[AWS Services]] Databases DynamoDB [[AWS Strategies]] DataSync" modified="20201021111623938" modifier="0neir0s" title="$:/StoryList">
+<div created="20201021052520458" creator="0neir0s" list="[[Draft of 'S3' by 0neir0s]] Synopsis AWS Databases DynamoDB [[AWS Strategies]] DataSync" modified="20201021111623938" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9995,7 +9995,7 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 * With the new EBS multi-attach feature for Provisioned IOPS volumes, you can attach EBS volumes (of this type only) to more than one EC2 instance. So, yes it is possible, but not for all EBS volume types.
 * With the EBS Elastic Volumes feature you can increase volume size, adjust performance, or change the volume type while the volume is in use. You can continue to use your application while the change takes effect.</pre>
 </div>
-<div created="20201011150936485" creator="0neir0s" modified="20201021103256785" modifier="0neir0s" tags="aws notes" title="AWS Strategies">
+<div created="20201011150936485" creator="0neir0s" modified="20201021112934937" modifier="0neir0s" tags="aws notes" title="AWS Strategies">
 <pre>* Use an Elastic Network Interface (ENI) to create a management network, to use network and security appliances in your VPC, to create dual-homed instances with workloads/roles on distinct subnets or to create a low-budget, high-availability solution.
 * Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses.
 * Rebooting primary database instance is the strategy to consistently test db failovers. 
@@ -10013,7 +10013,8 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 * Since S3 does not store the encryption keys in SSE-C, it is recommended that the user should manage keys securely and keep rotating them regularly.
 * You cannot create a DynamoDB table in a VPC, to connect securely using private addresses you should use a gateway endpoint instead.
 * You can do all tasks using the AWS CLI but it is better to automate the process using AWS CloudFormation.
-* Using the Range HTTP header in a GET Object request, you can fetch a byte-range from an object, transferring only the specified portion. Use concurrent connections to S3 to fetch different byte ranges from within the same object for higher aggregate throughput versus a single whole-object request. Fetching smaller ranges of a large object also allows your application to improve retry times when requests are interrupted.</pre>
+* Using the Range HTTP header in a GET Object request, you can fetch a byte-range from an object, transferring only the specified portion. Use concurrent connections to S3 to fetch different byte ranges from within the same object for higher aggregate throughput versus a single whole-object request. Fetching smaller ranges of a large object also allows your application to improve retry times when requests are interrupted.
+* AWS recommends that you don't use the AWS account root user credentials to make authenticated requests. Instead, create an IAM user and grant that user full access. We refer to these users as administrator users.</pre>
 </div>
 <div created="20201013054457687" creator="0neir0s" modified="20201021104713152" modifier="0neir0s" tags="aws notes" title="Databases">
 <pre>* Multi AZ data replication happens synchronously. Storage autoscaling and Compute scaling. Aurora also supports backtrack.
@@ -10048,9 +10049,10 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 <div created="20201021103309953" creator="0neir0s" modified="20201021104023451" modifier="0neir0s" tags="aws notes" title="DataSync">
 <pre>AWS DataSync is a data transfer service that simplifies, automates, and accelerates moving and replicating data between on-premises storage systems and AWS storage services over the internet or AWS Direct Connect.</pre>
 </div>
-<div created="20201021104736412" creator="0neir0s" draft.of="S3" draft.title="S3" modified="20201021111314376" modifier="0neir0s" tags="aws notes" title="Draft of 'S3' by 0neir0s">
+<div created="20201021104736412" creator="0neir0s" draft.of="S3" draft.title="S3" modified="20201021112802236" modifier="0neir0s" tags="aws notes" title="Draft of 'S3' by 0neir0s">
 <pre>* AWS Simple Storage Service is storage for the internet. 
 * Bucket name is globally unique, and the namespace is shared by all AWS accounts. 
+* S3 uses the metadata (key-value pairs for storing object info) and sub-resource mechanism to store object-specific additional information.
 
 * Data
 ** You can store virtually any kind of data in any format. 
@@ -10070,7 +10072,11 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 * To retrieve data stored in S3 Glacier, initiate a retrieval request using the Amazon S3 APIs or the Amazon S3 Management Console. The retrieval request creates a temporary copy of your data in the RRS or Standard-IA while leaving the archived data intact in Glacier. Recovery time is three to five hours.
 * AWS S3-IA (infrequently Accessed) comes at a lower monthly cost compared to standard, but has a minimum duration of 30 days. It is for data that is accessed less frequently, but requires rapid access when needed. (99.9 Availability as opposed to 99.99)
 
-* ACL
+* Access
+** Public access is granted to buckets and objects through access control lists (ACLs), bucket policies, or both. 
+** S3 Access Points are network endpoints that are attached to buckets used to perform S3 object operations. They simplify managing data access at scale for shared datasets in S3. Each access point has distinct permissions and network controls that works in conjunction with bucket policy.
+** Using an S3 Bucket Policy, you can specify who can access the bucket, what time of day the can access, from which CIDR block, and by IP address.
+** Public URLs allow users to access the objects with no restrictions and objects that end users must access through CloudFront but that don't require a signed URL.
 
 * An ACL is a list of grants identifying the grantee and the permission granted. The user can use ACLs to grant basic read/write permissions to other AWS accounts. ACLs use an Amazon S3–specific XML schema. The user cannot grant permissions to other users in his account. 
 * ACLs, compared to IAM and Bucket policies, are far less granular, and different permissions can be applied depending if you are applying an ACL at the bucket or object level.
@@ -10079,19 +10085,10 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 * But, the bucket policy applies only to objects that are owned by the bucket owner. If your bucket contains objects that aren't owned by the bucket owner, public READ permission on those objects should be granted using the object access control list (ACL).
 *  If you make an object public in a non-public bucket (AWS docs term for private), people can access your objects (read &amp; get), but cannot list what objects are in the related bucket, or read/get other objects stored in the bucket, unless explicitly allowed.
 
-
-
 * When a bucket policy is applied the permissions assigned apply to all objects within that Bucket. This policy introduces a new attribute called ‘principal’. Principals are not needed for IAM policies, as it is already defined by who is associated with that policy.
 * S3 batch operations - these are automated batch operations can apply to a select few operations, including applying object tags (PUT object tag.)
 * S3 object tags vs. bucket tags - object tags are metadata (system or user-defined) that can be applied upon object upload. Bucket tags are cost-allocation tags that assist in managing and tracking service usage and billing. These are very different things. Bucket tags do not have a parent-child relationship with object tags for objects stored within a bucket.
-* S3 Inventory - this service allows you to organize a list of objects stored within a bucket into manifests. The manifests are one source of input of relevant objects to apply updates to in S3 batch operations.
-
-
-* Using an S3 Bucket Policy, you can specify who can access the bucket, what time of day the can access, from which CIDR block, and by IP address.
-
-* Public URLs allow users to access the following objects:
-** Objects on which there are no restrictions
-** Objects in an Amazon S3 bucket that end users must access through CloudFront but that don't require a signed URL.</pre>
+* S3 Inventory - this service allows you to organize a list of objects stored within a bucket into manifests. The manifests are one source of input of relevant objects to apply updates to in S3 batch operations.</pre>
 </div>
 <div created="20201021104053932" creator="0neir0s" modified="20201021104321907" modifier="0neir0s" tags="aws notes" title="DynamoDB">
 <pre>* DynamoDB is a managed NoSQL database - ( key, value stores )
