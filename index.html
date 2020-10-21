@@ -183,8 +183,6 @@ Error message and password prompt
 
 <li>AWS &amp; Cloud Definitions</li>
 
-<li>AWS EC2</li>
-
 <li>AWS Networking</li>
 
 <li>AWS Security</li>
@@ -195,6 +193,8 @@ Error message and password prompt
 
 <li>CloudFront</li>
 
+<li>CloudWatch</li>
+
 <li>Config</li>
 
 <li>Databases</li>
@@ -204,6 +204,8 @@ Error message and password prompt
 <li>DDoS</li>
 
 <li>DynamoDB</li>
+
+<li>EC2</li>
 
 <li>Motivation</li>
 
@@ -9643,7 +9645,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS Strategies" modified="20201021182117969" modifier="0neir0s" title="$:/StoryList">
+<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS EC2 CloudWatch" modified="20201021184843097" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9836,40 +9838,6 @@ GettingStarted
 * AWS Storage Gateway is a hybrid cloud storage service that gives you on-premises access to cloud storage. It offers three types - File Gateway, Tape Gateway, and Volume Gateway - for connect on-premises applications to cloud storage, caching data locally for low-latency access. Connect using protocols like NFS, SMB, and iSCSI.
 * Data keys are encryption keys that you can use to encrypt data, including large amounts of data and other data encryption keys.</pre>
 </div>
-<div created="20201011134639869" creator="0neir0s" modified="20201021103840550" modifier="0neir0s" tags="notes aws" title="AWS EC2">
-<pre>* Creating an EC2 instance is by selecting the instance type (hardware type) and AMI (software) and optionally, with a database. 
-* Amazon EC2 uses an instance profile as a container for an IAM role. When you create an IAM role using the IAM console, the console creates an instance profile automatically and gives it the same name as the role to which it corresponds. 
-* Enhanced networking uses single root I/O virtualization (SR-IOV) to provide high-performance networking capabilities - higher I/O performance, lower CPU utilisation, higher bandwidth, higher packets per second, lower inter-instance latencies(jitter) - on supported instance types.
-* EC2 Bootstrapping can enroll an instance to the directory service but cannot bid on spot instances.
-* EBS Volume attached to an EC2 needs to be detached before attaching to another running instance
-* For moving encrypted snapshots/AMIs with encrypted volumes - With KMS, you can assign other accounts as users to these keys. EBS volumes and snapshots of volumes encrypted using custom keys can be shared with other accounts as long as these accounts have been granted user rights on the custom key. Additionally, each account has set of default keys which  can't be shared and you can not assign other accounts to be users of the default keys of another account, so unless you use custom keys you can't assign other accounts as users. AMIs created with encrypted snapshots can now be shared with other accounts, as of May 2019. 
-* When controlling access to Amazon EC2 resources, each Amazon EBS Snapshot has a 	createVolumePermission attribute that controls which AWS accounts can use the snapshot.
-* By default, when an EBS volume is attached to an instance, the delete on termination setting for the block device mapping is set to false.
-* Key pairs, public key-private key combos, encrypt and decrypt the login information. 
-* Key pairs in EC2 are specific to a region. To launch instances in multiple regions, you'll need to create a key pair in each region.
-* There is no upload-key-pair command. The user can use ec2-import-keypair to import an own key-pair.  
-* AMI defines the OS, Application/System software and the initial state of the patches, but not Virtual CPUs.
-* To allow ALB to receive traffic over HTTPS, it will need a server certificate and an associated security policy.
-* You own your Reserved Instance until it's sold. After sale, you've given up the capacity reservation (if the Reserved Instances were purchased for an Availability Zone) and the discounted recurring fees. If you continue to use your instance, AWS charges you the On-Demand price starting from the time that your Reserved Instance was sold.
-* Ensure that autoscaling is checking instance status and ELB status as part of debugging. 
-* For internal communication between S3 and an application running on EC2 instance, you need two policies:
-** An IAM trust policy that allows the EC2 instance to assume a role
-** An IAM policy or S3 bucket policy that allows the role to get/put objects to the specific bucket
-* An Amazon EBS-optimized instance uses an optimized configuration stack with the goal of providing additional, dedicated capacity for Amazon EBS I/O. 
-* Hibernating an instance saves the contents of RAM to the Amazon EBS root volume. When the instance restarts, the RAM contents are reloaded.
-* Billing begins when EC2 initiates the boot sequence of an AMI instance, and ends when the instance terminates. You pay by the second, with a 60-second minimum.
-* Assuming a Linux operating system is in use, pricing is per instance-second consumed for all instance types except Dedicated instances, which still bills on an hourly basis, where partial instance-hours consumed are billed as full hours. Windows instances of all types are still billed at on a per-hour basis.
-* If the user knows that the instance is healthy then he can manually call the SetInstanceHealth action (or the as-set-instance-health command from CLI) to set the instance's health status back to healthy. Auto Scaling will throw an error if the instance is already terminating or else it will mark it healthy.
-* If a user does not select the security group while creating the instance launch configuration, the Launch wizard automatically defines the &quot;launch-wizard-x&quot; security group to allow the user to connect to the instance, which enables all IP addresses (0.0.0.0/0) to access the instance over the specified ports. At the very least, you need to select an AMI and a key pair to launch an instance. [[Reference|https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/launching-instance.html]]
-* To better control scale-out events, you can create a step scaling policy that dictates different levels of scaling based on different utilization levels of a metric you've selected.
-* Adjusting the cooldown period also minimizes the likelihood of scaling out again before the instances that were deployed in a previous scale out event have had time to warm up and handle requests to their full capability.
-* An Auto Scaling group can contain EC2 instances that come from one or more Availability Zones within the same region. 
-* RDP Debugging: Verify DNS hostname, instance has public IPv4 address, local configuration if ipv6, security group rules, instance status check and windows firewall
-* Options to avoid creating EC2 instances from scratch: Import virtual instances from AMIs, Import Virtual Machines from on-premises using VM Server Migration Service
-* Generally if the user uses the instances around 30-40% of the year annually it is recommended to use RI. Even a scheduled reserved instance has a key limitation, which is that it cannot be stopped or rebooted, only manually terminated with a possibility that it could be restarted.
-* Ensure that you are pinging a website that has ICMP enabled. If not, you will not receive reply packets. To test this, perform the same ping command from the command line terminal on your own computer.
-* For creating alerts/alerts pertaining to EC2 instances, the correct permissions need to be assigned to the CloudWatch service as well as SNS needs to be configured for notifications.</pre>
-</div>
 <div created="20201014080547604" creator="0neir0s" modified="20201021102909493" modifier="0neir0s" tags="aws notes" title="AWS Networking">
 <pre>* VPC Routing: There is a main route user. And each VPC has an implicit router. And local route in the route table cannot be removed.
 * The access key for your AWS account root user gives full access to all your resources for all AWS services, including your billing information. You cannot reduce the permissions associated with your AWS account root user access key. So, protect your root user access key.
@@ -10024,6 +9992,9 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 * Against DDoS, AWS Shield Standard is available at no additional cost.
 * CloudFront distribution can be integrated with WAF, a web application firewall that helps protect web applications from attacks by allowing you to configure rules based on IP addresses, HTTP headers, and custom URI strings.</pre>
 </div>
+<div created="20201021184852597" creator="0neir0s" modified="20201021184856986" modifier="0neir0s" tags="aws notes" title="CloudWatch">
+<pre>Partial hours are billed as full hours.</pre>
+</div>
 <div created="20201021173351555" creator="0neir0s" modified="20201021173743891" modifier="0neir0s" tags="aws notes" title="Config">
 <pre>* AWS Config is a service that enables you to assess, audit, and evaluate the configurations of your AWS resources. 
 * Config continuously monitors and records your AWS resource configurations and allows you to automate the evaluation of recorded configurations against desired configurations.
@@ -10063,6 +10034,42 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 ** Global indexes to query across entire table to find any record that matches a particular value
 ** Local secondary indexes can only help find data within a single partition key.
 * Automatically replicated across 3 AZs. But, it has only eventual consistency for certain types of queries. There are also limits - record size of 400 kb, and 5 secondary indexes per table.</pre>
+</div>
+<div created="20201011134639869" creator="0neir0s" modified="20201021184839951" modifier="0neir0s" tags="notes aws" title="EC2">
+<pre>* Creating an EC2 instance is by selecting the instance type (hardware type) and AMI (software) and optionally, with a database. 
+* Amazon EC2 uses an instance profile as a container for an IAM role. When you create an IAM role using the IAM console, the console creates an instance profile automatically and gives it the same name as the role to which it corresponds. 
+* Enhanced networking uses single root I/O virtualization (SR-IOV) to provide high-performance networking capabilities - higher I/O performance, lower CPU utilisation, higher bandwidth, higher packets per second, lower inter-instance latencies(jitter) - on supported instance types.
+* EC2 Bootstrapping can enroll an instance to the directory service but cannot bid on spot instances.
+* EBS Volume attached to an EC2 needs to be detached before attaching to another running instance
+* For moving encrypted snapshots/AMIs with encrypted volumes - With KMS, you can assign other accounts as users to these keys. EBS volumes and snapshots of volumes encrypted using custom keys can be shared with other accounts as long as these accounts have been granted user rights on the custom key. Additionally, each account has set of default keys which  can't be shared and you can not assign other accounts to be users of the default keys of another account, so unless you use custom keys you can't assign other accounts as users. AMIs created with encrypted snapshots can now be shared with other accounts, as of May 2019. 
+* When controlling access to Amazon EC2 resources, each Amazon EBS Snapshot has a 	createVolumePermission attribute that controls which AWS accounts can use the snapshot.
+* By default, when an EBS volume is attached to an instance, the delete on termination setting for the block device mapping is set to false.
+* Key pairs, public key-private key combos, encrypt and decrypt the login information. 
+* Key pairs in EC2 are specific to a region. To launch instances in multiple regions, you'll need to create a key pair in each region.
+* There is no upload-key-pair command. The user can use ec2-import-keypair to import an own key-pair.  
+* AMI defines the OS, Application/System software and the initial state of the patches, but not Virtual CPUs.
+* To allow ALB to receive traffic over HTTPS, it will need a server certificate and an associated security policy.
+* You own your Reserved Instance until it's sold. After sale, you've given up the capacity reservation (if the Reserved Instances were purchased for an Availability Zone) and the discounted recurring fees. If you continue to use your instance, AWS charges you the On-Demand price starting from the time that your Reserved Instance was sold.
+* Ensure that autoscaling is checking instance status and ELB status as part of debugging. 
+* For internal communication between S3 and an application running on EC2 instance, you need two policies:
+** An IAM trust policy that allows the EC2 instance to assume a role
+** An IAM policy or S3 bucket policy that allows the role to get/put objects to the specific bucket
+* An Amazon EBS-optimized instance uses an optimized configuration stack with the goal of providing additional, dedicated capacity for Amazon EBS I/O. 
+* Hibernating an instance saves the contents of RAM to the Amazon EBS root volume. When the instance restarts, the RAM contents are reloaded.
+* Billing begins when EC2 initiates the boot sequence of an AMI instance, and ends when the instance terminates. You pay by the second, with a 60-second minimum.
+* Assuming a Linux operating system is in use, pricing is per instance-second consumed for all instance types except Dedicated instances, which still bills on an hourly basis, where partial instance-hours consumed are billed as full hours. Windows instances of all types are still billed at on a per-hour basis.
+* If the user knows that the instance is healthy then he can manually call the SetInstanceHealth action (or the as-set-instance-health command from CLI) to set the instance's health status back to healthy. Auto Scaling will throw an error if the instance is already terminating or else it will mark it healthy.
+* If a user does not select the security group while creating the instance launch configuration, the Launch wizard automatically defines the &quot;launch-wizard-x&quot; security group to allow the user to connect to the instance, which enables all IP addresses (0.0.0.0/0) to access the instance over the specified ports. At the very least, you need to select an AMI and a key pair to launch an instance. [[Reference|https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/launching-instance.html]]
+* To better control scale-out events, you can create a step scaling policy that dictates different levels of scaling based on different utilization levels of a metric you've selected.
+* Adjusting the cooldown period also minimizes the likelihood of scaling out again before the instances that were deployed in a previous scale out event have had time to warm up and handle requests to their full capability.
+* An Auto Scaling group can contain EC2 instances that come from one or more Availability Zones within the same region. 
+* RDP Debugging: Verify DNS hostname, instance has public IPv4 address, local configuration if ipv6, security group rules, instance status check and windows firewall
+* Options to avoid creating EC2 instances from scratch: Import virtual instances from AMIs, Import Virtual Machines from on-premises using VM Server Migration Service
+* Generally if the user uses the instances around 30-40% of the year annually it is recommended to use RI. Even a scheduled reserved instance has a key limitation, which is that it cannot be stopped or rebooted, only manually terminated with a possibility that it could be restarted.
+* Ensure that you are pinging a website that has ICMP enabled. If not, you will not receive reply packets. To test this, perform the same ping command from the command line terminal on your own computer.
+* For creating alerts/alerts pertaining to EC2 instances, the correct permissions need to be assigned to the CloudWatch service as well as SNS needs to be configured for notifications.
+* For rebooting AWS does not charge a new instance hour, while every stop or restart will be charged fee for a new instance hour as a separate hour.
+* Auto Scaling is enabled by Amazon CloudWatch and carries no additional fees.</pre>
 </div>
 <div created="20200818173814631" creator="0neir0s" modified="20201017133615024" modifier="0neir0s" published="" tags="goal published" title="Motivation" type="metadata">
 <pre>The idea is to make sure the tiddlers while trivial individually, will start making sense in its entirety - i.e, they form a gestalt. 
