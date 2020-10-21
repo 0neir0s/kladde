@@ -207,6 +207,8 @@ Error message and password prompt
 
 <li>Motivation</li>
 
+<li>RDS</li>
+
 <li>S3</li>
 
 <li>Synopsis</li>
@@ -9639,7 +9641,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS [[AWS &amp; Cloud Definitions]] [[AWS Security]] Databases" modified="20201021145302276" modifier="0neir0s" title="$:/StoryList">
+<div created="20201021052520458" creator="0neir0s" list="RDS Synopsis AWS Databases" modified="20201021145302276" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10039,17 +10041,8 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 * Against DDoS, AWS Shield Standard is available at no additional cost.
 * CloudFront distribution can be integrated with WAF, a web application firewall that helps protect web applications from attacks by allowing you to configure rules based on IP addresses, HTTP headers, and custom URI strings.</pre>
 </div>
-<div created="20201013054457687" creator="0neir0s" modified="20201021104713152" modifier="0neir0s" tags="aws notes" title="Databases">
-<pre>* Multi AZ data replication happens synchronously. Storage autoscaling and Compute scaling. Aurora also supports backtrack.
-* All RDS except Aurora used EBS for storage - General purpose, Provisioned IOPS SSD, Magnetic Storage. Aurora uses a shared cluster storage.  
-* Amazon RDS Read Replicas provide enhanced performance and durability for RDS database (DB) instances. They make it easy to elastically scale out beyond the capacity constraints of a single DB instance for read-heavy database workloads. They are for scaling, not for failover and replication happens asynchronously (with secondary in case of Multi-AZ). Also, it cannot increase database service IOPS.
-* You can create a read replica as a Multi-AZ DB instance. Amazon RDS creates a standby of your replica in another Availability Zone for failover support for the replica
-* Amazon RDS creates a second DB instance using a snapshot of the source DB instance. It then uses the engines' native asynchronous replication to update the read replica whenever there is a change to the source DB instance. 
-* A common pattern in DB implementation involves placing databases in private subnets for additional security. If you follow this practice, make sure that the Security Groups provide appropriate ingress and egress to the DB instance.
-* With optional Multi-AZ deployments, Amazon RDS also manages synchronous data replication across Availability Zones with automatic failover.
-* A DB parameter group acts as a container for engine configuration values that are applied to one or more DB instances.
-* Disaster Recovery techniques: Backup &amp; Restore, Pilot light, Warm standby, Multi-site
-* In Neptune, an endpoint is simply a URL address and a port that points to your components - could be cluster, reader, and instance endpoints.
+<div created="20201013054457687" creator="0neir0s" modified="20201021145934917" modifier="0neir0s" tags="aws notes" title="Databases">
+<pre>* In Neptune, an endpoint is simply a URL address and a port that points to your components - could be cluster, reader, and instance endpoints.
 * Neptune supports 2 query languages - sparql and gremlin. It has redundancies in at least 3 AZs, and has auto-repair.  Replica data synchronisation happens synchronously.  
 * AWS ElastiCache - For in-memory stores. It supports Memcached and Redis. Former is simpler and faster, while latter has more features. With Redis, you can also enable cluster mode where the number of shards per cluster can be increase upto 90 from 1. 
 * Components of ElasticCache - node ( network attached RAM), shard (node group; upto 6) and cluster (1-90 shards)
@@ -10087,6 +10080,24 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 <pre>The idea is to make sure the tiddlers while trivial individually, will start making sense in its entirety - i.e, they form a gestalt. 
 
 It is not meant to be a daily log. Earlier posts would be updated when mistakes are pointed out.</pre>
+</div>
+<div created="20201021145856509" creator="0neir0s" modified="20201021150454225" modifier="0neir0s" tags="aws notes" title="RDS">
+<pre>* Amazon Relational Database Service (Amazon RDS) is a managed service that makes it easy to set up, operate, and scale a relational database in the cloud.
+* What AWS does:
+** Provisioning the infrastructure capacity as per request
+** Installing the database software. 
+** Automates common administrative tasks such as performing backups, software patches.
+** Optional: managing synchronous data replication across zones with automatic failover for Multi-AZ.
+
+* Storage autoscaling and Compute scaling. Aurora also supports backtrack.
+* All RDS except Aurora used EBS for storage - General purpose, Provisioned IOPS SSD, Magnetic Storage. Aurora uses a shared cluster storage.  
+* Amazon RDS Read Replicas provide enhanced performance and durability for RDS database (DB) instances. They make it easy to elastically scale out beyond the capacity constraints of a single DB instance for read-heavy database workloads. They are for scaling, not for failover and replication happens asynchronously (with secondary in case of Multi-AZ). Also, it cannot increase database service IOPS.
+* You can create a read replica as a Multi-AZ DB instance. Amazon RDS creates a standby of your replica in another Availability Zone for failover support for the replica
+* Amazon RDS creates a second DB instance using a snapshot of the source DB instance. It then uses the engines' native asynchronous replication to update the read replica whenever there is a change to the source DB instance. 
+* A common pattern in DB implementation involves placing databases in private subnets for additional security. If you follow this practice, make sure that the Security Groups provide appropriate ingress and egress to the DB instance.
+* With optional Multi-AZ deployments, Amazon RDS also manages synchronous data replication across Availability Zones with automatic failover.
+* A DB parameter group acts as a container for engine configuration values that are applied to one or more DB instances.
+* Disaster Recovery techniques: Backup &amp; Restore, Pilot light, Warm standby, Multi-site</pre>
 </div>
 <div created="20201021104736412" creator="0neir0s" modified="20201021135430203" modifier="0neir0s" tags="aws notes" title="S3">
 <pre>* AWS Simple Storage Service is storage for the internet. 
