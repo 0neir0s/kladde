@@ -9643,7 +9643,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201021052520458" creator="0neir0s" list="RDS Synopsis AWS" modified="20201021171119369" modifier="0neir0s" title="$:/StoryList">
+<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS RDS" modified="20201021175403378" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10069,7 +10069,7 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 
 It is not meant to be a daily log. Earlier posts would be updated when mistakes are pointed out.</pre>
 </div>
-<div created="20201021145856509" creator="0neir0s" modified="20201021175303017" modifier="0neir0s" tags="aws notes" title="RDS">
+<div created="20201021145856509" creator="0neir0s" modified="20201021175608040" modifier="0neir0s" tags="aws notes" title="RDS">
 <pre>* Amazon Relational Database Service (Amazon RDS) is a managed service that makes it easy to set up, operate, and scale a relational database in the cloud.
 * While less-featured, EC2 Relational Database AMIs has more flexibility and control.
 * It can also be hybrid with RDS on premises using Amazon RDS on Outposts and Amazon RDS on VMware. 
@@ -10119,7 +10119,8 @@ It is not meant to be a daily log. Earlier posts would be updated when mistakes 
 ** * Read replicas are supported only on Enterprise Edition in the Multi-AZ configuration for SQL Server.
 
 * A common pattern in DB implementation involves placing databases in private subnets for additional security. If you follow this practice, make sure that the Security Groups provide appropriate ingress and egress to the DB instance.
-* Disaster Recovery techniques: Backup &amp; Restore, Pilot light, Warm standby, Multi-site.</pre>
+* Disaster Recovery techniques: Backup &amp; Restore, Pilot light, Warm standby, Multi-site.
+* Debugging connectivity issues: Check whether or not the RDS is in the same region as the app as spanning regions is not possible. The other likely issue is that the Security Group of either the RDS or the EC2 (or both) are not configured properly. </pre>
 </div>
 <div created="20201021104736412" creator="0neir0s" modified="20201021135430203" modifier="0neir0s" tags="aws notes" title="S3">
 <pre>* AWS Simple Storage Service is storage for the internet. 
