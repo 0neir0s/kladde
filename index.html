@@ -9631,7 +9631,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS [[AWS Services]] [[Draft of 'AWS Strategies' by 0neir0s]]" modified="20201021100413538" modifier="0neir0s" title="$:/StoryList">
+<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS [[AWS Networking]] [[Draft of 'AWS Strategies' by 0neir0s]]" modified="20201021102859424" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9888,7 +9888,7 @@ GettingStarted
 * Ensure that you are pinging a website that has ICMP enabled. If not, you will not receive reply packets. To test this, perform the same ping command from the command line terminal on your own computer.
 * For creating alerts/alerts pertaining to EC2 instances, the correct permissions need to be assigned to the CloudWatch service as well as SNS needs to be configured for notifications.</pre>
 </div>
-<div created="20201014080547604" creator="0neir0s" modified="20201021100234673" modifier="0neir0s" tags="aws notes" title="AWS Networking">
+<div created="20201014080547604" creator="0neir0s" modified="20201021102909493" modifier="0neir0s" tags="aws notes" title="AWS Networking">
 <pre>* VPC Routing: There is a main route user. And each VPC has an implicit router. And local route in the route table cannot be removed.
 * The access key for your AWS account root user gives full access to all your resources for all AWS services, including your billing information. You cannot reduce the permissions associated with your AWS account root user access key. So, protect your root user access key.
 * When you configure your VPC; you can select its IP address range, create subnets, and configure route tables, network gateways, and security settings.
@@ -9900,6 +9900,8 @@ GettingStarted
 * Internet gateway additionally performs network address translation for the instances with public IPs.
 * Default NACL allows all by default. By default, each custom NACL denies all inbound and outbound traffic until you add rules.
 * Each AWS virtual private gateway comes with two VPN endpoints with capabilities for static and dynamic routing. 
+* Enhanced networking provides higher bandwidth and lower latency and is implemented using an Elastic Network Adapter (ENA). However, using ENA with an HDD Throughput Optimized volume is not recommended as the volume will not provide the performance required for this use case.
+* An Elastic Fabric Adapter is an AWS Elastic Network Adapter (ENA) with added capabilities. The EFA lets you apply the scale, flexibility, and elasticity of the AWS Cloud to tightly-coupled HPC apps. It is ideal for tightly coupled app as it uses the Message Passing Interface (MPI).
 * For making HA VPN connections, a second connection  is to be implemented via a redundant customer gateway, and enable dynamic routing for automatic fail over. It is the customer managed endpoint that's the component responsible for implementing this. So customer devices must support Single Hot BGP if you're using BGP for dynamic routing
 * A transit gateway is a network transit hub that you can use to interconnect your virtual private clouds (VPC) and on-premises networks. Effectively, it is a regional virtual router for traffic flowing between your virtual private clouds (VPC) and VPN connections. (operates at layer 3)
 * A VPC endpoint enables private connections between your VPC and supported AWS services and VPC endpoint services powered by AWS PrivateLink. They are virtual devices; scaled, redundant and HA. 
@@ -10070,7 +10072,7 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 * AWS Organizations is a web service that enables you to consolidate your multiple AWS accounts into an organization and centrally manage your accounts and their resources.
 * Using the Range HTTP header in a GET Object request, you can fetch a byte-range from an object, transferring only the specified portion. You can use concurrent connections to Amazon S3 to fetch different byte ranges from within the same object. This helps you achieve higher aggregate throughput versus a single whole-object request. Fetching smaller ranges of a large object also allows your application to improve retry times when requests are interrupted.</pre>
 </div>
-<div created="20201011150936485" creator="0neir0s" draft.of="AWS Strategies" draft.title="AWS Strategies" modified="20201021100410518" modifier="0neir0s" tags="aws notes" title="Draft of 'AWS Strategies' by 0neir0s">
+<div created="20201011150936485" creator="0neir0s" draft.of="AWS Strategies" draft.title="AWS Strategies" modified="20201021102856721" modifier="0neir0s" tags="aws notes" title="Draft of 'AWS Strategies' by 0neir0s">
 <pre>* Use an Elastic Network Interface (ENI) to create a management network, to use network and security appliances in your VPC, to create dual-homed instances with workloads/roles on distinct subnets or to create a low-budget, high-availability solution.
 * Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses.
 * Rebooting primary database instance is the strategy to consistently test db failovers. 
@@ -10082,13 +10084,11 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 * Dedicated Instances are Amazon EC2 instances that run in a VPC on hardware that's dedicated to a single customer. Dedicated instances are physically isolated at the host hardware level from instances that belong to other AWS accounts.
 * Read replicas in different regions are available in Amazon RDS for MYSQL, MariaDB, PostgreSQL, Oracle, and Aurora. So, if you need read replicas located in a separate AWS region from the primary DB, don't use SQL Server.
 * General Purpose (SSD), also called gp2, volumes offer cost-effective storage that is ideal for a broad range of workloads - including moderately IO intensive ones.
-* If your workload on Amazon S3 is mainly sending GET requests, use CloudFront for performance optimization. Integrating Amazon CloudFront with Amazon S3, you can distribute content to your users with low latency and a high data transfer rate, while sending fewer direct requests to Amazon S3, which will reduce your costs. 
-* Applications must sign their API requests with AWS credentials. Therefore, if you are an application developer, you need a strategy for managing credentials for your applications that run on EC2 instances. It is best practice to use IAM roles so that your applications can securely make API requests from your instances, without requiring you to manage the security credentials that the applications use.
-* When you create IAM policies, follow the standard security advice of granting least privilege—that is, granting only the permissions required to perform a task.
+* If your workload on Amazon S3 is mainly sending GET requests, use CloudFront for performance optimization. Integrating CloudFront with S3, you can distribute content to your users with low latency and a high data transfer rate, while sending fewer direct requests to Amazon S3, which will reduce your costs. 
+* It is best practice to use IAM roles so that your applications can securely make API requests from your EC2 instances, without requiring you to manage the security credentials that the applications use.
+* When you create IAM policies, follow the standard security advice of granting least privilege - i.e, granting only the permissions required to perform a task.
 * Since S3 does not store the encryption keys in SSE-C, it is recommended that the user should manage keys securely and keep rotating them regularly.
-* Amazon CloudFront is a good choice for distribution of frequently accessed static content that benefits from edge delivery, like popular website images, videos, media files or software downloads.
-* Enhanced networking provides higher bandwidth and lower latency and is implemented using an Elastic Network Adapter (ENA). However, using an ENA with an HDD Throughput Optimized volume is not recommended and the volume will not provide the performance required for this use case.
-* An Elastic Fabric Adapter is an AWS Elastic Network Adapter (ENA) with added capabilities. The EFA lets you apply the scale, flexibility, and elasticity of the AWS Cloud to tightly-coupled HPC apps. It is ideal for tightly coupled app as it uses the Message Passing Interface (MPI).
+
 * You cannot create a DynamoDB table in a VPC, to connect securely using private addresses you should use a gateway endpoint instead.
 * You can do all tasks using the AWS CLI but it is better to automate the process using AWS CloudFormation.
 * AWS Organizations is a web service that enables you to consolidate your multiple AWS accounts into an organization and centrally manage your accounts and their resources.
