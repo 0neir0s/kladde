@@ -197,6 +197,8 @@ Error message and password prompt
 
 <li>AWS Strategies</li>
 
+<li>Draft of 'AWS Networking' by 0neir0s</li>
+
 <li>Draft of 'AWS Strategies' by 0neir0s</li>
 
 <li>Motivation</li>
@@ -9631,7 +9633,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS [[AWS EC2]] [[Draft of 'AWS Strategies' by 0neir0s]]" modified="20201021094408970" modifier="0neir0s" title="$:/StoryList">
+<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS [[AWS EC2]] [[Draft of 'AWS Networking' by 0neir0s]] [[Draft of 'AWS Strategies' by 0neir0s]]" modified="20201021094630768" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9855,11 +9857,12 @@ GettingStarted
 * Note an automatic snapshot has a limited retention period, and will be deleted if the original instance is deleted.
 * An eviction occurs when a new item is added and an old item must be removed due to lack of free space in the system. For Memcached, if you are encountering evictions, you can either scale up by adding memory or scale out by adding more nodes. Reserved memory is memory set aside for nondata use (Redis)</pre>
 </div>
-<div created="20201011134639869" creator="0neir0s" modified="20201021094419851" modifier="0neir0s" tags="notes aws" title="AWS EC2">
+<div created="20201011134639869" creator="0neir0s" modified="20201021094639332" modifier="0neir0s" tags="notes aws" title="AWS EC2">
 <pre>* Creating an EC2 instance is by selecting the instance type (hardware type) and AMI (software) and optionally, with a database. 
 * Enhanced networking uses single root I/O virtualization (SR-IOV) to provide high-performance networking capabilities - higher I/O performance, lower CPU utilisation, higher bandwidth, higher packets per second, lower inter-instance latencies(jitter) - on supported instance types.
 * EC2 Bootstrapping can enroll an instance to the directory service but cannot bid on spot instances.
 * EBS Volume attached to an EC2 needs to be detached before attaching to another running instance
+* For moving encrypted snapshots/AMIs with encrypted volumes - With KMS, you can assign other accounts as users to these keys. EBS volumes and snapshots of volumes encrypted using custom keys can be shared with other accounts as long as these accounts have been granted user rights on the custom key. Additionally, each account has set of default keys which  can't be shared and you can not assign other accounts to be users of the default keys of another account, so unless you use custom keys you can't assign other accounts as users. AMIs created with encrypted snapshots can now be shared with other accounts, as of May 2019. 
 * When controlling access to Amazon EC2 resources, each Amazon EBS Snapshot has a 	createVolumePermission attribute that controls which AWS accounts can use the snapshot.
 * By default, when an EBS volume is attached to an instance, the delete on termination setting for the block device mapping is set to false.
 * Key pairs, public key-private key combos, encrypt and decrypt the login information. 
@@ -10062,16 +10065,53 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 * AWS Organizations is a web service that enables you to consolidate your multiple AWS accounts into an organization and centrally manage your accounts and their resources.
 * Using the Range HTTP header in a GET Object request, you can fetch a byte-range from an object, transferring only the specified portion. You can use concurrent connections to Amazon S3 to fetch different byte ranges from within the same object. This helps you achieve higher aggregate throughput versus a single whole-object request. Fetching smaller ranges of a large object also allows your application to improve retry times when requests are interrupted.</pre>
 </div>
-<div created="20201011150936485" creator="0neir0s" draft.of="AWS Strategies" draft.title="AWS Strategies" modified="20201021094404503" modifier="0neir0s" tags="aws notes" title="Draft of 'AWS Strategies' by 0neir0s">
+<div created="20201014080547604" creator="0neir0s" draft.of="AWS Networking" draft.title="AWS Networking" modified="20201021094501470" modifier="0neir0s" tags="aws notes" title="Draft of 'AWS Networking' by 0neir0s">
+<pre>* VPC Routing: There is a main route user. And each VPC has an implicit router. And local route in the route table cannot be removed.
+* The access key for your AWS account root user gives full access to all your resources for all AWS services, including your billing information. You cannot reduce the permissions associated with your AWS account root user access key. So, protect your root user access key.
+* When you configure your VPC; you can select its IP address range, create subnets, and configure route tables, network gateways, and security settings.
+* A NAT gateway has an EIP, sits in the public subnet, only accepts outgoing traffic and is resilient. But you need to add it in every public subnet.
+* A Bastion host sits in the public subnet and is the equivalent to the jump host. Need to add the security group to Bastion Host and the private EC2s
+* Virtual Private Gateway - is the only route in a VPN only subnet
+* First 3 IPs of each subnet corresponds to Router, DNS and reserved respectively.
+* Network address is the 0th address and Broadcast address is the last address.
+* Internet gateway additionally performs network address translation for the instances with public IPs.
+* Default NACL allows all by default. By default, each custom NACL denies all inbound and outbound traffic until you add rules.
+* Each AWS virtual private gateway comes with two VPN endpoints with capabilities for static and dynamic routing. 
+* For making HA VPN connections, a second connection  is to be implemented via a redundant customer gateway, and enable dynamic routing for automatic fail over. It is the customer managed endpoint that's the component responsible for implementing this. So customer devices must support Single Hot BGP if you're using BGP for dynamic routing
+* A transit gateway is a network transit hub that you can use to interconnect your virtual private clouds (VPC) and on-premises networks. Effectively, it is a regional virtual router for traffic flowing between your virtual private clouds (VPC) and VPN connections. (operates at layer 3)
+* A VPC endpoint enables private connections between your VPC and supported AWS services and VPC endpoint services powered by AWS PrivateLink. They are virtual devices; scaled, redundant and HA. 
+** An interface endpoint is an ENI with a private IP address from the IP address range of your subnet that serves as an entry point for traffic destined to a supported service.
+** A gateway endpoint is a gateway that you specify as a target for a route in your route table for traffic destined to a supported AWS service. Supported services: DynamoDB, S3
+* VPN Connections
+** With VPC Interface Endpoints, it is possible to connect to a number of AWS services both from resources within your Amazon VPC and from resources in your on-premises environment. This is not possible with VPC Gateway Endpoints. Services cannot initiate requests to resources in your VPC through the endpoint. 
+** Virtual Private Gateway (VGW) is the Amazon VPC's side of a VPN connection. 
+** Customer Gateway (CGW) is your side of the VPN connection.
+** You can create a VPN tunnel using IPSEC to onpremise or co-locations. 
+** For more predictable connectivity or a private connection use Direct Connect, a private, dedicated connection between your on-prem network and your AWS VPC using 802.1 q VLAN standard. 
+** VPC Peering provides network connectivity between 2 VPCs. An example where it might be needed is for directory services. It is not possible if there is an overlap in their CIDR schema.
+** AWS VPN Cloudhub operates on a simple hub and spoke model that you can use without a VPC. So use this design if you have multiple branch offices and existing internet connections, and would like to implement a convenient, potentially low cost hub and spoke model for primary or backup connectivity between these remote offices.
+* DNS
+** A hosted zone is a container for records, and records contain information about how you want to route traffic for a specific domain and its subdomains. 
+*** Public hosted zones contain records that specify how you want to route traffic on the internet. 
+*** Private hosted zones contain records that specify how you want to route traffic in an Amazon VPC.
+** CloudFront
+** WAF
+** Route 53
+* The BGP protocol is not used to enable encryption for Direct Connect, it is used for routing.
+* An AWS Direct Connect Gateway is used to connect to VPCs across multiple AWS regions. It is not involved with encryption
+* A VPG is used to setup an AWS VPN which you can use in combination with Direct Connect to encrypt all data that traverses the Direct Connect link.
+* A virtual private gateway is a logical, fully redundant distributed edge routing function that sits at the edge of your VPC. As it is capable of terminating VPN connections from your on-prem or customer environments, the VPG is the VPN concentrator on the Amazon side of the Site-to-Site VPN connection. 
+* RTMP distributions are not compatible if transfer should be over HTTPS</pre>
+</div>
+<div created="20201011150936485" creator="0neir0s" draft.of="AWS Strategies" draft.title="AWS Strategies" modified="20201021094626610" modifier="0neir0s" tags="aws notes" title="Draft of 'AWS Strategies' by 0neir0s">
 <pre>* Use an Elastic Network Interface (ENI) to create a management network, to use network and security appliances in your VPC, to create dual-homed instances with workloads/roles on distinct subnets or to create a low-budget, high-availability solution.
 * Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses.
 * Rebooting primary database instance is the strategy to consistently test db failovers. 
-* Virtual Private Gateway - is the only route in a VPN only subnet
+
 * Decoupling can be done using SQS (store requests) or s3 + Autoscaling worker instances.
 * When a bucket policy is applied the permissions assigned apply to all objects within that Bucket. This policy introduces a new attribute called ‘principal’. Principals are not needed for IAM policies, as it is already defined by who is associated with that policy.
-* Internet gateway additionally performs network address translation for the instances with public IPs.
+
 * A cluster placement group provides low-latency networking between all instances in the cluster. It is ideal for high performance analytics systems and many science and engineering applications. 
-* For moving encrypted snapshots/AMIs with encrypted volumes - With KMS, you can assign other accounts as users to these keys. EBS volumes and snapshots of volumes encrypted using custom keys can be shared with other accounts as long as these accounts have been granted user rights on the custom key. Additionally, each account has set of default keys which  can't be shared and you can not assign other accounts to be users of the default keys of another account, so unless you use custom keys you can't assign other accounts as users. AMIs created with encrypted snapshots can now be shared with other accounts, as of May 2019. 
 * For data transfer to EFS, use DataSync. AWS DataSync is a data transfer service that simplifies, automates, and accelerates moving and replicating data between on-premises storage systems and AWS storage services over the internet or AWS Direct Connect.
 * For SMB based FIle system, AWS FSx for Windows is the recommended service over EFS, whose key attribute is that it uses NFS, one of the first network file sharing protocols native to Unix and Linux. Additionally, FSx also supports [[Lustre|AWS &amp; Cloud Definitions]]
 * With S3 Object Lock, you can store objects using a write-once-read-many (WORM) model. You can use it to prevent an object from being deleted or overwritten for a fixed amount of time or indefinitely - retention periods and legal holds
