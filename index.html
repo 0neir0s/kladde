@@ -9629,7 +9629,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201019173854142" creator="0neir0s" list="Synopsis [[AWS Networking]] [[AWS Strategies]] [[AWS Services]] [[AWS EC2]] GettingStarted" modified="20201019185733696" modifier="0neir0s" title="$:/StoryList">
+<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS [[AWS Databases]] [[AWS Storage]] [[AWS EC2]]" modified="20201021052550557" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9820,7 +9820,7 @@ GettingStarted
 * AWS Storage Gateway is a hybrid cloud storage service that gives you on-premises access to cloud storage. It offers three types - File Gateway, Tape Gateway, and Volume Gateway - for connect on-premises applications to cloud storage, caching data locally for low-latency access. Connect using protocols like NFS, SMB, and iSCSI.
 * Data keys are encryption keys that you can use to encrypt data, including large amounts of data and other data encryption keys.</pre>
 </div>
-<div created="20201013054457687" creator="0neir0s" modified="20201019185745820" modifier="0neir0s" tags="aws notes" title="AWS Databases">
+<div created="20201013054457687" creator="0neir0s" modified="20201021053321005" modifier="0neir0s" tags="aws notes" title="AWS Databases">
 <pre>* Multi AZ data replication happens synchronously. Storage autoscaling and Compute scaling. Aurora also supports backtrack.
 * All RDS except Aurora used EBS for storage - General purpose, Provisioned IOPS SSD, Magnetic Storage. Aurora uses a shared cluster storage.  
 * Amazon RDS Read Replicas provide enhanced performance and durability for RDS database (DB) instances. They make it easy to elastically scale out beyond the capacity constraints of a single DB instance for read-heavy database workloads. They are for scaling, not for failover and replication happens asynchronously (with secondary in case of Multi-AZ).
@@ -9847,7 +9847,8 @@ GettingStarted
 ** Transformation is the process of mapping, reformatting, conforming, adding meaning and more to prepare the data for easy consumption.
 ** Loading involves successfully inserting the transform data into the data warehouse.
 * Cluster is the core component of the Amazon Redshift. In every cluster, it runs its own Redshift engine, which will contain at least one database and at least one compute node, (if more, then a leader node as well).
-* Each compute node itself is also split into slices, known as node slice for parallelism </pre>
+* Each compute node itself is also split into slices, known as node slice for parallelism 
+* For AWS Database Migration Service, either the source or the target database (or both) need to reside in RDS or on EC2. </pre>
 </div>
 <div created="20201011134639869" creator="0neir0s" modified="20201019173941983" modifier="0neir0s" tags="notes aws" title="AWS EC2">
 <pre>* Creating an EC2 instance is by selecting the instance type (hardware type) and AMI (software) and optionally, with a database. 
