@@ -9629,7 +9629,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS [[AWS Databases]] [[AWS Storage]] [[AWS EC2]]" modified="20201021052550557" modifier="0neir0s" title="$:/StoryList">
+<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS [[AWS Networking]] [[AWS Databases]] [[AWS Storage]] [[AWS EC2]]" modified="20201021053322898" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9869,7 +9869,7 @@ GettingStarted
 * An Amazon EBS-optimized instance uses an optimized configuration stack with the goal of providing additional, dedicated capacity for Amazon EBS I/O. 
 * Hibernating an instance saves the contents of RAM to the Amazon EBS root volume. When the instance restarts, the RAM contents are reloaded.</pre>
 </div>
-<div created="20201014080547604" creator="0neir0s" modified="20201019192024641" modifier="0neir0s" tags="aws notes" title="AWS Networking">
+<div created="20201014080547604" creator="0neir0s" modified="20201021054134641" modifier="0neir0s" tags="aws notes" title="AWS Networking">
 <pre>* VPC Routing: There is a main route user. And each VPC has an implicit router. And local route in the route table cannot be removed.
 * The access key for your AWS account root user gives full access to all your resources for all AWS services, including your billing information. You cannot reduce the permissions associated with your AWS account root user access key. So, protect your root user access key.
 * When you configure your VPC; you can select its IP address range, create subnets, and configure route tables, network gateways, and security settings.
@@ -9881,7 +9881,9 @@ GettingStarted
 * Each AWS virtual private gateway comes with two VPN endpoints with capabilities for static and dynamic routing. 
 * For making HA VPN connections, a second connection  is to be implemented via a redundant customer gateway, and enable dynamic routing for automatic fail over. It is the customer managed endpoint that's the component responsible for implementing this. So customer devices must support Single Hot BGP if you're using BGP for dynamic routing
 * A transit gateway is a network transit hub that you can use to interconnect your virtual private clouds (VPC) and on-premises networks. Effectively, it is a regional virtual router for traffic flowing between your virtual private clouds (VPC) and VPN connections. (operates at layer 3)
-* A VPC endpoint enables private connections between your VPC and supported AWS services and VPC endpoint services powered by AWS PrivateLink.
+* A VPC endpoint enables private connections between your VPC and supported AWS services and VPC endpoint services powered by AWS PrivateLink. They are virtual devices; scaled, redundant and HA. 
+** An interface endpoint is an ENI with a private IP address from the IP address range of your subnet that serves as an entry point for traffic destined to a supported service.
+** A gateway endpoint is a gateway that you specify as a target for a route in your route table for traffic destined to a supported AWS service. Supported services: DynamoDB, S3
 * VPN Connections
 ** Virtual Private Gateway (VGW) is the Amazon VPC's side of a VPN connection. 
 ** Customer Gateway (CGW) is your side of the VPN connection.
