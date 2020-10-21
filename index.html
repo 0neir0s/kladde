@@ -197,10 +197,6 @@ Error message and password prompt
 
 <li>AWS Strategies</li>
 
-<li>Draft of 'AWS Databases' by 0neir0s</li>
-
-<li>Draft of 'AWS Storage' by 0neir0s</li>
-
 <li>Motivation</li>
 
 <li>Synopsis</li>
@@ -9633,7 +9629,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS [[AWS Services]] [[AWS Security]] [[AWS Networking]] [[Draft of 'AWS Databases' by 0neir0s]] [[Draft of 'AWS Storage' by 0neir0s]] [[AWS EC2]]" modified="20201021054618022" modifier="0neir0s" title="$:/StoryList">
+<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS [[AWS Storage]] [[AWS EC2]]" modified="20201021054618022" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9824,12 +9820,13 @@ GettingStarted
 * AWS Storage Gateway is a hybrid cloud storage service that gives you on-premises access to cloud storage. It offers three types - File Gateway, Tape Gateway, and Volume Gateway - for connect on-premises applications to cloud storage, caching data locally for low-latency access. Connect using protocols like NFS, SMB, and iSCSI.
 * Data keys are encryption keys that you can use to encrypt data, including large amounts of data and other data encryption keys.</pre>
 </div>
-<div created="20201013054457687" creator="0neir0s" modified="20201021053321005" modifier="0neir0s" tags="aws notes" title="AWS Databases">
+<div created="20201013054457687" creator="0neir0s" modified="20201021072644821" modifier="0neir0s" tags="aws notes" title="AWS Databases">
 <pre>* Multi AZ data replication happens synchronously. Storage autoscaling and Compute scaling. Aurora also supports backtrack.
 * All RDS except Aurora used EBS for storage - General purpose, Provisioned IOPS SSD, Magnetic Storage. Aurora uses a shared cluster storage.  
-* Amazon RDS Read Replicas provide enhanced performance and durability for RDS database (DB) instances. They make it easy to elastically scale out beyond the capacity constraints of a single DB instance for read-heavy database workloads. They are for scaling, not for failover and replication happens asynchronously (with secondary in case of Multi-AZ).
+* Amazon RDS Read Replicas provide enhanced performance and durability for RDS database (DB) instances. They make it easy to elastically scale out beyond the capacity constraints of a single DB instance for read-heavy database workloads. They are for scaling, not for failover and replication happens asynchronously (with secondary in case of Multi-AZ). Also, it cannot increase database service IOPS.
 * You can create a read replica as a Multi-AZ DB instance. Amazon RDS creates a standby of your replica in another Availability Zone for failover support for the replica
 * Amazon RDS creates a second DB instance using a snapshot of the source DB instance. It then uses the engines' native asynchronous replication to update the read replica whenever there is a change to the source DB instance. 
+* A common pattern in DB implementation involves placing databases in private subnets for additional security. If you follow this practice, make sure that the Security Groups provide appropriate ingress and egress to the DB instance.
 * With optional Multi-AZ deployments, Amazon RDS also manages synchronous data replication across Availability Zones with automatic failover.
 * A DB parameter group acts as a container for engine configuration values that are applied to one or more DB instances.
 * Disaster Recovery techniques: Backup &amp; Restore, Pilot light, Warm standby, Multi-site
@@ -9852,7 +9849,8 @@ GettingStarted
 ** Loading involves successfully inserting the transform data into the data warehouse.
 * Cluster is the core component of the Amazon Redshift. In every cluster, it runs its own Redshift engine, which will contain at least one database and at least one compute node, (if more, then a leader node as well).
 * Each compute node itself is also split into slices, known as node slice for parallelism 
-* For AWS Database Migration Service, either the source or the target database (or both) need to reside in RDS or on EC2. </pre>
+* For AWS Database Migration Service, either the source or the target database (or both) need to reside in RDS or on EC2. 
+* Note an automatic snapshot has a limited retention period, and will be deleted if the original instance is deleted.</pre>
 </div>
 <div created="20201011134639869" creator="0neir0s" modified="20201021055429990" modifier="0neir0s" tags="notes aws" title="AWS EC2">
 <pre>* Creating an EC2 instance is by selecting the instance type (hardware type) and AMI (software) and optionally, with a database. 
@@ -9941,11 +9939,12 @@ GettingStarted
 * In addition to SSE-C, Customers also have the option to encrypt data client side before
 uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provide an S3 encryption client that streamlines the process. </pre>
 </div>
-<div created="20201011140841846" creator="0neir0s" modified="20201021071712173" modifier="0neir0s" tags="aws notes" title="AWS Services">
+<div created="20201011140841846" creator="0neir0s" modified="20201021071927751" modifier="0neir0s" tags="aws notes" title="AWS Services">
 <pre>* SQS structure Producer,  Queue, Consumer. 
 * The types are standard queues, FIFO queues and dead letter queues.
 * Since AWS is a distributed service, the consumer must delete the message from the queue after receiving and processing it.
 * Visibility timeout is a period of time during which Amazon SQS prevents other consumers from receiving and processing the message. 
+* The pricing of SQS is as follows: You pay only for what you use, and there is no minimum fee. The cost of Amazon SQS is calculated per request, plus data transfer charges for data transferred out of Amazon SQS. The Amazon SQS Free Tier provides you with 1 million requests per month at no charge
 * Amazon SQS provides short polling (default) and long polling to receive messages from a queue. When the ReceiveMessageWaitTimeSeconds property of a queue is set to a value greater than zero, long polling is in effect. 
 * Short polling - request queries only a subset of the servers and sends the response right away. Long polling - request queries all of the servers for messages and sends a response after it collects at least one available message.
 * SNS is a pub-sub messaging service which integrates with many different types of services.
@@ -10001,13 +10000,15 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 
 </pre>
 </div>
-<div created="20201013201236563" creator="0neir0s" modified="20201021055436720" modifier="0neir0s" tags="aws notes" title="AWS Storage">
+<div created="20201013201236563" creator="0neir0s" modified="20201021072648751" modifier="0neir0s" tags="aws notes" title="AWS Storage">
 <pre>* AWS Snowball is for transferring petabyte scale data into and out of AWS.
 * AWS Certificate Manager is a service that lets you easily provision, manage, and deploy Secure Sockets Layer/Transport Layer Security (SSL/TLS) certificates for use with AWS services. You can use SSL from your application to encrypt a connection to a DB instance running MySQL, MariaDB, Amazon Aurora, SQL Server, Oracle, or PostgreSQL.
 * Both file gateways and cached volume gateways provide local caches to store frequently accessed data. Stored volume gateways keep all files locally, so all stored data can be retrieve with reduced latency. Tape gateways are an archival method, and not ideal for data that needs to be readily available.
 * An Amazon EFS mount target is not attached to each specific EC2 instance like an EBS volume. A mount target must be created within a VPC in order for the service to work, but it is recommended you create a mount target within each availability zone (AZ) within a VPC.
 * Snowballs don’t need to be packed in a box or container because it already has its own physically rugged shipping container. The E Ink display on the front of the Snowball changes to your return shipping label when the Snowball is turned off.
-* Amazon EFS offers two performance modes: General Purpose mode and Max I/O mode. The performance mode is selected when the file system is created. The Max I/O performance mode is best suited for applications where multiple EC2 instances access the file system, as it can scale to higher levels of aggregate throughput and operations per second with a tradeoff of negligibly higher latencies for file operations.</pre>
+* Amazon EFS offers two performance modes: General Purpose mode and Max I/O mode. The performance mode is selected when the file system is created. The Max I/O performance mode is best suited for applications where multiple EC2 instances access the file system, as it can scale to higher levels of aggregate throughput and operations per second with a tradeoff of negligibly higher latencies for file operations.
+* Initializing volumes (formerly known as pre-warming) has changed from its prior functionality. Formerly, you would have to initialize (pre-warm) a newly created volume from scratch. This is no longer necessary. Newly created volumes created from snapshots still need to be pre-warmed by reading from the blocks that contain data.
+* EBS volumes are created in a specific Availability Zone, and can then be attached to any instances in that same Availability Zone</pre>
 </div>
 <div created="20201011150936485" creator="0neir0s" modified="20201019191512942" modifier="0neir0s" tags="aws notes" title="AWS Strategies">
 <pre>* Use an Elastic Network Interface (ENI) to create a management network, to use network and security appliances in your VPC, to create dual-homed instances with workloads/roles on distinct subnets or to create a low-budget, high-availability solution.
@@ -10039,46 +10040,6 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 * You can do all tasks using the AWS CLI but it is better to automate the process using AWS CloudFormation.
 * AWS Organizations is a web service that enables you to consolidate your multiple AWS accounts into an organization and centrally manage your accounts and their resources.
 * Using the Range HTTP header in a GET Object request, you can fetch a byte-range from an object, transferring only the specified portion. You can use concurrent connections to Amazon S3 to fetch different byte ranges from within the same object. This helps you achieve higher aggregate throughput versus a single whole-object request. Fetching smaller ranges of a large object also allows your application to improve retry times when requests are interrupted.</pre>
-</div>
-<div created="20201013054457687" creator="0neir0s" draft.of="AWS Databases" draft.title="AWS Databases" modified="20201021062533971" modifier="0neir0s" tags="aws notes" title="Draft of 'AWS Databases' by 0neir0s">
-<pre>* Multi AZ data replication happens synchronously. Storage autoscaling and Compute scaling. Aurora also supports backtrack.
-* All RDS except Aurora used EBS for storage - General purpose, Provisioned IOPS SSD, Magnetic Storage. Aurora uses a shared cluster storage.  
-* Amazon RDS Read Replicas provide enhanced performance and durability for RDS database (DB) instances. They make it easy to elastically scale out beyond the capacity constraints of a single DB instance for read-heavy database workloads. They are for scaling, not for failover and replication happens asynchronously (with secondary in case of Multi-AZ). Also, it cannot increase database service IOPS.
-* You can create a read replica as a Multi-AZ DB instance. Amazon RDS creates a standby of your replica in another Availability Zone for failover support for the replica
-* Amazon RDS creates a second DB instance using a snapshot of the source DB instance. It then uses the engines' native asynchronous replication to update the read replica whenever there is a change to the source DB instance. 
-* With optional Multi-AZ deployments, Amazon RDS also manages synchronous data replication across Availability Zones with automatic failover.
-* A DB parameter group acts as a container for engine configuration values that are applied to one or more DB instances.
-* Disaster Recovery techniques: Backup &amp; Restore, Pilot light, Warm standby, Multi-site
-* In Neptune, an endpoint is simply a URL address and a port that points to your components - could be cluster, reader, and instance endpoints.
-* Neptune supports 2 query languages - sparql and gremlin. It has redundancies in at least 3 AZs, and has auto-repair.  Replica data synchronisation happens synchronously.  
-* AWS ElastiCache - For in-memory stores. It supports Memcached and Redis. Former is simpler and faster, while latter has more features. With Redis, you can also enable cluster mode where the number of shards per cluster can be increase upto 90 from 1. 
-* Components of ElasticCache - node ( network attached RAM), shard (node group; upto 6) and cluster (1-90 shards)
-* Dynamo DB is a NoSQL database - ( key, value stores ). Steps: create the table and set the provisioned throughput (could be on-demand too). You are charged for storage + throughput. 
-* Each query can only use one index. Dynamo DB allows secondary indexes to allow search by other attributes - global indexes to query across entire table to find any record that matches a particular value and local secondary indexes can only help find data within a single partition key.
-* Automatically replicated across 3 AZs. But, it has only eventual consistency for certain types of queries. There are also limits - record size of 400 kb, and 5 secondary indexes per table.
-* QLDB -  Data is placed into tables of Amazon ion documents. And rest assured, nothing has changed or can be changed through the use of a database journal, which is configured as append-only.
-* Has integration with Amazon Kinesis through the use of QLDB streams.
-* 2 types of storage: Journal storage for immutable history of changes made within the ledger database. Index storage is used to provision the tables and indexes within the ledger database and is optimised for querying.
-* DocumentDB - Runs in a VPC, fully compatible with MongoDB. The automated backups themselves are performed daily, with retention period set between 0 and 35 days.
-* Endpoints similar to Neptune. Like Neptune, it also shares the same underlying storage of the primary instance across a shared volume.
-* Data is replicated synchronously between both the primary DB instance and each replica in the region.
-* Redshift is based upon PostgreSQL 8.0.2. It does ETL jobs.
-** Extraction is the process of retrieving data from one or more sources.
-** Transformation is the process of mapping, reformatting, conforming, adding meaning and more to prepare the data for easy consumption.
-** Loading involves successfully inserting the transform data into the data warehouse.
-* Cluster is the core component of the Amazon Redshift. In every cluster, it runs its own Redshift engine, which will contain at least one database and at least one compute node, (if more, then a leader node as well).
-* Each compute node itself is also split into slices, known as node slice for parallelism 
-* For AWS Database Migration Service, either the source or the target database (or both) need to reside in RDS or on EC2. 
-* Note an automatic snapshot has a limited retention period, and will be deleted if the original instance is deleted.</pre>
-</div>
-<div created="20201013201236563" creator="0neir0s" draft.of="AWS Storage" draft.title="AWS Storage" modified="20201021055854918" modifier="0neir0s" tags="aws notes" title="Draft of 'AWS Storage' by 0neir0s">
-<pre>* AWS Snowball is for transferring petabyte scale data into and out of AWS.
-* AWS Certificate Manager is a service that lets you easily provision, manage, and deploy Secure Sockets Layer/Transport Layer Security (SSL/TLS) certificates for use with AWS services. You can use SSL from your application to encrypt a connection to a DB instance running MySQL, MariaDB, Amazon Aurora, SQL Server, Oracle, or PostgreSQL.
-* Both file gateways and cached volume gateways provide local caches to store frequently accessed data. Stored volume gateways keep all files locally, so all stored data can be retrieve with reduced latency. Tape gateways are an archival method, and not ideal for data that needs to be readily available.
-* An Amazon EFS mount target is not attached to each specific EC2 instance like an EBS volume. A mount target must be created within a VPC in order for the service to work, but it is recommended you create a mount target within each availability zone (AZ) within a VPC.
-* Snowballs don’t need to be packed in a box or container because it already has its own physically rugged shipping container. The E Ink display on the front of the Snowball changes to your return shipping label when the Snowball is turned off.
-* Amazon EFS offers two performance modes: General Purpose mode and Max I/O mode. The performance mode is selected when the file system is created. The Max I/O performance mode is best suited for applications where multiple EC2 instances access the file system, as it can scale to higher levels of aggregate throughput and operations per second with a tradeoff of negligibly higher latencies for file operations.
-* Initializing volumes (formerly known as pre-warming) has changed from its prior functionality. Formerly, you would have to initialize (pre-warm) a newly created volume from scratch. This is no longer necessary. Newly created volumes created from snapshots still need to be pre-warmed by reading from the blocks that contain data.</pre>
 </div>
 <div created="20200818173814631" creator="0neir0s" modified="20201017133615024" modifier="0neir0s" published="" tags="goal published" title="Motivation" type="metadata">
 <pre>The idea is to make sure the tiddlers while trivial individually, will start making sense in its entirety - i.e, they form a gestalt. 
