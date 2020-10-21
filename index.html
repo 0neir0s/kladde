@@ -197,8 +197,6 @@ Error message and password prompt
 
 <li>AWS Strategies</li>
 
-<li>Draft of 'AWS Networking' by 0neir0s</li>
-
 <li>Draft of 'AWS Strategies' by 0neir0s</li>
 
 <li>Motivation</li>
@@ -9633,7 +9631,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS [[AWS EC2]] [[Draft of 'AWS Networking' by 0neir0s]] [[Draft of 'AWS Strategies' by 0neir0s]]" modified="20201021094630768" modifier="0neir0s" title="$:/StoryList">
+<div created="20201021052520458" creator="0neir0s" list="Synopsis AWS [[AWS Services]] [[AWS Security]] [[AWS Networking]] [[Draft of 'AWS Strategies' by 0neir0s]]" modified="20201021094718072" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9889,14 +9887,16 @@ GettingStarted
 * Generally if the user uses the instances around 30-40% of the year annually it is recommended to use RI. Even a scheduled reserved instance has a key limitation, which is that it cannot be stopped or rebooted, only manually terminated with a possibility that it could be restarted.
 * Ensure that you are pinging a website that has ICMP enabled. If not, you will not receive reply packets. To test this, perform the same ping command from the command line terminal on your own computer.</pre>
 </div>
-<div created="20201014080547604" creator="0neir0s" modified="20201021082105057" modifier="0neir0s" tags="aws notes" title="AWS Networking">
+<div created="20201014080547604" creator="0neir0s" modified="20201021100234673" modifier="0neir0s" tags="aws notes" title="AWS Networking">
 <pre>* VPC Routing: There is a main route user. And each VPC has an implicit router. And local route in the route table cannot be removed.
 * The access key for your AWS account root user gives full access to all your resources for all AWS services, including your billing information. You cannot reduce the permissions associated with your AWS account root user access key. So, protect your root user access key.
 * When you configure your VPC; you can select its IP address range, create subnets, and configure route tables, network gateways, and security settings.
 * A NAT gateway has an EIP, sits in the public subnet, only accepts outgoing traffic and is resilient. But you need to add it in every public subnet.
 * A Bastion host sits in the public subnet and is the equivalent to the jump host. Need to add the security group to Bastion Host and the private EC2s
+* Virtual Private Gateway - is the only route in a VPN only subnet
 * First 3 IPs of each subnet corresponds to Router, DNS and reserved respectively.
 * Network address is the 0th address and Broadcast address is the last address.
+* Internet gateway additionally performs network address translation for the instances with public IPs.
 * Default NACL allows all by default. By default, each custom NACL denies all inbound and outbound traffic until you add rules.
 * Each AWS virtual private gateway comes with two VPN endpoints with capabilities for static and dynamic routing. 
 * For making HA VPN connections, a second connection  is to be implemented via a redundant customer gateway, and enable dynamic routing for automatic fail over. It is the customer managed endpoint that's the component responsible for implementing this. So customer devices must support Single Hot BGP if you're using BGP for dynamic routing
@@ -9925,7 +9925,7 @@ GettingStarted
 * A virtual private gateway is a logical, fully redundant distributed edge routing function that sits at the edge of your VPC. As it is capable of terminating VPN connections from your on-prem or customer environments, the VPG is the VPN concentrator on the Amazon side of the Site-to-Site VPN connection. 
 * RTMP distributions are not compatible if transfer should be over HTTPS</pre>
 </div>
-<div created="20201011163446337" creator="0neir0s" modified="20201021083003018" modifier="0neir0s" tags="aws notes" title="AWS Security">
+<div created="20201011163446337" creator="0neir0s" modified="20201021094713948" modifier="0neir0s" tags="aws notes" title="AWS Security">
 <pre>* A policy usually contains the following: [[Overview|https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html]]
 ** Resources/ARN - Buckets, objects, access points, and jobs
 ** Actions and Effect
@@ -9938,6 +9938,7 @@ GettingStarted
 ** Create Your Own Policy (json)
 * AWS Service roles that allows one service to call or manager other services on your behalf can be edited.
 * Temporary security credentials are defined by a username and a policy giving permissions to resources.
+
 * If the IAM user is trying to perform a bucket operation, S3 will first verify whether the IAM user belongs to the same root account or another account. If it belongs to another AWS account, it will first verify whether the IAM user account’s parent has provided sufficient permissions to perform such activities. (User context eval followed by Bucket context - [[more details|https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-auth-workflow-bucket-operation.html]])
 * By default, Windows RDP servers use self-signed certificates, which are not trusted, and should be avoided, if encryption in transit is a requirement. SSH 2 using non-privileged user accounts is also a recommended approach for connecting Linux instances.
 * AWS customers should undertake a number of security control testing approaches: External Vulnerability Assessment, External Penetration Tests, and Internal Gray/White-box Review of Applications and Platforms.
@@ -9959,7 +9960,7 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 * Users can only enable Object locks can on new S3 buckets. 
 * Object locks have two retention modes - governance mode and compliance mode. Compliance mode prevents objects from being deleted or updated by users, including the root user. Governance mode allows objects to be modified, but prevents objects from being deleted.</pre>
 </div>
-<div created="20201011140841846" creator="0neir0s" modified="20201021083718676" modifier="0neir0s" tags="aws notes" title="AWS Services">
+<div created="20201011140841846" creator="0neir0s" modified="20201021094729423" modifier="0neir0s" tags="aws notes" title="AWS Services">
 <pre>* SQS structure Producer,  Queue, Consumer. 
 * The types are standard queues, FIFO queues and dead letter queues.
 * Since AWS is a distributed service, the consumer must delete the message from the queue after receiving and processing it.
@@ -9973,6 +9974,7 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 *  If you make an object public in a non-public bucket (AWS docs term for private), people can access your objects (read &amp; get), but cannot list what objects are in the related bucket, or read/get other objects stored in the bucket, unless explicitly allowed.
 *  An S3 bucket ACL grantee can be an AWS account or one of the predefined Amazon S3 groups. They are: Authenticated Users group ( all AWS accounts ), All Users group (anyone), Log Delivery group( WRITE permission on a bucket enables this group to write server access logs to the bucket). {[[ACL Overview|https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html]]}
 * Amazon S3 Transfer Acceleration is used for speeding up uploads of data to Amazon S3 by using the CloudFront network. It is not used for downloading data.
+* When a bucket policy is applied the permissions assigned apply to all objects within that Bucket. This policy introduces a new attribute called ‘principal’. Principals are not needed for IAM policies, as it is already defined by who is associated with that policy.
 * S3 batch operations - these are automated batch operations can apply to a select few operations, including applying object tags (PUT object tag.)
 * S3 object tags vs. bucket tags - object tags are metadata (system or user-defined) that can be applied upon object upload. Bucket tags are cost-allocation tags that assist in managing and tracking service usage and billing. These are very different things. Bucket tags do not have a parent-child relationship with object tags for objects stored within a bucket.
 * S3 Inventory - this service allows you to organize a list of objects stored within a bucket into manifests. The manifests are one source of input of relevant objects to apply updates to in S3 batch operations.
@@ -10065,57 +10067,15 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 * AWS Organizations is a web service that enables you to consolidate your multiple AWS accounts into an organization and centrally manage your accounts and their resources.
 * Using the Range HTTP header in a GET Object request, you can fetch a byte-range from an object, transferring only the specified portion. You can use concurrent connections to Amazon S3 to fetch different byte ranges from within the same object. This helps you achieve higher aggregate throughput versus a single whole-object request. Fetching smaller ranges of a large object also allows your application to improve retry times when requests are interrupted.</pre>
 </div>
-<div created="20201014080547604" creator="0neir0s" draft.of="AWS Networking" draft.title="AWS Networking" modified="20201021094501470" modifier="0neir0s" tags="aws notes" title="Draft of 'AWS Networking' by 0neir0s">
-<pre>* VPC Routing: There is a main route user. And each VPC has an implicit router. And local route in the route table cannot be removed.
-* The access key for your AWS account root user gives full access to all your resources for all AWS services, including your billing information. You cannot reduce the permissions associated with your AWS account root user access key. So, protect your root user access key.
-* When you configure your VPC; you can select its IP address range, create subnets, and configure route tables, network gateways, and security settings.
-* A NAT gateway has an EIP, sits in the public subnet, only accepts outgoing traffic and is resilient. But you need to add it in every public subnet.
-* A Bastion host sits in the public subnet and is the equivalent to the jump host. Need to add the security group to Bastion Host and the private EC2s
-* Virtual Private Gateway - is the only route in a VPN only subnet
-* First 3 IPs of each subnet corresponds to Router, DNS and reserved respectively.
-* Network address is the 0th address and Broadcast address is the last address.
-* Internet gateway additionally performs network address translation for the instances with public IPs.
-* Default NACL allows all by default. By default, each custom NACL denies all inbound and outbound traffic until you add rules.
-* Each AWS virtual private gateway comes with two VPN endpoints with capabilities for static and dynamic routing. 
-* For making HA VPN connections, a second connection  is to be implemented via a redundant customer gateway, and enable dynamic routing for automatic fail over. It is the customer managed endpoint that's the component responsible for implementing this. So customer devices must support Single Hot BGP if you're using BGP for dynamic routing
-* A transit gateway is a network transit hub that you can use to interconnect your virtual private clouds (VPC) and on-premises networks. Effectively, it is a regional virtual router for traffic flowing between your virtual private clouds (VPC) and VPN connections. (operates at layer 3)
-* A VPC endpoint enables private connections between your VPC and supported AWS services and VPC endpoint services powered by AWS PrivateLink. They are virtual devices; scaled, redundant and HA. 
-** An interface endpoint is an ENI with a private IP address from the IP address range of your subnet that serves as an entry point for traffic destined to a supported service.
-** A gateway endpoint is a gateway that you specify as a target for a route in your route table for traffic destined to a supported AWS service. Supported services: DynamoDB, S3
-* VPN Connections
-** With VPC Interface Endpoints, it is possible to connect to a number of AWS services both from resources within your Amazon VPC and from resources in your on-premises environment. This is not possible with VPC Gateway Endpoints. Services cannot initiate requests to resources in your VPC through the endpoint. 
-** Virtual Private Gateway (VGW) is the Amazon VPC's side of a VPN connection. 
-** Customer Gateway (CGW) is your side of the VPN connection.
-** You can create a VPN tunnel using IPSEC to onpremise or co-locations. 
-** For more predictable connectivity or a private connection use Direct Connect, a private, dedicated connection between your on-prem network and your AWS VPC using 802.1 q VLAN standard. 
-** VPC Peering provides network connectivity between 2 VPCs. An example where it might be needed is for directory services. It is not possible if there is an overlap in their CIDR schema.
-** AWS VPN Cloudhub operates on a simple hub and spoke model that you can use without a VPC. So use this design if you have multiple branch offices and existing internet connections, and would like to implement a convenient, potentially low cost hub and spoke model for primary or backup connectivity between these remote offices.
-* DNS
-** A hosted zone is a container for records, and records contain information about how you want to route traffic for a specific domain and its subdomains. 
-*** Public hosted zones contain records that specify how you want to route traffic on the internet. 
-*** Private hosted zones contain records that specify how you want to route traffic in an Amazon VPC.
-** CloudFront
-** WAF
-** Route 53
-* The BGP protocol is not used to enable encryption for Direct Connect, it is used for routing.
-* An AWS Direct Connect Gateway is used to connect to VPCs across multiple AWS regions. It is not involved with encryption
-* A VPG is used to setup an AWS VPN which you can use in combination with Direct Connect to encrypt all data that traverses the Direct Connect link.
-* A virtual private gateway is a logical, fully redundant distributed edge routing function that sits at the edge of your VPC. As it is capable of terminating VPN connections from your on-prem or customer environments, the VPG is the VPN concentrator on the Amazon side of the Site-to-Site VPN connection. 
-* RTMP distributions are not compatible if transfer should be over HTTPS</pre>
-</div>
-<div created="20201011150936485" creator="0neir0s" draft.of="AWS Strategies" draft.title="AWS Strategies" modified="20201021094626610" modifier="0neir0s" tags="aws notes" title="Draft of 'AWS Strategies' by 0neir0s">
+<div created="20201011150936485" creator="0neir0s" draft.of="AWS Strategies" draft.title="AWS Strategies" modified="20201021100231428" modifier="0neir0s" tags="aws notes" title="Draft of 'AWS Strategies' by 0neir0s">
 <pre>* Use an Elastic Network Interface (ENI) to create a management network, to use network and security appliances in your VPC, to create dual-homed instances with workloads/roles on distinct subnets or to create a low-budget, high-availability solution.
 * Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses.
 * Rebooting primary database instance is the strategy to consistently test db failovers. 
-
 * Decoupling can be done using SQS (store requests) or s3 + Autoscaling worker instances.
-* When a bucket policy is applied the permissions assigned apply to all objects within that Bucket. This policy introduces a new attribute called ‘principal’. Principals are not needed for IAM policies, as it is already defined by who is associated with that policy.
-
 * A cluster placement group provides low-latency networking between all instances in the cluster. It is ideal for high performance analytics systems and many science and engineering applications. 
 * For data transfer to EFS, use DataSync. AWS DataSync is a data transfer service that simplifies, automates, and accelerates moving and replicating data between on-premises storage systems and AWS storage services over the internet or AWS Direct Connect.
-* For SMB based FIle system, AWS FSx for Windows is the recommended service over EFS, whose key attribute is that it uses NFS, one of the first network file sharing protocols native to Unix and Linux. Additionally, FSx also supports [[Lustre|AWS &amp; Cloud Definitions]]
-* With S3 Object Lock, you can store objects using a write-once-read-many (WORM) model. You can use it to prevent an object from being deleted or overwritten for a fixed amount of time or indefinitely - retention periods and legal holds
-* For creating alerts/alerts pertaining to EC2 instances, the correct permissions need to be assigned to the CloudWatch service as well as SNS needs to be configured for notifications.
+* For SMB based FIle system, AWS FSx for Windows is recommended over EFS, whose key attribute is that it uses NFS, one of the first network file sharing protocols native to Unix and Linux. Additionally, FSx also supports [[Lustre|AWS &amp; Cloud Definitions]]
+* With S3 Object Lock, you can store objects using a write-once-read-many (WORM) model. You can use it to prevent an object from being deleted or overwritten for a fixed amount of time or indefinitely. 2 retention modes: governance and compliance modes. Independently, with object lock, legal holds can also be applied. 
 * Dedicated Instances are Amazon EC2 instances that run in a VPC on hardware that's dedicated to a single customer. Dedicated instances are physically isolated at the host hardware level from instances that belong to other AWS accounts.
 * Read replicas in different regions are available in Amazon RDS for MYSQL, MariaDB, PostgreSQL, Oracle, and Aurora. So, if you need read replicas located in a separate AWS region from the primary DB, don't use sql server.
 * General Purpose (SSD), also called gp2, volumes offer cost-effective storage that is ideal for a broad range of workloads - including moderately IO intensive ones.
