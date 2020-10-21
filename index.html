@@ -9641,7 +9641,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201021052520458" creator="0neir0s" list="RDS Synopsis AWS Databases" modified="20201021145302276" modifier="0neir0s" title="$:/StoryList">
+<div created="20201021052520458" creator="0neir0s" list="RDS Synopsis AWS Databases" modified="20201021154208265" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9984,7 +9984,7 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 
 </pre>
 </div>
-<div created="20201013201236563" creator="0neir0s" modified="20201021082236327" modifier="0neir0s" tags="aws notes" title="AWS Storage">
+<div created="20201013201236563" creator="0neir0s" modified="20201021154222265" modifier="0neir0s" tags="aws notes" title="AWS Storage">
 <pre>* AWS Snowball is for transferring petabyte scale data into and out of AWS.
 * AWS Certificate Manager is a service that lets you easily provision, manage, and deploy Secure Sockets Layer/Transport Layer Security (SSL/TLS) certificates for use with AWS services. You can use SSL from your application to encrypt a connection to a DB instance running MySQL, MariaDB, Amazon Aurora, SQL Server, Oracle, or PostgreSQL.
 * Both file gateways and cached volume gateways provide local caches to store frequently accessed data. Stored volume gateways keep all files locally, so all stored data can be retrieve with reduced latency. Tape gateways are an archival method, and not ideal for data that needs to be readily available.
@@ -9995,9 +9995,10 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 * EBS volumes are created in a specific Availability Zone, and can then be attached to any instances in that same Availability Zone
 * There is no additional cost for on-premises access to your Amazon EFS file systems. 
 * With the new EBS multi-attach feature for Provisioned IOPS volumes, you can attach EBS volumes (of this type only) to more than one EC2 instance. So, yes it is possible, but not for all EBS volume types.
-* With the EBS Elastic Volumes feature you can increase volume size, adjust performance, or change the volume type while the volume is in use. You can continue to use your application while the change takes effect.</pre>
+* With the EBS Elastic Volumes feature you can increase volume size, adjust performance, or change the volume type while the volume is in use. You can continue to use your application while the change takes effect.
+* EBS General Purpose (SSD), also called gp2, volumes offer cost-effective storage that is ideal for a broad range of workloads - including moderately IO intensive ones.</pre>
 </div>
-<div created="20201011150936485" creator="0neir0s" modified="20201021135358823" modifier="0neir0s" tags="aws notes" title="AWS Strategies">
+<div created="20201011150936485" creator="0neir0s" modified="20201021154100155" modifier="0neir0s" tags="aws notes" title="AWS Strategies">
 <pre>* Use an Elastic Network Interface (ENI) to create a management network, to use network and security appliances in your VPC, to create dual-homed instances with workloads/roles on distinct subnets or to create a low-budget, high-availability solution.
 * Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses.
 * Rebooting primary database instance is the strategy to consistently test db failovers. 
@@ -10007,7 +10008,6 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 * For SMB based FIle system, AWS FSx for Windows is recommended over EFS, whose key attribute is that it uses NFS, one of the first network file sharing protocols native to Unix and Linux. Additionally, FSx also supports [[Lustre|AWS &amp; Cloud Definitions]]
 * Dedicated Instances are Amazon EC2 instances that run in a VPC on hardware that's dedicated to a single customer. Dedicated instances are physically isolated at the host hardware level from instances that belong to other AWS accounts.
 * Read replicas in different regions are available in Amazon RDS for MYSQL, MariaDB, PostgreSQL, Oracle, and Aurora. So, if you need read replicas located in a separate AWS region from the primary DB, don't use SQL Server.
-* General Purpose (SSD), also called gp2, volumes offer cost-effective storage that is ideal for a broad range of workloads - including moderately IO intensive ones.
 * If your workload on Amazon S3 is mainly sending GET requests, use CloudFront for performance optimization. Integrating CloudFront with S3, you can distribute content to your users with low latency and a high data transfer rate, while sending fewer direct requests to Amazon S3, which will reduce your costs. 
 * It is best practice to use IAM roles so that your applications can securely make API requests from your EC2 instances, without requiring you to manage the security credentials that the applications use.
 * When you create IAM policies, follow the standard security advice of granting least privilege - i.e, granting only the permissions required to perform a task.
@@ -10081,7 +10081,7 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 
 It is not meant to be a daily log. Earlier posts would be updated when mistakes are pointed out.</pre>
 </div>
-<div created="20201021145856509" creator="0neir0s" modified="20201021154041389" modifier="0neir0s" tags="aws notes" title="RDS">
+<div created="20201021145856509" creator="0neir0s" modified="20201021171115212" modifier="0neir0s" tags="aws notes" title="RDS">
 <pre>* Amazon Relational Database Service (Amazon RDS) is a managed service that makes it easy to set up, operate, and scale a relational database in the cloud.
 * While less-featured, EC2 Relational Database AMIs has more flexibility and control.
 * It can also be hybrid with RDS on premises using Amazon RDS on Outposts and Amazon RDS on VMware. 
@@ -10105,6 +10105,7 @@ It is not meant to be a daily log. Earlier posts would be updated when mistakes 
 ** On a Single-AZ DB instance, snapshots results in a brief I/O suspension that typically lasting no more than a few minutes. 
 ** Manual snapshots aren't subject to the backup retention period, unlike automated backups.
 ** A DB snapshot can be created using the AWS Management Console, the AWS CLI, or the RDS API.
+** Amazon RDS retains the optional final user-created DB snapshot along with all other manually created DB snapshots if the DB instance is deleted.
 
 * Multi AZ
 ** Running your DB instance as a Multi-AZ deployment can further reduce the impact of a maintenance event. 
@@ -10114,8 +10115,10 @@ It is not meant to be a daily log. Earlier posts would be updated when mistakes 
 
 * DB instance is a database environment in the cloud with the compute and storage resources you specify. 
 * To import data into Amazon RDS, database specific utilities can be used. In addition, AWS Database Migration Service can help you migrate databases to AWS easily and securely. 
+* A DB Subnet Group is a collection of subnets (at least 1 in each AZ) that you may want to designate for your RDS DB Instances in a VPC. RDS uses selected Subnet group and your preferred Availability Zone to select a subnet and associates an ENI to an IP address within that subnet.
+
 * Storage autoscaling and Compute scaling. Aurora also supports backtrack.
-* All RDS except Aurora used EBS for storage - General purpose, Provisioned IOPS SSD, Magnetic Storage. Aurora uses a shared cluster storage.  
+* All RDS except Aurora uses EBS for storage - General purpose, Provisioned IOPS SSD, Magnetic Storage. Aurora uses a shared cluster storage.  
 * Amazon RDS Read Replicas provide enhanced performance and durability for RDS database (DB) instances. They make it easy to elastically scale out beyond the capacity constraints of a single DB instance for read-heavy database workloads. They are for scaling, not for failover and replication happens asynchronously (with secondary in case of Multi-AZ). Also, it cannot increase database service IOPS.
 * You can create a read replica as a Multi-AZ DB instance. Amazon RDS creates a standby of your replica in another Availability Zone for failover support for the replica
 * Amazon RDS creates a second DB instance using a snapshot of the source DB instance. It then uses the engines' native asynchronous replication to update the read replica whenever there is a change to the source DB instance. 
