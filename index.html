@@ -9647,7 +9647,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201021052520458" creator="0neir0s" list="CloudHub Synopsis AWS CloudWatch" modified="20201021191113147" modifier="0neir0s" title="$:/StoryList">
+<div created="20201022040553373" creator="0neir0s" list="Synopsis AWS EC2 GettingStarted" modified="20201022185054309" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10042,7 +10042,7 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 ** Local secondary indexes can only help find data within a single partition key.
 * Automatically replicated across 3 AZs. But, it has only eventual consistency for certain types of queries. There are also limits - record size of 400 kb, and 5 secondary indexes per table.</pre>
 </div>
-<div created="20201011134639869" creator="0neir0s" modified="20201021184839951" modifier="0neir0s" tags="notes aws" title="EC2">
+<div created="20201011134639869" creator="0neir0s" modified="20201022192937079" modifier="0neir0s" tags="notes aws" title="EC2">
 <pre>* Creating an EC2 instance is by selecting the instance type (hardware type) and AMI (software) and optionally, with a database. 
 * Amazon EC2 uses an instance profile as a container for an IAM role. When you create an IAM role using the IAM console, the console creates an instance profile automatically and gives it the same name as the role to which it corresponds. 
 * Enhanced networking uses single root I/O virtualization (SR-IOV) to provide high-performance networking capabilities - higher I/O performance, lower CPU utilisation, higher bandwidth, higher packets per second, lower inter-instance latencies(jitter) - on supported instance types.
@@ -10076,7 +10076,11 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 * Ensure that you are pinging a website that has ICMP enabled. If not, you will not receive reply packets. To test this, perform the same ping command from the command line terminal on your own computer.
 * For creating alerts/alerts pertaining to EC2 instances, the correct permissions need to be assigned to the CloudWatch service as well as SNS needs to be configured for notifications.
 * For rebooting AWS does not charge a new instance hour, while every stop or restart will be charged fee for a new instance hour as a separate hour.
-* Auto Scaling is enabled by Amazon CloudWatch and carries no additional fees.</pre>
+* Auto Scaling is enabled by Amazon CloudWatch and carries no additional fees.
+* Disk encryption on NVMe instance storage does not support integration with AWS KMS system.
+* To use hibernation, the root volume must be an encrypted EBS volume. And the instance needs to be configured to receive the ACPID signal for hibernation 
+
+* Read FAQ from VM Import/Export</pre>
 </div>
 <div created="20200818173814631" creator="0neir0s" modified="20201017133615024" modifier="0neir0s" published="" tags="goal published" title="Motivation" type="metadata">
 <pre>The idea is to make sure the tiddlers while trivial individually, will start making sense in its entirety - i.e, they form a gestalt. 
