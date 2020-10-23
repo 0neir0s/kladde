@@ -189,8 +189,6 @@ Error message and password prompt
 
 <li>AWS &amp; Cloud Definitions</li>
 
-<li>AWS Networking</li>
-
 <li>AWS Security</li>
 
 <li>AWS Services</li>
@@ -214,6 +212,8 @@ Error message and password prompt
 <li>EC2</li>
 
 <li>Motivation</li>
+
+<li>Networking</li>
 
 <li>RDS</li>
 
@@ -9659,7 +9659,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201023051631693" creator="0neir0s" list="Synopsis AWS Storage GettingStarted" modified="20201023064210843" modifier="0neir0s" title="$:/StoryList">
+<div created="20201023051631693" creator="0neir0s" list="Synopsis AWS Networking GettingStarted" modified="20201023105454580" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9854,46 +9854,6 @@ GettingStarted
 * AWS Backup is a fully managed backup service that makes it easy to centralize and automate the backup of data across AWS services. It supports backup policies and monitor backup activity of EBS, EC2, RDS databases, DynamoDB tables, EFS, and Storage Gateway volumes. It uses GB-Month as the pricing metric.
 * AWS Storage Gateway is a hybrid cloud storage service that gives you on-premises access to cloud storage. It offers three types - File Gateway, Tape Gateway, and Volume Gateway - for connect on-premises applications to cloud storage, caching data locally for low-latency access. Connect using protocols like NFS, SMB, and iSCSI.
 * Data keys are encryption keys that you can use to encrypt data, including large amounts of data and other data encryption keys.</pre>
-</div>
-<div created="20201014080547604" creator="0neir0s" modified="20201021102909493" modifier="0neir0s" tags="aws notes" title="AWS Networking">
-<pre>* VPC Routing: There is a main route user. And each VPC has an implicit router. And local route in the route table cannot be removed.
-* The access key for your AWS account root user gives full access to all your resources for all AWS services, including your billing information. You cannot reduce the permissions associated with your AWS account root user access key. So, protect your root user access key.
-* When you configure your VPC; you can select its IP address range, create subnets, and configure route tables, network gateways, and security settings.
-* A NAT gateway has an EIP, sits in the public subnet, only accepts outgoing traffic and is resilient. But you need to add it in every public subnet.
-* A Bastion host sits in the public subnet and is the equivalent to the jump host. Need to add the security group to Bastion Host and the private EC2s
-* Virtual Private Gateway - is the only route in a VPN only subnet
-* First 3 IPs of each subnet corresponds to Router, DNS and reserved respectively.
-* Network address is the 0th address and Broadcast address is the last address.
-* Internet gateway additionally performs network address translation for the instances with public IPs.
-* Default NACL allows all by default. By default, each custom NACL denies all inbound and outbound traffic until you add rules.
-* Each AWS virtual private gateway comes with two VPN endpoints with capabilities for static and dynamic routing. 
-* Enhanced networking provides higher bandwidth and lower latency and is implemented using an Elastic Network Adapter (ENA). However, using ENA with an HDD Throughput Optimized volume is not recommended as the volume will not provide the performance required for this use case.
-* An Elastic Fabric Adapter is an AWS Elastic Network Adapter (ENA) with added capabilities. The EFA lets you apply the scale, flexibility, and elasticity of the AWS Cloud to tightly-coupled HPC apps. It is ideal for tightly coupled app as it uses the Message Passing Interface (MPI).
-* For making HA VPN connections, a second connection  is to be implemented via a redundant customer gateway, and enable dynamic routing for automatic fail over. It is the customer managed endpoint that's the component responsible for implementing this. So customer devices must support Single Hot BGP if you're using BGP for dynamic routing
-* A transit gateway is a network transit hub that you can use to interconnect your virtual private clouds (VPC) and on-premises networks. Effectively, it is a regional virtual router for traffic flowing between your virtual private clouds (VPC) and VPN connections. (operates at layer 3)
-* A VPC endpoint enables private connections between your VPC and supported AWS services and VPC endpoint services powered by AWS PrivateLink. They are virtual devices; scaled, redundant and HA. 
-** An interface endpoint is an ENI with a private IP address from the IP address range of your subnet that serves as an entry point for traffic destined to a supported service.
-** A gateway endpoint is a gateway that you specify as a target for a route in your route table for traffic destined to a supported AWS service. Supported services: DynamoDB, S3
-* VPN Connections
-** With VPC Interface Endpoints, it is possible to connect to a number of AWS services both from resources within your Amazon VPC and from resources in your on-premises environment. This is not possible with VPC Gateway Endpoints. Services cannot initiate requests to resources in your VPC through the endpoint. 
-** Virtual Private Gateway (VGW) is the Amazon VPC's side of a VPN connection. 
-** Customer Gateway (CGW) is your side of the VPN connection.
-** You can create a VPN tunnel using IPSEC to onpremise or co-locations. 
-** For more predictable connectivity or a private connection use Direct Connect, a private, dedicated connection between your on-prem network and your AWS VPC using 802.1 q VLAN standard. 
-** VPC Peering provides network connectivity between 2 VPCs. An example where it might be needed is for directory services. It is not possible if there is an overlap in their CIDR schema.
-** AWS VPN Cloudhub operates on a simple hub and spoke model that you can use without a VPC. So use this design if you have multiple branch offices and existing internet connections, and would like to implement a convenient, potentially low cost hub and spoke model for primary or backup connectivity between these remote offices.
-* DNS
-** A hosted zone is a container for records, and records contain information about how you want to route traffic for a specific domain and its subdomains. 
-*** Public hosted zones contain records that specify how you want to route traffic on the internet. 
-*** Private hosted zones contain records that specify how you want to route traffic in an Amazon VPC.
-** CloudFront
-** WAF
-** Route 53
-* The BGP protocol is not used to enable encryption for Direct Connect, it is used for routing.
-* An AWS Direct Connect Gateway is used to connect to VPCs across multiple AWS regions. It is not involved with encryption
-* A VPG is used to setup an AWS VPN which you can use in combination with Direct Connect to encrypt all data that traverses the Direct Connect link.
-* A virtual private gateway is a logical, fully redundant distributed edge routing function that sits at the edge of your VPC. As it is capable of terminating VPN connections from your on-prem or customer environments, the VPG is the VPN concentrator on the Amazon side of the Site-to-Site VPN connection. 
-* RTMP distributions are not compatible if transfer should be over HTTPS</pre>
 </div>
 <div created="20201011163446337" creator="0neir0s" modified="20201021135144669" modifier="0neir0s" tags="aws notes" title="AWS Security">
 <pre>* A policy usually contains the following: [[Overview|https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html]]
@@ -10112,6 +10072,46 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 <pre>The idea is to make sure the tiddlers while trivial individually, will start making sense in its entirety - i.e, they form a gestalt. 
 
 It is not meant to be a daily log. Earlier posts would be updated when mistakes are pointed out.</pre>
+</div>
+<div created="20201014080547604" creator="0neir0s" modified="20201023193908129" modifier="0neir0s" tags="aws notes" title="Networking">
+<pre>* VPC Routing: There is a main route user. And each VPC has an implicit router. And local route in the route table cannot be removed.
+* The access key for your AWS account root user gives full access to all your resources for all AWS services, including your billing information. You cannot reduce the permissions associated with your AWS account root user access key. So, protect your root user access key.
+* When you configure your VPC; you can select its IP address range, create subnets, and configure route tables, network gateways, and security settings.
+* A NAT gateway has an EIP, sits in the public subnet, only accepts outgoing traffic and is resilient. But you need to add it in every public subnet.
+* A Bastion host sits in the public subnet and is the equivalent to the jump host. Need to add the security group to Bastion Host and the private EC2s
+* Virtual Private Gateway - is the only route in a VPN only subnet
+* First 3 IPs of each subnet corresponds to Router, DNS and reserved respectively.
+* Network address is the 0th address and Broadcast address is the last address.
+* Internet gateway additionally performs network address translation for the instances with public IPs.
+* Default NACL allows all by default. By default, each custom NACL denies all inbound and outbound traffic until you add rules.
+* Each AWS virtual private gateway comes with two VPN endpoints with capabilities for static and dynamic routing. 
+* Enhanced networking provides higher bandwidth and lower latency and is implemented using an Elastic Network Adapter (ENA). However, using ENA with an HDD Throughput Optimized volume is not recommended as the volume will not provide the performance required for this use case.
+* An Elastic Fabric Adapter is an AWS Elastic Network Adapter (ENA) with added capabilities. The EFA lets you apply the scale, flexibility, and elasticity of the AWS Cloud to tightly-coupled HPC apps. It is ideal for tightly coupled app as it uses the Message Passing Interface (MPI).
+* For making HA VPN connections, a second connection  is to be implemented via a redundant customer gateway, and enable dynamic routing for automatic fail over. It is the customer managed endpoint that's the component responsible for implementing this. So customer devices must support Single Hot BGP if you're using BGP for dynamic routing
+* A transit gateway is a network transit hub that you can use to interconnect your virtual private clouds (VPC) and on-premises networks. Effectively, it is a regional virtual router for traffic flowing between your virtual private clouds (VPC) and VPN connections. (operates at layer 3)
+* A VPC endpoint enables private connections between your VPC and supported AWS services and VPC endpoint services powered by AWS PrivateLink. They are virtual devices; scaled, redundant and HA. 
+** An interface endpoint is an ENI with a private IP address from the IP address range of your subnet that serves as an entry point for traffic destined to a supported service.
+** A gateway endpoint is a gateway that you specify as a target for a route in your route table for traffic destined to a supported AWS service. Supported services: DynamoDB, S3
+* VPN Connections
+** With VPC Interface Endpoints, it is possible to connect to a number of AWS services both from resources within your Amazon VPC and from resources in your on-premises environment. This is not possible with VPC Gateway Endpoints. Services cannot initiate requests to resources in your VPC through the endpoint. 
+** Virtual Private Gateway (VGW) is the Amazon VPC's side of a VPN connection. 
+** Customer Gateway (CGW) is your side of the VPN connection.
+** You can create a VPN tunnel using IPSEC to onpremise or co-locations. 
+** For more predictable connectivity or a private connection use Direct Connect, a private, dedicated connection between your on-prem network and your AWS VPC using 802.1 q VLAN standard. 
+** VPC Peering provides network connectivity between 2 VPCs. An example where it might be needed is for directory services. It is not possible if there is an overlap in their CIDR schema.
+** AWS VPN Cloudhub operates on a simple hub and spoke model that you can use without a VPC. So use this design if you have multiple branch offices and existing internet connections, and would like to implement a convenient, potentially low cost hub and spoke model for primary or backup connectivity between these remote offices.
+* DNS
+** A hosted zone is a container for records, and records contain information about how you want to route traffic for a specific domain and its subdomains. 
+*** Public hosted zones contain records that specify how you want to route traffic on the internet. 
+*** Private hosted zones contain records that specify how you want to route traffic in an Amazon VPC.
+** CloudFront
+** WAF
+** Route 53
+* The BGP protocol is not used to enable encryption for Direct Connect, it is used for routing.
+* An AWS Direct Connect Gateway is used to connect to VPCs across multiple AWS regions. It is not involved with encryption
+* A VPG is used to setup an AWS VPN which you can use in combination with Direct Connect to encrypt all data that traverses the Direct Connect link.
+* A virtual private gateway is a logical, fully redundant distributed edge routing function that sits at the edge of your VPC. As it is capable of terminating VPN connections from your on-prem or customer environments, the VPG is the VPN concentrator on the Amazon side of the Site-to-Site VPN connection. 
+* RTMP distributions are not compatible if transfer should be over HTTPS</pre>
 </div>
 <div created="20201021145856509" creator="0neir0s" modified="20201021175608040" modifier="0neir0s" tags="aws notes" title="RDS">
 <pre>* Amazon Relational Database Service (Amazon RDS) is a managed service that makes it easy to set up, operate, and scale a relational database in the cloud.
