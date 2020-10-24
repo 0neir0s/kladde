@@ -211,6 +211,8 @@ Error message and password prompt
 
 <li>EC2</li>
 
+<li>KMS</li>
+
 <li>Motivation</li>
 
 <li>Networking</li>
@@ -9661,7 +9663,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201024132108632" creator="0neir0s" list="Synopsis AWS Strategies Security GettingStarted" modified="20201024172817606" modifier="0neir0s" title="$:/StoryList">
+<div created="20201024132108632" creator="0neir0s" list="KMS Synopsis AWS GettingStarted" modified="20201024173204949" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10049,6 +10051,29 @@ GettingStarted
 * For rebooting AWS does not charge a new instance hour, while every stop or restart will be charged fee for a new instance hour as a separate hour.
 * Disk encryption on NVMe instance storage does not support integration with AWS KMS system.</pre>
 </div>
+<div created="20201024173240486" creator="0neir0s" modified="20201024180146347" modifier="0neir0s" tags="aws notes" title="KMS">
+<pre>* AWS KMS is a region-specific, managed service that enables you to easily create and control the keys used for cryptographic operations, and provides a highly available key generation, storage, management, and auditing solution.
+
+* The key material for a CMK is generated within hardware security modules (HSMs) managed by AWS KMS. 
+* While KMS support sending data up to 4 KB to be encrypted directly, envelope encryption offer significant performance benefits as just the data key is sent via network. 
+* For customer managed CMKs, there is no option for automatic key rotation. For AWS generated keys, there is a mandatory 7 to 30 day wait period.
+* Automatic key rotation is not supported for asymmetric CMKs. Also, the same asymmetric CMKs cannot be used for both signing and encryption.
+* It is allowed to configure your own CloudHSM cluster and authorize AWS KMS to use it as a dedicated key store for your keys. But, key materials cannot be imported.
+* AWS KMS is a two-tier service. The API endpoints receive, authenticate and authorise client requests over HTTPS, before passing the request to the HSMs. 
+
+* With KMS policy you can do the following:
+** Limit who can create data keys and which services have access to use them
+** Limit systems access to encrypt only, decrypt only or both
+** Define to enable systems to access keys across regions (although it is not recommended as a failure in the region hosting KMS will affect availability of systems in other regions)
+
+* KMS is priced using two factors: the number of Customer Master Keys maintained in KMS and the number of requests received within a month.
+* Key administrators have permissions to manage the CMK, but do not have permissions to use the CMK in cryptographic operations.
+* AWS Key Management Service (KMS) audits can be accessed using Cloud Trail.
+* In addition to SSE-C, Customers also have the option to encrypt data client side before
+uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provide an S3 encryption client that streamlines the process.
+
+* In contrast,  ACM Private Certificate Authority (CA) service provides a public key infrastructure (PKI) for the purpose of identifying entities and securing network connections. </pre>
+</div>
 <div created="20200818173814631" creator="0neir0s" modified="20201017133615024" modifier="0neir0s" published="" tags="goal published" title="Motivation" type="metadata">
 <pre>The idea is to make sure the tiddlers while trivial individually, will start making sense in its entirety - i.e, they form a gestalt. 
 
@@ -10210,7 +10235,7 @@ It is not meant to be a daily log. Earlier posts would be updated when mistakes 
 * S3 Inventory - this service allows you to organize a list of objects stored within a bucket into manifests. The manifests are one source of input of relevant objects to apply updates to in S3 batch operations.
 * S3 analytics - Storage Class Analysis feature observes data access patterns to help you determine when to transition less frequently accessed standard storage to the IA. But, no recommendations to one zone or glacier.</pre>
 </div>
-<div created="20201011163446337" creator="0neir0s" modified="20201024173118377" modifier="0neir0s" tags="aws notes" title="Security">
+<div created="20201011163446337" creator="0neir0s" modified="20201024173222087" modifier="0neir0s" tags="aws notes" title="Security">
 <pre>* AWS IAM is used to securely control individual and group access to your AWS resources.
 ** Manage IAM users and their access
 ** Manage access for federated users
@@ -10250,19 +10275,7 @@ It is not meant to be a daily log. Earlier posts would be updated when mistakes 
 
 * AWS customers should undertake a number of security control testing approaches: External Vulnerability Assessment, External Penetration Tests, and Internal Gray/White-box Review of Applications and Platforms.
 
-* Using SAML for service access - [[link|https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html]]. This requires IAM roles matching AD groups and SAML-based Identity Provider available to be used with company's Identity store (AD)
-
-* AWS KMS is region-specific.
-* With KMS policy you can do the following:
-** Limit who can create data keys and which services have access to use them
-** Limit systems access to encrypt only, decrypt only or both
-** Define to enable systems to access keys across regions (although it is not recommended as a failure in the region hosting KMS will affect availability of systems in other regions)
-* KMS is priced per two factors: the number of Customer Master Keys maintained in KMS and the number of requests received within a month.
-* Key administrators have permissions to manage the CMK, but do not have permissions to use the CMK in cryptographic operations.
-* AWS Key Management Service (KMS) has integrated with AWS CloudHSM, and audits can be accessed using Cloud Trail
-* In addition to SSE-C, Customers also have the option to encrypt data client side before
-uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provide an S3 encryption client that streamlines the process. 
-* Service linked roles are pre-defined and has limited opportunities to edit.</pre>
+* Using SAML for service access - [[link|https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html]]. This requires IAM roles matching AD groups and SAML-based Identity Provider available to be used with company's Identity store (AD)</pre>
 </div>
 <div created="20201013201236563" creator="0neir0s" modified="20201024144026365" modifier="0neir0s" tags="aws notes" title="Storage">
 <pre>* AWS Snowball is for transferring petabyte scale data into and out of AWS.
