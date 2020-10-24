@@ -189,8 +189,6 @@ Error message and password prompt
 
 <li>AWS &amp; Cloud Definitions</li>
 
-<li>AWS Security</li>
-
 <li>AWS Services</li>
 
 <li>Batch</li>
@@ -209,8 +207,6 @@ Error message and password prompt
 
 <li>DDoS</li>
 
-<li>Draft of 'AWS Security' by 0neir0s</li>
-
 <li>DynamoDB</li>
 
 <li>EC2</li>
@@ -222,6 +218,8 @@ Error message and password prompt
 <li>RDS</li>
 
 <li>S3</li>
+
+<li>Security</li>
 
 <li>Storage</li>
 
@@ -9663,7 +9661,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201024132108632" creator="0neir0s" list="Synopsis AWS [[AWS &amp; Cloud Definitions]] [[Draft of 'AWS Security' by 0neir0s]] GettingStarted" modified="20201024150030258" modifier="0neir0s" title="$:/StoryList">
+<div created="20201024132108632" creator="0neir0s" list="Synopsis AWS Security GettingStarted" modified="20201024150030258" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9862,38 +9860,6 @@ GettingStarted
 * A DNS endpoint includes one or more elastic network interfaces (ENI) that attach to your Amazon Virtual Private Cloud (VPC). Each ENI is assigned an IP address from the subnet space of the VPC where it is located. This IP address can then serve as a forwarding target for on-premises DNS servers to forward queries.
 * Route 53 Resolver is a regional DNS service that provides recursive DNS lookups for names hosted in EC2 as well as public names on the internet. This functionality is available by default in every Amazon Virtual Private Cloud (VPC). For hybrid cloud scenarios you can configure conditional forwarding rules and DNS endpoints to enable DNS resolution across AWS Direct Connect and AWS Managed VPN.</pre>
 </div>
-<div created="20201011163446337" creator="0neir0s" modified="20201021135144669" modifier="0neir0s" tags="aws notes" title="AWS Security">
-<pre>* A policy usually contains the following: [[Overview|https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html]]
-** Resources/ARN - Buckets, objects, access points, and jobs
-** Actions and Effect
-** Principals
-** Conditions - optional
-** Sid - optional identifier
-* There are a number of ways to create a customer managed policy:
-** Copy any AWS managed policy
-** Policy generator allows you to create a customer managed policy using dropdowns
-** Create Your Own Policy (json)
-* AWS Service roles that allows one service to call or manager other services on your behalf can be edited.
-* Temporary security credentials are defined by a username and a policy giving permissions to resources.
-
-* If the IAM user is trying to perform a bucket operation, S3 will first verify whether the IAM user belongs to the same root account or another account. If it belongs to another AWS account, it will first verify whether the IAM user account’s parent has provided sufficient permissions to perform such activities. (User context eval followed by Bucket context - [[more details|https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-auth-workflow-bucket-operation.html]])
-* By default, Windows RDP servers use self-signed certificates, which are not trusted, and should be avoided, if encryption in transit is a requirement. SSH 2 using non-privileged user accounts is also a recommended approach for connecting Linux instances.
-* AWS customers should undertake a number of security control testing approaches: External Vulnerability Assessment, External Penetration Tests, and Internal Gray/White-box Review of Applications and Platforms.
-* By default, the temporary security credentials are valid for only one hour. The user can specify the session duration only if the user uses the IAM user credentials to request a session.
-* [[IAM Roles Documentation|https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html]]
-* Using SAML for service access - [[link|https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html]]. This requires IAM roles matching AD groups and SAML-based Identity Provider available to be used with company's Identity store (AD)
-* AWS KMS is region-specific.
-* With KMS policy you can do the following:
-** Limit who can create data keys and which services have access to use them
-** Limit systems access to encrypt only, decrypt only or both
-** Define to enable systems to access keys across regions (although it is not recommended as a failure in the region hosting KMS will affect availability of systems in other regions)
-* KMS is priced per two factors: the number of Customer Master Keys maintained in KMS and the number of requests received within a month.
-* Key administrators have permissions to manage the CMK, but do not have permissions to use the CMK in cryptographic operations.
-* AWS Key Management Service (KMS) has integrated with AWS CloudHSM, and audits can be accessed using Cloud Trail
-* In addition to SSE-C, Customers also have the option to encrypt data client side before
-uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provide an S3 encryption client that streamlines the process. 
-* Service linked roles are pre-defined and has limited opportunities to edit.</pre>
-</div>
 <div created="20201011140841846" creator="0neir0s" modified="20201021111745612" modifier="0neir0s" tags="aws notes" title="AWS Services">
 <pre>* SQS structure Producer,  Queue, Consumer. 
 * The types are standard queues, FIFO queues and dead letter queues.
@@ -10008,43 +9974,6 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 </div>
 <div created="20201021142025102" creator="0neir0s" modified="20201021142037646" modifier="0neir0s" tags="definitions" title="DDoS">
 <pre>A distributed denial-of-service (DDoS) attack is a malicious attempt to disrupt the normal traffic of a targeted server, service or network by overwhelming the target or its surrounding infrastructure with a flood of Internet traffic.</pre>
-</div>
-<div created="20201011163446337" creator="0neir0s" draft.of="AWS Security" draft.title="Security" modified="20201024145738000" modifier="0neir0s" tags="aws notes" title="Draft of 'AWS Security' by 0neir0s">
-<pre>* AWS IAM is used to securely control individual and group access to your AWS resources.
-** Manage IAM users and their access
-** Manage access for federated users
-* A user can place requests to web services such as Amazon S3 and Amazon EC2. Users can make requests to AWS services using security credentials. 
-
-* A policy usually contains the following: [[Overview|https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html]]
-** Resources/ARN - Buckets, objects, access points, and jobs
-** Actions and Effect
-** Principals
-** Conditions - optional
-** Sid - optional identifier
-* There are a number of ways to create a customer managed policy:
-** Copy any AWS managed policy
-** Policy generator allows you to create a customer managed policy using dropdowns
-** Create Your Own Policy (json)
-* AWS Service roles that allows one service to call or manager other services on your behalf can be edited.
-* Temporary security credentials are defined by a username and a policy giving permissions to resources.
-
-* If the IAM user is trying to perform a bucket operation, S3 will first verify whether the IAM user belongs to the same root account or another account. If it belongs to another AWS account, it will first verify whether the IAM user account’s parent has provided sufficient permissions to perform such activities. (User context eval followed by Bucket context - [[more details|https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-auth-workflow-bucket-operation.html]])
-* By default, Windows RDP servers use self-signed certificates, which are not trusted, and should be avoided, if encryption in transit is a requirement. SSH 2 using non-privileged user accounts is also a recommended approach for connecting Linux instances.
-* AWS customers should undertake a number of security control testing approaches: External Vulnerability Assessment, External Penetration Tests, and Internal Gray/White-box Review of Applications and Platforms.
-* By default, the temporary security credentials are valid for only one hour. The user can specify the session duration only if the user uses the IAM user credentials to request a session.
-* [[IAM Roles Documentation|https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html]]
-* Using SAML for service access - [[link|https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html]]. This requires IAM roles matching AD groups and SAML-based Identity Provider available to be used with company's Identity store (AD)
-* AWS KMS is region-specific.
-* With KMS policy you can do the following:
-** Limit who can create data keys and which services have access to use them
-** Limit systems access to encrypt only, decrypt only or both
-** Define to enable systems to access keys across regions (although it is not recommended as a failure in the region hosting KMS will affect availability of systems in other regions)
-* KMS is priced per two factors: the number of Customer Master Keys maintained in KMS and the number of requests received within a month.
-* Key administrators have permissions to manage the CMK, but do not have permissions to use the CMK in cryptographic operations.
-* AWS Key Management Service (KMS) has integrated with AWS CloudHSM, and audits can be accessed using Cloud Trail
-* In addition to SSE-C, Customers also have the option to encrypt data client side before
-uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provide an S3 encryption client that streamlines the process. 
-* Service linked roles are pre-defined and has limited opportunities to edit.</pre>
 </div>
 <div created="20201021104053932" creator="0neir0s" modified="20201021104321907" modifier="0neir0s" tags="aws notes" title="DynamoDB">
 <pre>* DynamoDB is a managed NoSQL database - ( key, value stores )
@@ -10278,6 +10207,47 @@ It is not meant to be a daily log. Earlier posts would be updated when mistakes 
 * S3 object tags vs. bucket tags - object tags are metadata (system or user-defined) that can be applied upon object upload. Bucket tags are cost-allocation tags that assist in managing and tracking service usage and billing. These are very different things. Bucket tags do not have a parent-child relationship with object tags for objects stored within a bucket.
 * S3 Inventory - this service allows you to organize a list of objects stored within a bucket into manifests. The manifests are one source of input of relevant objects to apply updates to in S3 batch operations.
 * S3 analytics - Storage Class Analysis feature observes data access patterns to help you determine when to transition less frequently accessed standard storage to the IA. But, no recommendations to one zone or glacier.</pre>
+</div>
+<div created="20201011163446337" creator="0neir0s" modified="20201024152106906" modifier="0neir0s" tags="aws notes" title="Security">
+<pre>* AWS IAM is used to securely control individual and group access to your AWS resources.
+** Manage IAM users and their access
+** Manage access for federated users
+* A user can place requests to web services such as Amazon S3 and Amazon EC2. Users can make requests to AWS services using security credentials. Users are global entities, like an AWS account.
+* You cannot limit what an individual user can do. All quota limits are on the AWS account.
+* An IAM role is an IAM entity that defines a set of permissions for making AWS service requests.
+* IAM roles for EC2 instances enables applications running on EC2 to make requests to AWS services without having to copy AWS access keys to every instance.
+* Service-linked roles are predefined by the service and include all the permissions that the service requires to call other AWS services on your behalf, and lets you create/modify/delete it.
+
+* A policy usually contains the following: [[Overview|https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html]]
+** Resources/ARN - Buckets, objects, access points, and jobs
+** Actions and Effect
+** Principals
+** Conditions - optional
+** Sid - optional identifier
+* There are a number of ways to create a customer managed policy:
+** Copy any AWS managed policy
+** Policy generator allows you to create a customer managed policy using dropdowns
+** Create Your Own Policy (json)
+* AWS Service roles that allows one service to call or manager other services on your behalf can be edited.
+* Temporary security credentials are defined by a username and a policy giving permissions to resources.
+
+* If the IAM user is trying to perform a bucket operation, S3 will first verify whether the IAM user belongs to the same root account or another account. If it belongs to another AWS account, it will first verify whether the IAM user account’s parent has provided sufficient permissions to perform such activities. (User context eval followed by Bucket context - [[more details|https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-auth-workflow-bucket-operation.html]])
+* By default, Windows RDP servers use self-signed certificates, which are not trusted, and should be avoided, if encryption in transit is a requirement. SSH 2 using non-privileged user accounts is also a recommended approach for connecting Linux instances.
+* AWS customers should undertake a number of security control testing approaches: External Vulnerability Assessment, External Penetration Tests, and Internal Gray/White-box Review of Applications and Platforms.
+* By default, the temporary security credentials are valid for only one hour. The user can specify the session duration only if the user uses the IAM user credentials to request a session.
+* [[IAM Roles Documentation|https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html]]
+* Using SAML for service access - [[link|https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html]]. This requires IAM roles matching AD groups and SAML-based Identity Provider available to be used with company's Identity store (AD)
+* AWS KMS is region-specific.
+* With KMS policy you can do the following:
+** Limit who can create data keys and which services have access to use them
+** Limit systems access to encrypt only, decrypt only or both
+** Define to enable systems to access keys across regions (although it is not recommended as a failure in the region hosting KMS will affect availability of systems in other regions)
+* KMS is priced per two factors: the number of Customer Master Keys maintained in KMS and the number of requests received within a month.
+* Key administrators have permissions to manage the CMK, but do not have permissions to use the CMK in cryptographic operations.
+* AWS Key Management Service (KMS) has integrated with AWS CloudHSM, and audits can be accessed using Cloud Trail
+* In addition to SSE-C, Customers also have the option to encrypt data client side before
+uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provide an S3 encryption client that streamlines the process. 
+* Service linked roles are pre-defined and has limited opportunities to edit.</pre>
 </div>
 <div created="20201013201236563" creator="0neir0s" modified="20201024144026365" modifier="0neir0s" tags="aws notes" title="Storage">
 <pre>* AWS Snowball is for transferring petabyte scale data into and out of AWS.
