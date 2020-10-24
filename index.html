@@ -229,6 +229,8 @@ Error message and password prompt
 
 <li>Synopsis</li>
 
+<li>WAF &amp; Shield</li>
+
 </ul>
 </p>
 
@@ -9663,7 +9665,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201024132108632" creator="0neir0s" list="KMS Synopsis AWS GettingStarted" modified="20201024173204949" modifier="0neir0s" title="$:/StoryList">
+<div created="20201024132108632" creator="0neir0s" list="[[WAF &amp; Shield]] Synopsis AWS GettingStarted" modified="20201024173204949" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10051,7 +10053,7 @@ GettingStarted
 * For rebooting AWS does not charge a new instance hour, while every stop or restart will be charged fee for a new instance hour as a separate hour.
 * Disk encryption on NVMe instance storage does not support integration with AWS KMS system.</pre>
 </div>
-<div created="20201024173240486" creator="0neir0s" modified="20201024180146347" modifier="0neir0s" tags="aws notes" title="KMS">
+<div created="20201024173240486" creator="0neir0s" modified="20201024180202412" modifier="0neir0s" tags="aws notes" title="KMS">
 <pre>* AWS KMS is a region-specific, managed service that enables you to easily create and control the keys used for cryptographic operations, and provides a highly available key generation, storage, management, and auditing solution.
 
 * The key material for a CMK is generated within hardware security modules (HSMs) managed by AWS KMS. 
@@ -10069,8 +10071,7 @@ GettingStarted
 * KMS is priced using two factors: the number of Customer Master Keys maintained in KMS and the number of requests received within a month.
 * Key administrators have permissions to manage the CMK, but do not have permissions to use the CMK in cryptographic operations.
 * AWS Key Management Service (KMS) audits can be accessed using Cloud Trail.
-* In addition to SSE-C, Customers also have the option to encrypt data client side before
-uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provide an S3 encryption client that streamlines the process.
+* In addition to SSE-C, Customers also have the option to encrypt data client side before uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provide an S3 encryption client that streamlines the process.
 
 * In contrast,  ACM Private Certificate Authority (CA) service provides a public key infrastructure (PKI) for the purpose of identifying entities and securing network connections. </pre>
 </div>
@@ -10328,6 +10329,21 @@ It is not meant to be a daily log. Earlier posts would be updated when mistakes 
 <pre>The list of tiddlers till date. 
 
 &lt;&lt;list-links &quot;[tag[published]reverse[]]&quot;&gt;&gt;</pre>
+</div>
+<div created="20201024181141781" creator="0neir0s" modified="20201024182807691" modifier="0neir0s" tags="aws notes" title="WAF &amp; Shield">
+<pre>* AWS WAF is a web application firewall that helps protect web applications from attacks by allowing to configure rules that allow, block, or count web requests based on conditions like IP addresses, HTTP headers, HTTP body, URI strings, SQL injection and cross-site scripting.
+
+* WAF charges based on the number of web access control lists (web ACLs) that you create, the number of rules that you add per web ACL, and the number of web requests received.
+* Rate-based rule can be used to mitigate Web layer DDoS attacks.
+* All Managed Rules are automatically updated by AWS Marketplace security Sellers.
+
+* AWS Shield is a managed service that provides protection against Distributed Denial of Service (DDoS) attacks for applications running on AWS. 
+* Protection for all AWS customers against common and most frequently occurring infrastructure (layer 3 and 4) attacks like SYN/UDP floods, reflection attacks etc.
+* There is no limit on the number of resources subject to AWS Shield Standard protection. 
+* With AWS Shield Advanced you will get notification of DDoS attacks via CloudWatch metrics.
+
+
+* WAF and Shield is integrated with Amazon CloudFront, which supports custom origins outside of AWS.</pre>
 </div>
 
 
