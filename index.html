@@ -207,8 +207,6 @@ Error message and password prompt
 
 <li>DDoS</li>
 
-<li>Draft of 'Storage' by 0neir0s</li>
-
 <li>DynamoDB</li>
 
 <li>EC2</li>
@@ -9661,7 +9659,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201024132108632" creator="0neir0s" list="Synopsis AWS DataSync [[Draft of 'Storage' by 0neir0s]] GettingStarted" modified="20201024132750641" modifier="0neir0s" title="$:/StoryList">
+<div created="20201024132108632" creator="0neir0s" list="Synopsis AWS Storage GettingStarted" modified="20201024132750641" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10001,21 +9999,6 @@ uploading it to Amazon S3 and decrypting it after downloading it. AWS SDKs provi
 <div created="20201021142025102" creator="0neir0s" modified="20201021142037646" modifier="0neir0s" tags="definitions" title="DDoS">
 <pre>A distributed denial-of-service (DDoS) attack is a malicious attempt to disrupt the normal traffic of a targeted server, service or network by overwhelming the target or its surrounding infrastructure with a flood of Internet traffic.</pre>
 </div>
-<div created="20201013201236563" creator="0neir0s" draft.of="Storage" draft.title="Storage" modified="20201024132739949" modifier="0neir0s" tags="aws notes" title="Draft of 'Storage' by 0neir0s">
-<pre>* AWS Snowball is for transferring petabyte scale data into and out of AWS.
-* AWS Certificate Manager is a service that lets you easily provision, manage, and deploy Secure Sockets Layer/Transport Layer Security (SSL/TLS) certificates for use with AWS services. You can use SSL from your application to encrypt a connection to a DB instance running MySQL, MariaDB, Amazon Aurora, SQL Server, Oracle, or PostgreSQL.
-* Both file gateways and cached volume gateways provide local caches to store frequently accessed data. Stored volume gateways keep all files locally, so all stored data can be retrieve with reduced latency. Tape gateways are an archival method, and not ideal for data that needs to be readily available.
-* An Amazon EFS mount target is not attached to each specific EC2 instance like an EBS volume. A mount target must be created within a VPC in order for the service to work, but it is recommended you create a mount target within each availability zone (AZ) within a VPC.
-* Snowballs don’t need to be packed in a box or container because it already has its own physically rugged shipping container. The E Ink display on the front of the Snowball changes to your return shipping label when the Snowball is turned off.
-* Amazon EFS offers two performance modes: General Purpose mode and Max I/O mode. The performance mode is selected when the file system is created. The Max I/O performance mode is best suited for applications where multiple EC2 instances access the file system, as it can scale to higher levels of aggregate throughput and operations per second with a tradeoff of negligibly higher latencies for file operations.
-* Initializing volumes (formerly known as pre-warming) has changed from its prior functionality. Formerly, you would have to initialize (pre-warm) a newly created volume from scratch. This is no longer necessary. Newly created volumes created from snapshots still need to be pre-warmed by reading from the blocks that contain data.
-* EBS volumes are created in a specific Availability Zone, and can then be attached to any instances in that same Availability Zone
-* There is no additional cost for on-premises access to your Amazon EFS file systems. 
-* With the new EBS multi-attach feature for Provisioned IOPS volumes, you can attach EBS volumes (of this type only) to more than one EC2 instance. So, yes it is possible, but not for all EBS volume types.
-* With the EBS Elastic Volumes feature you can increase volume size, adjust performance, or change the volume type while the volume is in use. You can continue to use your application while the change takes effect.
-* EBS General Purpose (SSD), also called gp2, volumes offer cost-effective storage that is ideal for a broad range of workloads - including moderately IO intensive ones.
-* EBS Volume attached to an EC2 needs to be detached before attaching to another running instance</pre>
-</div>
 <div created="20201021104053932" creator="0neir0s" modified="20201021104321907" modifier="0neir0s" tags="aws notes" title="DynamoDB">
 <pre>* DynamoDB is a managed NoSQL database - ( key, value stores )
 * Steps involved: create the table and set the provisioned throughput (could be on-demand too). You are charged for storage + throughput. 
@@ -10248,11 +10231,17 @@ It is not meant to be a daily log. Earlier posts would be updated when mistakes 
 * S3 Inventory - this service allows you to organize a list of objects stored within a bucket into manifests. The manifests are one source of input of relevant objects to apply updates to in S3 batch operations.
 * S3 analytics - Storage Class Analysis feature observes data access patterns to help you determine when to transition less frequently accessed standard storage to the IA. But, no recommendations to one zone or glacier.</pre>
 </div>
-<div created="20201013201236563" creator="0neir0s" modified="20201023064225902" modifier="0neir0s" tags="aws notes" title="Storage">
+<div created="20201013201236563" creator="0neir0s" modified="20201024140017685" modifier="0neir0s" tags="aws notes" title="Storage">
 <pre>* AWS Snowball is for transferring petabyte scale data into and out of AWS.
 * AWS Certificate Manager is a service that lets you easily provision, manage, and deploy Secure Sockets Layer/Transport Layer Security (SSL/TLS) certificates for use with AWS services. You can use SSL from your application to encrypt a connection to a DB instance running MySQL, MariaDB, Amazon Aurora, SQL Server, Oracle, or PostgreSQL.
 * Both file gateways and cached volume gateways provide local caches to store frequently accessed data. Stored volume gateways keep all files locally, so all stored data can be retrieve with reduced latency. Tape gateways are an archival method, and not ideal for data that needs to be readily available.
+* Amazon EFS offers a Standard and an Infrequent Access storage class. 
+** The Standard storage class is designed for active file system workloads and you pay only for the file system storage you use per month. 
+** EFS Infrequent Access (EFS IA) is a lower cost storage class that’s cost-optimized for files not accessed every day, and has a retrieval fee.
+* Every file system object (i.e. directory, file, and link) is redundantly stored across multiple Availability Zones. 
+* You do not provision file system size up front, and you pay only for what you use.
 * An Amazon EFS mount target is not attached to each specific EC2 instance like an EBS volume. A mount target must be created within a VPC in order for the service to work, but it is recommended you create a mount target within each availability zone (AZ) within a VPC.
+* EFS Access Points simplify providing applications access to shared data sets in an EFS file system. EFS Access Points represent a flexible way to manage application access in NFS environments with increased scalability, security, and ease of use.
 * Snowballs don’t need to be packed in a box or container because it already has its own physically rugged shipping container. The E Ink display on the front of the Snowball changes to your return shipping label when the Snowball is turned off.
 * Amazon EFS offers two performance modes: General Purpose mode and Max I/O mode. The performance mode is selected when the file system is created. The Max I/O performance mode is best suited for applications where multiple EC2 instances access the file system, as it can scale to higher levels of aggregate throughput and operations per second with a tradeoff of negligibly higher latencies for file operations.
 * Initializing volumes (formerly known as pre-warming) has changed from its prior functionality. Formerly, you would have to initialize (pre-warm) a newly created volume from scratch. This is no longer necessary. Newly created volumes created from snapshots still need to be pre-warmed by reading from the blocks that contain data.
