@@ -9667,7 +9667,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201024132108632" creator="0neir0s" list="CloudTrail Synopsis AWS GettingStarted" modified="20201024182830733" modifier="0neir0s" title="$:/StoryList">
+<div created="20201024132108632" creator="0neir0s" list="Synopsis AWS [[AWS Services]] GettingStarted" modified="20201024183630140" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9848,7 +9848,7 @@ GettingStarted
 
 &lt;&lt;list-links &quot;[tag[aws]reverse[]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20201011140841846" creator="0neir0s" modified="20201021111745612" modifier="0neir0s" tags="aws notes" title="AWS Services">
+<div created="20201011140841846" creator="0neir0s" modified="20201024183657859" modifier="0neir0s" tags="aws notes" title="AWS Services">
 <pre>* SQS structure Producer,  Queue, Consumer. 
 * The types are standard queues, FIFO queues and dead letter queues.
 * Since AWS is a distributed service, the consumer must delete the message from the queue after receiving and processing it.
@@ -9883,12 +9883,6 @@ GettingStarted
 * S3 is used to store the Configuration History files and any Configuration snapshots of your data within a single bucket, which is defined within the Configuration recorder. 
 
 * CloudWatch Log Events have a size limitation of 256K. For greater management, new log files are typically created every 5 minutes. 
-* CloudTrail applies and configures a Bucket Policy with the relevant permissions allowing logs to be delivered to the Bucket if you choose to create a new bucket.
-** EventSource refers to the service to which the API called was made.
-** Event selectors allow you to add a level of customization to the type of API requests you want the corresponding trail to capture
-** AWS offers the ability to aggregate CloudTrail logs from multiple accounts into a single S3 bucket and so &quot;AccountId&quot; helps with log identification and management
-* To allow CloudTrail to deliver these logs to CloudWatch, CloudTrail must have the correct permissions, and these are gained by assuming a Role with the relevant permissions needed to run two CloudWatch APIs - CreateLogStream and PutLogEvents
-* Event format: AccountID_CloudTrail_RegionName_YYYYMMDDTHHmmZ_UniqueString.FileNameFormat
 
 </pre>
 </div>
