@@ -213,6 +213,8 @@ Error message and password prompt
 
 <li>EC2</li>
 
+<li>ElastiCache</li>
+
 <li>KMS</li>
 
 <li>Motivation</li>
@@ -9658,8 +9660,8 @@ GettingStarted
 <div created="20200818173316134" creator="0neir0s" modified="20201013191758672" modifier="0neir0s" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
 </div>
-<div created="20200818175849863" creator="0neir0s" modified="20201013201149014" modifier="0neir0s" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/More</pre>
+<div created="20200818175849863" creator="0neir0s" modified="20201025180427726" modifier="0neir0s" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
@@ -9667,7 +9669,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201025064714905" creator="0neir0s" list="Synopsis AWS [[AWS Services]] GettingStarted" modified="20201025175401660" modifier="0neir0s" title="$:/StoryList">
+<div created="20201025064714905" creator="0neir0s" list="Synopsis AWS ElastiCache GettingStarted" modified="20201025180455587" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9848,7 +9850,7 @@ GettingStarted
 
 &lt;&lt;list-links &quot;[tag[aws]reverse[]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20201011140841846" creator="0neir0s" modified="20201025180315224" modifier="0neir0s" tags="aws notes" title="AWS Services">
+<div created="20201011140841846" creator="0neir0s" modified="20201025180406726" modifier="0neir0s" tags="aws notes" title="AWS Services">
 <pre>* SQS structure Producer,  Queue, Consumer. 
 * The types are standard queues, FIFO queues and dead letter queues.
 * Since AWS is a distributed service, the consumer must delete the message from the queue after receiving and processing it.
@@ -9865,8 +9867,6 @@ GettingStarted
 ** Kinesis Data Analytics is the easiest way to process data streams in real time with SQL or Apache Flink without having to learn new programming languages or processing frameworks.
 
 * Lambda
-
-* ElastiCache
 
 * In Amazon CloudFront, the Cache-Control max-age directive lets you specify how long (in seconds) you want the object to remain in the cache
 
@@ -10071,6 +10071,24 @@ GettingStarted
 * For creating alerts/alerts pertaining to EC2 instances, the correct permissions need to be assigned to the CloudWatch service as well as SNS needs to be configured for notifications.
 * For rebooting AWS does not charge a new instance hour, while every stop or restart will be charged fee for a new instance hour as a separate hour.
 * Disk encryption on NVMe instance storage does not support integration with AWS KMS system.</pre>
+</div>
+<div created="20201025180418326" creator="0neir0s" modified="20201025182950428" modifier="0neir0s" tags="aws notes" title="ElastiCache">
+<pre>* Amazon ElastiCache is a web service that makes it easy to deploy and run Memcached or Redis protocol-compliant server nodes in the cloud.
+* ElastiCache for Redis can be used as a primary in-memory key-value data store, providing sub millisecond performance, high availability and scalability up to 250 nodes and 250 shards.
+* AWS CloudFormation provides comprehensive support for Amazon ElastiCache by providing templates to create cluster (both MemCached and Redis) and Replication Groups.
+* Your nodes could incur some downtime during your maintenance window if software patching is scheduled.
+* Pay only for what is used and there is no minimum fee. Pricing is per Node-hour consumed for each Node Type.
+* Supports reserved nodes. Reserved Nodes are purchased for the Region rather than for the Availability Zone.
+* You cannot cancel your reserved DB instance and the one-time payment (if applicable) is not refundable. 
+* A Parameter Group acts as a &quot;container&quot; for engine configuration values that can be applied to one or more clusters. 
+* ElastiCache currently allows access only from the Amazon EC2 network.
+* Memcached config:
+** The total memory required for your data to achieve your target cache-hit rate
+** Number of nodes to maintain acceptable application performance without overloading 
+* Redis
+** With ElastiCache for Redis you can create a read replica in another AWS Availability Zone.
+** Cross region replicas can be created using the Global Datastore feature in ElastiCache for Redis
+** Reader endpoint is only available for ElastiCache for Redis (cluster mode disabled) clusters.</pre>
 </div>
 <div created="20201024173240486" creator="0neir0s" modified="20201024180202412" modifier="0neir0s" tags="aws notes" title="KMS">
 <pre>* AWS KMS is a region-specific, managed service that enables you to easily create and control the keys used for cryptographic operations, and provides a highly available key generation, storage, management, and auditing solution.
