@@ -9667,7 +9667,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201025064714905" creator="0neir0s" list="Synopsis AWS Databases [[WAF &amp; Shield]] GettingStarted" modified="20201025072105790" modifier="0neir0s" title="$:/StoryList">
+<div created="20201025064714905" creator="0neir0s" list="Synopsis AWS Strategies GettingStarted" modified="20201025091344844" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10327,12 +10327,13 @@ It is not meant to be a daily log. Earlier posts would be updated when mistakes 
 * Amazon FSx for Windows File Server provides fully managed, highly reliable, and scalable file storage that is accessible over the industry-standard Service Message Block (SMB) protocol.
 * Amazon FSx works with Microsoft Active Directory (AD) to integrate with your existing Windows environments. </pre>
 </div>
-<div created="20201011150936485" creator="0neir0s" modified="20201024172814298" modifier="0neir0s" tags="aws notes" title="Strategies">
+<div created="20201011150936485" creator="0neir0s" modified="20201025151742473" modifier="0neir0s" tags="aws notes" title="Strategies">
 <pre>* Use an Elastic Network Interface (ENI) to create a management network, to use network and security appliances in your VPC, to create dual-homed instances with workloads/roles on distinct subnets or to create a low-budget, high-availability solution.
 * Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses.
 * Rebooting primary database instance is the strategy to consistently test db failovers. 
 * Decoupling can be done using SQS (store requests) or s3 + Autoscaling worker instances.
 * A cluster placement group provides low-latency networking between all instances in the cluster. It is ideal for high performance analytics systems and many science and engineering applications. 
+* AWS Glue is a fully managed extract, transform, and load (ETL) service that makes it easy to prepare and load your data for analytics.
 * For data transfer to EFS, use DataSync. 
 * For SMB based FIle system, AWS FSx for Windows is recommended over EFS, whose key attribute is that it uses NFS, one of the first network file sharing protocols native to Unix and Linux. Additionally, FSx also supports [[Lustre|AWS &amp; Cloud Definitions]]
 * Dedicated Instances are Amazon EC2 instances that run in a VPC on hardware that's dedicated to a single customer. Dedicated instances are physically isolated at the host hardware level from instances that belong to other AWS accounts.
