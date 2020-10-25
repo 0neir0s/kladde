@@ -9667,7 +9667,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201025064714905" creator="0neir0s" list="Synopsis AWS S3 GettingStarted" modified="20201025151745541" modifier="0neir0s" title="$:/StoryList">
+<div created="20201025064714905" creator="0neir0s" list="Synopsis AWS [[AWS Services]] GettingStarted" modified="20201025175401660" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9848,7 +9848,7 @@ GettingStarted
 
 &lt;&lt;list-links &quot;[tag[aws]reverse[]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20201011140841846" creator="0neir0s" modified="20201024183657859" modifier="0neir0s" tags="aws notes" title="AWS Services">
+<div created="20201011140841846" creator="0neir0s" modified="20201025180315224" modifier="0neir0s" tags="aws notes" title="AWS Services">
 <pre>* SQS structure Producer,  Queue, Consumer. 
 * The types are standard queues, FIFO queues and dead letter queues.
 * Since AWS is a distributed service, the consumer must delete the message from the queue after receiving and processing it.
@@ -9859,10 +9859,14 @@ GettingStarted
 * SNS is a pub-sub messaging service which integrates with many different types of services.
 * Route 53 can handle on-premises DNS resolution on its own.
 * Kinesis
+** Kinesis Video Streams makes it easy to securely stream video from connected devices to AWS
+** Kinesis Data Streams is a scalable and durable real-time data streaming service that can continuously capture gigabytes of data per second from hundreds of thousands of sources. 
+** Kinesis Data Firehose is the easiest way to capture, transform, and load data streams into AWS data stores for near real-time analytics with existing business intelligence tools.
+** Kinesis Data Analytics is the easiest way to process data streams in real time with SQL or Apache Flink without having to learn new programming languages or processing frameworks.
 
 * Lambda
 
-* Elasticache
+* ElastiCache
 
 * In Amazon CloudFront, the Cache-Control max-age directive lets you specify how long (in seconds) you want the object to remain in the cache
 
@@ -9883,6 +9887,8 @@ GettingStarted
 * S3 is used to store the Configuration History files and any Configuration snapshots of your data within a single bucket, which is defined within the Configuration recorder. 
 
 * CloudWatch Log Events have a size limitation of 256K. For greater management, new log files are typically created every 5 minutes. 
+* Amazon SWF helps developers build, run, and scale background jobs that have parallel or sequential steps. You can think of Amazon SWF as a fully-managed state tracker and task coordinator in the Cloud.
+* Global Accelerator utilizes the Amazon global network, allowing you to improve the performance of your applications by lowering first byte latency (packet round trip time) and jitter (variation of latency), and increasing throughput compared to the public internet
 
 </pre>
 </div>
@@ -10327,7 +10333,7 @@ It is not meant to be a daily log. Earlier posts would be updated when mistakes 
 * Amazon FSx for Windows File Server provides fully managed, highly reliable, and scalable file storage that is accessible over the industry-standard Service Message Block (SMB) protocol.
 * Amazon FSx works with Microsoft Active Directory (AD) to integrate with your existing Windows environments. </pre>
 </div>
-<div created="20201011150936485" creator="0neir0s" modified="20201025151742473" modifier="0neir0s" tags="aws notes" title="Strategies">
+<div created="20201011150936485" creator="0neir0s" modified="20201025153928284" modifier="0neir0s" tags="aws notes" title="Strategies">
 <pre>* Use an Elastic Network Interface (ENI) to create a management network, to use network and security appliances in your VPC, to create dual-homed instances with workloads/roles on distinct subnets or to create a low-budget, high-availability solution.
 * Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses.
 * Rebooting primary database instance is the strategy to consistently test db failovers. 
