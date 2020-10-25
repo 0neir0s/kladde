@@ -9667,7 +9667,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201025064714905" creator="0neir0s" list="Synopsis AWS Strategies GettingStarted" modified="20201025091344844" modifier="0neir0s" title="$:/StoryList">
+<div created="20201025064714905" creator="0neir0s" list="Synopsis AWS S3 GettingStarted" modified="20201025151745541" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10187,7 +10187,7 @@ It is not meant to be a daily log. Earlier posts would be updated when mistakes 
 * Disaster Recovery techniques: Backup &amp; Restore, Pilot light, Warm standby, Multi-site.
 * Debugging connectivity issues: Check whether or not the RDS is in the same region as the app as spanning regions is not possible. The other likely issue is that the Security Group of either the RDS or the EC2 (or both) are not configured properly. </pre>
 </div>
-<div created="20201021104736412" creator="0neir0s" modified="20201024173002146" modifier="0neir0s" tags="aws notes" title="S3">
+<div created="20201021104736412" creator="0neir0s" modified="20201025152552188" modifier="0neir0s" tags="aws notes" title="S3">
 <pre>* AWS Simple Storage Service is storage for the internet. 
 * Bucket name is globally unique, and the namespace is shared by all AWS accounts. 
 * S3 uses the metadata (key-value pairs for storing object info) and sub-resource mechanism to store object-specific additional information.
@@ -10204,7 +10204,7 @@ It is not meant to be a daily log. Earlier posts would be updated when mistakes 
 * It is possible to have different encryption keys for different versions of the same object.
 * For S3 cross-region replica: Turn on versioning in both source and destination buckets, and use an IAM Policy to permit S3 to replicate your objects.
 * For S3 data at REST protection, AWS provides multiple options - Permission (Policy), Encryption (Client and Server Side), Bucket Versioning and MFA based delete. 
-* S3 Transfer Acceleration is used for speeding up uploads of data to Amazon S3 by using the CloudFront network. It is not used for downloading data.
+* S3 Transfer Acceleration is used for speeding up uploads of data to Amazon S3 by using the CloudFront network.
 * Web browsers block the execution of a script that originates from a server with a different domain name than the webpage. So, S3 can be configured with CORS to send HTTP headers that allow the script execution.
 
 * Types
