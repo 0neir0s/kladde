@@ -9669,7 +9669,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201026041200368" creator="0neir0s" list="Synopsis AWS Strategies GettingStarted" modified="20201026125620267" modifier="0neir0s" title="$:/StoryList">
+<div created="20201026041200368" creator="0neir0s" list="Synopsis AWS S3 GettingStarted" modified="20201026130248222" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10216,11 +10216,12 @@ It is not meant to be a daily log. Earlier posts would be updated when mistakes 
 * Disaster Recovery techniques: Backup &amp; Restore, Pilot light, Warm standby, Multi-site.
 * Debugging connectivity issues: Check whether or not the RDS is in the same region as the app as spanning regions is not possible. The other likely issue is that the Security Group of either the RDS or the EC2 (or both) are not configured properly. </pre>
 </div>
-<div created="20201021104736412" creator="0neir0s" modified="20201025153918793" modifier="0neir0s" tags="aws notes" title="S3">
+<div created="20201021104736412" creator="0neir0s" modified="20201026130320434" modifier="0neir0s" tags="aws notes" title="S3">
 <pre>* AWS Simple Storage Service is storage for the internet. 
 * Bucket name is globally unique, and the namespace is shared by all AWS accounts. 
 * S3 uses the metadata (key-value pairs for storing object info) and sub-resource mechanism to store object-specific additional information.
 * If request rate grows steadily, Amazon S3 automatically partitions the buckets as needed to support higher request rates.
+* S3 API is intentionally simple with only a handful of common operations - create/delete a bucket, write an object, read an object, delete an object, and list keys in a bucket.
 
 * Data
 ** You can store virtually any kind of data in any format. 
