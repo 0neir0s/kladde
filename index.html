@@ -189,8 +189,6 @@ Error message and password prompt
 
 <li>AWS</li>
 
-<li>AWS Services</li>
-
 <li>Batch</li>
 
 <li>CloudFront</li>
@@ -211,8 +209,6 @@ Error message and password prompt
 
 <li>Definitions</li>
 
-<li>Draft of 'AWS Services' by 0neir0s</li>
-
 <li>DynamoDB</li>
 
 <li>EC2</li>
@@ -230,6 +226,8 @@ Error message and password prompt
 <li>S3</li>
 
 <li>Security</li>
+
+<li>Services</li>
 
 <li>Storage</li>
 
@@ -9673,7 +9671,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201026041200368" creator="0neir0s" list="Databases Synopsis AWS [[Draft of 'AWS Services' by 0neir0s]]" modified="20201026135808614" modifier="0neir0s" title="$:/StoryList">
+<div created="20201026041200368" creator="0neir0s" list="Synopsis AWS Strategies" modified="20201026140536880" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9857,48 +9855,6 @@ GettingStarted
 
 &lt;&lt;list-links &quot;[tag[aws]reverse[]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20201011140841846" creator="0neir0s" modified="20201025180406726" modifier="0neir0s" tags="aws notes" title="AWS Services">
-<pre>* SQS structure Producer,  Queue, Consumer. 
-* The types are standard queues, FIFO queues and dead letter queues.
-* Since AWS is a distributed service, the consumer must delete the message from the queue after receiving and processing it.
-* Visibility timeout is a period of time during which Amazon SQS prevents other consumers from receiving and processing the message. 
-* The pricing of SQS is as follows: You pay only for what you use, and there is no minimum fee. The cost of Amazon SQS is calculated per request, plus data transfer charges for data transferred out of Amazon SQS. The Amazon SQS Free Tier provides you with 1 million requests per month at no charge
-* Amazon SQS provides short polling (default) and long polling to receive messages from a queue. When the ReceiveMessageWaitTimeSeconds property of a queue is set to a value greater than zero, long polling is in effect. 
-* Short polling - request queries only a subset of the servers and sends the response right away. Long polling - request queries all of the servers for messages and sends a response after it collects at least one available message.
-* SNS is a pub-sub messaging service which integrates with many different types of services.
-* Route 53 can handle on-premises DNS resolution on its own.
-* Kinesis
-** Kinesis Video Streams makes it easy to securely stream video from connected devices to AWS
-** Kinesis Data Streams is a scalable and durable real-time data streaming service that can continuously capture gigabytes of data per second from hundreds of thousands of sources. 
-** Kinesis Data Firehose is the easiest way to capture, transform, and load data streams into AWS data stores for near real-time analytics with existing business intelligence tools.
-** Kinesis Data Analytics is the easiest way to process data streams in real time with SQL or Apache Flink without having to learn new programming languages or processing frameworks.
-
-* Lambda
-
-* In Amazon CloudFront, the Cache-Control max-age directive lets you specify how long (in seconds) you want the object to remain in the cache
-
-* AWS Organizations is a web service that enables you to consolidate your multiple AWS accounts into an organization and centrally manage your accounts and their resources.
-
-* Consolidated building
-** AWS consolidated billing enables the organization to consolidate payments for multiple Amazon Web Services (AWS) accounts within a single organization by making a single paying account. 
-** Consolidated billing enables the organization to see a combined view of the AWS charges incurred by each account as well as obtain a detailed cost report for each of the individual AWS accounts associated with the paying account.
-** Each AWS account needs to create an AWS billing policy to provide permission to the payee account if multiple account want to use a single payee account through the consolidated billing option. The payee account will not have any other access than billing data of linked accounts.
-
-*Cost Explorer - In your AWS billing account, a forecast is a prediction of how much you will use AWS over the next three months, based on your past usage.
-* In Amazon CloudFront, requests for your dynamic content are carried back to your origin servers running in Amazon Web Services (e.g., Amazon EC2, Elastic Load Balancing) over optimized network paths for a more reliable and consistent experience.
-
-* AWS Config allows you to utilise config Rules to help you manage and organize this compliance which acts as an automatic resource compliance checker. AWS Config rules are limited to a region scope. 
-* A CI is a JSON file that holds the configuration information, relationship information and other metadata as a point-in-time snapshot view of a supported resource. Used by history, streams and snapshots
-* In Attribute section, there is a unique resource ID and any key-value tags that are associated with the resource.
-* AWS Config has relationships with other services, specifically SNS and S3. IAM policies are used to enable the service.
-* S3 is used to store the Configuration History files and any Configuration snapshots of your data within a single bucket, which is defined within the Configuration recorder. 
-
-* CloudWatch Log Events have a size limitation of 256K. For greater management, new log files are typically created every 5 minutes. 
-* Amazon SWF helps developers build, run, and scale background jobs that have parallel or sequential steps. You can think of Amazon SWF as a fully-managed state tracker and task coordinator in the Cloud.
-* Global Accelerator utilizes the Amazon global network, allowing you to improve the performance of your applications by lowering first byte latency (packet round trip time) and jitter (variation of latency), and increasing throughput compared to the public internet
-
-</pre>
-</div>
 <div created="20201024140021397" creator="0neir0s" modified="20201024140126066" modifier="0neir0s" tags="aws notes" title="Batch">
 <pre>* AWS Batch is a cloud-native batch scheduler for HPC, ML, and other asynchronous workloads. 
 * AWS Batch will automatically and dynamically size instances to job resource requirements, and use existing FSx for Lustre file systems when launching instances and running jobs.
@@ -10007,48 +9963,6 @@ GettingStarted
 * A DNS endpoint includes one or more elastic network interfaces (ENI) that attach to your Amazon Virtual Private Cloud (VPC). Each ENI is assigned an IP address from the subnet space of the VPC where it is located. This IP address can then serve as a forwarding target for on-premises DNS servers to forward queries.
 * Route 53 Resolver is a regional DNS service that provides recursive DNS lookups for names hosted in EC2 as well as public names on the internet. This functionality is available by default in every Amazon Virtual Private Cloud (VPC). For hybrid cloud scenarios you can configure conditional forwarding rules and DNS endpoints to enable DNS resolution across AWS Direct Connect and AWS Managed VPN.
 * By default, Windows RDP servers use self-signed certificates, which are not trusted, and should be avoided, if encryption in transit is a requirement. SSH 2 using non-privileged user accounts is also a recommended approach for connecting Linux instances.</pre>
-</div>
-<div created="20201011140841846" creator="0neir0s" draft.of="AWS Services" draft.title="AWS Services" modified="20201026132125816" modifier="0neir0s" tags="aws notes" title="Draft of 'AWS Services' by 0neir0s">
-<pre>* SQS structure Producer,  Queue, Consumer. 
-* The types are standard queues, FIFO queues and dead letter queues.
-* Since AWS is a distributed service, the consumer must delete the message from the queue after receiving and processing it.
-* Visibility timeout is a period of time during which Amazon SQS prevents other consumers from receiving and processing the message. 
-* The pricing of SQS is as follows: You pay only for what you use, and there is no minimum fee. The cost of Amazon SQS is calculated per request, plus data transfer charges for data transferred out of Amazon SQS. The Amazon SQS Free Tier provides you with 1 million requests per month at no charge
-* Amazon SQS provides short polling (default) and long polling to receive messages from a queue. When the ReceiveMessageWaitTimeSeconds property of a queue is set to a value greater than zero, long polling is in effect. 
-* Short polling - request queries only a subset of the servers and sends the response right away. Long polling - request queries all of the servers for messages and sends a response after it collects at least one available message.
-* SNS is a pub-sub messaging service which integrates with many different types of services.
-* Route 53 can handle on-premises DNS resolution on its own.
-* Kinesis
-** Kinesis Video Streams makes it easy to securely stream video from connected devices to AWS
-** Kinesis Data Streams is a scalable and durable real-time data streaming service that can continuously capture gigabytes of data per second from hundreds of thousands of sources. 
-** Kinesis Data Firehose is the easiest way to capture, transform, and load data streams into AWS data stores for near real-time analytics with existing business intelligence tools.
-** Kinesis Data Analytics is the easiest way to process data streams in real time with SQL or Apache Flink without having to learn new programming languages or processing frameworks.
-
-* Lambda
-
-* In Amazon CloudFront, the Cache-Control max-age directive lets you specify how long (in seconds) you want the object to remain in the cache
-
-* AWS Organizations is a web service that enables you to consolidate your multiple AWS accounts into an organization and centrally manage your accounts and their resources.
-
-* Consolidated building
-** AWS consolidated billing enables the organization to consolidate payments for multiple Amazon Web Services (AWS) accounts within a single organization by making a single paying account. 
-** Consolidated billing enables the organization to see a combined view of the AWS charges incurred by each account as well as obtain a detailed cost report for each of the individual AWS accounts associated with the paying account.
-** Each AWS account needs to create an AWS billing policy to provide permission to the payee account if multiple account want to use a single payee account through the consolidated billing option. The payee account will not have any other access than billing data of linked accounts.
-
-*Cost Explorer - In your AWS billing account, a forecast is a prediction of how much you will use AWS over the next three months, based on your past usage.
-* In Amazon CloudFront, requests for your dynamic content are carried back to your origin servers running in Amazon Web Services (e.g., Amazon EC2, Elastic Load Balancing) over optimized network paths for a more reliable and consistent experience.
-
-* AWS Config allows you to utilise config Rules to help you manage and organize this compliance which acts as an automatic resource compliance checker. AWS Config rules are limited to a region scope. 
-* A CI is a JSON file that holds the configuration information, relationship information and other metadata as a point-in-time snapshot view of a supported resource. Used by history, streams and snapshots
-* In Attribute section, there is a unique resource ID and any key-value tags that are associated with the resource.
-* AWS Config has relationships with other services, specifically SNS and S3. IAM policies are used to enable the service.
-* S3 is used to store the Configuration History files and any Configuration snapshots of your data within a single bucket, which is defined within the Configuration recorder. 
-
-* CloudWatch Log Events have a size limitation of 256K. For greater management, new log files are typically created every 5 minutes. 
-* Amazon SWF helps developers build, run, and scale background jobs that have parallel or sequential steps. You can think of Amazon SWF as a fully-managed state tracker and task coordinator in the Cloud.
-* Global Accelerator utilizes the Amazon global network, allowing you to improve the performance of your applications by lowering first byte latency (packet round trip time) and jitter (variation of latency), and increasing throughput compared to the public internet
-
-</pre>
 </div>
 <div created="20201021104053932" creator="0neir0s" modified="20201021104321907" modifier="0neir0s" tags="aws notes" title="DynamoDB">
 <pre>* DynamoDB is a managed NoSQL database - ( key, value stores )
@@ -10373,6 +10287,47 @@ It is not meant to be a daily log. Earlier posts would be updated when mistakes 
 
 * Using SAML for service access - [[link|https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html]]. This requires IAM roles matching AD groups and SAML-based Identity Provider available to be used with company's Identity store (AD)</pre>
 </div>
+<div created="20201011140841846" creator="0neir0s" modified="20201026140532725" modifier="0neir0s" tags="aws notes" title="Services">
+<pre>* SQS structure Producer,  Queue, Consumer. 
+* The types are standard queues, FIFO queues and dead letter queues.
+* Since AWS is a distributed service, the consumer must delete the message from the queue after receiving and processing it.
+* Visibility timeout is a period of time during which Amazon SQS prevents other consumers from receiving and processing the message. 
+* The pricing of SQS is as follows: You pay only for what you use, and there is no minimum fee. The cost of Amazon SQS is calculated per request, plus data transfer charges for data transferred out of Amazon SQS. The Amazon SQS Free Tier provides you with 1 million requests per month at no charge
+* Amazon SQS provides short polling (default) and long polling to receive messages from a queue. When the ReceiveMessageWaitTimeSeconds property of a queue is set to a value greater than zero, long polling is in effect. 
+* Short polling - request queries only a subset of the servers and sends the response right away. Long polling - request queries all of the servers for messages and sends a response after it collects at least one available message.
+* SNS is a pub-sub messaging service which integrates with many different types of services.
+* Route 53 can handle on-premises DNS resolution on its own.
+* Kinesis
+** Kinesis Video Streams makes it easy to securely stream video from connected devices to AWS
+** Kinesis Data Streams is a scalable and durable real-time data streaming service that can continuously capture gigabytes of data per second from hundreds of thousands of sources. 
+** Kinesis Data Firehose is the easiest way to capture, transform, and load data streams into AWS data stores for near real-time analytics with existing business intelligence tools.
+** Kinesis Data Analytics is the easiest way to process data streams in real time with SQL or Apache Flink without having to learn new programming languages or processing frameworks.
+
+* Lambda and API Service
+* In Amazon CloudFront, the Cache-Control max-age directive lets you specify how long (in seconds) you want the object to remain in the cache
+
+* AWS Organizations is a web service that enables you to consolidate your multiple AWS accounts into an organization and centrally manage your accounts and their resources.
+
+* Consolidated building
+** AWS consolidated billing enables the organization to consolidate payments for multiple Amazon Web Services (AWS) accounts within a single organization by making a single paying account. 
+** Consolidated billing enables the organization to see a combined view of the AWS charges incurred by each account as well as obtain a detailed cost report for each of the individual AWS accounts associated with the paying account.
+** Each AWS account needs to create an AWS billing policy to provide permission to the payee account if multiple account want to use a single payee account through the consolidated billing option. The payee account will not have any other access than billing data of linked accounts.
+
+*Cost Explorer - In your AWS billing account, a forecast is a prediction of how much you will use AWS over the next three months, based on your past usage.
+* In Amazon CloudFront, requests for your dynamic content are carried back to your origin servers running in Amazon Web Services (e.g., Amazon EC2, Elastic Load Balancing) over optimized network paths for a more reliable and consistent experience.
+
+* AWS Config allows you to utilise config Rules to help you manage and organize this compliance which acts as an automatic resource compliance checker. AWS Config rules are limited to a region scope. 
+* A CI is a JSON file that holds the configuration information, relationship information and other metadata as a point-in-time snapshot view of a supported resource. Used by history, streams and snapshots
+* In Attribute section, there is a unique resource ID and any key-value tags that are associated with the resource.
+* AWS Config has relationships with other services, specifically SNS and S3. IAM policies are used to enable the service.
+* S3 is used to store the Configuration History files and any Configuration snapshots of your data within a single bucket, which is defined within the Configuration recorder. 
+
+* CloudWatch Log Events have a size limitation of 256K. For greater management, new log files are typically created every 5 minutes. 
+* Amazon SWF helps developers build, run, and scale background jobs that have parallel or sequential steps. You can think of Amazon SWF as a fully-managed state tracker and task coordinator in the Cloud.
+* Global Accelerator utilizes the Amazon global network, allowing you to improve the performance of your applications by lowering first byte latency (packet round trip time) and jitter (variation of latency), and increasing throughput compared to the public internet
+
+</pre>
+</div>
 <div created="20201013201236563" creator="0neir0s" modified="20201024191836322" modifier="0neir0s" tags="aws notes" title="Storage">
 <pre>* AWS Snowball is for transferring petabyte scale data into and out of AWS.
 * AWS Certificate Manager is a service that lets you easily provision, manage, and deploy SSL/TLS certificates for use with AWS services. 
@@ -10409,7 +10364,7 @@ It is not meant to be a daily log. Earlier posts would be updated when mistakes 
 * Amazon FSx for Windows File Server provides fully managed, highly reliable, and scalable file storage that is accessible over the industry-standard Service Message Block (SMB) protocol.
 * Amazon FSx works with Microsoft Active Directory (AD) to integrate with your existing Windows environments. </pre>
 </div>
-<div created="20201011150936485" creator="0neir0s" modified="20201026135729697" modifier="0neir0s" tags="aws notes" title="Strategies">
+<div created="20201011150936485" creator="0neir0s" modified="20201026140847990" modifier="0neir0s" tags="aws notes" title="Strategies">
 <pre>* Use an Elastic Network Interface (ENI) to create a management network, to use network and security appliances in your VPC, to create dual-homed instances with workloads/roles on distinct subnets or to create a low-budget, high-availability solution.
 * Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses.
 * Rebooting primary database instance is the strategy to consistently test db failovers. 
@@ -10440,7 +10395,8 @@ It is not meant to be a daily log. Earlier posts would be updated when mistakes 
 * If you do have an access key for your AWS account root user, delete it. Never share your AWS account root user password or access keys with anyone.
 * When you configure a bucket as a static website, you must enable website hosting, set permissions, and create and add an index document. 
 * In a mobile app, to make requests to AWS services that must be signed with an AWS access key, it is strongly recommended not to embed or distribute long-term AWS credentials. Instead, build your app so that it requests temporary AWS security credentials dynamically when needed using web identity federation.
-* Use AWS Auto Scaling to manage scaling for multiple resources across multiple services. </pre>
+* Use AWS Auto Scaling to manage scaling for multiple resources across multiple services. 
+* You should also use EC2 Auto Scaling if you need to create or configure Amazon EC2 Auto Scaling groups, or if you need to set up scheduled or step scaling policies (Auto scaling only supports target tracking policies).</pre>
 </div>
 <div created="20200818180806183" creator="0neir0s" modified="20201011191740349" modifier="0neir0s" tags="index contents" title="Synopsis">
 <pre>The list of tiddlers till date. 
