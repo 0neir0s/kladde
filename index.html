@@ -9669,7 +9669,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201026041200368" creator="0neir0s" list="Synopsis AWS Strategies GettingStarted" modified="20201026053621419" modifier="0neir0s" title="$:/StoryList">
+<div created="20201026041200368" creator="0neir0s" list="Synopsis AWS Strategies GettingStarted" modified="20201026125620267" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -10008,7 +10008,7 @@ GettingStarted
 ** Local secondary indexes can only help find data within a single partition key.
 * Automatically replicated across 3 AZs. But, it has only eventual consistency for certain types of queries. There are also limits - record size of 400 kb, and 5 secondary indexes per table.</pre>
 </div>
-<div created="20201011134639869" creator="0neir0s" modified="20201023064203396" modifier="0neir0s" tags="notes aws" title="EC2">
+<div created="20201011134639869" creator="0neir0s" modified="20201026063115057" modifier="0neir0s" tags="notes aws" title="EC2">
 <pre>* Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides resizable compute capacity in the cloud. It is designed to make web-scale computing easier for developers.
 * Creating an EC2 instance is by selecting the instance type (hardware type) and AMI (software) and optionally, with a database. 
 * Amazon EC2 uses an instance profile as a container for an IAM role. When you create an IAM role using the IAM console, the console creates an instance profile automatically and gives it the same name as the role to which it corresponds. 
@@ -10063,6 +10063,10 @@ GettingStarted
 ** Auto Scaling is enabled by Amazon CloudWatch and carries no additional fees.
 ** To allow ALB to receive traffic over HTTPS, it will need a server certificate and an associated security policy.
 ** Ensure that autoscaling is checking instance status and ELB status as part of debugging. 
+** Pricing
+*** Application Load Balancer is charged for each hour or partial hour that an Application Load Balancer is running and the number of Load Balancer Capacity Units (LCU) used per hour.
+*** Network Load Balancer is charged for each hour or partial hour that a Network Load Balancer is running and the number of Load Balancer Capacity Units (LCU) used by Network Load Balancer per hour.
+*** Classic Load Balancer is charged for each hour or partial hour that a Classic Load Balancer is running and for each GB of data transferred through your load balancer.
 
 * For internal communication between S3 and an application running on EC2 instance, you need two policies:
 ** An IAM trust policy that allows the EC2 instance to assume a role
@@ -10352,7 +10356,7 @@ It is not meant to be a daily log. Earlier posts would be updated when mistakes 
 * Amazon FSx for Windows File Server provides fully managed, highly reliable, and scalable file storage that is accessible over the industry-standard Service Message Block (SMB) protocol.
 * Amazon FSx works with Microsoft Active Directory (AD) to integrate with your existing Windows environments. </pre>
 </div>
-<div created="20201011150936485" creator="0neir0s" modified="20201026063019368" modifier="0neir0s" tags="aws notes" title="Strategies">
+<div created="20201011150936485" creator="0neir0s" modified="20201026125741108" modifier="0neir0s" tags="aws notes" title="Strategies">
 <pre>* Use an Elastic Network Interface (ENI) to create a management network, to use network and security appliances in your VPC, to create dual-homed instances with workloads/roles on distinct subnets or to create a low-budget, high-availability solution.
 * Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses.
 * Rebooting primary database instance is the strategy to consistently test db failovers. 
@@ -10379,7 +10383,8 @@ It is not meant to be a daily log. Earlier posts would be updated when mistakes 
 * You can configure multiple gateway endpoints in a single VPC for the same AWS service, and route different resources to different gateways with different policies based on the specific permissions granted to those resources.
 * You restrict access to Amazon S3 content by creating an origin access identity, which is a special CloudFront user. 
 * Create an IAM user for yourself as well, give that user administrative privileges, and use that IAM user for all your work, and then lock away the root account.
-* Disabling source/destination checks is a feature of NAT Instances not NAT Gateways.</pre>
+* Disabling source/destination checks is a feature of NAT Instances not NAT Gateways.
+* If you do have an access key for your AWS account root user, delete it. Never share your AWS account root user password or access keys with anyone.</pre>
 </div>
 <div created="20200818180806183" creator="0neir0s" modified="20201011191740349" modifier="0neir0s" tags="index contents" title="Synopsis">
 <pre>The list of tiddlers till date. 
