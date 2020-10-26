@@ -9673,7 +9673,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201026041200368" creator="0neir0s" list="Synopsis AWS [[Draft of 'AWS Services' by 0neir0s]]" modified="20201026133131481" modifier="0neir0s" title="$:/StoryList">
+<div created="20201026041200368" creator="0neir0s" list="Databases Synopsis AWS [[Draft of 'AWS Services' by 0neir0s]]" modified="20201026135808614" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9737,8 +9737,8 @@ GettingStarted
 <div created="20200818173846533" creator="0neir0s" modified="20201021142032506" modifier="0neir0s" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
-<div created="20201026131827718" creator="0neir0s" modified="20201026135746065" modifier="0neir0s" title="$:/temp/search">
-<pre></pre>
+<div created="20201026131827718" creator="0neir0s" modified="20201026135806369" modifier="0neir0s" title="$:/temp/search">
+<pre>redshift</pre>
 </div>
 <div created="20201023055732690" creator="0neir0s" modified="20201023055734490" modifier="0neir0s" title="$:/theme">
 <pre>$:/themes/tiddlywiki/vanilla</pre>
@@ -9958,7 +9958,7 @@ GettingStarted
 * Config continuously monitors and records your AWS resource configurations and allows you to automate the evaluation of recorded configurations against desired configurations.
 * This enables you to simplify compliance auditing, security analysis, change management, and operational troubleshooting.</pre>
 </div>
-<div created="20201013054457687" creator="0neir0s" modified="20201025072122801" modifier="0neir0s" tags="aws notes" title="Databases">
+<div created="20201013054457687" creator="0neir0s" modified="20201026140511467" modifier="0neir0s" tags="aws notes" title="Databases">
 <pre>* In Neptune, an endpoint is simply a URL address and a port that points to your components - could be cluster, reader, and instance endpoints.
 * Neptune supports 2 query languages - sparql and gremlin. It has redundancies in at least 3 AZs, and has auto-repair.  Replica data synchronisation happens synchronously.  
 * AWS ElastiCache - For in-memory stores. It supports Memcached and Redis. Former is simpler and faster, while latter has more features. With Redis, you can also enable cluster mode where the number of shards per cluster can be increase upto 90 from 1. 
@@ -9971,6 +9971,7 @@ GettingStarted
 * Data is replicated synchronously between both the primary DB instance and each replica in the region.
 * Redshift is based upon PostgreSQL 8.0.2. It does ETL jobs.
 * Redshift does not support read replicas and will not automatically scale. 
+* Amazon Redshift only supports Single-AZ deployments
 ** Extraction is the process of retrieving data from one or more sources.
 ** Transformation is the process of mapping, reformatting, conforming, adding meaning and more to prepare the data for easy consumption.
 ** Loading involves successfully inserting the transform data into the data warehouse.
