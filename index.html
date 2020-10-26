@@ -9669,7 +9669,7 @@ GettingStarted
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201026041200368" creator="0neir0s" list="Synopsis AWS Strategies GettingStarted" modified="20201026041245246" modifier="0neir0s" title="$:/StoryList">
+<div created="20201026041200368" creator="0neir0s" list="Synopsis AWS Strategies GettingStarted" modified="20201026053621419" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -9897,7 +9897,7 @@ GettingStarted
 * AWS Batch will automatically and dynamically size instances to job resource requirements, and use existing FSx for Lustre file systems when launching instances and running jobs.
 * Amazon FSx for Lustre integrates with AWS Batch though EC2 Launch Templates.</pre>
 </div>
-<div created="20201021135607248" creator="0neir0s" modified="20201021141948786" modifier="0neir0s" tags="aws notes" title="CloudFront">
+<div created="20201021135607248" creator="0neir0s" modified="20201026041615254" modifier="0neir0s" tags="aws notes" title="CloudFront">
 <pre>* Amazon CloudFront is a web service that speeds up distribution of your static and dynamic web content, such as .html, .css, .js, and image files, to your users, using edge locations.
 * An origin server stores the original, definitive version of your objects.
 * Supported protocols: HTTP, RMTP(s3), websockets.
@@ -9919,7 +9919,8 @@ GettingStarted
 
 * For SSL, AWS Certificate Manager (ACM), IAM Certificate Store ( certs from third party certificate authority) can be associated with CloudFront distributions.
 * Against DDoS, AWS Shield Standard is available at no additional cost.
-* CloudFront distribution can be integrated with WAF, a web application firewall that helps protect web applications from attacks by allowing you to configure rules based on IP addresses, HTTP headers, and custom URI strings.</pre>
+* CloudFront distribution can be integrated with WAF, a web application firewall that helps protect web applications from attacks by allowing you to configure rules based on IP addresses, HTTP headers, and custom URI strings.
+* An Origin Access Identity (OAI) is used for sharing private content via CloudFront.</pre>
 </div>
 <div created="20201021191251641" creator="0neir0s" modified="20201021191319427" modifier="0neir0s" tags="aws notes" title="CloudHub">
 <pre>* If you have multiple VPN connections, you can provide secure communication between sites using the AWS VPN CloudHub. 
@@ -10351,7 +10352,7 @@ It is not meant to be a daily log. Earlier posts would be updated when mistakes 
 * Amazon FSx for Windows File Server provides fully managed, highly reliable, and scalable file storage that is accessible over the industry-standard Service Message Block (SMB) protocol.
 * Amazon FSx works with Microsoft Active Directory (AD) to integrate with your existing Windows environments. </pre>
 </div>
-<div created="20201011150936485" creator="0neir0s" modified="20201026041556744" modifier="0neir0s" tags="aws notes" title="Strategies">
+<div created="20201011150936485" creator="0neir0s" modified="20201026063019368" modifier="0neir0s" tags="aws notes" title="Strategies">
 <pre>* Use an Elastic Network Interface (ENI) to create a management network, to use network and security appliances in your VPC, to create dual-homed instances with workloads/roles on distinct subnets or to create a low-budget, high-availability solution.
 * Dedicated Hosts can help you address compliance requirements and reduce costs by allowing you to use your existing server-bound software licenses.
 * Rebooting primary database instance is the strategy to consistently test db failovers. 
@@ -10376,7 +10377,9 @@ It is not meant to be a daily log. Earlier posts would be updated when mistakes 
 ** AWS SSO is a great choice to help you define federated access permissions for your users based on their group memberships in a single centralized directory. 
 ** If you use multiple directories, or want to manage the permissions based on user attributes, consider AWS IAM as your design alternative.
 * You can configure multiple gateway endpoints in a single VPC for the same AWS service, and route different resources to different gateways with different policies based on the specific permissions granted to those resources.
-* You restrict access to Amazon S3 content by creating an origin access identity, which is a special CloudFront user. </pre>
+* You restrict access to Amazon S3 content by creating an origin access identity, which is a special CloudFront user. 
+* Create an IAM user for yourself as well, give that user administrative privileges, and use that IAM user for all your work, and then lock away the root account.
+* Disabling source/destination checks is a feature of NAT Instances not NAT Gateways.</pre>
 </div>
 <div created="20200818180806183" creator="0neir0s" modified="20201011191740349" modifier="0neir0s" tags="index contents" title="Synopsis">
 <pre>The list of tiddlers till date. 
