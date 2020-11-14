@@ -10003,7 +10003,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div list="Kladde" title="$:/StoryList">
+<div created="20201114111429358" creator="0neir0s" list="Kladde RxJava" modified="20201114111429358" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -11576,7 +11576,7 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 * Disaster Recovery techniques: Backup &amp; Restore, Pilot light, Warm standby, Multi-site.
 * Debugging connectivity issues: Check whether or not the RDS is in the same region as the app as spanning regions is not possible. The other likely issue is that the Security Group of either the RDS or the EC2 (or both) are not configured properly. </pre>
 </div>
-<div created="20201110110920797" creator="0neir0s" modified="20201110194555150" modifier="0neir0s" tags="published java" title="RxJava">
+<div created="20201110110920797" creator="0neir0s" modified="20201114114128196" modifier="0neir0s" tags="published java" title="RxJava">
 <pre>* Reactive Manifesto
 ** Event driven - facilitates concurrency and decoupling
 ** Scalable
@@ -11586,7 +11586,9 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 * Observer pattern in RxJava - observers are passive in that they don't consume resources while waiting. And scheduler can be synchronous or asynchronous.
 * RxJava is single-threaded by default. Even in scheduler, RxJava mostly works on a single thread of the designated scheduler.
 * Observables can have different cardinalities like maybe, completable etc.
-</pre>
+* Additionally, flowables can be used instead of observables for backpressure at the cost of extra CPU load and bookkeeping.
+
+* 2 different types of observables: cold and hot observables. Cold observables emit events only if subscribers exist. </pre>
 </div>
 <div created="20201021104736412" creator="0neir0s" modified="20201026130537844" modifier="0neir0s" tags="aws notes" title="S3">
 <pre>* AWS Simple Storage Service is storage for the internet. 
