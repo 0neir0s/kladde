@@ -495,7 +495,7 @@ Error message and password prompt
 
 <li>Security</li>
 
-<li>Security DL</li>
+<li>Security and Data Protection</li>
 
 <li>Services</li>
 
@@ -10003,7 +10003,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201115074346206" creator="0neir0s" list="Prism Kladde [[Hybrid Cloud]] [[Security DL]]" modified="20201115080304254" modifier="0neir0s" title="$:/StoryList">
+<div created="20201115074346206" creator="0neir0s" list="Kladde [[Hybrid Cloud]] [[Security and Data Protection]]" modified="20201115080342711" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -11696,7 +11696,7 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 
 * Using SAML for service access - [[link|https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html]]. This requires IAM roles matching AD groups and SAML-based Identity Provider available to be used with company's Identity store (AD)</pre>
 </div>
-<div created="20201108180235798" creator="0neir0s" modified="20201108183515659" modifier="0neir0s" tags="hcloud" title="Security DL">
+<div created="20201108180235798" creator="0neir0s" modified="20201115083110891" modifier="0neir0s" tags="hcloud" title="Security and Data Protection">
 <pre>* Steps: Analyze -&gt; Design -&gt; Implement -&gt; Test -&gt; Update
 * Efficient one-click operations and self-healing security models enable automation to maintain security in an always-on hyperconverged solution. 
 * Practices include
@@ -11705,7 +11705,21 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 ** Key management and administration
 ** STIG implementation
 ** data-at-rest encryption
-** role-based access control.</pre>
+** role-based access control.
+
+* Backup as a Service and DR as a Service are rising as popular alternatives to traditional approaches for shrinking RTOs and RPOs.
+* Prism can be used to manage all Nutanix data protection and DR functionality. It can also automated through the provided REST APIs.
+* Nutanix data protection and data reduction help you minimize the number of full data copies and the bandwidth needed for replication.
+
+* Infrastructure resiliency - The system uses a shared-nothing architecture with data, metadata, and services distributed across all nodes within a cluster.
+** Tunable redundancy - Nutanix data container has a data Replication Factor of 2 or 3
+** Erasure coding - it encodes a strip of data blocks that reside on different nodes in the cluster, and calculates parity using software
+** Integrity checks - background scans, checksum checks for reads, replications
+** Availability domains - 3 types: node awareness -&gt; block awareness -&gt; raid awareness
+
+* Backups - second line of defense. 3 types - local backups, integrated remote backups and cloud backups.
+* Prism provides a simplified view of all local and remote snapshots, allowing administrators to restore a VM from a snapshot with a single click.
+</pre>
 </div>
 <div created="20201011140841846" creator="0neir0s" modified="20201026140532725" modifier="0neir0s" tags="aws notes" title="Services">
 <pre>* SQS structure Producer,  Queue, Consumer. 
