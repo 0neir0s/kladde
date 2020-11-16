@@ -451,13 +451,13 @@ Error message and password prompt
 
 <li>Acropolis</li>
 
-<li>Advanced Linux Programming</li>
-
 <li>Aim small, miss small</li>
 
 <li>AWS</li>
 
 <li>Batch</li>
+
+<li>Book: Advanced Linux Programming</li>
 
 <li>CloudFront</li>
 
@@ -484,6 +484,8 @@ Error message and password prompt
 <li>EC2</li>
 
 <li>ElastiCache</li>
+
+<li>Good GNU/Linux software</li>
 
 <li>HCI</li>
 
@@ -10024,7 +10026,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201116150239713" creator="0neir0s" list="Technology [[Advanced Linux Programming]] Kladde" modified="20201116150657381" modifier="0neir0s" title="$:/StoryList">
+<div created="20201116150239713" creator="0neir0s" list="[[Book: Advanced Linux Programming]] Technology" modified="20201116151631612" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -11427,9 +11429,6 @@ show-kbd-hints: no</pre>
 
 * Nutanix allows you leverage scale-out, fully software-defined storage services via Nutanix Files, Nutanix Volumes, and Nutanix Objects.</pre>
 </div>
-<div created="20201116150317851" creator="0neir0s" modified="20201116150802165" modifier="0neir0s" tags="booknotes" title="Advanced Linux Programming">
-<pre></pre>
-</div>
 <div created="20201116074600048" creator="0neir0s" modified="20201116075342534" modifier="0neir0s" tags="synopsis" title="Aim small, miss small">
 <pre>Deconstruct conf [[talk|https://www.deconstructconf.com/2018/stuart-halloway-aim-small-miss-small-writing-correct-programs]] by Stuart Halloway
 
@@ -11458,6 +11457,11 @@ show-kbd-hints: no</pre>
 <pre>* AWS Batch is a cloud-native batch scheduler for HPC, ML, and other asynchronous workloads. 
 * AWS Batch will automatically and dynamically size instances to job resource requirements, and use existing FSx for Lustre file systems when launching instances and running jobs.
 * Amazon FSx for Lustre integrates with AWS Batch though EC2 Launch Templates.</pre>
+</div>
+<div created="20201116150317851" creator="0neir0s" modified="20201116192738902" modifier="0neir0s" tags="technotes" title="Book: Advanced Linux Programming">
+<pre>''Sections''
+
+&lt;&lt;list-links &quot;[tag[advlinux]reverse[]]&quot;&gt;&gt;</pre>
 </div>
 <div created="20201021135607248" creator="0neir0s" modified="20201026041615254" modifier="0neir0s" tags="aws notes" title="CloudFront">
 <pre>* Amazon CloudFront is a web service that speeds up distribution of your static and dynamic web content, such as .html, .css, .js, and image files, to your users, using edge locations.
@@ -11668,6 +11672,21 @@ show-kbd-hints: no</pre>
 ** With ElastiCache for Redis you can create a read replica in another AWS Availability Zone.
 ** Cross region replicas can be created using the Global Datastore feature in ElastiCache for Redis
 ** Reader endpoint is only available for ElastiCache for Redis (cluster mode disabled) clusters.</pre>
+</div>
+<div created="20201116151707618" creator="0neir0s" modified="20201116192717223" modifier="0neir0s" tags="advlinux" title="Good GNU/Linux software">
+<pre>* Program starts from main and has argument list ( retrieved from argc, argv )
+* Linux command line conventions - easier to use getopt_long method for getting long or short names.
+* Note: stdout is buffered. Access env variables using getenv. 
+* GNU/Linux provides functions, mkstemp and tmpfile, that take care of temporary file handling for you (in addition to several useless others). 
+
+* Code defensively
+** Use asserts liberally. But, there shouldn't be side effects in asserts and do not use it to test invalid user input.
+** Well written program might have more error handling code than logic. 
+** If you decide to return from the middle of a function, it’s important to make sure resources are successfully deallocated.
+
+* Static vs Dynamic Loading of libraries - archives vs shared objects.
+
+</pre>
 </div>
 <div created="20201108132118297" creator="0neir0s" modified="20201108155925791" modifier="0neir0s" tags="hcloud" title="HCI">
 <pre>* Convergence in IT scenario, is understood as the combination of networks, storage and processing, in the same solution. 
@@ -12129,10 +12148,11 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 &lt;&lt;list-links &quot;[tag[synopsis]reverse[]]&quot;&gt;&gt;
 </pre>
 </div>
-<div created="20201116150806053" creator="0neir0s" modified="20201116151402568" modifier="0neir0s" tags="published" title="Technology">
-<pre>* Notes jotted while studying technologies using books, videos etc. 
-* Attempted a high level hierarchy. But, this needs refinement.
+<div created="20201116150806053" creator="0neir0s" modified="20201116151534460" modifier="0neir0s" tags="published" title="Technology">
+<pre># // Notes jotted while studying technologies using books, videos etc. //
+# // Attempted a high level hierarchy. But, this needs refinement. //
 
+!!! Tiddlers
 &lt;&lt;list-links &quot;[tag[technotes]reverse[]]&quot;&gt;&gt;
 
 </pre>
