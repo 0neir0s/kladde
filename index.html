@@ -11823,8 +11823,9 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 * Operational insights focus on providing administrators with alerts, metrics, and the ability to analyze data.
 * Capacity planning focuses on Storage capacity, CPU and Memory</pre>
 </div>
-<div created="20201117060849426" creator="0neir0s" modified="20201117082810757" modifier="0neir0s" tags="advlinux" title="Processes &amp; Threads">
-<pre>* A running instance of a program is called a process. 
+<div created="20201117060849426" creator="0neir0s" modified="20201117100903848" modifier="0neir0s" tags="advlinux" title="Processes &amp; Threads">
+<pre>''Processes''
+* A running instance of a program is called a process. 
 * Most of the process manipulation functions are defined in unistd.h
 * When referring to process IDs in C/C++, always use the pid_t typedef, defined in &lt;sys/types.h&gt;
 * The kill command works by sending the process a SIGTERM, or termination signal. It is possible to send SIGKILL as well.
@@ -11835,7 +11836,8 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 * Wait family blocks the calling process until one of its child processes exits (or an error occurs).
 * A zombie process is a process that has terminated but has not been cleaned up yet. 
 * When a program exits, its children are inherited by init process which automatically cleans up any zombie child processes.
-* To clean up asynchronously, use wait4 (non-blocking) or better, use signal handler handling SIGCHLD.</pre>
+* To clean up asynchronously, use wait4 (non-blocking) or better, use signal handler handling SIGCHLD.
+''Threads''</pre>
 </div>
 <div created="20201115102305181" creator="0neir0s" modified="20201115102349135" modifier="0neir0s" tags="" title="Project 1: Infrastructure">
 <pre># The NTP server to the HCI Cloud Platform.
