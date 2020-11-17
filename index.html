@@ -501,7 +501,7 @@ Error message and password prompt
 
 <li>Prism</li>
 
-<li>Processes</li>
+<li>Processes &amp; Threads</li>
 
 <li>Project 1: Infrastructure</li>
 
@@ -10028,7 +10028,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201117060834509" creator="0neir0s" list="Processes [[Book: Advanced Linux Programming]] [[Good GNU/Linux software]]" modified="20201117060841137" modifier="0neir0s" title="$:/StoryList">
+<div created="20201117060834509" creator="0neir0s" list="[[Processes &amp; Threads]] [[Book: Advanced Linux Programming]]" modified="20201117060841137" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -11823,8 +11823,19 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 * Operational insights focus on providing administrators with alerts, metrics, and the ability to analyze data.
 * Capacity planning focuses on Storage capacity, CPU and Memory</pre>
 </div>
-<div created="20201117060849426" creator="0neir0s" modified="20201117060858345" modifier="0neir0s" tags="advlinux" title="Processes">
-<pre></pre>
+<div created="20201117060849426" creator="0neir0s" modified="20201117082810757" modifier="0neir0s" tags="advlinux" title="Processes &amp; Threads">
+<pre>* A running instance of a program is called a process. 
+* Most of the process manipulation functions are defined in unistd.h
+* When referring to process IDs in C/C++, always use the pid_t typedef, defined in &lt;sys/types.h&gt;
+* The kill command works by sending the process a SIGTERM, or termination signal. It is possible to send SIGKILL as well.
+* There are 2 methods to create process: using system function and fork/exec family (preferred). 
+* Linux schedules the parent and child processes independently. You can modify niceness of the process to assign priority.
+* Signals are asynchronous mechanisms for communicating with and manipulating processes in Linux. They have a default disposition.
+* A signal handler should perform the minimum work necessary to respond to the signal, and then return control. No I/O, heavy stuff.
+* Wait family blocks the calling process until one of its child processes exits (or an error occurs).
+* A zombie process is a process that has terminated but has not been cleaned up yet. 
+* When a program exits, its children are inherited by init process which automatically cleans up any zombie child processes.
+* To clean up asynchronously, use wait4 (non-blocking) or better, use signal handler handling SIGCHLD.</pre>
 </div>
 <div created="20201115102305181" creator="0neir0s" modified="20201115102349135" modifier="0neir0s" tags="" title="Project 1: Infrastructure">
 <pre># The NTP server to the HCI Cloud Platform.
