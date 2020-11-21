@@ -459,6 +459,8 @@ Error message and password prompt
 
 <li>Book: Advanced Linux Programming</li>
 
+<li>Books</li>
+
 <li>CloudFront</li>
 
 <li>CloudHub</li>
@@ -499,6 +501,8 @@ Error message and password prompt
 
 <li>Networking</li>
 
+<li>On Abstraction</li>
+
 <li>Prism</li>
 
 <li>Processes &amp; Threads</li>
@@ -522,8 +526,6 @@ Error message and password prompt
 <li>Strategies</li>
 
 <li>Synopses</li>
-
-<li>Technology</li>
 
 <li>WAF &amp; Shield</li>
 
@@ -10028,7 +10030,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20201121103137382" creator="0neir0s" list="Kladde Technology" modified="20201121103141515" modifier="0neir0s" title="$:/StoryList">
+<div created="20201121103137382" creator="0neir0s" list="[[On Abstraction]] Kladde Synopses Books" modified="20201121103253529" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -11460,10 +11462,19 @@ show-kbd-hints: no</pre>
 * AWS Batch will automatically and dynamically size instances to job resource requirements, and use existing FSx for Lustre file systems when launching instances and running jobs.
 * Amazon FSx for Lustre integrates with AWS Batch though EC2 Launch Templates.</pre>
 </div>
-<div created="20201116150317851" creator="0neir0s" modified="20201116192738902" modifier="0neir0s" tags="technotes" title="Book: Advanced Linux Programming">
+<div created="20201116150317851" creator="0neir0s" modified="20201121103305898" modifier="0neir0s" tags="booknotes" title="Book: Advanced Linux Programming">
 <pre>''Sections''
 
 &lt;&lt;list-links &quot;[tag[advlinux]reverse[]]&quot;&gt;&gt;</pre>
+</div>
+<div created="20201116150806053" creator="0neir0s" modified="20201121103315647" modifier="0neir0s" tags="published" title="Books">
+<pre># // Notes jotted while going through books. //
+# // Attempted a high level hierarchy. But, this needs refinement. //
+
+!!! Tiddlers
+&lt;&lt;list-links &quot;[tag[booknotes]reverse[]]&quot;&gt;&gt;
+
+</pre>
 </div>
 <div created="20201021135607248" creator="0neir0s" modified="20201026041615254" modifier="0neir0s" tags="aws notes" title="CloudFront">
 <pre>* Amazon CloudFront is a web service that speeds up distribution of your static and dynamic web content, such as .html, .css, .js, and image files, to your users, using edge locations.
@@ -11811,6 +11822,35 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 * A VPG is used to setup an AWS VPN which you can use in combination with Direct Connect to encrypt all data that traverses the Direct Connect link.
 * A virtual private gateway is a logical, fully redundant distributed edge routing function that sits at the edge of your VPC. As it is capable of terminating VPN connections from your on-prem or customer environments, the VPG is the VPN concentrator on the Amazon side of the Site-to-Site VPN connection. 
 * RTMP distributions are not compatible if transfer should be over HTTPS</pre>
+</div>
+<div created="20201121103336363" creator="0neir0s" modified="20201121142115302" modifier="0neir0s" tags="synopsis" title="On Abstraction">
+<pre>* 2 kinds of abstraction - Church numerals (theoretical), and Conj cells (practical)
+* Abstraction maps the internal model onto external semantics. Invariants constrain the internal model.
+* Most software relies on inductive reasoning,as opposed to Physics which relies on deductive reasoning.
+* Satisficity as opposed to solution. Eg: a tick
+
+* 3 pieces: Environment, Interface and the Model.
+** Model reflect a facet of their environment, i.e. we use models to reason about their environment.
+** The model's aim is to be the simplest thing that satisfices.
+** Environment cannot be compelled to inform the model when something changes. 
+** When assumptions leak out, we have to use conventions. Eg: use gyroscope to make sure clock has a flat surface.
+** Interfaces reflect the intersection of models, or one model over time.
+
+* Systems of abstractions. Think skyscrapers vs igloo.
+** Principled - essentially hierarchies. brittle and predictable.
+** Adaptable - more graph-like, more local changes. flexible and unpredictable.
+
+* Principled components are smaller, faster and can be understood incrementally. 
+* So, use them when possible and use adaptable abstractions when necessary. 
+
+* 2 ways of combining
+** Adaptable components in a principled framework. Eg: mitochondria. Degrees of freedom becomes vestigial and disappear.
+** Principled components in an adaptable framework. Eg: Viceroy and Monarch butterflies. Also called complex adaptive systems.
+*** This seems more successful empirically since the system adapts to the changes. 
+*** If principled components are too small, the adaptive glue is too much. If too large, replacement is costly.
+*** A heuristic is to club the components based on the assumptions they make. Since failure of assumption necessitates replacement of all of them.
+
+* Clojure and other lisps bias towards adaptable systems. But, use it in moderation.</pre>
 </div>
 <div created="20201108155954155" creator="0neir0s" modified="20201115080312952" modifier="0neir0s" tags="hcloud" title="Prism">
 <pre>* The information in Prism focuses on common operational tasks grouped into four areas:
@@ -12160,19 +12200,10 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 * Use AWS Auto Scaling to manage scaling for multiple resources across multiple services. 
 * You should also use EC2 Auto Scaling if you need to create or configure Amazon EC2 Auto Scaling groups, or if you need to set up scheduled or step scaling policies (Auto scaling only supports target tracking policies).</pre>
 </div>
-<div created="20201116074430921" creator="0neir0s" modified="20201116150308373" modifier="0neir0s" tags="published" title="Synopses">
+<div created="20201116074430921" creator="0neir0s" modified="20201121103332519" modifier="0neir0s" tags="published" title="Synopses">
 <pre>//Salient points in talks, articles etc//
 
 &lt;&lt;list-links &quot;[tag[synopsis]reverse[]]&quot;&gt;&gt;
-</pre>
-</div>
-<div created="20201116150806053" creator="0neir0s" modified="20201121103209528" modifier="0neir0s" tags="published" title="Technology">
-<pre># // Notes jotted while going through books, videos etc. //
-# // Attempted a high level hierarchy. But, this needs refinement. //
-
-!!! Tiddlers
-&lt;&lt;list-links &quot;[tag[technotes]reverse[]]&quot;&gt;&gt;
-
 </pre>
 </div>
 <div created="20201024181141781" creator="0neir0s" modified="20201102094038850" modifier="0neir0s" tags="aws notes" title="WAF &amp; Shield">
