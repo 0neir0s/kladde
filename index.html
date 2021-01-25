@@ -12004,7 +12004,7 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 # Creating data protection configurations to automate virtual machine snapshots.
 # Performing virtual machine restorations using the data protection snapshots.</pre>
 </div>
-<div created="20210110103901498" creator="0neir0s" modified="20210125074951845" modifier="0neir0s" tags="hcloud" title="Public &amp; Hybrid Cloud Automation">
+<div created="20210110103901498" creator="0neir0s" modified="20210125173326532" modifier="0neir0s" tags="hcloud" title="Public &amp; Hybrid Cloud Automation">
 <pre>* Infrastructure Provider Problems: Lock-ins and leaving, fallacy of lift and shift. 
 * There are many tools available for migration, suitable to different types of workload. Nutanix Move is one such offering.
 * DevOps requires that your material resources be distributed, fungible, and ephemeral - Pets vs Livestock.
@@ -12017,7 +12017,26 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 * Nutanix Flow simplifies network and policy management with a focus towards applications, enabling applications and environments to be governed independent of the physical infrastructure. It enables microsegmentation/east-west firewalling. 
 * DSL offers all the richness of the Calm UI, but with the additional benefit of being human readable, with version controllable code that can handle even the most complex application scenario.
 * A Runbook is a collection of orchestration tasks defining “What to do” and “Where to do it.” 
-* Global Load Balancers: AWS Load balancers, HAProxy and Load Balancer appliances (Eg: F5 is a hardware based load balancing solutions.</pre>
+* Global Load Balancers: AWS Load balancers, HAProxy and Load Balancer appliances (Eg: F5 is a hardware based load balancing solutions.
+* Calm uses a construct called application profiles to enable you to create multiple profiles of different size and infrastructure. Make application profile a set of mutually exclusive choices.
+* Governance
+** Imperative to establish a cloud governance framework. 
+** Chargeback is needed especially for private cloud where it is harder to release resources than consume.
+** Cost management needs to be performed in the context of vendor discounts for upfront payments, storage types, and continuous optimization.
+* Cloud optimization
+** Real-time analytics
+** Tagging
+** Automated budget tracking
+** TCO-based cost metering
+** Cost aware workload migration
+** Automated resource rightsizing
+
+* Xi Beam by Nutanix is a software-as-a-service product that helps customers with cost governance for both their public and private clouds.
+* An audit is a set of rules used to determine if a specific resource is unused or underutilized. 
+* A scope is a logical group of your cloud resources that provides you with a custom view of your cloud resources.
+* Beam provides you with multiple options when performing AWS cost configuration: Cost Logic, Billing ,Credits and Refunds, AWS EDP.
+* A cost center is a collection of resources within a single or multiple cloud accounts. A business unit is defined as a collection of cost centers.
+* Beam allows you to create highly customizable cost reports that you can schedule to be delivered.</pre>
 </div>
 <div created="20201021145856509" creator="0neir0s" modified="20201024144012375" modifier="0neir0s" tags="aws notes" title="RDS">
 <pre>* Amazon Relational Database Service (Amazon RDS) is a managed service that makes it easy to set up, operate, and scale a relational database in the cloud.
