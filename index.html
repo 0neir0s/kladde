@@ -11836,14 +11836,21 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 
 * In contrast,  ACM Private Certificate Authority (CA) service provides a public key infrastructure (PKI) for the purpose of identifying entities and securing network connections. </pre>
 </div>
-<div created="20210130141342767" creator="0neir0s" modified="20210130151543133" modifier="0neir0s" tags="booknotes" title="Learn you a Haskell">
+<div created="20210130141342767" creator="0neir0s" modified="20210130152310785" modifier="0neir0s" tags="booknotes" title="Learn you a Haskell">
 <pre>''Starting out''
+
 * We usually use ' to either denote a strict version of a function (one that isn't lazy) or a slightly modified version of a function or a variable.
 * When a function doesn't take any parameters, we usually say it's a definition (or a name). 
 * Doing let a = 1 inside GHCI is the equivalent of writing a = 1 in a script and then loading it.
 
 ''Types and Typeclasses''
-* Type annotations are a way of explicitly saying what the type of an expression should be. </pre>
+
+* Type annotations are a way of explicitly saying what the type of an expression should be. 
+* minBound and maxBound are interesting because they have a type of (Bounded a) =&gt; a. In a sense they are polymorphic constants.
+
+''Syntax in Functions''
+
+</pre>
 </div>
 <div created="20201014080547604" creator="0neir0s" modified="20201023193908129" modifier="0neir0s" tags="aws notes" title="Networking">
 <pre>* VPC Routing: There is a main route user. And each VPC has an implicit router. And local route in the route table cannot be removed.
