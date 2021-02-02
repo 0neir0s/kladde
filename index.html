@@ -10048,7 +10048,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20210131055822360" creator="0neir0s" list="Kladde Books [[Learn you a Haskell for Great Good!]] [[Data Structures and Algorithms in Python]]" modified="20210201063259923" modifier="0neir0s" title="$:/StoryList">
+<div created="20210201172228640" creator="0neir0s" list="Kladde [[Learn you a Haskell for Great Good!]]" modified="20210202052418988" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -11852,7 +11852,7 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 
 * In contrast,  ACM Private Certificate Authority (CA) service provides a public key infrastructure (PKI) for the purpose of identifying entities and securing network connections. </pre>
 </div>
-<div created="20210130141342767" creator="0neir0s" modified="20210201052211244" modifier="0neir0s" tags="booknotes" title="Learn you a Haskell for Great Good!">
+<div created="20210130141342767" creator="0neir0s" modified="20210202053302964" modifier="0neir0s" tags="booknotes" title="Learn you a Haskell for Great Good!">
 <pre>''Starting out''
 
 * We usually use ' to either denote a strict version of a function (one that isn't lazy) or a slightly modified version of a function or a variable.
@@ -11881,8 +11881,23 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 
 ''Higher Order Functions''
 
+* Every function in Haskell officially only takes one parameter. All the functions that accepted several parameters so far have been curried functions.
+* Infix functions can also be partially applied by using sections. To section an infix function, surround it with parentheses and only supply parameter on one side. 
+* Functional programming uses higher order functions to abstract away common patterns
+* List comprehensions can achieve map and filter. 
+* Thanks to Haskell's laziness, even if you map something over a list several times and filter it several times, it will only pass over the list once.
+* And like normal functions, you can pattern match in lambdas. 
+* Recursion with lists is common. So, folds were created to encapsulate it. 
+* One big difference is that right folds work on infinite lists, whereas left ones don't.
+* Scans are used to monitor the progression of a function that can be implemented as a fold. 
+* But apart from getting rid of parentheses, $ means that function application can be treated just like another function. That way, we can, for instance, map function application over a list of functions.
+* Another common use of function composition is defining functions in the so-called point free style (also called the pointless style)
 
-</pre>
+''Modules''
+
+* A Haskell module is a collection of related functions, types and typeclasses.
+* https://hoogle.haskell.org/ for searching haskell functions and types across modules.
+* If you ever get stack overflow errors when doing lazy folds, try switching to their strict versions.</pre>
 </div>
 <div created="20201014080547604" creator="0neir0s" modified="20201023193908129" modifier="0neir0s" tags="aws notes" title="Networking">
 <pre>* VPC Routing: There is a main route user. And each VPC has an implicit router. And local route in the route table cannot be removed.
