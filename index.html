@@ -11852,7 +11852,7 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 
 * In contrast,  ACM Private Certificate Authority (CA) service provides a public key infrastructure (PKI) for the purpose of identifying entities and securing network connections. </pre>
 </div>
-<div created="20210130141342767" creator="0neir0s" modified="20210206182815937" modifier="0neir0s" tags="booknotes" title="Learn you a Haskell for Great Good!">
+<div created="20210130141342767" creator="0neir0s" modified="20210207183600174" modifier="0neir0s" tags="booknotes" title="Learn you a Haskell for Great Good!">
 <pre>''Starting out''
 
 * We usually use ' to either denote a strict version of a function (one that isn't lazy) or a slightly modified version of a function or a variable.
@@ -11911,9 +11911,10 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 * By doing Shape(..) in export line of the module, we exported all the value constructors for Shape, so that means that whoever imports our module can make shapes by using the Rectangle and Circle value constructors. It's the same as writing Shape (Rectangle, Circle).
 * Type constructors can take types as parameters to produce new types.
 * Using type parameters is very beneficial, but only when using them makes sense. Usually we use them when our data type would work regardless of the type of the value it then holds inside it, like with our Maybe a type
-* Stopped at Map k v from Data.Map
-
-</pre>
+* It's a very strong convention in Haskell to never add typeclass constraints in data declarations. Try to not put type constraints into data declarations even if it seems to make sense, because you'll have to put them into the function type declarations either way. 
+* Typeclasses are more like interfaces. We don't make data from typeclasses. Instead, we first make our data type and then we think about what it can act like.
+* Type synonyms don't really do anything per se, they're just about giving some types different names so that they make more sense to someone reading our code and documentation. 
+* Recursive data types are types where one value of some type contains values of that type, which in turn contain more values of the same type and so on.</pre>
 </div>
 <div created="20201014080547604" creator="0neir0s" modified="20201023193908129" modifier="0neir0s" tags="aws notes" title="Networking">
 <pre>* VPC Routing: There is a main route user. And each VPC has an implicit router. And local route in the route table cannot be removed.
