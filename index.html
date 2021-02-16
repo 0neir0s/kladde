@@ -11852,7 +11852,7 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 
 * In contrast,  ACM Private Certificate Authority (CA) service provides a public key infrastructure (PKI) for the purpose of identifying entities and securing network connections. </pre>
 </div>
-<div created="20210130141342767" creator="0neir0s" modified="20210213180345358" modifier="0neir0s" tags="booknotes" title="Learn you a Haskell for Great Good!">
+<div created="20210130141342767" creator="0neir0s" modified="20210216135105123" modifier="0neir0s" tags="booknotes" title="Learn you a Haskell for Great Good!">
 <pre>''Starting out''
 
 * We usually use ' to either denote a strict version of a function (one that isn't lazy) or a slightly modified version of a function or a variable.
@@ -11919,7 +11919,13 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 * Minimal complete definition for the typeclass — the minimum of functions that we have to implement so that our type can behave like the class advertises. 
 * Class constraints in class declarations are usually used for subclassing a typeclass and class constraints in instance declarations are used to express requirements about the contents of some type.
 * Functor typeclass has one function - fmap. Types that can act like a box can be functors. Like list, maybe etc. The Functor typeclass wants a type constructor that takes only one type parameter. 
-* We used :k on a type to get its kind, just like we can use :t on a value to get its type. </pre>
+* We used :k on a type to get its kind, just like we can use :t on a value to get its type. 
+
+''Input and Output''
+
+* I/O actions will only be performed when they are given a name of main or when they're inside a bigger I/O action that we composed with a do block.
+* In an I/O do block, ifs have to have a form of if condition then I/O action else I/O action.
+* In Haskell (in I/O actions specifically), return makes an I/O action out of a pure value.</pre>
 </div>
 <div created="20201014080547604" creator="0neir0s" modified="20201023193908129" modifier="0neir0s" tags="aws notes" title="Networking">
 <pre>* VPC Routing: There is a main route user. And each VPC has an implicit router. And local route in the route table cannot be removed.
