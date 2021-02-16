@@ -513,6 +513,8 @@ Error message and password prompt
 
 <li>Networking</li>
 
+<li>Non-blocking IO</li>
+
 <li>Object Oriented Programming</li>
 
 <li>On Abstraction</li>
@@ -10048,7 +10050,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20210211162607086" creator="0neir0s" list="[[Learn you a Haskell for Great Good!]] Kladde" modified="20210211162625199" modifier="0neir0s" title="$:/StoryList">
+<div created="20210211162607086" creator="0neir0s" list="[[Non-blocking IO]] Kladde Synopses" modified="20210216135114328" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -11966,6 +11968,17 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 * A VPG is used to setup an AWS VPN which you can use in combination with Direct Connect to encrypt all data that traverses the Direct Connect link.
 * A virtual private gateway is a logical, fully redundant distributed edge routing function that sits at the edge of your VPC. As it is capable of terminating VPN connections from your on-prem or customer environments, the VPG is the VPN concentrator on the Amazon side of the Site-to-Site VPN connection. 
 * RTMP distributions are not compatible if transfer should be over HTTPS</pre>
+</div>
+<div created="20210216135117799" creator="0neir0s" modified="20210216142110868" modifier="0neir0s" tags="synopsis programming" title="Non-blocking IO">
+<pre>* Input/output (IO) refers to interaction with devices such as a hard drive, network or database. Generally anything that is not happening in the CPU is called IO. 
+* When a thread is blocked in Linux, it will be put in a Sleep state by the kernel until data has returned to the caller. Threads in sleep state immediately give up its access to the CPU, so to not waste CPU time. 
+* The process of taking threads on and off the CPU is called context switching.
+* The main benefit of non-blocking IO is that we need less threads to handle the same amount of IO requests. A thread costs around 1MB, and there are some costs due to context switching.
+* All asynchronous constructs are only syntactically different. Under the hood, all are all based on a routine called the moment data has returned from IO.
+* Approaches
+** Event Loop
+*** Most non-blocking frameworks use an infinite loop that polls for data returned from IO. The list of FDs (File descriptors) to check is called the interest list. 
+*** Not as bad as it seems, optimised - OS provides kernel level APIs to help create event loops. Eg: epoll or io_uring (Linux). These APIs' computational complexity is ~ O(number_of_events_occurred). Also, the API calls blocks if there is no ready data in the FDs of the interest list. Also, if it is not completely read, it won't be shown as available in the next iteration. </pre>
 </div>
 <div created="20210131060053177" creator="0neir0s" modified="20210131102447487" modifier="0neir0s" tags="dsapython" title="Object Oriented Programming">
 <pre>* Software implementations should achieve robustness, adaptability, and re-usability. 
