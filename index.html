@@ -11969,7 +11969,7 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 * A virtual private gateway is a logical, fully redundant distributed edge routing function that sits at the edge of your VPC. As it is capable of terminating VPN connections from your on-prem or customer environments, the VPG is the VPN concentrator on the Amazon side of the Site-to-Site VPN connection. 
 * RTMP distributions are not compatible if transfer should be over HTTPS</pre>
 </div>
-<div created="20210216135117799" creator="0neir0s" modified="20210216142110868" modifier="0neir0s" tags="synopsis programming" title="Non-blocking IO">
+<div created="20210216135117799" creator="0neir0s" modified="20210216142428722" modifier="0neir0s" tags="synopsis programming" title="Non-blocking IO">
 <pre>* Input/output (IO) refers to interaction with devices such as a hard drive, network or database. Generally anything that is not happening in the CPU is called IO. 
 * When a thread is blocked in Linux, it will be put in a Sleep state by the kernel until data has returned to the caller. Threads in sleep state immediately give up its access to the CPU, so to not waste CPU time. 
 * The process of taking threads on and off the CPU is called context switching.
@@ -11978,7 +11978,14 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 * Approaches
 ** Event Loop
 *** Most non-blocking frameworks use an infinite loop that polls for data returned from IO. The list of FDs (File descriptors) to check is called the interest list. 
-*** Not as bad as it seems, optimised - OS provides kernel level APIs to help create event loops. Eg: epoll or io_uring (Linux). These APIs' computational complexity is ~ O(number_of_events_occurred). Also, the API calls blocks if there is no ready data in the FDs of the interest list. Also, if it is not completely read, it won't be shown as available in the next iteration. </pre>
+*** Not as bad as it seems, optimised - OS provides kernel level APIs to help create event loops. Eg: epoll or io_uring (Linux). These APIs' computational complexity is ~ O(number_of_events_occurred). 
+*** These API calls blocks if there is no ready data in the FDs of the interest list, avoiding unnecessary iterations. Also, if it is not completely read, it won't be shown as available in the next iteration. 
+** Hardware Interrupts
+*** They are used to stop the current executing thread (interrupt it), execute some code and return to the thread. 
+*** Hardware interrupts are not ideal for applications that have high event rates such as high-performance web servers, as for each new request the CPU is interrupted and this will slow down the CPU too much.
+** Signals
+*** Signals are used for inter-process communication. A signal could also be used as an “event” to signal ready IO data. 
+*** Catching signals is expensive and therefore also not preferred over event loops in high event rate applications.</pre>
 </div>
 <div created="20210131060053177" creator="0neir0s" modified="20210131102447487" modifier="0neir0s" tags="dsapython" title="Object Oriented Programming">
 <pre>* Software implementations should achieve robustness, adaptability, and re-usability. 
