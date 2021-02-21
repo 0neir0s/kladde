@@ -10019,7 +10019,7 @@ Error message and password prompt
 <pre>readme</pre>
 </div>
 <div created="20161122140345592" creator="Riz
-" modified="20210211162627640" modifier="0neir0s" title="$:/state/sidebar">
+" modified="20210221045454937" modifier="0neir0s" title="$:/state/sidebar">
 <pre>no</pre>
 </div>
 <div created="20201023055735242" creator="0neir0s" modified="20201116111403725" modifier="0neir0s" title="$:/state/tab--1963855381">
@@ -10052,7 +10052,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20210211162607086" creator="0neir0s" list="[[Concurrency &amp; Parallelism in Python]] Kladde Synopses" modified="20210216170652082" modifier="0neir0s" title="$:/StoryList">
+<div created="20210211162607086" creator="0neir0s" list="[[Learn you a Haskell for Great Good!]] Kladde Synopses" modified="20210221045452850" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -11552,7 +11552,7 @@ show-kbd-hints: no</pre>
 <div created="20201021184852597" creator="0neir0s" modified="20201021184856986" modifier="0neir0s" tags="aws notes" title="CloudWatch">
 <pre>Partial hours are billed as full hours.</pre>
 </div>
-<div created="20210218045000726" creator="0neir0s" modified="20210218101629257" modifier="0neir0s" tags="synopsis python" title="Concurrency &amp; Parallelism in Python">
+<div created="20210218045000726" creator="0neir0s" modified="20210220184545670" modifier="0neir0s" tags="synopsis python" title="Concurrency &amp; Parallelism in Python">
 <pre>* In concurrency, separate independent tasks are performed potentially at the same time.
 * In parallelism, a large complex task is broken down into a set of subtasks each of which can be executed at the same time. 
 * Synchronization plays an important role in concurrency where multiple concurrent tasks need to interact. Eg: Producer/Consumer, Shared data etc.
@@ -11565,7 +11565,31 @@ show-kbd-hints: no</pre>
 * The up side of processes is that you are able to exploit the underlying parallelism inherent in the physical computer hardware. The downside is that a Process takes more work to set up than the lighter weight Threads.
 * Alternate ways to start the process - spawn (start a separate Python Interpreter), fork (Unix, os.fork() is used, all resources are inherited), forkserver (for new process, the parent process connects to a server and requests a fork).
 * For two processes to exchange data, the multiprocessing library provides the Pipe() function. Since the two process objects do not share memory as they are running in separate operating system level processes.
-* Sharing state between separate processes is recommended. For unavoidable scenarios, the multiprocessing library has two ways - Shared Memory (multiprocessing.Value and multiprocessing.Array) and Server Process.
+* Sharing state between separate processes is not recommended. For unavoidable scenarios, the multiprocessing library has two ways - Shared Memory (multiprocessing.Value and multiprocessing.Array) and Server Process.
+* You should not mix and match threads and processes. If you are using Threads then you should only use facilities from the threading library.
+* Ways to synchronize - barrier, event signalling
+* Locks and Re-entrant locks:  The Lock grants access to a single thread at a time; other threads must wait for the Lock to become free before progressing.
+* Conditions - A Condition can be used to notify one or all of the waiting Threads or Processes that they can proceed. (wait and notifyAll)
+* The Python Semaphore class implements Dijkstra’s counting semaphore model.
+* All of these - locks, conditions and semaphores - follows context manager platform. 
+* Concurrent blocking queue model is implemented by the threading.Queue or multiprocessing.Queue classes.
+
+* A future is a thread (or process) that promises to return a value in the future; once the associated behaviour has completed. 
+* Future instances should not be created directly, rather they should be created via the submit method of an appropriate executor.
+* Asynchronous IO is another way in which you can build concurrent applications, and an alternative to Threading. It is more insulated from issues associated with the GIL unlike threading.
+* Async IO is based on the idea of cooperative multi-tasking. Best suited to I/O bound tasks. 
+* Async event loop - tasks never get interrupted in the middle of an operation unlike time-splicing in threads.
+* Coroutine is a function that returns a value from a Task. Python coroutines are functions marked with async that can be run as a separate task and may call await.
+* Equivalent of barrier for asyncio is asyncio.gather
+* asyncio.as_completed() returns an iterator of async functions which will be served up as soon as they have completed their work, in that order.
+* Reactive programming - RxPy is the reactiveX implementation. The key characteristics of reactive programming are responsive, resilient, elastic and message-driven.
+* ReactiveX is based on the Observer-Observable design pattern. 
+* It is common for an Observable to only publish data once there is an Observer available to process that data, i.e. has at least 1 subscriber. Cold observable as opposed to hot observable.
+* Alternate way to do event driven programming - RxPy is simpler and allows the Observer to run in the same or a separate thread from the Observable easily.
+
+ 
+
+
 
 
 
@@ -11876,7 +11900,7 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 
 * In contrast,  ACM Private Certificate Authority (CA) service provides a public key infrastructure (PKI) for the purpose of identifying entities and securing network connections. </pre>
 </div>
-<div created="20210130141342767" creator="0neir0s" modified="20210216135105123" modifier="0neir0s" tags="booknotes" title="Learn you a Haskell for Great Good!">
+<div created="20210130141342767" creator="0neir0s" modified="20210221144448246" modifier="0neir0s" tags="booknotes" title="Learn you a Haskell for Great Good!">
 <pre>''Starting out''
 
 * We usually use ' to either denote a strict version of a function (one that isn't lazy) or a slightly modified version of a function or a variable.
@@ -11947,9 +11971,13 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 
 ''Input and Output''
 
+* An I/O action is something that, when performed, will carry out an action with a side-effect (that's usually either reading from the input or printing stuff to the screen) and will also contain some kind of return value inside it.
 * I/O actions will only be performed when they are given a name of main or when they're inside a bigger I/O action that we composed with a do block.
 * In an I/O do block, ifs have to have a form of if condition then I/O action else I/O action.
-* In Haskell (in I/O actions specifically), return makes an I/O action out of a pure value.</pre>
+* In Haskell (in I/O actions specifically), return makes an I/O action out of a pure value.
+* We could implement the randoms function very easily like this:
+[[randoms' :: (RandomGen g, Random a) =&gt; g -&gt; [a]  
+randoms' gen = let (value, newGen) = random gen in value:randoms' newGen  ]]</pre>
 </div>
 <div created="20201014080547604" creator="0neir0s" modified="20201023193908129" modifier="0neir0s" tags="aws notes" title="Networking">
 <pre>* VPC Routing: There is a main route user. And each VPC has an implicit router. And local route in the route table cannot be removed.
