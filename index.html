@@ -225,6 +225,8 @@ Error message and password prompt
 
 <li>$:/temp/NewTagName</li>
 
+<li>$:/temp/NewTagName--1080395306</li>
+
 <li>$:/temp/RemoteAssetInfo/https://tiddlywiki.com/library/v5.1.22/index.html/$:/languages/ca-ES</li>
 
 <li>$:/temp/RemoteAssetInfo/https://tiddlywiki.com/library/v5.1.22/index.html/$:/languages/cs-CZ</li>
@@ -455,6 +457,8 @@ Error message and password prompt
 
 <li>Algorithm Analysis &amp; Recursion</li>
 
+<li>Arrays</li>
+
 <li>AWS</li>
 
 <li>Batch</li>
@@ -490,6 +494,8 @@ Error message and password prompt
 <li>Design of Computer Programs</li>
 
 <li>DevOps</li>
+
+<li>Draft of 'New Tiddler' by 0neir0s</li>
 
 <li>DynamoDB</li>
 
@@ -10052,7 +10058,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20210211162607086" creator="0neir0s" list="[[Learn you a Haskell for Great Good!]] Kladde Synopses" modified="20210221045452850" modifier="0neir0s" title="$:/StoryList">
+<div created="20210307164616828" creator="0neir0s" list="Arrays [[Draft of 'New Tiddler' by 0neir0s]] Kladde Books" modified="20210307164629935" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -10117,6 +10123,9 @@ Error message and password prompt
 }</pre>
 </div>
 <div created="20200818173846533" creator="0neir0s" modified="20201102070829222" modifier="0neir0s" title="$:/temp/NewTagName">
+<pre></pre>
+</div>
+<div created="20210307164603486" creator="0neir0s" modified="20210307164605274" modifier="0neir0s" title="$:/temp/NewTagName--1080395306">
 <pre></pre>
 </div>
 <div author="Paco Rivière" core-version="&gt;=5.0.0" created="20201102090502580" creator="0neir0s" dependents="" description="Catalan (Spain)" icon="data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22810%22%20height%3D%22540%22%3E%0A%3Crect%20width%3D%22810%22%20height%3D%22540%22%20fill%3D%22%23FCDD09%22%2F%3E%0A%3Cpath%20stroke%3D%22%23DA121A%22%20stroke-width%3D%2260%22%20d%3D%22M0%2C90H810m0%2C120H0m0%2C120H810m0%2C120H0%22%2F%3E%0A%3C%2Fsvg%3E" modified="20201102090502580" modifier="0neir0s" name="ca-ES" original-plugin-type="language" original-tags="" original-title="$:/languages/ca-ES" original-type="application/json" requires-reload="no" server-url="https://tiddlywiki.com/library/v5.1.22/index.html" tags="$:/tags/RemoteAssetInfo" title="$:/temp/RemoteAssetInfo/https://tiddlywiki.com/library/v5.1.22/index.html/$:/languages/ca-ES" type="text/vnd.tiddlywiki" version="5.1.22">
@@ -11479,6 +11488,18 @@ show-kbd-hints: no</pre>
 * Functions for analysis of algorithms - constant function, logarithm function, linear function, nlogn function, quadratic function, polynomial function, exponential function. 
 * Justification techniques - By Example, The “Contra” Attack, Induction and loop invariants. </pre>
 </div>
+<div created="20210307165345987" creator="0neir0s" modified="20210307165524206" modifier="0neir0s" tags="" title="Arrays">
+<pre>Kadane's Algorithm - Largest Subset sum 
+
+```
+def maxSubArraySum(a,size):
+    excluded, included = float('-inf'), a[0]
+    for i in a[1:]:
+        excluded = max(excluded, included)
+        included = max(included+i, i)
+    return max(excluded, included)
+```</pre>
+</div>
 <div created="20201011191707158" creator="0neir0s" modified="20201213163951403" modifier="0neir0s" tags="published notes" title="AWS">
 <pre>The list of AWS tiddlers till date. Preparation notes for the Solutions Architect certification.
 
@@ -11675,6 +11696,9 @@ show-kbd-hints: no</pre>
 * If Operations is ever going to become a force multiplier that helps the business drive innovation, instead of a cost center whose primary function is to keep the lights on, it must become agile.
 * For that, Operations must be documented, democratized, and distributed.
 </pre>
+</div>
+<div created="20210307164420674" creator="0neir0s" draft.of="New Tiddler" draft.title="Data Structures &amp; Algorithms" modified="20210307164450473" modifier="0neir0s" tags="published" title="Draft of 'New Tiddler' by 0neir0s">
+<pre></pre>
 </div>
 <div created="20201021104053932" creator="0neir0s" modified="20201021104321907" modifier="0neir0s" tags="aws notes" title="DynamoDB">
 <pre>* DynamoDB is a managed NoSQL database - ( key, value stores )
