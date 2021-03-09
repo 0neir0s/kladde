@@ -11555,9 +11555,13 @@ show-kbd-hints: no</pre>
 * Functions for analysis of algorithms - constant function, logarithm function, linear function, nlogn function, quadratic function, polynomial function, exponential function. 
 * Justification techniques - By Example, The “Contra” Attack, Induction and loop invariants. </pre>
 </div>
-<div created="20210307165345987" creator="0neir0s" modified="20210309182248363" modifier="0neir0s" tags="dsa-sections" title="Arrays">
-<pre>- Continuous sub-array of a given sum - Sliding window
-- Largest continuous sub-array sum - Kadane's Algorithm 
+<div created="20210307165345987" creator="0neir0s" modified="20210309182933792" modifier="0neir0s" tags="dsa-sections" title="Arrays">
+<pre>* Continuous sub-array of a given sum 
+** Sliding window - Start with an empty subarray, add elements to the subarray until the sum is less than x.
+** If the sum is greater than x, remove elements from the start of the current subarray.
+* Largest continuous sub-array sum
+** Kadane's Algorithm - Maintain excluded and included starting with -∞ and first element. 
+** Loop through the remaining elements, excluded is max(excluded,included) and included is max(included+i, i)
 
 
 </pre>
