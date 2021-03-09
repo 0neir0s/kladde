@@ -10123,12 +10123,12 @@ Error message and password prompt
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
 <div title="$:/status/RequireReloadDueToPluginChange">
-<pre>yes</pre>
+<pre>no</pre>
 </div>
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20210307164616828" creator="0neir0s" list="$:/ControlPanel Arrays [[Data Structures &amp; Algorithms]] Kladde" modified="20210307170128590" modifier="0neir0s" title="$:/StoryList">
+<div created="20210309181913415" creator="0neir0s" list="Kladde [[Data Structures &amp; Algorithms]] Arrays" modified="20210309181915825" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -11555,17 +11555,12 @@ show-kbd-hints: no</pre>
 * Functions for analysis of algorithms - constant function, logarithm function, linear function, nlogn function, quadratic function, polynomial function, exponential function. 
 * Justification techniques - By Example, The “Contra” Attack, Induction and loop invariants. </pre>
 </div>
-<div created="20210307165345987" creator="0neir0s" modified="20210307170204018" modifier="0neir0s" tags="dsa-sections" title="Arrays">
-<pre>Kadane's Algorithm - Largest Subset sum 
+<div created="20210307165345987" creator="0neir0s" modified="20210309182248363" modifier="0neir0s" tags="dsa-sections" title="Arrays">
+<pre>- Continuous sub-array of a given sum - Sliding window
+- Largest continuous sub-array sum - Kadane's Algorithm 
 
-```python
-def maxSubArraySum(a,size):
-    excluded, included = float('-inf'), a[0]
-    for i in a[1:]:
-        excluded = max(excluded, included)
-        included = max(included+i, i)
-    return max(excluded, included)
-```</pre>
+
+</pre>
 </div>
 <div created="20201011191707158" creator="0neir0s" modified="20201213163951403" modifier="0neir0s" tags="published notes" title="AWS">
 <pre>The list of AWS tiddlers till date. Preparation notes for the Solutions Architect certification.
