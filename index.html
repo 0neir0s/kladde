@@ -481,8 +481,6 @@ Error message and password prompt
 
 <li>CSP &amp; Golang</li>
 
-<li>Data Structures &amp; Algorithms</li>
-
 <li>Data Structures and Algorithms in Python</li>
 
 <li>Databases</li>
@@ -496,6 +494,8 @@ Error message and password prompt
 <li>Design of Computer Programs</li>
 
 <li>DevOps</li>
+
+<li>DSA</li>
 
 <li>DynamoDB</li>
 
@@ -518,6 +518,8 @@ Error message and password prompt
 <li>KMS</li>
 
 <li>Learn you a Haskell for Great Good!</li>
+
+<li>Master Theorem</li>
 
 <li>Networking</li>
 
@@ -10128,7 +10130,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20210309181913415" creator="0neir0s" list="Kladde Synopses Books [[Data Structures &amp; Algorithms]] Arrays" modified="20210309183339826" modifier="0neir0s" title="$:/StoryList">
+<div created="20210309181913415" creator="0neir0s" list="[[Master Theorem]] Kladde DSA Arrays" modified="20210310071919327" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -11702,11 +11704,6 @@ show-kbd-hints: no</pre>
 ''Topics till date''
 &lt;&lt;list-links &quot;[tag[csp]reverse[]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20210307164420674" creator="0neir0s" modified="20210307165631308" modifier="0neir0s" tags="published" title="Data Structures &amp; Algorithms">
-<pre>''Sections''
-
-&lt;&lt;list-links &quot;[tag[dsa-sections]reverse[]]&quot;&gt;&gt;</pre>
-</div>
 <div created="20210131055942391" creator="0neir0s" modified="20210131060050526" modifier="0neir0s" tags="booknotes" title="Data Structures and Algorithms in Python">
 <pre>Topics:
 
@@ -11771,6 +11768,11 @@ show-kbd-hints: no</pre>
 * If Operations is ever going to become a force multiplier that helps the business drive innovation, instead of a cost center whose primary function is to keep the lights on, it must become agile.
 * For that, Operations must be documented, democratized, and distributed.
 </pre>
+</div>
+<div created="20210307164420674" creator="0neir0s" modified="20210309184922431" modifier="0neir0s" tags="published" title="DSA">
+<pre>''Sections''
+
+&lt;&lt;list-links &quot;[tag[dsa-sections]reverse[]]&quot;&gt;&gt;</pre>
 </div>
 <div created="20201021104053932" creator="0neir0s" modified="20201021104321907" modifier="0neir0s" tags="aws notes" title="DynamoDB">
 <pre>* DynamoDB is a managed NoSQL database - ( key, value stores )
@@ -12074,6 +12076,19 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 * We could implement the randoms function very easily like this:
 [[randoms' :: (RandomGen g, Random a) =&gt; g -&gt; [a]  
 randoms' gen = let (value, newGen) = random gen in value:randoms' newGen  ]]</pre>
+</div>
+<div created="20210310071921692" creator="0neir0s" modified="20210310071939716" modifier="0neir0s" tags="dsa-sections" title="Master Theorem">
+<pre>T(n) = aT(n/b) + f(n),
+where,
+n = size of input
+a = number of subproblems in the recursion
+n/b = size of each subproblem. All subproblems are assumed 
+     to have the same size.
+f(n) = cost of the work done outside the recursive call, 
+      which includes the cost of dividing the problem and
+      cost of merging the solutions
+
+Here, a ≥ 1 and b &gt; 1 are constants, and f(n) is an asymptotically positive function.</pre>
 </div>
 <div created="20201014080547604" creator="0neir0s" modified="20201023193908129" modifier="0neir0s" tags="aws notes" title="Networking">
 <pre>* VPC Routing: There is a main route user. And each VPC has an implicit router. And local route in the route table cannot be removed.
