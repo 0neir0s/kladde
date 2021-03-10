@@ -12077,18 +12077,36 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 [[randoms' :: (RandomGen g, Random a) =&gt; g -&gt; [a]  
 randoms' gen = let (value, newGen) = random gen in value:randoms' newGen  ]]</pre>
 </div>
-<div created="20210310071921692" creator="0neir0s" modified="20210310071939716" modifier="0neir0s" tags="dsa-sections" title="Master Theorem">
-<pre>T(n) = aT(n/b) + f(n),
-where,
-n = size of input
-a = number of subproblems in the recursion
-n/b = size of each subproblem. All subproblems are assumed 
-     to have the same size.
-f(n) = cost of the work done outside the recursive call, 
-      which includes the cost of dividing the problem and
-      cost of merging the solutions
+<div created="20210310071921692" creator="0neir0s" modified="20210310072556233" modifier="0neir0s" tags="dsa-sections" title="Master Theorem">
+<pre>!!! Premise
+T(n) = aT(n/b) + f(n),
+where
 
-Here, a ≥ 1 and b &gt; 1 are constants, and f(n) is an asymptotically positive function.</pre>
+* n = size of input 
+* a = number of subproblems in the recursion 
+* n/b = size of each subproblem. 
+* f(n) = cost of the work done outside the recursive call, 
+      which includes the cost of dividing the problem and
+      cost of merging the solutions. 
+Here, a ≥ 1 and b &gt; 1 are constants, and f(n) is an asymptotically positive function. &lt;br&gt;
+
+!!! Solution
+T(n) has the following asymptotic bounds (ϵ &gt; 0 is a constant): 
+
+* If f(n) = O(nlogb a-ϵ), then T(n) = Θ(nlogb a).
+* If f(n) = Θ(nlogb a), then T(n) = Θ(nlogb a * log n).
+* If f(n) = Ω(nlogb a+ϵ), then T(n) = Θ(f(n)).
+
+!!! Proof
+* Solve the recurrence relation to get the series.
+* Apply the three conditions.
+
+!!! Limitations
+* T(n) is not monotone. eg. T(n) = sin n
+* f(n) is not a polynomial. eg. f(n) = 2n
+* a is not a constant. eg. a = 2n
+* a &lt; 1
+</pre>
 </div>
 <div created="20201014080547604" creator="0neir0s" modified="20201023193908129" modifier="0neir0s" tags="aws notes" title="Networking">
 <pre>* VPC Routing: There is a main route user. And each VPC has an implicit router. And local route in the route table cannot be removed.
