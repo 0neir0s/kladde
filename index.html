@@ -12305,15 +12305,28 @@ T(n) has the following asymptotic bounds (ϵ &gt; 0 is a constant):
 
 </pre>
 </div>
-<div created="20210320054006705" creator="0neir0s" modified="20210321032730093" modifier="0neir0s" tags="published" title="Programming Languages">
+<div created="20210320054006705" creator="0neir0s" modified="20210321033611208" modifier="0neir0s" tags="published" title="Programming Languages">
 <pre>!!! Standard ML
 
-* Variable Bindings (var x = 42;) and
+* Variable Bindings Syntax - ``var x = 42``
 * Dynamic environment ( evaluation ) vs Static environment ( type checking )
 * Every expression has syntax and semantics ( type checking and evaluation rules ) 
 * Shadowing - values are immutable. In effect, dynamic environment is created after every evaluation.
 * Let expressions
-** Syntax - ```let``` </pre>
+** Syntax - ``let b1,b2..,bn in e end``
+** Type check - Each bi and e in a static environment that include the previous bindings.
+** Evaluate each binding and e. Result is e.
+* Let defines the scope and helps keep things truly private.
+* Nested functions are a good style when it is unlikely to get used elsewhere or if it is unlikely to be misused.
+* Avoid repeated recursions as it bursts in an exponential manner. Let expressions help in fixing these pathological issues.
+* Instead of returning 0 for max of an empty list, the function should return an exception or an option, which is often better.
+* ML doesn't differentiate between aliases and copying unlike imperative languages.
+* Pieces of learning a language
+** Syntax - how
+** Semantics - what
+** Idioms - typical patterns
+** Libraries - standard options
+** Tools - Eg: REPL, Debugger etc.</pre>
 </div>
 <div created="20201115102305181" creator="0neir0s" modified="20201115102349135" modifier="0neir0s" tags="" title="Project 1: Infrastructure">
 <pre># The NTP server to the HCI Cloud Platform.
