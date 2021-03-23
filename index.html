@@ -12305,7 +12305,7 @@ T(n) has the following asymptotic bounds (Ïµ &gt; 0 is a constant):
 
 </pre>
 </div>
-<div created="20210320054006705" creator="0neir0s" modified="20210323051501592" modifier="0neir0s" tags="published" title="Programming Languages">
+<div created="20210320054006705" creator="0neir0s" modified="20210323052002830" modifier="0neir0s" tags="published" title="Programming Languages">
 <pre>!!! Standard ML
 
 * Variable Bindings Syntax - ``var x = 42``
@@ -12343,11 +12343,19 @@ T(n) has the following asymptotic bounds (Ïµ &gt; 0 is a constant):
 * Pattern matching in val binding are a great way for Each-of types, but not One-of types. Case expressions are better for that. 
 * Unexpected polymorphism - type checker being smarter than we expect í ½í¸ƒ
 * A type t1 is more general than t2 if you take t1 and replace its type variables consistently, and get t2. 
-* Equality types are specially considered by SML. ''a 
+* Equality types are specially considered by SML. 
 * Nested patterns - Avoid nested case expressions if nested patterns are simpler. Use wildcard to avoid unnecessary bindings. 
 * Pattern matching definition is elegantly recursive.
 * Function patterns are cleaner if function is a case expression. But, cannot get hold of the entire argument. 
-* Exception binding - `` exception E of int; raise E(a); handle E ``</pre>
+* Exception binding - `` exception E of int; raise E(a); handle E; ``
+
+* Tail Recursion
+** ML recognizes the tail calls and treats them differently. Pops the caller before the call and allow reuse of stack space.
+** Methodology to transform to tail recursion - create a helper function that takes an accumulator, old base case becomes initial acc, new base case becomes final accumulator value
+** There are cases where it cannot be evaluated in constant space complexity. For storing that, call stack may be a good way. Eg: tree processors. 
+** Tail call can be defined precisely in terms of tail position.
+
+* Premature optimisation - favor clear, concise code. But, use less space if inputs may be large. </pre>
 </div>
 <div created="20201115102305181" creator="0neir0s" modified="20201115102349135" modifier="0neir0s" tags="" title="Project 1: Infrastructure">
 <pre># The NTP server to the HCI Cloud Platform.
