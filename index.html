@@ -495,6 +495,8 @@ Error message and password prompt
 
 <li>DevOps</li>
 
+<li>Draft of 'New Tiddler' by 0neir0s</li>
+
 <li>DSA</li>
 
 <li>DynamoDB</li>
@@ -535,8 +537,6 @@ Error message and password prompt
 
 <li>Processes &amp; Threads</li>
 
-<li>Programming Languages</li>
-
 <li>Project 1: Infrastructure</li>
 
 <li>Public &amp; Hybrid Cloud Automation</li>
@@ -552,6 +552,8 @@ Error message and password prompt
 <li>Security and Data Protection</li>
 
 <li>Services</li>
+
+<li>Standard ML</li>
 
 <li>Storage</li>
 
@@ -10132,7 +10134,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20210407052957887" creator="0neir0s" list="Kladde [[Programming Languages]]" modified="20210407052957887" modifier="0neir0s" title="$:/StoryList">
+<div created="20210409052844961" creator="0neir0s" list="[[Draft of 'New Tiddler' by 0neir0s]] Kladde [[Standard ML]]" modified="20210409052844961" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -10196,7 +10198,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20200818173846533" creator="0neir0s" modified="20201102070829222" modifier="0neir0s" title="$:/temp/NewTagName">
+<div created="20200818173846533" creator="0neir0s" modified="20210409054902450" modifier="0neir0s" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
 <div author="Paco Rivière" core-version="&gt;=5.0.0" created="20201102090502580" creator="0neir0s" dependents="" description="Catalan (Spain)" icon="data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22810%22%20height%3D%22540%22%3E%0A%3Crect%20width%3D%22810%22%20height%3D%22540%22%20fill%3D%22%23FCDD09%22%2F%3E%0A%3Cpath%20stroke%3D%22%23DA121A%22%20stroke-width%3D%2260%22%20d%3D%22M0%2C90H810m0%2C120H0m0%2C120H810m0%2C120H0%22%2F%3E%0A%3C%2Fsvg%3E" modified="20201102090502580" modifier="0neir0s" name="ca-ES" original-plugin-type="language" original-tags="" original-title="$:/languages/ca-ES" original-type="application/json" requires-reload="no" server-url="https://tiddlywiki.com/library/v5.1.22/index.html" tags="$:/tags/RemoteAssetInfo" title="$:/temp/RemoteAssetInfo/https://tiddlywiki.com/library/v5.1.22/index.html/$:/languages/ca-ES" type="text/vnd.tiddlywiki" version="5.1.22">
@@ -11771,6 +11773,9 @@ show-kbd-hints: no</pre>
 * For that, Operations must be documented, democratized, and distributed.
 </pre>
 </div>
+<div created="20210409054813815" creator="0neir0s" draft.of="New Tiddler" draft.title="Programming Languages" modified="20210409054823957" modifier="0neir0s" tags="" title="Draft of 'New Tiddler' by 0neir0s">
+<pre></pre>
+</div>
 <div created="20210307164420674" creator="0neir0s" modified="20210309184922431" modifier="0neir0s" tags="published" title="DSA">
 <pre>''Sections''
 
@@ -12305,58 +12310,6 @@ T(n) has the following asymptotic bounds (ϵ &gt; 0 is a constant):
 
 </pre>
 </div>
-<div created="20210320054006705" creator="0neir0s" modified="20210407072932913" modifier="0neir0s" tags="published" title="Programming Languages">
-<pre>!!! Standard ML
-
-* Variable Bindings Syntax - ``var x = 42``
-* Dynamic environment ( evaluation ) vs Static environment ( type checking )
-* Every expression has syntax and semantics ( type checking and evaluation rules ) 
-* Shadowing - values are immutable. In effect, dynamic environment is created after every evaluation.
-* Let expressions
-** Syntax - ``let b1,b2..,bn in e end``
-** Type check - Each bi and e in a static environment that include the previous bindings.
-** Evaluate each binding and e. Result is e.
-* Let defines the scope and helps keep things truly private.
-* Nested functions are a good style when it is unlikely to get used elsewhere or if it is unlikely to be misused.
-* Avoid repeated recursions as it bursts in an exponential manner. Let expressions help in fixing these pathological issues.
-* Instead of returning 0 for max of an empty list, the function should return an exception or an option, which is often better.
-* ML doesn't differentiate between aliases and copying unlike imperative languages.
-* Pieces of learning a language
-** Syntax - how
-** Semantics - what
-** Idioms - typical patterns
-** Libraries - standard options
-** Tools - Eg: REPL, Debugger etc.
-* Bindings - Variable, Function, Datatype, Exception
-
-* Type System - base and compound types. 3 types - Each-of, One-of and self-reference.
-* Records and tuples as a syntactic sugar over tuples.
-* Constructor applied to the value is itself a value.
-* Case expressions
-** more elegant and powerful than custom accessor functions
-** pattern - a constructor name followed by the right number of variables. Not expressions and therefore not evaluated. 
-** Cannot have redundant patterns, won't forget a variant, and can be generalized.
-* Type synonyms - a convenience, but helps in modularity of SML programs.
-* List and Options are just datatypes which are polymorphic in nature, more accurately type constructors.
-* A lot more syntactic sugar in the background - every variable and function bindings used pattern matching. 
-* And each function takes exactly 1 argument. Function arguments can also be pattern-matched.
-* Pattern matching in val binding are a great way for Each-of types, but not One-of types. Case expressions are better for that. 
-* Unexpected polymorphism - type checker being smarter than we expect
-* A type t1 is more general than t2 if you take t1 and replace its type variables consistently, and get t2. 
-* Equality types are specially considered by SML. 
-* Nested patterns - Avoid nested case expressions if nested patterns are simpler. Use wildcard to avoid unnecessary bindings. 
-* Pattern matching definition is elegantly recursive.
-* Function patterns are cleaner if function is a case expression. But, cannot get hold of the entire argument. 
-* Exception binding - `` exception E of int; raise E(a); handle E; ``
-
-* Tail Recursion
-** ML recognizes the tail calls and treats them differently. Pops the caller before the call and allow reuse of stack space.
-** Methodology to transform to tail recursion - create a helper function that takes an accumulator, old base case becomes initial acc, new base case becomes final accumulator value
-** There are cases where it cannot be evaluated in constant space complexity. For storing that, call stack may be a good way. Eg: tree processors. 
-** Tail call can be defined precisely in terms of tail position.
-
-* Premature optimisation - favor clear, concise code. But, use less space if inputs may be large. </pre>
-</div>
 <div created="20201115102305181" creator="0neir0s" modified="20201115102349135" modifier="0neir0s" tags="" title="Project 1: Infrastructure">
 <pre># The NTP server to the HCI Cloud Platform.
 # The Name Server to the HCI Cloud Platform.
@@ -12640,6 +12593,82 @@ T(n) has the following asymptotic bounds (ϵ &gt; 0 is a constant):
 * Amazon SWF helps developers build, run, and scale background jobs that have parallel or sequential steps. You can think of Amazon SWF as a fully-managed state tracker and task coordinator in the Cloud.
 * Global Accelerator utilizes the Amazon global network, allowing you to improve the performance of your applications by lowering first byte latency (packet round trip time) and jitter (variation of latency), and increasing throughput compared to the public internet
 
+</pre>
+</div>
+<div created="20210320054006705" creator="0neir0s" modified="20210409054919822" modifier="0neir0s" tags="pltheory" title="Standard ML">
+<pre>!!! Standard ML
+
+* Variable Bindings Syntax - ``var x = 42``
+* Dynamic environment ( evaluation ) vs Static environment ( type checking )
+* Every expression has syntax and semantics ( type checking and evaluation rules ) 
+* Shadowing - values are immutable. In effect, dynamic environment is created after every evaluation.
+* Let expressions
+** Syntax - ``let b1,b2..,bn in e end``
+** Type check - Each bi and e in a static environment that include the previous bindings.
+** Evaluate each binding and e. Result is e.
+* Let defines the scope and helps keep things truly private.
+* Nested functions are a good style when it is unlikely to get used elsewhere or if it is unlikely to be misused.
+* Avoid repeated recursions as it bursts in an exponential manner. Let expressions help in fixing these pathological issues.
+* Instead of returning 0 for max of an empty list, the function should return an exception or an option, which is often better.
+* ML doesn't differentiate between aliases and copying unlike imperative languages.
+* Pieces of learning a language
+** Syntax - how
+** Semantics - what
+** Idioms - typical patterns
+** Libraries - standard options
+** Tools - Eg: REPL, Debugger etc.
+* Bindings - Variable, Function, Datatype, Exception
+
+* Type System - base and compound types. 3 types - Each-of, One-of and self-reference.
+* Records and tuples as a syntactic sugar over tuples.
+* Constructor applied to the value is itself a value.
+* Case expressions
+** more elegant and powerful than custom accessor functions
+** pattern - a constructor name followed by the right number of variables. Not expressions and therefore not evaluated. 
+** Cannot have redundant patterns, won't forget a variant, and can be generalized.
+* Type synonyms - a convenience, but helps in modularity of SML programs.
+* List and Options are just datatypes which are polymorphic in nature, more accurately type constructors.
+* A lot more syntactic sugar in the background - every variable and function bindings used pattern matching. 
+* And each function takes exactly 1 argument. Function arguments can also be pattern-matched.
+* Pattern matching in val binding are a great way for Each-of types, but not One-of types. Case expressions are better for that. 
+* Unexpected polymorphism - type checker being smarter than we expect
+* A type t1 is more general than t2 if you take t1 and replace its type variables consistently, and get t2. 
+* Equality types are specially considered by SML. 
+* Nested patterns - Avoid nested case expressions if nested patterns are simpler. Use wildcard to avoid unnecessary bindings. 
+* Pattern matching definition is elegantly recursive.
+* Function patterns are cleaner if function is a case expression. But, cannot get hold of the entire argument. 
+* Exception binding - `` exception E of int; raise E(a); handle E; ``
+
+* Tail Recursion
+** ML recognizes the tail calls and treats them differently. Pops the caller before the call and allow reuse of stack space.
+** Methodology to transform to tail recursion - create a helper function that takes an accumulator, old base case becomes initial acc, new base case becomes final accumulator value
+** There are cases where it cannot be evaluated in constant space complexity. For storing that, call stack may be a good way. Eg: tree processors. 
+** Tail call can be defined precisely in terms of tail position.
+
+* Premature optimisation - favor clear, concise code. But, use less space if inputs may be large. 
+
+* Functions
+** Higher-order functions - Functions as first class citizens
+** They are often polymorphic although higher-order and polymorphism are orthogonal concepts.
+** Overuse of anonymous functions are often a poor style. 
+** Lexical scope - Functions are evaluated in the environment where the functions are defined, not called =&gt; i.e. they are lexical in scope.
+** The language implementation keeps the old environments by necessity. So, a function has 2 parts - code and environment - this pair is called the function closure. 
+** Lexical scope is preferred to dynamic scope due to:
+*** Function meaning does not depend on variable names
+*** Functions can be type-checked and reasoned about when defined.
+*** Closures can easily store the data they need.
+** Exception handling, however is like dynamic scope - ``raise e`` transfers control to the current innermost handle (uses stack, and therefore not lexical)
+
+* Function idioms
+** Fold - iterator like pattern, separates recursive traversal from data processing
+** Composition or pipelining - combining functions
+** Currying - Syntactic sugar to make it easier to write
+** Partial Application 
+** Callbacks - Mutable state is an acceptable and simple idiom for usecases like keyboard events, games etc.
+** Abstract Datatype - Private data as closures.
+ 
+* Tupling vs Currying - Speed or efficiency depends on implementation. They are both constant time operations. SML/NJ has faster tupling, and Haskell has faster currying. 
+* Closure idioms are possible in Java and C as well, but it is cumbersome. In Java, it can be achieved using generics. In C, functions pointers can be used, but note that it is only a code pointer. So, environment has to explicitly passed around (as extra void*), which makes abstract data types with private data not possible. Also, a hell lot of type casts are involved.
 </pre>
 </div>
 <div created="20201013201236563" creator="0neir0s" modified="20201027042607929" modifier="0neir0s" tags="aws notes" title="Storage">
