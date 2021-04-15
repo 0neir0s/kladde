@@ -541,6 +541,8 @@ Error message and password prompt
 
 <li>Public &amp; Hybrid Cloud Automation</li>
 
+<li>Racket</li>
+
 <li>RDS</li>
 
 <li>RxJava</li>
@@ -10134,7 +10136,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20210415045553129" creator="0neir0s" list="[[Standard ML]]" modified="20210415045554886" modifier="0neir0s" title="$:/StoryList">
+<div created="20210415045553129" creator="0neir0s" list="Racket [[Standard ML]]" modified="20210415045554886" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -12355,6 +12357,27 @@ T(n) has the following asymptotic bounds (ϵ &gt; 0 is a constant):
 * Beam provides you with multiple options when performing AWS cost configuration: Cost Logic, Billing ,Credits and Refunds, AWS EDP.
 * A cost center is a collection of resources within a single or multiple cloud accounts. A business unit is defined as a collection of cost centers.
 * Beam allows you to create highly customizable cost reports that you can schedule to be delivered.</pre>
+</div>
+<div created="20210415051515058" creator="0neir0s" modified="20210415052859339" modifier="0neir0s" tags="pltheory" title="Racket">
+<pre>* Racket - a dynamically typed, functional language
+* Racket taking multi-arity arguments is not a syntactic sugar
+* Due to its support for multiple arguments, currying is not widely used in Racket. 
+* Parenthesis matters - Additional ones mess up things, making values functions. 
+* Cond is a better styled alternative to nested if conditions.
+* Anything other than #f is true. 
+
+* 4 types of local bindings - let (independent list of bindings), let* (same as ML let), letrec ( for defining mutually recursive functions ) and define ( preferred version of letrec for functions)
+* Duplicate defines will cause error, mutate with set!. But, mutable top-level bindings is a dubious idea. 
+* If a module does not use set! on a top-level variable, Racket makes it constant and therefore forbids set! outside the module.
+* Proper vs improper lists - Cons just creates a pair.
+* Cons cells are immutable. For mutability, Racket provides a separate construct called mcons.
+* Delayed evaluation: function body and if-else are non-eager constructs.
+* Zero argument functions, used to delay evaluation are called thunks. 
+* Lazy evaluation - often allows a nicer implementation. 
+* Delay and force - ADT represented by a mutable pair - best of both worlds in terms of lazy evaluation - don't evaluate till you need it, when you do need it, don't compute it more than once. 
+* Streams - an infinite sequence of values - can be defined as a thunk that when called returns a pair of value and another thunk. 
+* Racket is an eager language. So, you cannot use the same function recursively before you are done defining it, unlike Haskell. But, thunking is totally fine
+* Memoization - again, a little bit of mutation to store the table.  </pre>
 </div>
 <div created="20201021145856509" creator="0neir0s" modified="20201024144012375" modifier="0neir0s" tags="aws notes" title="RDS">
 <pre>* Amazon Relational Database Service (Amazon RDS) is a managed service that makes it easy to set up, operate, and scale a relational database in the cloud.
