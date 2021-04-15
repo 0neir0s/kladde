@@ -10134,7 +10134,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20210409052844961" creator="0neir0s" list="Kladde" modified="20210409052844961" modifier="0neir0s" title="$:/StoryList">
+<div created="20210415045553129" creator="0neir0s" list="[[Standard ML]]" modified="20210415045554886" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -12596,7 +12596,7 @@ T(n) has the following asymptotic bounds (ϵ &gt; 0 is a constant):
 
 </pre>
 </div>
-<div created="20210320054006705" creator="0neir0s" modified="20210409054919822" modifier="0neir0s" tags="pltheory" title="Standard ML">
+<div created="20210320054006705" creator="0neir0s" modified="20210415051512839" modifier="0neir0s" tags="pltheory" title="Standard ML">
 <pre>!!! Standard ML
 
 * Variable Bindings Syntax - ``var x = 42``
@@ -12670,7 +12670,30 @@ T(n) has the following asymptotic bounds (ϵ &gt; 0 is a constant):
  
 * Tupling vs Currying - Speed or efficiency depends on implementation. They are both constant time operations. SML/NJ has faster tupling, and Haskell has faster currying. 
 * Closure idioms are possible in Java and C as well, but it is cumbersome. In Java, it can be achieved using generics. In C, functions pointers can be used, but note that it is only a code pointer. So, environment has to explicitly passed around (as extra void*), which makes abstract data types with private data not possible. Also, a hell lot of type casts are involved.
-</pre>
+
+* ML is statically typed, but implicitly typed (rarely have to write down the types explicitly )
+* Type inference - Determine the types in order, for each val/fun, analyze definition and check for contradictions, use type variables for unconstrained types and value restriction. 
+* Inference is to make the types general/polymorphic types as much as possible. Polymorphism and type inference are orthogonal systems. 
+* Type system is unsound as explained so far since reference restriction is impossible for type checker. So, the compromise is value restriction -&gt; Polymorphic types can only be given to value/variables and not function calls. 
+* This can be considered as a sweet spot for type inference, since it is more difficult without polymorphism and more difficult with sub-typing.
+
+* Mutual recursion has built-in support in ML. Use the language feature of and for functions and datatype bindings. You can alternatively pass it as a higher order function argument, which is equivalent albeit slower. 
+
+* Module system
+** Structures to define modules `` struct MyModule = struct bindings end `` 
+** Namespace management to avoid shadowing. Signature matching. 
+** Signature and hiding things in a module - a type for modules, modules can have more stuff than in signature, outside the module we can use only stuff in the signature. 
+** Library specs and invariants - Properties (externally visible guarantees) and Invariants (part of the implementation, not spec)
+** A game of trade-offs
+*** Too basic/liberal a signature - Clients can violate the module's invariants
+*** Hiding more - type checker would fail
+*** Making it abstract is usually the best way. Exposing just the constructors in doable and infact a neat solution.
+
+
+* Equivalent structures - can be verified precisely
+* Equivalent functions - same observable behavior, mutate the same way and have the same termination behavior. 
+
+* Equivalence and performance - 3 definitions of equivalence : PL Equivalence, Asymptotic Equivalence, Systems Equivalence - with different benifits and tradeoffs.</pre>
 </div>
 <div created="20201013201236563" creator="0neir0s" modified="20201027042607929" modifier="0neir0s" tags="aws notes" title="Storage">
 <pre>* AWS Snowball is for transferring petabyte scale data into and out of AWS.
