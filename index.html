@@ -10136,7 +10136,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20210415052923233" creator="0neir0s" list="Kladde [[Programming Languages]] Racket" modified="20210415180619101" modifier="0neir0s" title="$:/StoryList">
+<div created="20210415052923233" creator="0neir0s" list="Kladde [[Programming Languages]] Racket" modified="20210416042645389" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -12309,8 +12309,11 @@ T(n) has the following asymptotic bounds (ϵ &gt; 0 is a constant):
 
 </pre>
 </div>
-<div created="20210409054813815" creator="0neir0s" modified="20210415052938084" modifier="0neir0s" tags="published" title="Programming Languages">
+<div created="20210409054813815" creator="0neir0s" modified="20210415183428135" modifier="0neir0s" tags="published" title="Programming Languages">
 <pre>''Broad sections''
+
+Basic notes for the awesome Coursera courses - Programming Languages A, B and C - by Prof. Dan Grossman. &lt;br&gt;
+Class notes and assignments are available here - https://github.com/0neir0s/plt-course
 &lt;&lt;list-links &quot;[tag[pltheory]]&quot;&gt;&gt;</pre>
 </div>
 <div created="20201115102305181" creator="0neir0s" modified="20201115102349135" modifier="0neir0s" tags="" title="Project 1: Infrastructure">
@@ -12358,7 +12361,7 @@ T(n) has the following asymptotic bounds (ϵ &gt; 0 is a constant):
 * A cost center is a collection of resources within a single or multiple cloud accounts. A business unit is defined as a collection of cost centers.
 * Beam allows you to create highly customizable cost reports that you can schedule to be delivered.</pre>
 </div>
-<div created="20210415051515058" creator="0neir0s" modified="20210415182653800" modifier="0neir0s" tags="pltheory" title="Racket">
+<div created="20210415051515058" creator="0neir0s" modified="20210416051717873" modifier="0neir0s" tags="pltheory" title="Racket">
 <pre>* Racket - a dynamically typed, functional language
 * Racket taking multi-arity arguments is not a syntactic sugar
 * Due to its support for multiple arguments, currying is not widely used in Racket. 
@@ -12401,7 +12404,20 @@ T(n) has the following asymptotic bounds (ϵ &gt; 0 is a constant):
 ** You can skip the first step of parsing by making B programmers directly write ASTs in A. 
 ** Closures are values. Functions are not exactly values. When you evaluate a function, bind its name to the closure - pair of body and env. When you call a function, evaluate the closure's body in the closure's env, extended to argument(s) and function to function name (for recursion).
 ** It is sufficient to store just the free variables in the closure. 
-</pre>
+
+* ML from a Racket perspective
+** Like a well-defined subset of Racket
+** Catches bugs early, but also disallows a lot of code that you may actually want to write. 
+
+* Racket from a ML perspective
+** Racket seems to have one big datatype
+** Primitives implicitly check tags and extract data (Eg: pair?). So, it is not direct pattern matching
+** But, struct doesn't get covered in this picture although it is very similar to ML exceptions. 
+
+* Static checking - Anything done to reject a program after it successfully parses and before it runs. 
+* Common way to define PL static checking is via a type system. 
+* Dynamically typed languages do almost no static checking
+* Type system obviously can't prevent all types of errors -&gt; </pre>
 </div>
 <div created="20201021145856509" creator="0neir0s" modified="20201024144012375" modifier="0neir0s" tags="aws notes" title="RDS">
 <pre>* Amazon Relational Database Service (Amazon RDS) is a managed service that makes it easy to set up, operate, and scale a relational database in the cloud.
