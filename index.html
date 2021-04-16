@@ -12361,7 +12361,7 @@ Class notes and assignments are available here - https://github.com/0neir0s/plt-
 * A cost center is a collection of resources within a single or multiple cloud accounts. A business unit is defined as a collection of cost centers.
 * Beam allows you to create highly customizable cost reports that you can schedule to be delivered.</pre>
 </div>
-<div created="20210415051515058" creator="0neir0s" modified="20210416060137368" modifier="0neir0s" tags="pltheory" title="Racket">
+<div created="20210415051515058" creator="0neir0s" modified="20210416183217666" modifier="0neir0s" tags="pltheory" title="Racket">
 <pre>* Racket - a dynamically typed, functional language
 * Racket taking multi-arity arguments is not a syntactic sugar
 * Due to its support for multiple arguments, currying is not widely used in Racket. 
@@ -12419,7 +12419,37 @@ Class notes and assignments are available here - https://github.com/0neir0s/plt-
 * Dynamically typed languages do almost no static checking
 * Type system obviously can't prevent all types of errors -&gt; Purpose is to prevent a class of errors.
 * Where you catch errors is a question of eagerness - Keystroke -&gt; Compile -&gt; Link -&gt; Runtime -&gt; Later (Eg: return inf.0 when divided by 0). 
-* Inherent trade-off between catching a bug before it matters vs not reporting a bug that does not matter. </pre>
+* Inherent trade-off between catching a bug before it matters vs not reporting a bug that does not matter.
+
+!!! Correctness of type system - (You are supposed to prevent X)
+* Soundness - If type system never accepts a program that, when run with some input, does X &lt;-&gt; No false negatives.
+* Completeness - If it never rejects a program that do not do X &lt;-&gt; No false positives. 
+* Usual goal is to have soundness. Completeness can be aimed by introducing generics and other fancy stuff. 
+* Undecidability - It can be proven that any static checker cannot do all of the three 
+** Always terminate
+** Be sound
+** Be complete
+* Inherent approximation of static checking is probably its most important ramification. 
+* Unsoundness can be tackled by fixing with a spec update, adding dynamic checks, just allowing X to happen :)
+* Often muddled up with static/dynamic typing is weak-typing: C/C++ - There exists programs that by definition passes static checking but when run can do anything. Reason for doing this could be ease of implementation, performance, and low-level (compiler need not insert metadata needed for checks). 
+* Firstly, it is a poor name. Secondly, it is the old nonsensical talk - Strong types for week minds. 
+
+* Racket is not weekly typed. It just checks most things dynamically. The advantage is that if the implementation can analyse the code to ensure some checks are not needed, then it can optimize it away. 
+* Another misconception - what operations are primitives defined on. Eg: + is for ints only/ addition and concatenation. These are language rules and once again not related to static or dynamic checks. 
+
+* Static vs Dynamic - Potential claims
+** More convenient: No need of dynamic checks vs type flexibility
+** Need to add tag only as needed vs not preventing useful programs
+** Catches bugs earlier vs static catches only easy bugs and we need to write tests anyways.
+** Faster due to less tags vs faster due to implementation being able to optimize away unnecessary checks
+** Easier reuse with generics, avoids library misuse vs easier reuse without types getting in the way
+** Guidance and temporary stubs while prototyping vs easier for quick prototyping 
+** Avoids introducing bugs while evolving codebase vs being a lot more permissive while evolving.
+
+* Which is better is too coarse a question. 
+* Eval - though common in dynamic/interpreter languages - can be implemented in interpreter, compiler or a hybrid setup. 
+* Quasiquoting - (Quote: inverse of eval) - unquoting like what Ruby, Python supports through constructs like f-strings. 
+</pre>
 </div>
 <div created="20201021145856509" creator="0neir0s" modified="20201024144012375" modifier="0neir0s" tags="aws notes" title="RDS">
 <pre>* Amazon Relational Database Service (Amazon RDS) is a managed service that makes it easy to set up, operate, and scale a relational database in the cloud.
