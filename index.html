@@ -10138,7 +10138,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20210421122259885" creator="0neir0s" list="Ruby Kladde [[Programming Languages]] AWS" modified="20210423043843200" modifier="0neir0s" title="$:/StoryList">
+<div created="20210421122259885" creator="0neir0s" list="Kladde [[Programming Languages]] Ruby AWS" modified="20210423053732396" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -12514,7 +12514,7 @@ Class notes and assignments are available here - https://github.com/0neir0s/plt-
 * Disaster Recovery techniques: Backup &amp; Restore, Pilot light, Warm standby, Multi-site.
 * Debugging connectivity issues: Check whether or not the RDS is in the same region as the app as spanning regions is not possible. The other likely issue is that the Security Group of either the RDS or the EC2 (or both) are not configured properly. </pre>
 </div>
-<div created="20210423043846567" creator="0neir0s" modified="20210423045041388" modifier="0neir0s" tags="pltheory" title="Ruby">
+<div created="20210423043846567" creator="0neir0s" modified="20210423055029613" modifier="0neir0s" tags="pltheory" title="Ruby">
 <pre>!!!! Ruby - the language
 
 * Dynamically typed, purely OO language
@@ -12540,7 +12540,29 @@ Class notes and assignments are available here - https://github.com/0neir0s/plt-
 ** Decoupling - no code-reuse at all
 ** Composition - reuse is there, but have to define forwarding methods and is not a 'child' class ( big deal in static languages )
 
-* Overriding and dynamic dispatch</pre>
+* Overriding and dynamic dispatch
+** Till now, objects were not too different from closures - multiple methods rather than &quot;call me&quot;, instance variables vs env etc. 
+** Big difference - Overriding can make a method defined in the superclass call a method of sub-class: Dynamic dispatch/Late binding/Virtual methods
+** Variable lookup is mostly lexical scoping like ML, Racket with self having a special rule. Look up inst var @x, class var @@x
+
+* Ruby Semantics
+** `` e0.m(e1,e2...en) ``
+** Eager evaluation of e0 to en and get obj0 to objn
+** C &lt;= obj0.class
+** m - Lookup in A, mixin (will be discussed later), P(A), mixin(P(A))....
+** Evaluate method body with obj0 bound to self.
+
+* Static overloading
+** Java/C++ - Overriding only when the number/types of arguments are same. 
+** Type checking error if there is no &quot;best&quot; method for types of args (somewhat complicated). 
+** But, Ruby always overrides.
+
+* Dynamic dispatch vs Closures
+** Fundamental trade-off of dynamic dispatch being a double-edged sword: No code duplication vs Hard to reason.
+
+``fun even x = if x=0 then true else odd (x-1)
+  and odd x = if x=0 then false else even (x-1)``
+</pre>
 </div>
 <div created="20201110110920797" creator="0neir0s" modified="20210130164659346" modifier="0neir0s" tags="java synopsis" title="RxJava">
 <pre>* Reactive Manifesto
