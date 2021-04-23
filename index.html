@@ -12514,7 +12514,7 @@ Class notes and assignments are available here - https://github.com/0neir0s/plt-
 * Disaster Recovery techniques: Backup &amp; Restore, Pilot light, Warm standby, Multi-site.
 * Debugging connectivity issues: Check whether or not the RDS is in the same region as the app as spanning regions is not possible. The other likely issue is that the Security Group of either the RDS or the EC2 (or both) are not configured properly. </pre>
 </div>
-<div created="20210423043846567" creator="0neir0s" modified="20210423055029613" modifier="0neir0s" tags="pltheory" title="Ruby">
+<div created="20210423043846567" creator="0neir0s" modified="20210423055719769" modifier="0neir0s" tags="pltheory" title="Ruby">
 <pre>!!!! Ruby - the language
 
 * Dynamically typed, purely OO language
@@ -12543,7 +12543,7 @@ Class notes and assignments are available here - https://github.com/0neir0s/plt-
 * Overriding and dynamic dispatch
 ** Till now, objects were not too different from closures - multiple methods rather than &quot;call me&quot;, instance variables vs env etc. 
 ** Big difference - Overriding can make a method defined in the superclass call a method of sub-class: Dynamic dispatch/Late binding/Virtual methods
-** Variable lookup is mostly lexical scoping like ML, Racket with self having a special rule. Look up inst var @x, class var @@x
+** Variable lookup is mostly lexical scoping like ML, Racket with self having a special rule. Look up inst var ``@x``, class var ``@@x``
 
 * Ruby Semantics
 ** `` e0.m(e1,e2...en) ``
@@ -12558,11 +12558,14 @@ Class notes and assignments are available here - https://github.com/0neir0s/plt-
 ** But, Ruby always overrides.
 
 * Dynamic dispatch vs Closures
-** Fundamental trade-off of dynamic dispatch being a double-edged sword: No code duplication vs Hard to reason.
-
-``fun even x = if x=0 then true else odd (x-1)
-  and odd x = if x=0 then false else even (x-1)``
-</pre>
+** Fundamental trade-off of dynamic dispatch being a double-edged sword: No code duplication vs Hard to reason. 
+** ``(* SML - second even will not break odd *) 
+fun even x = if x=0 then true else odd (x-1)
+and odd x = if x=0 then false else even (x-1)
+fun even x = false``
+** Language constructs like final in Java make it easier to reason, but less &quot;OOP&quot;. Reuse vs Abuse.
+* Dynamic dispatch can be implemented in Racket manually (it has built-in support) - so, ruby language can be seen as an idiom in Racket
+* Awkward to write this in ML since it does not have subtyping. Reverse is true for languages with subtyping, but no generics.</pre>
 </div>
 <div created="20201110110920797" creator="0neir0s" modified="20210130164659346" modifier="0neir0s" tags="java synopsis" title="RxJava">
 <pre>* Reactive Manifesto
