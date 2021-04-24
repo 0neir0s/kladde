@@ -11570,12 +11570,17 @@ show-kbd-hints: no</pre>
 * Functions for analysis of algorithms - constant function, logarithm function, linear function, nlogn function, quadratic function, polynomial function, exponential function. 
 * Justification techniques - By Example, The “Contra” Attack, Induction and loop invariants. </pre>
 </div>
-<div created="20210307165345987" creator="0neir0s" modified="20210424191756223" modifier="0neir0s" tags="dsa-sections" title="Arrays and Strings">
+<div created="20210307165345987" creator="0neir0s" modified="20210424192546058" modifier="0neir0s" tags="dsa-sections" title="Arrays and Strings">
 <pre>!!!!! Hash Tables
 * A hash table is a data structure that makes keys to values for a highly efficient lookup
 * Lot of interesting concepts while implementing it - Hash function, compressor are the building blocks.
 * For hash collision resolution, we can use separate chaining or other open addressing techniques like linear probing, double hashing etc.
-* Load factor is important, hashmap's size is to increased and values reinserted whenever it crosses a given load to make lookups efficient. </pre>
+* Load factor is important, hashmap's size is to increased and values reinserted whenever it crosses a given load to make lookups efficient. 
+* [[Implementation in Java|https://www.geeksforgeeks.org/implementing-our-own-hash-table-with-separate-chaining-in-java/]]
+
+!!!!! Other datastructures
+* ArrayLists are dynamically resizing arrays, while still providing O(1) access. A typical implementation doubles the size of the array whenever the array is full. Doubling takes O(n) but amortized time is still O(1). 
+* StringBuffer avoids the problem of repeated copying of strings (while appending) by creating an array of strings, and copying them only when necessary. </pre>
 </div>
 <div created="20201011191707158" creator="0neir0s" modified="20201213163951403" modifier="0neir0s" tags="published notes" title="AWS">
 <pre>The list of AWS tiddlers till date. Preparation notes for the Solutions Architect certification.
