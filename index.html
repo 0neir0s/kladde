@@ -11570,20 +11570,12 @@ show-kbd-hints: no</pre>
 * Functions for analysis of algorithms - constant function, logarithm function, linear function, nlogn function, quadratic function, polynomial function, exponential function. 
 * Justification techniques - By Example, The “Contra” Attack, Induction and loop invariants. </pre>
 </div>
-<div created="20210307165345987" creator="0neir0s" modified="20210424165604722" modifier="0neir0s" tags="dsa-sections" title="Arrays and Strings">
-<pre>* Continuous sub-array of a given sum 
-** Sliding window - Start with an empty subarray, add elements to the subarray until the sum is less than x.
-** If the sum is greater than x, remove elements from the start of the current subarray.
-* Largest continuous sub-array sum
-** Kadane's Algorithm - Maintain excluded and included starting with -∞ and first element. 
-** Loop through the remaining elements, excluded is max(excluded,included) and included is max(included+i, i)
-* Smallest positive missing number
-** Hashing - run through the array and store presence in hashmap
-** Check the smallest missing number in hashmap
-* Trapped rain water
-** [[Reference|https://www.geeksforgeeks.org/trapping-rain-water/]] - Get the maximum left boundary (a) and the maximum right boundary (b) at every location.
-** Amount of water stored in a column is min(a,b) – array[i]
-* Merge arrays efficiently</pre>
+<div created="20210307165345987" creator="0neir0s" modified="20210424191756223" modifier="0neir0s" tags="dsa-sections" title="Arrays and Strings">
+<pre>!!!!! Hash Tables
+* A hash table is a data structure that makes keys to values for a highly efficient lookup
+* Lot of interesting concepts while implementing it - Hash function, compressor are the building blocks.
+* For hash collision resolution, we can use separate chaining or other open addressing techniques like linear probing, double hashing etc.
+* Load factor is important, hashmap's size is to increased and values reinserted whenever it crosses a given load to make lookups efficient. </pre>
 </div>
 <div created="20201011191707158" creator="0neir0s" modified="20201213163951403" modifier="0neir0s" tags="published notes" title="AWS">
 <pre>The list of AWS tiddlers till date. Preparation notes for the Solutions Architect certification.
