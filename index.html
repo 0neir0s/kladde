@@ -455,6 +455,8 @@ Error message and password prompt
 
 <li>Acropolis</li>
 
+<li>Advanced Linux Programming</li>
+
 <li>Aim small, miss small</li>
 
 <li>Algorithm Analysis &amp; Recursion</li>
@@ -464,8 +466,6 @@ Error message and password prompt
 <li>AWS</li>
 
 <li>Batch</li>
-
-<li>Book: Advanced Linux Programming</li>
 
 <li>Books</li>
 
@@ -10148,7 +10148,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20210424165514496" creator="0neir0s" list="Kladde [[Cracking the coding interview]] [[Arrays and Strings]]" modified="20210425054126314" modifier="0neir0s" title="$:/StoryList">
+<div created="20210424165514496" creator="0neir0s" list="Kladde Books [[Cracking the coding interview]] [[Master Theorem]]" modified="20210425081924420" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -11551,6 +11551,11 @@ show-kbd-hints: no</pre>
 
 * Nutanix allows you leverage scale-out, fully software-defined storage services via Nutanix Files, Nutanix Volumes, and Nutanix Objects.</pre>
 </div>
+<div created="20201116150317851" creator="0neir0s" modified="20210425081852724" modifier="0neir0s" tags="booknotes" title="Advanced Linux Programming">
+<pre>''Sections''
+
+&lt;&lt;list-links &quot;[tag[advlinux]reverse[]]&quot;&gt;&gt;</pre>
+</div>
 <div created="20201116074600048" creator="0neir0s" modified="20201116075342534" modifier="0neir0s" tags="synopsis" title="Aim small, miss small">
 <pre>Deconstruct conf [[talk|https://www.deconstructconf.com/2018/stuart-halloway-aim-small-miss-small-writing-correct-programs]] by Stuart Halloway
 
@@ -11575,7 +11580,7 @@ show-kbd-hints: no</pre>
 * Functions for analysis of algorithms - constant function, logarithm function, linear function, nlogn function, quadratic function, polynomial function, exponential function. 
 * Justification techniques - By Example, The “Contra” Attack, Induction and loop invariants. </pre>
 </div>
-<div created="20210307165345987" creator="0neir0s" modified="20210425081651541" modifier="0neir0s" tags="dsa-sections" title="Arrays and Strings">
+<div created="20210307165345987" creator="0neir0s" modified="20210425081730719" modifier="0neir0s" tags="dsa-sections" title="Arrays and Strings">
 <pre>!!!!! Hash Tables
 * A hash table is a data structure that makes keys to values for a highly efficient lookup
 * Lot of interesting concepts while implementing it - Hash function, compressor are the building blocks.
@@ -11591,7 +11596,7 @@ show-kbd-hints: no</pre>
 !!!!! Miscellaneous points
 * Confirming whether string is ASCII or Unicode - depends on the size of array.( Not significant if set technique is used )
 * A common approach in string manipulation is to edit the string starting from end and work backwards. Probably need a forward pass before that as well. 
-* Rotations can be checked by //contains// - checking if s2 is present in s1s1 :)</pre>
+* Rotations can be checked by //contains// easily: check if s2 is present in s1s1</pre>
 </div>
 <div created="20201011191707158" creator="0neir0s" modified="20201213163951403" modifier="0neir0s" tags="published notes" title="AWS">
 <pre>The list of AWS tiddlers till date. Preparation notes for the Solutions Architect certification.
@@ -11602,11 +11607,6 @@ show-kbd-hints: no</pre>
 <pre>* AWS Batch is a cloud-native batch scheduler for HPC, ML, and other asynchronous workloads. 
 * AWS Batch will automatically and dynamically size instances to job resource requirements, and use existing FSx for Lustre file systems when launching instances and running jobs.
 * Amazon FSx for Lustre integrates with AWS Batch though EC2 Launch Templates.</pre>
-</div>
-<div created="20201116150317851" creator="0neir0s" modified="20201121103305898" modifier="0neir0s" tags="booknotes" title="Book: Advanced Linux Programming">
-<pre>''Sections''
-
-&lt;&lt;list-links &quot;[tag[advlinux]reverse[]]&quot;&gt;&gt;</pre>
 </div>
 <div created="20201116150806053" creator="0neir0s" modified="20201121103315647" modifier="0neir0s" tags="published" title="Books">
 <pre># // Notes jotted while going through books. //
@@ -11715,7 +11715,7 @@ show-kbd-hints: no</pre>
 * Config continuously monitors and records your AWS resource configurations and allows you to automate the evaluation of recorded configurations against desired configurations.
 * This enables you to simplify compliance auditing, security analysis, change management, and operational troubleshooting.</pre>
 </div>
-<div created="20210307164420674" creator="0neir0s" modified="20210424194700667" modifier="0neir0s" tags="published" title="Cracking the coding interview">
+<div created="20210307164420674" creator="0neir0s" modified="20210425092840338" modifier="0neir0s" tags="published dsa-sections" title="Cracking the coding interview">
 <pre>Github URL
 Account for miscellaneous notes.
 
@@ -12530,7 +12530,7 @@ Class notes and assignments are available here - https://github.com/0neir0s/plt-
 * Disaster Recovery techniques: Backup &amp; Restore, Pilot light, Warm standby, Multi-site.
 * Debugging connectivity issues: Check whether or not the RDS is in the same region as the app as spanning regions is not possible. The other likely issue is that the Security Group of either the RDS or the EC2 (or both) are not configured properly. </pre>
 </div>
-<div created="20210423043846567" creator="0neir0s" modified="20210423195220343" modifier="0neir0s" tags="pltheory" title="Ruby">
+<div created="20210423043846567" creator="0neir0s" modified="20210425081804500" modifier="0neir0s" tags="pltheory" title="Ruby">
 <pre>!!!! Ruby - the language
 
 * Dynamically typed, purely OO language
@@ -12682,7 +12682,7 @@ fun even x = false``
 *** Java rightly disallows this. 
 *** Generics can't do much, but we can combine both.
 *** It is possible to do this in Java. `` static &lt;T extends Pt&gt; List&lt;T&gt; inCircle(List&lt;T&gt; pts, Pt center, double radius) ``
-*** In Java, for backward compatibility and implementation reasons, there is always a way to get around generics by casts :)</pre>
+*** In Java, for backward compatibility and implementation reasons, there is always a way to get around generics by casts.</pre>
 </div>
 <div created="20201110110920797" creator="0neir0s" modified="20210130164659346" modifier="0neir0s" tags="java synopsis" title="RxJava">
 <pre>* Reactive Manifesto
