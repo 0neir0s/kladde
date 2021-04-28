@@ -523,6 +523,8 @@ Error message and password prompt
 
 <li>Learn you a Haskell for Great Good!</li>
 
+<li>Linked Lists</li>
+
 <li>Master Theorem</li>
 
 <li>Networking</li>
@@ -10150,7 +10152,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20210424165514496" creator="0neir0s" list="[[Data Structures and Algorithms]] [[Master Theorem]] Kladde" modified="20210425190243862" modifier="0neir0s" title="$:/StoryList">
+<div created="20210424165514496" creator="0neir0s" list="Kladde [[Data Structures and Algorithms]] [[Cracking the coding interview]] [[Linked Lists]]" modified="20210428041310567" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -12115,7 +12117,16 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 [[randoms' :: (RandomGen g, Random a) =&gt; g -&gt; [a]  
 randoms' gen = let (value, newGen) = random gen in value:randoms' newGen  ]]</pre>
 </div>
-<div created="20210310071921692" creator="0neir0s" modified="20210425190401176" modifier="0neir0s" tags="dsa-sections" title="Master Theorem">
+<div created="20210426193125234" creator="0neir0s" modified="20210428045030168" modifier="0neir0s" tags="ctci" title="Linked Lists">
+<pre>* Lack of constant time access and frequency of recursion.
+* But, there is comparatively little variety in linked list questions.
+* Should know how to do the following from scratch
+** Creating a linked list - important to confirm whether singly linked list or doubly linked list.
+** Deleting a node from a singly-linked list - check for null pointers, update head/tail as necessary.
+** Runner technique - run through the linked list with a &quot;fast&quot; and &quot;slow&quot; pointer. Classic example is weaving a linked list.
+** Often, problems involve a recursive approach. Might be possible but complex to change it to iterative.</pre>
+</div>
+<div created="20210310071921692" creator="0neir0s" modified="20210425190455051" modifier="0neir0s" tags="dsa-sections" title="Master Theorem">
 <pre>!!! Premise
 T(n) = aT(n/b) + f(n),
 where
@@ -12132,8 +12143,8 @@ Here, a ≥ 1 and b &gt; 1 are constants, and f(n) is an asymptotically positive
 T(n) has the following asymptotic bounds (ϵ &gt; 0 is a constant): 
 
 * If f(n) = O(n^^log,,b,, a-ϵ^^), then T(n) = Θ(n^^log,,b,, a^^).
-* If f(n) = Θ(nlogb a), then T(n) = Θ(nlogb a * log n).
-* If f(n) = Ω(nlogb a+ϵ), then T(n) = Θ(f(n)).
+* If f(n) = Θ(n^^log,,b,, a^^), then T(n) = Θ(n^^log,,b,, a^^ * log n).
+* If f(n) = Ω(n^^log,,b,, a+ϵ^^), then T(n) = Θ(f(n)).
 
 !!! Proof
 * Solve the recurrence relation to get the series.
