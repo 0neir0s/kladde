@@ -12183,14 +12183,14 @@ T(n) has the following asymptotic bounds (ϵ &gt; 0 is a constant):
 * a &lt; 1
 </pre>
 </div>
-<div created="20210505100507749" creator="0neir0s" modified="20210505101826237" modifier="0neir0s" tags="ctci" title="Math and Probability">
+<div created="20210505100507749" creator="0neir0s" modified="20210505145708151" modifier="0neir0s" tags="ctci" title="Math and Probability">
 <pre>* Prime numbers and Sieve of Eratosthenes.
 * Probability - a given b, mutual exclusivity, independence and A or/and B
 * Things to watch out for:
 ** Difference in precision b/w float and doubles. Not directly in Python :) But, avoid floating point equalities.
 ** Don't assume a value is int unless explicitly told
 ** Don't assume independence unless explicitly mentioned.
-</pre>
+* An approach to keep in mind would be to round off to certain digits so that it can be used as keys in a float. The idea is to get consistent hashes. </pre>
 </div>
 <div created="20201014080547604" creator="0neir0s" modified="20201023193908129" modifier="0neir0s" tags="aws notes" title="Networking">
 <pre>* VPC Routing: There is a main route user. And each VPC has an implicit router. And local route in the route table cannot be removed.
