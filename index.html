@@ -12861,7 +12861,7 @@ fun even x = false``
 * S3 analytics - Storage Class Analysis feature observes data access patterns to help you determine when to transition less frequently accessed standard storage to the IA. But, no recommendations to one zone or glacier.
 * When you configure a bucket as a static website, you must enable website hosting, set permissions, and create and add an index document. </pre>
 </div>
-<div created="20210508134831096" creator="0neir0s" modified="20210508152001203" modifier="0neir0s" tags="ctci" title="Scalability and Memory limits">
+<div created="20210508134831096" creator="0neir0s" modified="20210509041611505" modifier="0neir0s" tags="ctci" title="Scalability and Memory limits">
 <pre>* Straightforward if you follow a step-by-step approach
 ** Make believe - pretend no memory limits and that it fits in one machine
 ** Get real - Think how much can fit in one machine, then think what problems arise due to splitting tasks.
@@ -12872,7 +12872,8 @@ fun even x = false``
 |Memory|16gb|
 |Internet transfer latency|20-40 ms|
 
-* Dividing data can be on-demand, using hash lookups, randomly, by value. Many strategies with pros and cons.</pre>
+* Dividing data can be on-demand, using hash lookups, randomly, by value. Many strategies with pros and cons.
+* Bit vector vs boolean array - This class implements a vector of bits that grows as needed. It uses about 1 bit per boolean value. Python does not have a builtin library for this. Boolean array is easier and faster in practice if there are no memory limits.</pre>
 </div>
 <div created="20201011163446337" creator="0neir0s" modified="20201024173222087" modifier="0neir0s" tags="aws notes" title="Security">
 <pre>* AWS IAM is used to securely control individual and group access to your AWS resources.
