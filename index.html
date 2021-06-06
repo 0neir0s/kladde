@@ -10176,7 +10176,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20210530175101011" creator="0neir0s" list="[[Python - DSA Helpers]] Kladde [[Data Structures and Algorithms]]" modified="20210531040123261" modifier="0neir0s" title="$:/StoryList">
+<div created="20210606034820550" creator="0neir0s" list="Kladde [[Data Structures and Algorithms]] [[DSA Glossary]]" modified="20210606034900523" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -11854,7 +11854,7 @@ These are the salient points jotted down while going through the book.
 * For that, Operations must be documented, democratized, and distributed.
 </pre>
 </div>
-<div created="20210507184813873" creator="0neir0s" modified="20210531065540958" modifier="0neir0s" tags="dsa-sections" title="DSA Glossary">
+<div created="20210507184813873" creator="0neir0s" modified="20210606035134997" modifier="0neir0s" tags="dsa-sections" title="DSA Glossary">
 <pre>* NP-completeness: In computational complexity theory, a problem is NP-complete when:
 ** A brute-force search algorithm can solve it, and the correctness of each solution can be verified quickly, and
 ** The problem can be used to simulate any other problem with similar solvability.
@@ -11865,7 +11865,13 @@ These are the salient points jotted down while going through the book.
 
 * NP-Hardness : Precise specification is: a problem H is NP-hard when every problem L in NP can be reduced in polynomial time to H; that is, assuming a solution for H takes 1 unit time, H‎'s solution can be used to solve L in polynomial time. Informally,  &quot;at least as hard as the hardest problems in NP&quot;. Eg: subset sum problem.
 
-* For evaluating any sort of expression, always consider stack or recursion first. Explicit stack would often be easier and have better space complexity.</pre>
+* For evaluating any sort of expression, always consider stack or recursion first. Explicit stack would often be easier and have better space complexity.
+
+* Dynamic Programming:
+** First try using a recursive top-down approach
+** Then try drawing the recursion tree on paper to figure out sub-problems that can be cached.
+** Then look at the key/values that the recursion is setting in the table (cache) and under what condition to develop bottoms-up DP
+** Sometimes, there might be wastage of space since to calculate the next state you might only need fixed numbers of variables.</pre>
 </div>
 <div created="20201021104053932" creator="0neir0s" modified="20201021104321907" modifier="0neir0s" tags="aws notes" title="DynamoDB">
 <pre>* DynamoDB is a managed NoSQL database - ( key, value stores )
