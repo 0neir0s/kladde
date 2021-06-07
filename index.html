@@ -10176,7 +10176,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20210606034820550" creator="0neir0s" list="Kladde [[Data Structures and Algorithms]] [[Python - DSA Helpers]] [[DSA Glossary]]" modified="20210607024255333" modifier="0neir0s" title="$:/StoryList">
+<div created="20210606034820550" creator="0neir0s" list="$:/ControlPanel $:/plugins/tiddlywiki/highlight Kladde [[Data Structures and Algorithms]] [[Python - DSA Helpers]] [[DSA Glossary]]" modified="20210607024530187" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -12484,13 +12484,31 @@ Class notes and assignments are available here - https://github.com/0neir0s/plt-
 * A cost center is a collection of resources within a single or multiple cloud accounts. A business unit is defined as a collection of cost centers.
 * Beam allows you to create highly customizable cost reports that you can schedule to be delivered.</pre>
 </div>
-<div created="20210530175125481" creator="0neir0s" modified="20210607024439886" modifier="0neir0s" tags="dsa-sections" title="Python - DSA Helpers">
-<pre>* Use statistics module for single median computation. But,for sorted array, it is much easier to compute using: &lt;br/&gt; ``python median = lambda arr: (arr[k//2] + arr[(k-1)//2]) / 2``
+<div created="20210530175125481" creator="0neir0s" modified="20210607025027012" modifier="0neir0s" tags="dsa-sections" title="Python - DSA Helpers">
+<pre>* Use statistics module for single median computation. But,for sorted array, it is much easier to compute using: &lt;br/&gt; 
+```python
+median = lambda arr: (arr[k//2] + arr[(k-1)//2]) / 2
+```
 * Use bisect module for binary search stuff. Use bisect_left for getting the index to delete or insert, rather than bisect. Insort is available for inserting into the array as well. 
 * For checking where an id or below exists in a sorted array, look for where you would insert id+1 and the answer is right before that.
 * For bisecting an array of tuples, try checking for a tuple with a single element if all you want to compare with is the first element.  
-* For trie implementation, using a recursive default dict is clean. &lt;br/&gt; ``_Trie = lambda : defaultdict(_Trie)``
-* Python recipe</pre>
+* For trie implementation, using a recursive default dict is clean. &lt;br/&gt; 
+```python
+_Trie = lambda : defaultdict(_Trie)
+```
+* Python recipe for removing duplicates
+```
+python
+def eliminateDuplicates(A):
+  A.sort()
+  writeIdx = 1
+  for cand in A[1:]:
+    if cand != Alwrite_idx - 1]:
+      A[writeIdx] = cand
+      writeIdx += 1
+  del A[writeIdx: ]
+
+```</pre>
 </div>
 <div created="20210415051515058" creator="0neir0s" modified="20210423193424845" modifier="0neir0s" tags="pltheory" title="Racket">
 <pre>!!!! Racket - the language
