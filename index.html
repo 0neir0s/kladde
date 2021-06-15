@@ -12344,11 +12344,17 @@ T(n) has the following asymptotic bounds (ϵ &gt; 0 is a constant):
 
 * Clojure and other lisps bias towards adaptable systems. But, use it in moderation.</pre>
 </div>
-<div created="20210615025332581" creator="0neir0s" modified="20210615030200849" modifier="0neir0s" tags="dsa-sections" title="Patterns to Problem Solving">
+<div created="20210615025332581" creator="0neir0s" modified="20210615030450817" modifier="0neir0s" tags="dsa-sections" title="Patterns to Problem Solving">
 <pre>!!!! Pattern 1 - Sliding Window
 
 ```python
-median = lambda arr: (arr[k//2] + arr[(k-1)//2]) / 2
+# Time complexity - O(N) Space complexity - O(K) or O(1) depending on the need of hashmap 
+def template(seq, k):
+  for i, elem in enumerate(seq):
+    Update the trackers
+    In case of violation, update the window to make it correct again
+    Update the output value
+  return output
 ```</pre>
 </div>
 <div created="20201108155954155" creator="0neir0s" modified="20201115080312952" modifier="0neir0s" tags="hcloud" title="Prism">
