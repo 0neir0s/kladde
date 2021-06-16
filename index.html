@@ -12344,7 +12344,7 @@ T(n) has the following asymptotic bounds (ϵ &gt; 0 is a constant):
 
 * Clojure and other lisps bias towards adaptable systems. But, use it in moderation.</pre>
 </div>
-<div created="20210615025332581" creator="0neir0s" modified="20210615030533452" modifier="0neir0s" tags="dsa-sections" title="Patterns to Problem Solving">
+<div created="20210615025332581" creator="0neir0s" modified="20210616044415108" modifier="0neir0s" tags="dsa-sections" title="Patterns to Problem Solving">
 <pre>!!!! Pattern 1 - Sliding Window
 
 ```python
@@ -12355,6 +12355,20 @@ def template(seq, k):
     Update the trackers
     In case of violation, update the window to make it correct again
     Update the output value
+  return output
+```
+
+!!!! Pattern 2 - 2 Pointers
+
+```python
+def template(seq):
+  &quot;&quot;&quot; Time - O(N * X) where X is the operation inside the for/while loop
+      Space - O(1) typically &quot;&quot;&quot;
+  left, tracker = 0, deque() # Or counter, running sum etc.
+  for right, val in enumerate(seq):
+    Update the tracker
+    Update left to make it a valid solution window
+    Add the solution(s) to the output
   return output
 ```</pre>
 </div>
