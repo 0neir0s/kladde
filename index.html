@@ -10160,8 +10160,8 @@ Error message and password prompt
 <div created="20201102064453485" creator="0neir0s" modified="20210607024301436" modifier="0neir0s" title="$:/state/tab--86143343">
 <pre>$:/core/ui/ControlPanel/Plugins/Installed/Plugins</pre>
 </div>
-<div created="20200818173312666" creator="0neir0s" modified="20210307170131447" modifier="0neir0s" title="$:/state/tab-1749438307">
-<pre>$:/core/ui/ControlPanel/Plugins</pre>
+<div created="20200818173312666" creator="0neir0s" modified="20210617052436693" modifier="0neir0s" title="$:/state/tab-1749438307">
+<pre>$:/core/ui/ControlPanel/Saving</pre>
 </div>
 <div created="20200818173316134" creator="0neir0s" modified="20201108180201300" modifier="0neir0s" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
@@ -10178,7 +10178,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20210614042342440" creator="0neir0s" list="[[Patterns to Problem Solving]] Kladde [[Data Structures and Algorithms]] [[Python - DSA Helpers]]" modified="20210615030749934" modifier="0neir0s" title="$:/StoryList">
+<div created="20210617052424617" creator="0neir0s" list="Kladde [[Data Structures and Algorithms]] [[Patterns to Problem Solving]]" modified="20210617052434322" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -12344,7 +12344,7 @@ T(n) has the following asymptotic bounds (ϵ &gt; 0 is a constant):
 
 * Clojure and other lisps bias towards adaptable systems. But, use it in moderation.</pre>
 </div>
-<div created="20210615025332581" creator="0neir0s" modified="20210616061517698" modifier="0neir0s" tags="dsa-sections" title="Patterns to Problem Solving">
+<div created="20210615025332581" creator="0neir0s" modified="20210617063825296" modifier="0neir0s" tags="dsa-sections" title="Patterns to Problem Solving">
 <pre>!!!! Pattern 1 - Sliding Window
 
 ```python
@@ -12387,6 +12387,19 @@ def template(head):
   return output
 ```
 
+!!! Pattern 4 - Merge Intervals
+
+```python
+def template(intervals):
+  &quot;&quot;&quot; Time: O(N); O(NlogN) if unsorted
+      Space: O(1) or O(N) typically &quot;&quot;&quot;
+  intervals.sort()
+  output = [intervals[0]
+  for interval in interval[1:]:
+    do the operation, possibly updating the last element of output
+    update output
+  return output
+```
 </pre>
 </div>
 <div created="20201108155954155" creator="0neir0s" modified="20201115080312952" modifier="0neir0s" tags="hcloud" title="Prism">
