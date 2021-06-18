@@ -12344,7 +12344,7 @@ T(n) has the following asymptotic bounds (ϵ &gt; 0 is a constant):
 
 * Clojure and other lisps bias towards adaptable systems. But, use it in moderation.</pre>
 </div>
-<div created="20210615025332581" creator="0neir0s" modified="20210617111043029" modifier="0neir0s" tags="dsa-sections" title="Patterns to Problem Solving">
+<div created="20210615025332581" creator="0neir0s" modified="20210618062255747" modifier="0neir0s" tags="dsa-sections" title="Patterns to Problem Solving">
 <pre>!!!! Pattern 1 - Sliding Window
 
 ```python
@@ -12400,7 +12400,43 @@ def template(intervals):
     update output
   return output
 ```
-</pre>
+
+!!! Pattern 5 - Cyclic Sort
+
+```python
+def template(arr):
+  &quot;&quot;&quot; Time: O(N)
+      Space: O(1) usually &quot;&quot;&quot;
+  for i in range(len(arr)):
+    while arr[i] != arr[arr[i]]:
+      j = arr[i]
+      arr[i], arr[j] = arr[j], arr[i]
+  loop and get the items from the quasi-sorted array
+```
+
+!!! Pattern 6 - In-place reversal of a linked list
+
+```python
+def template(head, p, q):
+  &quot;&quot;&quot; Time: O(N)
+      Space: O(1)
+      Partially reversing - keep track of the start and end
+      as well as the corner case of head and tail &quot;&quot;&quot;
+  crnt, last = head, None
+  for _ in  range(1,p):
+    crnt, last = crnt.nxt, crnt
+  end = crnt
+  for _ in range(p,q+1):
+    nxt, crnt.next = crnt.next, prev
+    prev, crnt = crnt, nxt
+
+  if last:
+    last.next = prev
+  else:
+    head = prev
+  end.next = crnt
+  return head
+```</pre>
 </div>
 <div created="20201108155954155" creator="0neir0s" modified="20201115080312952" modifier="0neir0s" tags="hcloud" title="Prism">
 <pre>* The information in Prism focuses on common operational tasks grouped into four areas:
