@@ -10178,7 +10178,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20210617052424617" creator="0neir0s" list="Kladde [[Data Structures and Algorithms]] [[Patterns to Problem Solving]]" modified="20210617052434322" modifier="0neir0s" title="$:/StoryList">
+<div created="20210619103638158" creator="0neir0s" list="Kladde [[Data Structures and Algorithms]] [[Patterns to Problem Solving]]" modified="20210619103641442" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -12344,7 +12344,7 @@ T(n) has the following asymptotic bounds (ϵ &gt; 0 is a constant):
 
 * Clojure and other lisps bias towards adaptable systems. But, use it in moderation.</pre>
 </div>
-<div created="20210615025332581" creator="0neir0s" modified="20210618062255747" modifier="0neir0s" tags="dsa-sections" title="Patterns to Problem Solving">
+<div created="20210615025332581" creator="0neir0s" modified="20210619112655433" modifier="0neir0s" tags="dsa-sections" title="Patterns to Problem Solving">
 <pre>!!!! Pattern 1 - Sliding Window
 
 ```python
@@ -12436,6 +12436,28 @@ def template(head, p, q):
     head = prev
   end.next = crnt
   return head
+```
+
+!!! Pattern 7 - BFS
+
+!!! Pattern 8 - DFS
+
+!!! Pattern 9 - 2 Heaps
+
+```python
+def template(seq):
+  &quot;&quot;&quot; Time: O(NlogN)
+      Space: O(N) or O(1) &quot;&quot;&quot;
+  maxHeap, minHeap = [], []
+  for num in seq:
+    heappush(maxHeap, -num)
+    heappush(minHeap, -heappop(maxHeap))
+    if len(maxHeap) &lt; len(minHeap):
+      heappush(maxHeap, -heappop(minHeap)) 
+    if odd:
+       return -maxHeap[0]
+    else:
+       return (-maxHeap[0] + minHeap[0])/2
 ```</pre>
 </div>
 <div created="20201108155954155" creator="0neir0s" modified="20201115080312952" modifier="0neir0s" tags="hcloud" title="Prism">
