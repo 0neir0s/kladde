@@ -12346,7 +12346,7 @@ T(n) has the following asymptotic bounds (ϵ &gt; 0 is a constant):
 
 * Clojure and other lisps bias towards adaptable systems. But, use it in moderation.</pre>
 </div>
-<div created="20210615025332581" creator="0neir0s" modified="20210620120249624" modifier="0neir0s" tags="dsa-sections" title="Patterns to Problem Solving">
+<div created="20210615025332581" creator="0neir0s" modified="20210620122109855" modifier="0neir0s" tags="dsa-sections" title="Patterns to Problem Solving">
 <pre>!!!! Pattern 1 - Sliding Window
 
 ```python
@@ -12403,7 +12403,7 @@ def template(intervals):
   return output
 ```
 
-!!! Pattern 5 - Cyclic Sort
+!!!! Pattern 5 - Cyclic Sort
 
 ```python
 def template(arr):
@@ -12416,7 +12416,7 @@ def template(arr):
   loop and get the items from the quasi-sorted array
 ```
 
-!!! Pattern 6 - In-place reversal of a linked list
+!!!! Pattern 6 - In-place reversal of a linked list
 
 ```python
 def template(head, p, q):
@@ -12440,7 +12440,7 @@ def template(head, p, q):
   return head
 ```
 
-!!! Pattern 7 - BFS
+!!!! Pattern 7 - BFS
 
 ```python
 def template(root):
@@ -12458,7 +12458,7 @@ def template(root):
         q.append(elem.right)
   return result
 ```
-!!! Pattern 8 - DFS
+!!!! Pattern 8 - DFS
 
 ```python
 def template(root):
@@ -12475,7 +12475,7 @@ def template(root):
   return dfs(root)
 ```
 
-!!! Pattern 9 - 2 Heaps
+!!!! Pattern 9 - 2 Heaps
 
 ```python
 def template(seq):
@@ -12493,7 +12493,7 @@ def template(seq):
        return (-maxHeap[0] + minHeap[0])/2
 ```
 
-!!! Pattern 10 - Pattern Subsets
+!!!! Pattern 10 - Pattern Subsets
 
 ```python
 def template():
@@ -12508,7 +12508,7 @@ def template():
     return result
 ```
 
-!!! Pattern 11 - Modified Binary Search
+!!!! Pattern 11 - Modified Binary Search
 
 ```python
 def template(arr, k):
@@ -12526,7 +12526,49 @@ def template(arr, k):
       return bs(start, mid-1)
 
   return bfs(0, len(arr)-1)  
-  &quot;&quot;&quot;</pre>
+  &quot;&quot;&quot;
+
+!!!! Pattern 12 - Modified Bitwise XOR
+
+```python
+def template(arr):
+  &quot;&quot;&quot; Time: O(N)
+      Space: O(1). 
+      2 numbers with no repetition attempted here &quot;&quot;&quot;
+  answer = 0
+  for num in nums:
+    answer = answer ^ num
+  rightmostBit = 1
+  crnt = answer
+  while not (crnt &amp; rightmostBit):
+    rightmostBit &lt;&lt; 1
+  num1 = num2 = 0
+  for num in nums:
+    if rightmostBit &amp; num:
+      num1 ^= num
+    else:
+      num2 ^= num
+  return (num1, num2)
+```
+
+!!!! Pattern 13 - Top K elements
+
+```python
+def template(arr):
+  &quot;&quot;&quot; Kth smallest/largest or k1 - k2 smallest/largest =&gt; Heap
+      Time: O(NlogN) or less 
+      Space: O(N) or less. kth largest attempted here &quot;&quot;&quot;
+  minHeap = arr[:k]
+  heapify(minHeap)
+  for elem in arr[k:]:
+    heappush(minHeap, elem)
+    heappop(minHeap)
+  return minHeap[0]
+```
+
+!!!! Pattern 14 - K-way merge
+
+</pre>
 </div>
 <div created="20201108155954155" creator="0neir0s" modified="20201115080312952" modifier="0neir0s" tags="hcloud" title="Prism">
 <pre>* The information in Prism focuses on common operational tasks grouped into four areas:
