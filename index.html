@@ -12346,7 +12346,7 @@ T(n) has the following asymptotic bounds (ϵ &gt; 0 is a constant):
 
 * Clojure and other lisps bias towards adaptable systems. But, use it in moderation.</pre>
 </div>
-<div created="20210615025332581" creator="0neir0s" modified="20210620081859969" modifier="0neir0s" tags="dsa-sections" title="Patterns to Problem Solving">
+<div created="20210615025332581" creator="0neir0s" modified="20210620120249624" modifier="0neir0s" tags="dsa-sections" title="Patterns to Problem Solving">
 <pre>!!!! Pattern 1 - Sliding Window
 
 ```python
@@ -12491,7 +12491,42 @@ def template(seq):
        return -maxHeap[0]
     else:
        return (-maxHeap[0] + minHeap[0])/2
-```</pre>
+```
+
+!!! Pattern 10 - Pattern Subsets
+
+```python
+def template():
+  &quot;&quot;&quot; More intuitive to do DFS/recursive approach
+      Time: O(2^N)
+      Space: O(N) to O(2^N) &quot;&quot;&quot;
+  def dfs(index):
+    if baseCase:
+      return constant
+    output = dfs(index+1)
+    build on it
+    return result
+```
+
+!!! Pattern 11 - Modified Binary Search
+
+```python
+def template(arr, k):
+  &quot;&quot;&quot; Time: O(logN)
+      Space: O(logN) &quot;&quot;&quot;
+  def bs(start, end):
+    if start &gt; end:
+      return baseValue
+    mid = (start+end)//2
+    if arr[mid] == k:
+      return baseAnswer
+    elif arr[mid] &lt; k:
+      return bs(mid+1, end)
+    else:
+      return bs(start, mid-1)
+
+  return bfs(0, len(arr)-1)  
+  &quot;&quot;&quot;</pre>
 </div>
 <div created="20201108155954155" creator="0neir0s" modified="20201115080312952" modifier="0neir0s" tags="hcloud" title="Prism">
 <pre>* The information in Prism focuses on common operational tasks grouped into four areas:
