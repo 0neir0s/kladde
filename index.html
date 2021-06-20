@@ -12346,7 +12346,7 @@ T(n) has the following asymptotic bounds (ϵ &gt; 0 is a constant):
 
 * Clojure and other lisps bias towards adaptable systems. But, use it in moderation.</pre>
 </div>
-<div created="20210615025332581" creator="0neir0s" modified="20210620125331343" modifier="0neir0s" tags="dsa-sections" title="Patterns to Problem Solving">
+<div created="20210615025332581" creator="0neir0s" modified="20210620162700482" modifier="0neir0s" tags="dsa-sections" title="Patterns to Problem Solving">
 <pre>!!!! Pattern 1 - Sliding Window
 
 ```python
@@ -12582,7 +12582,23 @@ def template(lists, k):
       heappush(minHeap, (v,i))
     return heappop(minHeap)[0]
 ```
- 
+
+!!!! Pattern 15 - 0-1 Knapsack Problem
+
+```python
+def template(weights, profits, K):
+  &quot;&quot;&quot; Pattern for dynamic programming: 
+      Recursive -&gt; Memoization -&gt; Iterative -&gt; Reduce space complexity
+      Possible with memoization with cache limit but harder
+      Time: O(KN)
+      Space: O(KN) or O(K) &quot;&quot;&quot;
+  cache = [[0 for _ in range(W+1)] for _ in range(2)]
+  for i, weight in enumerate(weights,1):
+    for j in range(1, W+1):
+      without = cache[(i-1)%2][j]
+      with = 0 if j &lt; weight else cache[(i-1)%2][j-weight]
+  return cache[(len(weights)-1)%2][W]
+```
 </pre>
 </div>
 <div created="20201108155954155" creator="0neir0s" modified="20201115080312952" modifier="0neir0s" tags="hcloud" title="Prism">
