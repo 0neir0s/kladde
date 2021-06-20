@@ -12346,7 +12346,7 @@ T(n) has the following asymptotic bounds (ϵ &gt; 0 is a constant):
 
 * Clojure and other lisps bias towards adaptable systems. But, use it in moderation.</pre>
 </div>
-<div created="20210615025332581" creator="0neir0s" modified="20210620162700482" modifier="0neir0s" tags="dsa-sections" title="Patterns to Problem Solving">
+<div created="20210615025332581" creator="0neir0s" modified="20210620183545081" modifier="0neir0s" tags="dsa-sections" title="Patterns to Problem Solving">
 <pre>!!!! Pattern 1 - Sliding Window
 
 ```python
@@ -12588,7 +12588,7 @@ def template(lists, k):
 ```python
 def template(weights, profits, K):
   &quot;&quot;&quot; Pattern for dynamic programming: 
-      Recursive -&gt; Memoization -&gt; Iterative -&gt; Reduce space complexity
+      Recursive -&gt; Memoization -&gt; Iterative -&gt; Less space complexity
       Possible with memoization with cache limit but harder
       Time: O(KN)
       Space: O(KN) or O(K) &quot;&quot;&quot;
@@ -12599,7 +12599,29 @@ def template(weights, profits, K):
       with = 0 if j &lt; weight else cache[(i-1)%2][j-weight]
   return cache[(len(weights)-1)%2][W]
 ```
-</pre>
+
+!!!! Pattern 16 - Topological Sort
+
+```python
+def template(graph):
+  &quot;&quot;&quot; Time: O(V+E)
+      Space: O(V+E) &quot;&quot;&quot;
+  inDegree = defaultdict(int)
+  for node in graph:
+    for neighbor in graph[node]:
+      inDegree[node] += 1
+  q, output = deque([node for node, count in inDegree.items() if not count]), []
+  while q:
+    node = q.popleft()
+    output.append(node)
+    for neighbor in node:
+      inDegree[neighbor] -= 1
+      if not inDegree[neighbor]:
+        q.append(neighbor)
+  if len(output) != len(graph):
+    return []
+  return output
+```</pre>
 </div>
 <div created="20201108155954155" creator="0neir0s" modified="20201115080312952" modifier="0neir0s" tags="hcloud" title="Prism">
 <pre>* The information in Prism focuses on common operational tasks grouped into four areas:
