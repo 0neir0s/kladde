@@ -12364,7 +12364,7 @@ T(n) has the following asymptotic bounds (ϵ &gt; 0 is a constant):
 
 * Clojure and other lisps bias towards adaptable systems. But, use it in moderation.</pre>
 </div>
-<div created="20210615025332581" creator="0neir0s" modified="20210629122418685" modifier="0neir0s" tags="dsa-sections" title="Patterns to Problem Solving">
+<div created="20210615025332581" creator="0neir0s" modified="20210629124228590" modifier="0neir0s" tags="dsa-sections" title="Patterns to Problem Solving">
 <pre>!!!! Pattern 1 - Sliding Window
 
 ```python
@@ -12447,8 +12447,7 @@ def template(head, p, q):
     crnt, prev = crnt.nxt, crnt
   end = crnt
   for _ in range(p,q+1):
-    nxt, crnt.next = crnt.next, prev
-    prev, crnt = crnt, nxt
+    prev, crnt, crnt.next = crnt, crnt.next, prev
 
   if last:
     last.next = prev
