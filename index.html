@@ -10184,7 +10184,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20210626143346987" creator="0neir0s" list="[[Cloud Native Fundamentals]]" modified="20210626143346987" modifier="0neir0s" title="$:/StoryList">
+<div created="20210629113248601" creator="0neir0s" list="Kladde [[Data Structures and Algorithms]] [[Patterns to Problem Solving]]" modified="20210629113308060" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -12364,7 +12364,7 @@ T(n) has the following asymptotic bounds (ϵ &gt; 0 is a constant):
 
 * Clojure and other lisps bias towards adaptable systems. But, use it in moderation.</pre>
 </div>
-<div created="20210615025332581" creator="0neir0s" modified="20210622043721956" modifier="0neir0s" tags="dsa-sections" title="Patterns to Problem Solving">
+<div created="20210615025332581" creator="0neir0s" modified="20210629122418685" modifier="0neir0s" tags="dsa-sections" title="Patterns to Problem Solving">
 <pre>!!!! Pattern 1 - Sliding Window
 
 ```python
@@ -12444,7 +12444,7 @@ def template(head, p, q):
       as well as the corner case of head and tail &quot;&quot;&quot;
   crnt, last = head, None
   for _ in  range(1,p):
-    crnt, last = crnt.nxt, crnt
+    crnt, prev = crnt.nxt, crnt
   end = crnt
   for _ in range(p,q+1):
     nxt, crnt.next = crnt.next, prev
