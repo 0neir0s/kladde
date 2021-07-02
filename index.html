@@ -10184,7 +10184,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20210629113248601" creator="0neir0s" list="Kladde [[Data Structures and Algorithms]] [[Patterns to Problem Solving]]" modified="20210629113308060" modifier="0neir0s" title="$:/StoryList">
+<div created="20210702051335628" creator="0neir0s" list="Kladde Cloud [[Cloud Native Fundamentals]]" modified="20210702051337982" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -11675,13 +11675,19 @@ show-kbd-hints: no</pre>
 ''Topics till date''
 &lt;&lt;list-links &quot;[tag[cloud]reverse[]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20210626143319191" creator="0neir0s" modified="20210626145235796" modifier="0neir0s" tags="cloud" title="Cloud Native Fundamentals">
+<div created="20210626143319191" creator="0neir0s" modified="20210702053957621" modifier="0neir0s" tags="cloud" title="Cloud Native Fundamentals">
 <pre>!!! Introduction 
 * Cloud-native refers to the set of practices that empowers an organization to build and manage applications at scale. Containers are closely associated with cloud-native terminology. 
 * Container Orchestrators - many tools. Kubernetes, Mesos and Docker Swarm. Kubernetes took the lead. It automates the configuration, management and scalability of the application. 
 * From a technical perspective, the adoption of cloud-native tooling represents automation, orchestration and observability.
 
-!!! Architecture</pre>
+!!! Architecture
+* Application Tier - 3 components: UI, Business Logic and Data layer
+* Monolith vs Micro service - Single service and binary vs Many independent services written in potentially different programming languages.
+* Trade-offs exists for both of these in terms of development complexity, scalability, ease of deployment, flexibility, operation cost and reliability.
+* Scaling the monolith involves replication of the entire stack, which results in over-consumption. 
+* Reliability - in case of failure, we only need to recover the failing component for microservices. But, for monoliths, the entire stack has to be troubleshooted and recovered.
+* Best practices for application deployments are health checks, metrics, logs, tracing and resource consumption.</pre>
 </div>
 <div created="20201021135607248" creator="0neir0s" modified="20201026041615254" modifier="0neir0s" tags="aws notes" title="CloudFront">
 <pre>* Amazon CloudFront is a web service that speeds up distribution of your static and dynamic web content, such as .html, .css, .js, and image files, to your users, using edge locations.
