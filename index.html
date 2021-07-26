@@ -10188,7 +10188,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20210705045932105" creator="0neir0s" list="[[Chapter 1: Building Abstractions with Functions]] [[Composing Programs]] Kladde Books" modified="20210705045957318" modifier="0neir0s" title="$:/StoryList">
+<div created="20210726192820625" creator="0neir0s" list="Kladde Cloud [[Cloud Native Fundamentals]]" modified="20210726192822272" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -11690,7 +11690,7 @@ show-kbd-hints: no</pre>
 ''Topics till date''
 &lt;&lt;list-links &quot;[tag[cloud]reverse[]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20210626143319191" creator="0neir0s" modified="20210702062607860" modifier="0neir0s" tags="cloud" title="Cloud Native Fundamentals">
+<div created="20210626143319191" creator="0neir0s" modified="20210726200221557" modifier="0neir0s" tags="cloud" title="Cloud Native Fundamentals">
 <pre>!!! Introduction 
 * Cloud-native refers to the set of practices that empowers an organization to build and manage applications at scale. Containers are closely associated with cloud-native terminology. 
 * Container Orchestrators - many tools. Kubernetes, Mesos and Docker Swarm. Kubernetes took the lead. It automates the configuration, management and scalability of the application. 
@@ -11705,7 +11705,56 @@ show-kbd-hints: no</pre>
 * Best practices for application deployments are health checks, metrics, logs, tracing and resource consumption.
 * Amorphous Applications - enhancement and maintenance are dynamic in nature. 
 * When considering adding new functionalities or incorporating new tools, it is always beneficial to focus on extensibility rather than flexibility.
-* Common operations performed on apps - split, merge, replace and stale for improvement/removal of features. </pre>
+* Common operations performed on apps - split, merge, replace and stale for improvement/removal of features. 
+
+!!! Container Orchestration
+* VM composed of an operating system (OS) with a set of pre-installed libraries and packages, were the main mechanism to host an application. 
+* But, different VMs need to replicating OS which consume a lot of resources. The answer is containers, which represent the bare minimum an application requires for a successful execution e.g. code, config files, and dependencies.
+* Multiple VMs on a hypervisor are replaced by multiple containers running on a single host operating system.
+* Docker
+** A Dockerfile is a set of instructions used to create a Docker image. Each instruction is an operation used to package the application, such as installing dependencies, compile the code, or impersonate a specific user.
+** A Docker image is a read-only template that enables the creation of a runnable instance of an application.
+** The last step in packaging an application using Docker is to store and distribute it by pushing it to Docker registry.
+* A container orchestrator framework is capable to create, manage, configure thousands of containers on a set of distributed servers while preserving the connectivity and reachability of these containers.
+* Kubernetes architecture
+** A Kubernetes cluster is composed of a collection of distributed physical or virtual servers. These are called nodes - master/worker nodes. 
+** The suite of master nodes, represents the control plane, while the collection of worker nodes constructs the data plane. Master nodes have few additional components like a key-value store, a powerful scheduler etc.
+* Provisioning a Kubernetes cluster is known as the bootstrapping process. When creating a cluster, it is essential to ensure that each node had the necessary components installed.
+* A kubeconfig file has all the necessary cluster metadata and authentication details, that grants the user permission to query the cluster objects. 
+* Rich collection of Kubernetes resources:
+** Pods - the atomic element within a cluster to manage an application
+** Deployments &amp; ReplicaSets - oversees a set of pods for the same application
+** Services &amp; Ingress - ensures connectivity and reachability to pods
+** Configmaps &amp; Secrets - pass configuration to pods
+** Namespaces - provides a logical separation between multiple applications and their resources
+** Custom Resource Definition (CRD) - extends Kubernetes API to support custom resources
+
+* Service and Ingress are important concepts for exposing services and establishing connectivity. 
+* Kubernetes support both imperative and declarative management techniques. The latter is preferred due to its reproducible nature. 
+* A key point - the downside of the control plane failure is that no new workloads can be deployed and no changes can be applied to the existing workloads, but existing workloads would still be functional. 
+
+!!! PaaS 
+
+* If an organization does not have sufficient engineering resources, delegating the platform management to a 3rd party provider is a more suitable solution. This is covered by a PaaS or Platform as a Service solution.
+* On-premise -&gt; IaaS -&gt; CaaS (Container as a service) -&gt; PaaS -&gt; FaaS. Varying level of abstraction starting from Networking, Storage, Servers, Virtualization, OS, Middleware, Runtime, Data, Applications.
+* By default, the PaaS solutions offer the management of the underlying infrastructure, such as storage, databases, compute, hosting etc. 
+* Cloud foundry is an open source PaaS offering with a clean CLI API.
+* It supports multiple components including routing, application lifecycle, authentication etc.
+
+!!! CI/CD
+
+* New changes should traverse through the stages including build, test, package and deploy. And changes should be pushed to multiple environments in increasing order of importance. 
+* Delivery pipeline:
+** Continuous Integration (or CI) includes the build, test, and package stages.
+** Continuous Delivery (or CD) handles the deploy stage.
+* Continuous Integration (CI) is a mechanism that produces the package of an application that can be deployed to consumers. Workflows usually end at package distribution. For example, in cloud native setting, at docker image distribution. Eg: Github Actions.
+* The process of propagating an application through multiple environments, until it reached the end-users, is known as the Continuous Delivery (or CD) stage. At least 3 environments usually. 
+* ArgoCD is a declarative Continuous Delivery tool for Kubernetes, which follows the GitOps patterns. It primarily has two resources - application and project ( a logical grouping of applications ).
+* GitOps - an operating model that refers to the Git repositories as the source of truth for declarative infrastructure and applications.
+* The configuration management can soon become a mess - the number of manifests grows exponentially when the application is distributed across multiple regions.
+* Helm is a package manager that templates exiting manifests, and uses input files to tailor configuration for each environment. Helm chart comprises of Chart.yaml, templates and values.yaml files. 
+* It can be easily combined with Argo CD to handle multiple deployments in different environments. 
+* CI/CD models can be pull or push based, with various pros and cons. Eg: pull - Argo CD &amp; push - Jenkins.</pre>
 </div>
 <div created="20201021135607248" creator="0neir0s" modified="20201026041615254" modifier="0neir0s" tags="aws notes" title="CloudFront">
 <pre>* Amazon CloudFront is a web service that speeds up distribution of your static and dynamic web content, such as .html, .css, .js, and image files, to your users, using edge locations.
