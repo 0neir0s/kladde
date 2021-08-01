@@ -473,6 +473,8 @@ Error message and password prompt
 
 <li>Brain Teasers</li>
 
+<li>Building Abstractions with Data</li>
+
 <li>Building Abstractions with Functions</li>
 
 <li>Cloud</li>
@@ -544,8 +546,6 @@ Error message and password prompt
 <li>Math and Probability</li>
 
 <li>Networking</li>
-
-<li>New Tiddler</li>
 
 <li>Non-blocking IO</li>
 
@@ -10190,7 +10190,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20210801102113514" creator="0neir0s" list="[[New Tiddler]] Kladde Books [[Composing Programs]]" modified="20210801132839508" modifier="0neir0s" title="$:/StoryList">
+<div created="20210801102113514" creator="0neir0s" list="[[Building Abstractions with Data]] Kladde Books [[Composing Programs]]" modified="20210801132839508" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -11675,6 +11675,25 @@ show-kbd-hints: no</pre>
 ** Base case
 ** Build</pre>
 </div>
+<div created="20210801132810309" creator="0neir0s" modified="20210801184541116" modifier="0neir0s" tags="composingprogs" title="Building Abstractions with Data">
+<pre>!!! Data abstraction
+ 
+* The underlying idea of data abstraction is to identify a basic set of operations in terms of which all manipulations of values of some kind will be expressed, and then to use only those operations in manipulating the data.
+* By restricting the use of operations in this way, it is much easier to change the representation of abstract data without changing the behavior of a program.
+* An abstraction barrier violation occurs whenever a part of the program that can use a higher level function instead uses a function in a lower level
+* Sequences and its abstractions -&gt; cover various data structures like lists, trees, strings, linked lists etc.
+* Recursive construction and recursive manipulation are excellent techniques for various functionalities. 
+
+!!! Mutable Data
+* Objects to represent state.
+* Sharing and Identity - when we have been changing a single object rather than creating new ones, the object bound to the variable name has also changed.
+* Local state - changing values that have some particular contents at any point in the execution of a program. Lists, Dicts and Functions can all have them.
+* Python also has an unusual restriction regarding the lookup of names: within the body of a function, all instances of a name must refer to the same frame. As a result, Python cannot look up the value of a name in a non-local frame, then bind that same name in the local frame
+* Sameness and change. These subtleties arise because, by introducing non-pure functions that change the non-local environment, we have changed the nature of expressions. An expression that contains only pure function calls is referentially transparent.
+* The approach which encapsulates the logic for all operations on a data value within one function that responds to different messages, is a discipline called message passing. Very close to pattern matching. 
+* The dispatch function is a general method for implementing a message passing interface for abstract data. Dispatch dictionaries can do it cleanly and efficiently.
+* The constraint program we have designed introduces many ideas that will appear again in object-oriented programming. Constraints and connectors are both abstractions that are manipulated through messages.</pre>
+</div>
 <div created="20210801102126492" creator="0neir0s" modified="20210801132958469" modifier="0neir0s" tags="composingprogs" title="Building Abstractions with Functions">
 <pre>!!! Debugging
 * Test incrementally: Try out everything you write as soon as possible to identify problems early and gain confidence in your components.
@@ -12381,25 +12400,6 @@ T(n) has the following asymptotic bounds (ϵ &gt; 0 is a constant):
 * A VPG is used to setup an AWS VPN which you can use in combination with Direct Connect to encrypt all data that traverses the Direct Connect link.
 * A virtual private gateway is a logical, fully redundant distributed edge routing function that sits at the edge of your VPC. As it is capable of terminating VPN connections from your on-prem or customer environments, the VPG is the VPN concentrator on the Amazon side of the Site-to-Site VPN connection. 
 * RTMP distributions are not compatible if transfer should be over HTTPS</pre>
-</div>
-<div created="20210801132810309" creator="0neir0s" modified="20210801183651230" modifier="0neir0s" tags="composingprogs" title="New Tiddler">
-<pre>!!! Data abstraction
- 
-* The underlying idea of data abstraction is to identify a basic set of operations in terms of which all manipulations of values of some kind will be expressed, and then to use only those operations in manipulating the data.
-* By restricting the use of operations in this way, it is much easier to change the representation of abstract data without changing the behavior of a program.
-* An abstraction barrier violation occurs whenever a part of the program that can use a higher level function instead uses a function in a lower level
-* Sequences and its abstractions -&gt; cover various data structures like lists, trees, strings, linked lists etc.
-* Recursive construction and recursive manipulation are excellent techniques for various functionalities. 
-
-!!! Mutable Data
-* Objects to represent state.
-* Sharing and Identity - when we have been changing a single object rather than creating new ones, the object bound to the variable name has also changed.
-* Local state - changing values that have some particular contents at any point in the execution of a program. Lists, Dicts and Functions can all have them.
-* Python also has an unusual restriction regarding the lookup of names: within the body of a function, all instances of a name must refer to the same frame. As a result, Python cannot look up the value of a name in a non-local frame, then bind that same name in the local frame
-* Sameness and change. These subtleties arise because, by introducing non-pure functions that change the non-local environment, we have changed the nature of expressions. An expression that contains only pure function calls is referentially transparent.
-* The approach which encapsulates the logic for all operations on a data value within one function that responds to different messages, is a discipline called message passing. Very close to pattern matching. 
-* The dispatch function is a general method for implementing a message passing interface for abstract data. Dispatch dictionaries can do it cleanly and efficiently.
-* The constraint program we have designed introduces many ideas that will appear again in object-oriented programming. Constraints and connectors are both abstractions that are manipulated through messages.</pre>
 </div>
 <div created="20210216135117799" creator="0neir0s" modified="20210216142428722" modifier="0neir0s" tags="synopsis programming" title="Non-blocking IO">
 <pre>* Input/output (IO) refers to interaction with devices such as a hard drive, network or database. Generally anything that is not happening in the CPU is called IO. 
