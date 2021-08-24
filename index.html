@@ -11936,7 +11936,7 @@ These are the salient points jotted down while going through the book.
 ''Topics till date''
 &lt;&lt;list-links &quot;[tag[csp]reverse[]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20210814145731442" creator="0neir0s" modified="20210824101620380" modifier="0neir0s" tags="composingprogs" title="Data Processing">
+<div created="20210814145731442" creator="0neir0s" modified="20210824185402019" modifier="0neir0s" tags="composingprogs" title="Data Processing">
 <pre>!!! Implicit Sequences
 
 * Lazy computation describes any program that delays the computation of a value until that value is needed.
@@ -11949,7 +11949,18 @@ These are the salient points jotted down while going through the book.
 * Declarative languages describe the form of a result, but do not explicitly describe how that result should be computed. 
 * Choosing efficient procedures for computing query results is a core feature of database systems.
 * SQL is a good example of declarative programming. Joins are typically accompanied by a where clause that expresses a relationship between the two tables. 
-* In order to create an interpreter for a subset of SQL, we need to create a representation for tables, a parser for statements written as text, and an evaluator for parsed statements. </pre>
+* In order to create an interpreter for a subset of SQL, we need to create a representation for tables, a parser for statements written as text, and an evaluator for parsed statements. 
+* The simple interpreter's structure demonstrates the relationship between sequence processing operations and query languages.
+* For the fastest execution and clearest use of the language, a condition that filters individual rows based on their contents should appear in a where clause, while a having clause should be used only when aggregation is required in the condition.
+* For the clearest and most predictable use of the language, a select statement that includes a group by clause should include at least one aggregate column and only include non-aggregate columns if their contents is predictable from the aggregation.
+
+!!! Logic Programming
+
+* Databases store records that represent facts in the system. The purpose of the query interpreter is to retrieve collections of facts drawn directly from database records, as well as to deduce new facts from the database using logical inference.
+* The negation query succeeds if &lt;relation&gt; fails, and fails if &lt;relation&gt; succeeds. This idea is known as negation as failure.
+* The logic language also allows recursive facts. That is, the conclusion of a fact may depend upon a hypothesis that contains the same symbols.
+* A query may have multiple sub-expressions, in which case all must be satisfied simultaneously by an assignment of symbols to variables.
+* Although it may appear that our query interpreter is quite intelligent, we will see that it finds these combinations through one simple operation repeated many times: that of matching two lists that contain variables in an environment.</pre>
 </div>
 <div created="20210425093321325" creator="0neir0s" modified="20210425093511542" modifier="0neir0s" tags="published" title="Data Structures and Algorithms">
 <pre>!!!! A gateway to all the DSA related contents in Kladde
