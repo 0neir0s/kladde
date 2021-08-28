@@ -10196,7 +10196,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20210822165106145" creator="0neir0s" list="[[Data Processing]]" modified="20210822165116916" modifier="0neir0s" title="$:/StoryList">
+<div list="Kladde" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -10247,11 +10247,11 @@ Error message and password prompt
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1366&quot;
+            &quot;text&quot;: &quot;1440&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;768&quot;
+            &quot;text&quot;: &quot;900&quot;
         },
         &quot;$:/info/browser/language&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/language&quot;,
@@ -11936,7 +11936,7 @@ These are the salient points jotted down while going through the book.
 ''Topics till date''
 &lt;&lt;list-links &quot;[tag[csp]reverse[]]&quot;&gt;&gt;</pre>
 </div>
-<div created="20210814145731442" creator="0neir0s" modified="20210825200126281" modifier="0neir0s" tags="composingprogs" title="Data Processing">
+<div created="20210814145731442" creator="0neir0s" modified="20210827205809531" modifier="0neir0s" tags="composingprogs" title="Data Processing">
 <pre>!!! Implicit Sequences
 
 * Lazy computation describes any program that delays the computation of a value until that value is needed.
@@ -11967,7 +11967,45 @@ These are the salient points jotted down while going through the book.
 !!! Unification
 
 * The fundamental operation performed by the query interpreter is called unification. Unification is a general method of matching a query to a fact, each of which may contain variables. 
-* Unification is a generalization of pattern matching that attempts to find a mapping between two expressions that may both contain variables.</pre>
+* Unification is a generalization of pattern matching that attempts to find a mapping between two expressions that may both contain variables.
+
+!!! Distributed Computing
+
+* A message protocol is a set of rules for encoding and interpreting messages.
+* Both the sending and receiving computers must agree on the semantics of a message to enable successful communication.
+* TCP/IP - IP was designed under the assumption that networks are inherently unreliable at any point and dynamic in structure. Moreover, it does not assume that any central tracking or monitoring of communication exists.
+* The Transmission Control Protocol is an abstraction defined in terms of the IP that provides reliable, ordered transmission of arbitrarily large byte streams. 
+* The client/server architecture is a way to dispense a service from a central source. A server provides a service and multiple clients communicate with the server to consume that service.
+* When requesting the content from a domain name on the Internet, such as www.nytimes.com, it must communicate with at least two different servers - DNS and the web server.
+* HTTP Protocol assumes a client/server architecture between a web browser and a web server.
+* A drawback of client/server systems is that the server is a single point of failure. It is the only component with the ability to dispense the service. Also, computing resources become scarce if there are too many clients.
+* The term peer-to-peer is used to describe distributed systems in which labor is divided among all the components of the system. All the computers send and receive data, and they all contribute some processing power and memory.
+* The most common applications of peer-to-peer systems are data transfer and data storage. Skype, the voice- and video-chat service, is an example of a data transfer application with a peer-to-peer architecture (not pure though).
+
+!!! Distributed Data Processing
+
+* The result of processing must often be aggregated across machines, so that results from one machine's computation can be combined with others. To coordinate this distributed data processing, a programming framework called MapReduce can be used.
+* Effectively, an application is expressed in terms of pure functions that are used to map over a large dataset and then to reduce the mapped sequences of values into a final result.
+* There is a separation of concern between the following:
+** The map and reduce functions that process data and combine results.
+** The communication and coordination between machines.
+* The steps
+** A map function is applied to each input, which outputs zero or more intermediate key-value pairs of an arbitrary type.
+** All intermediate key-value pairs are grouped by key, so that pairs with the same key can be reduced together.
+** A reduce function combines the values for a given key k; it outputs zero or more values, which are each associated with k in the final output.
+* The power of a system comes more from the relationships among programs than from the programs themselves.
+
+!!! Parallel Computing
+
+* In Python threading, multiple &quot;threads&quot; of execution exist within a single interpreter. Each thread executes code independently from the others, though they share the same data. 
+* Python also supports multiprocessing, which allows a program to spawn multiple interpreters, or processes, each of which can run code independently. These processes do not generally share data, so any shared state must be communicated between processes. 
+* In order to avoid race conditions, shared data that may be mutated and accessed by multiple threads must be protected against concurrent access.
+* In rare cases, shared data that is mutated may not require synchronization. However, understanding when this is the case requires a deep knowledge of how the interpreter and underlying software and hardware work. Eg: reordering messes things up. 
+* The with statement ensures that seen_lock is acquired before its suite is executed and that it is released when the suite is exited for any reason.
+* A barrier divides a program into phases by requiring all threads to reach it before any of them can proceed.
+* A final mechanism to avoid improper mutation of shared data is to entirely avoid concurrent access to the same data. In Python, using multiprocessing rather than threading naturally results in this, since processes run in separate interpreters with their own data. Any state required by multiple processes can be communicated by passing messages between processes.
+* Problems with synchronization - under synchronization, over synchronization and deadlock.
+* As the trend of increasing parallelism at the hardware level will continue for the foreseeable future, parallel computation will become more and more important in application programming.</pre>
 </div>
 <div created="20210425093321325" creator="0neir0s" modified="20210425093511542" modifier="0neir0s" tags="published" title="Data Structures and Algorithms">
 <pre>!!!! A gateway to all the DSA related contents in Kladde
