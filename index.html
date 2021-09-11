@@ -12288,8 +12288,10 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 * With unmanaged networks, VMs get a direct connection to their VLAN of choice. 
 * A managed network is a VLAN plus IP Address Management. IPAM is the cluster capability to function like a DHCP server, to assign an IP address to a VM that sits on the managed network. </pre>
 </div>
-<div created="20210807183711494" creator="0neir0s" modified="20210911194030460" modifier="0neir0s" tags="booknotes" title="If you must learn C">
-<pre>!!! Introduction to C
+<div created="20210807183711494" creator="0neir0s" modified="20210911194404229" modifier="0neir0s" tags="booknotes" title="If you must learn C">
+<pre>Note:- As instructed, the attempted solutions haven't been shared publicly. But, it has been added to the private repository - https://github.com/0neir0s/iymlc  
+
+!!! Introduction to C
 
 * It is useful to think of the left-hand side of an assignment as specifying an lvalue (a memory address) in which the rvalue (a C value) is stored.
 * The memory model is required in order to understand recursion in C. Consequences are that recursion is harder to understand, and recursion is more expensive, because it is not as optimized as it is in Racket. C compilers may optimize tail recursion. clang and gcc often do.
@@ -12327,7 +12329,7 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 * A string of length n in C is actually a character array of length at least n+1, where the character at index n is the special null character represented by ’\0’.
 * Greenspun’s Tenth Rule of Programming (circa 1993) says - Any sufficiently complicated C or Fortran program contains an ad hoc, informally-specified, bug-ridden, slow implementation of half of Common Lisp. 
 * Enumerations, a mix of recursion and iteration can be used to read and evaluate s-expressions in C. 
-
+* Binary tree representation in C.
 ```c
 struct node {
   int key;
@@ -12335,7 +12337,11 @@ struct node {
   struct node *left;
   struct node *right;
 };
-```</pre>
+```
+* Abstraction - 2 desirable properties of built-in types that we would like to extend to user-defined types. 
+** Built-in types are immune to tampering: we cannot access or modify any information about instances beyond what the associated functions do. 
+** Built-in types are immune to forgery: we cannot create instances except via the associated functions.
+* Using typedef and moving as much as possible to .c files can mitigate it to certain extent. But, data abstraction in C is a matter of convention, rather than it being enforceable by the language.</pre>
 </div>
 <div created="20210110124655883" creator="0neir0s" modified="20210110150812555" modifier="0neir0s" tags="synopsis" title="Innovation through Design">
 <pre>* Make the design process human-centric and solution oriented. 
