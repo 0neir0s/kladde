@@ -12283,7 +12283,7 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 * With unmanaged networks, VMs get a direct connection to their VLAN of choice. 
 * A managed network is a VLAN plus IP Address Management. IPAM is the cluster capability to function like a DHCP server, to assign an IP address to a VM that sits on the managed network. </pre>
 </div>
-<div created="20210807183711494" creator="0neir0s" modified="20210911193201522" modifier="0neir0s" tags="booknotes" title="If you must learn C">
+<div created="20210807183711494" creator="0neir0s" modified="20210911193753879" modifier="0neir0s" tags="booknotes" title="If you must learn C">
 <pre>!!! Introduction to C
 
 * It is useful to think of the left-hand side of an assignment as specifying an lvalue (a memory address) in which the rvalue (a C value) is stored.
@@ -12310,7 +12310,21 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 ** A memory leak: Failure to free memory no longer used.
 ** A &quot;dangling pointer&quot;: Using a pointer to or into a freed chunk of memory.
 ** Calling free on a pointer not obtained through malloc.
-** Calling free more than once on the same pointer.</pre>
+** Calling free more than once on the same pointer.
+
+* The C equivalent of a Racket vector is called an array. The array is a central data structure in C, unlike vectors in Racket. 
+* Notice that because there is no way to determine the length of an array in C, the length must be provided to this function as a separate parameter.
+* 3 approaches of dynamically allocating arrays - Guess the needed size (incorrect guesses), Grow incrementally (O(N^2) worst case), Double up (balance). Approach 2 and 3 uses realloc. 
+
+!!! Intermediate C
+
+* Pointer arithmetic - Since p points to the element of A of index 0, A[0], *(A+0), *A, *p, *(p+0), and p[0] all mean the same.
+* A string of length n in C is actually a character array of length at least n+1, where the character at index n is the special null character represented by ’\0’.
+* Greenspun’s Tenth Rule of Programming (circa 1993) says - Any sufficiently complicated C or Fortran program contains an ad hoc, informally-specified, bug-ridden, slow implementation of half of Common Lisp. 
+* Enumerations, a mix of recursion and iteration can be used to read and evaluate s-expressions in C. 
+
+```
+```</pre>
 </div>
 <div created="20210110124655883" creator="0neir0s" modified="20210110150812555" modifier="0neir0s" tags="synopsis" title="Innovation through Design">
 <pre>* Make the design process human-centric and solution oriented. 
