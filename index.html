@@ -187,6 +187,8 @@ Error message and password prompt
 
 <li>$:/state/importpreviewtype</li>
 
+<li>$:/state/plugin-info--1893909122-$:/plugins/tiddlywiki/highlight---1375639774</li>
+
 <li>$:/state/plugin-info--2126235802-$:/themes/tiddlywiki/snowwhite</li>
 
 <li>$:/state/plugin-info--270617185-$:/plugins/tesseract/Moments</li>
@@ -10148,6 +10150,9 @@ Error message and password prompt
 <div created="20201102085205072" creator="0neir0s" modified="20201108180636936" modifier="0neir0s" title="$:/state/importpreviewtype">
 <pre>$:/core/ui/ImportPreviews/Fields</pre>
 </div>
+<div created="20210911193922240" creator="0neir0s" modified="20210911193922240" modifier="0neir0s" title="$:/state/plugin-info--1893909122-$:/plugins/tiddlywiki/highlight---1375639774">
+<pre>usage</pre>
+</div>
 <div created="20201102084754454" creator="0neir0s" modified="20201102084754454" modifier="0neir0s" title="$:/state/plugin-info--2126235802-$:/themes/tiddlywiki/snowwhite">
 <pre>no</pre>
 </div>
@@ -10182,8 +10187,8 @@ Error message and password prompt
 <div created="20201102064453485" creator="0neir0s" modified="20210607024301436" modifier="0neir0s" title="$:/state/tab--86143343">
 <pre>$:/core/ui/ControlPanel/Plugins/Installed/Plugins</pre>
 </div>
-<div created="20200818173312666" creator="0neir0s" modified="20210617052436693" modifier="0neir0s" title="$:/state/tab-1749438307">
-<pre>$:/core/ui/ControlPanel/Saving</pre>
+<div created="20200818173312666" creator="0neir0s" modified="20210911193913409" modifier="0neir0s" title="$:/state/tab-1749438307">
+<pre>$:/core/ui/ControlPanel/Plugins</pre>
 </div>
 <div created="20200818173316134" creator="0neir0s" modified="20201108180201300" modifier="0neir0s" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
@@ -10200,7 +10205,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20210911192746349" creator="0neir0s" list="Kladde Books [[If you must learn C]]" modified="20210911192757262" modifier="0neir0s" title="$:/StoryList">
+<div created="20210911192746349" creator="0neir0s" list="$:/ControlPanel [[If you must learn C]]" modified="20210911193917989" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -12283,7 +12288,7 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 * With unmanaged networks, VMs get a direct connection to their VLAN of choice. 
 * A managed network is a VLAN plus IP Address Management. IPAM is the cluster capability to function like a DHCP server, to assign an IP address to a VM that sits on the managed network. </pre>
 </div>
-<div created="20210807183711494" creator="0neir0s" modified="20210911193753879" modifier="0neir0s" tags="booknotes" title="If you must learn C">
+<div created="20210807183711494" creator="0neir0s" modified="20210911194030460" modifier="0neir0s" tags="booknotes" title="If you must learn C">
 <pre>!!! Introduction to C
 
 * It is useful to think of the left-hand side of an assignment as specifying an lvalue (a memory address) in which the rvalue (a C value) is stored.
@@ -12323,7 +12328,13 @@ The content is designed by Nutanix. So, most concepts are explained in the conte
 * Greenspun’s Tenth Rule of Programming (circa 1993) says - Any sufficiently complicated C or Fortran program contains an ad hoc, informally-specified, bug-ridden, slow implementation of half of Common Lisp. 
 * Enumerations, a mix of recursion and iteration can be used to read and evaluate s-expressions in C. 
 
-```
+```c
+struct node {
+  int key;
+  char *value;
+  struct node *left;
+  struct node *right;
+};
 ```</pre>
 </div>
 <div created="20210110124655883" creator="0neir0s" modified="20210110150812555" modifier="0neir0s" tags="synopsis" title="Innovation through Design">
