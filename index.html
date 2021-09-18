@@ -12682,7 +12682,7 @@ T(n) has the following asymptotic bounds (ϵ &gt; 0 is a constant):
 
 * Clojure and other lisps bias towards adaptable systems. But, use it in moderation.</pre>
 </div>
-<div created="20210918041846037" creator="0neir0s" modified="20210918042637247" modifier="0neir0s" tags="synopsis" title="Out of the tar pit">
+<div created="20210918041846037" creator="0neir0s" modified="20210918043357534" modifier="0neir0s" tags="synopsis" title="Out of the tar pit">
 <pre>!!! Introduction
 * Problems with software - complexity, conformity, changeability and invisibility. Essentially, it boils down to complexity. 
 * Approaches to understanding - Testing and Informal reasoning. 
@@ -12701,7 +12701,17 @@ T(n) has the following asymptotic bounds (ϵ &gt; 0 is a constant):
 * 2 approaches - avoid when possible, and separate otherwise. 
 
 !!! Relational Model 
-* </pre>
+* Elegant approach to structuring data. Not intrinsically related to database. And SQL is not a great relational model as well. 
+* 4 Aspects - Structure, Manipulation, Integrity and Data independence. 
+* In particular, think of mutable state as a variable which at any time can contain a particular value, and not as a mutable relation. 
+* Improves over the problems of hierarchical and network models of organizing data. 
+
+!!! Recommendation
+* Functional Relational programming - an amalgam of functional and logic programming
+** Essential state - relational definitions of the stateful components of the system. 
+** Essential logic - derived relation definitions, integrity constraints and pure functions. (relational+functional)
+** Accidental state and control - Declarative set of performance optimizations for the system. 
+** Other - interfaces to the outside world. </pre>
 </div>
 <div created="20210615025332581" creator="0neir0s" modified="20210629124228590" modifier="0neir0s" tags="dsa-sections" title="Patterns to Problem Solving">
 <pre>!!!! Pattern 1 - Sliding Window
