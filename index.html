@@ -569,6 +569,8 @@ Error message and password prompt
 
 <li>On Abstraction</li>
 
+<li>Out of the tar pit</li>
+
 <li>Patterns to Problem Solving</li>
 
 <li>Prism</li>
@@ -10207,7 +10209,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div list="Kladde" title="$:/StoryList">
+<div created="20210918041831596" creator="0neir0s" list="[[Out of the tar pit]] Kladde Synopses" modified="20210918041841867" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -12679,6 +12681,27 @@ T(n) has the following asymptotic bounds (ϵ &gt; 0 is a constant):
 *** A heuristic is to club the components based on the assumptions they make. Since failure of assumption necessitates replacement of all of them.
 
 * Clojure and other lisps bias towards adaptable systems. But, use it in moderation.</pre>
+</div>
+<div created="20210918041846037" creator="0neir0s" modified="20210918042637247" modifier="0neir0s" tags="synopsis" title="Out of the tar pit">
+<pre>!!! Introduction
+* Problems with software - complexity, conformity, changeability and invisibility. Essentially, it boils down to complexity. 
+* Approaches to understanding - Testing and Informal reasoning. 
+* 2 similar problems - one related to testing and one related to state, can combine together horribly. 
+* Contamination of stateful and stateless stuff makes it even harder. 
+
+!!! Classical approaches to manage complexity
+* Object orientation - does not do a good job in state or control.
+* Functional - in general handles state well, but not good at control. 
+* Logic - does not really handle/care about state, but good at control
+
+!!! Accidental and Essential 
+* Required accidental complexity can be for performance or ease of expression. But, it should be still independent of the essential complexity and control domains. 
+* We should strive to completely avoid explicit management of accidental state.
+* Formal requirements should adopt the logic/state split, since separation allows us to restrict the power of each component.
+* 2 approaches - avoid when possible, and separate otherwise. 
+
+!!! Relational Model 
+* </pre>
 </div>
 <div created="20210615025332581" creator="0neir0s" modified="20210629124228590" modifier="0neir0s" tags="dsa-sections" title="Patterns to Problem Solving">
 <pre>!!!! Pattern 1 - Sliding Window
