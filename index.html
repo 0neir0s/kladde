@@ -627,6 +627,8 @@ Error message and password prompt
 
 <li>Synopses</li>
 
+<li>Tableau</li>
+
 <li>Technical Approach</li>
 
 <li>Tidbits</li>
@@ -10217,7 +10219,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20211023173904447" creator="0neir0s" list="[[Mocks aren't Stubs]] [[General CS]] Kladde" modified="20211023174341923" modifier="0neir0s" title="$:/StoryList">
+<div created="20211023173904447" creator="0neir0s" list="Tableau Kladde [[Programming Languages]] C++" modified="20211023174958155" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -13949,6 +13951,117 @@ fun even x = false``
 <pre>//Salient points in talks, articles, courses etc//
 
 &lt;&lt;list-links &quot;[tag[synopsis]reverse[]]&quot;&gt;&gt;
+</pre>
+</div>
+<div created="20211023175010060" creator="0neir0s" modified="20211023175037272" modifier="0neir0s" tags="proglangs" title="Tableau">
+<pre>Dimensions, Measurements and Parameters.
+
+Story and story points - similar to powerpoint - for presentation.
+Dashboard is a consolidated display of many worksheets and related information in a single place.
+
+Four types of joins:
+- Inner join
+- Left join
+- Right join
+- Full/Outer join
+
+Union combines two tables, by appending rows of data from one table to another.
+
+Datasource is a single table/sheet or a join/union/both of multiple tables/sheets.
+
+Cross database join - Use Add option near the connection.
+A single workbook can takae in multiple datasources.
+Live vs Extract: For a snapshot of data, there is a provision to extract datasources and use that for in-memory &amp; therefore faster computations.
+
+Fields - divided into Dimensions and Measures.
+Sets and Parameters
+Marks card.
+We can make tooltip by inserting a sheet linking it to a subset of another sheet.
+
+Tableau Metadata, Editing it, Pill types, Aggregation, Granularity, Data Blending, and Tableau File Extensions.
+
+Editing metadata is not reflected back in the datasource.
+
+Hierarchy vs Folder
+Drilling down the hierarchies.
+
+Measures, Dimensions, Continuous and Discrete.
+ Examples: DD - CM -DM - CD ( Pill types)
+Month(Date), AVG(Temperature), Hot/Cold, Day(Date)
+
+Measure Names and Values.
+
+Data aggregation - https://help.tableau.com/current/pro/desktop/en-us/calculations_aggregation.htm
+Granularity 
+
+ Join vs Data blending
+
+- Row Level vs Aggregate Level
+- Single Query to Single Source vs Diiferent Queries to each sources.
+
+Tableau Workbook (twb) vs Tableau Packaged Workbook (twbx): Data is packaged in the latter.
+Tableau Datasource (tds) vs Tableau Packaged Datasource (tdsx): Data is packaged in the latter.
+hyper - For saving the extract.
+
+Visual Analytics:
+
+Sorting Techniques: 
+- Sorting on axis
+- Sorting over a pill
+- Manual Sorting over legends, headers.
+- Sorting over Measures
+- Sort tweaking options are present: Nested, on a field etc.
+
+Filtering Techniques:
+- Datasource Filtering ( first level)
+- Data Extract Filtering
+- Context Level Filtering
+- Interactive Filtering of Dimensions
+
+Parameters: Use it for interactive visualizations. Can be attached to filters or sets.
+Sets: Creating and using it are 2 separate steps.
+
+Creation can be done in 3 ways: Computation, Selecting marks on the canvas, By combining existing sets
+Usage in 2 ways: Viewed as In/out and show members, Dragged to color, fiter, detail or row/column shelves.
+
+Interactive Actions in Tableau. 
+ 
+Groups and Bins.
+
+Analytics:
+Reference lines, Trend lines.
+Forecasting can be done as well.
+
+Mapping basics:
+Map layers and options.
+Coordinate Points.
+Annotating a point for the map. 
+Import a background image for a sheet. 
+X and Y : They should be continuous dimensions for maps.
+
+Calculated Fields
+
+Types of calculations
+- Row Level 
+- Aggregation Level
+- Table Level
+- Level of Detail
+
+Curly brackets signifies it is constants for the entire table.
+
+AGG() vs ATTR() - Aggregate Level vs Record Level
+
+Cannot mix aggregated and non-aggregated fields in a calculation.
+ATTR removes the duplicate elements and creates a set.
+
+Calculation Building Blocks:
+Functions, Fields, Operators, Literal Expressions, Parameters and Comments. 
+
+Table Calculations: Running total, percentage etc.
+Level of Detail (LOD) expressions are always expressed in {} - Fixing in a dimension.
+
+Dashboard and Stories.
+
 </pre>
 </div>
 <div created="20210515071343165" creator="0neir0s" modified="20210515073655973" modifier="0neir0s" tags="ctci" title="Technical Approach">
