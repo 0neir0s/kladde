@@ -533,6 +533,8 @@ Error message and password prompt
 
 <li>ElastiCache</li>
 
+<li>Go Concurrency Patterns - Talk</li>
+
 <li>Good GNU/Linux software</li>
 
 <li>HCI</li>
@@ -10209,7 +10211,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20210918041831596" creator="0neir0s" list="[[Out of the tar pit]] Kladde Synopses" modified="20210918041841867" modifier="0neir0s" title="$:/StoryList">
+<div created="20211023173904447" creator="0neir0s" list="[[Go Concurrency Patterns - Talk]] Kladde [[CSP &amp; Golang]]" modified="20211023173904447" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -12229,6 +12231,24 @@ These are the salient points jotted down while going through the book.
 ** With ElastiCache for Redis you can create a read replica in another AWS Availability Zone.
 ** Cross region replicas can be created using the Global Datastore feature in ElastiCache for Redis
 ** Reader endpoint is only available for ElastiCache for Redis (cluster mode disabled) clusters.</pre>
+</div>
+<div created="20211023173933703" creator="0neir0s" modified="20211023173959479" modifier="0neir0s" tags="csp" title="Go Concurrency Patterns - Talk">
+<pre>Go Concurrency Patterns
+
+Concurrency is a model for software construction.
+
+Channels - Sending and receiving are both blocking operations. So, communication and synchronisation happens in one step.
+Buffered Channels - It removes synchronization.
+Approach in a sentence - Don't communicate by sharing memory, share memory by communicating.
+
+Patterns:
+1. Generator - function that returns a channel.
+2. Multiplexing - fan-in function 
+3. Restoring sequencing - channel can send and receive channels - Add a wait channel to block.
+4. Select - Like a switch, but blocks until one communication can proceed.
+5. Timeout using select - time.After function
+6. Quit channel - Round trip communication
+7. Daisy Chain - Extending the round trip</pre>
 </div>
 <div created="20201116151707618" creator="0neir0s" modified="20201116192717223" modifier="0neir0s" tags="advlinux" title="Good GNU/Linux software">
 <pre>* Program starts from main and has argument list ( retrieved from argc, argv )
