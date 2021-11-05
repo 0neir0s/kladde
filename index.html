@@ -457,6 +457,8 @@ Error message and password prompt
 
 <li>1. Deducing Types</li>
 
+<li>2. auto</li>
+
 <li>Acropolis</li>
 
 <li>Advanced Linux Programming</li>
@@ -10225,7 +10227,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20211105112439797" creator="0neir0s" list="[[C++ Tidbits]] [[1. Deducing Types]] [[Effective Modern C++]]" modified="20211105142946051" modifier="0neir0s" title="$:/StoryList">
+<div created="20211105112439797" creator="0neir0s" list="[[2. auto]] [[C++ Tidbits]] [[Effective Modern C++]]" modified="20211105142946051" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -11655,6 +11657,16 @@ f(expr)
 * Deduced types can often be seen using IDE editors, compiler error messages, and the Boost Type Index library. 
 * The results of some tools may not be helpful. For example type_info mandating that type be treated as pass by value. 
 </pre>
+</div>
+<div created="20211105144546090" creator="0neir0s" modified="20211105151010253" modifier="0neir0s" tags="emcpp" title="2. auto">
+<pre>!!! Prefer auto to explicit type declarations
+
+* Advantages of auto include the avoidance of uninitialised variables, verbose variable declarations, the ability to directly hold closures, and also avoid taking programmatic type shortcuts.
+
+!!! Use the explicitly typed initializer idiom when auto deduces undesired types
+
+* &quot;Invisible&quot; proxy classes like vector&lt;bool&gt;::reference don't play well with auto as a general rule.
+* Use static_cast to explicitly type it. </pre>
 </div>
 <div created="20201108155655958" creator="0neir0s" modified="20201108155815806" modifier="0neir0s" tags="hcloud" title="Acropolis">
 <pre>* The data management layer
