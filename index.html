@@ -459,6 +459,8 @@ Error message and password prompt
 
 <li>2. auto</li>
 
+<li>3. Moving to modern C++</li>
+
 <li>Acropolis</li>
 
 <li>Advanced Linux Programming</li>
@@ -530,8 +532,6 @@ Error message and password prompt
 <li>DevOps</li>
 
 <li>Draft of 'If you must learn C' by 0neir0s</li>
-
-<li>Draft of 'New Tiddler' by 0neir0s</li>
 
 <li>DSA Glossary</li>
 
@@ -10229,7 +10229,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20211105112439797" creator="0neir0s" list="[[Draft of 'New Tiddler' by 0neir0s]] [[C++ Tidbits]] [[Effective Modern C++]]" modified="20211105142946051" modifier="0neir0s" title="$:/StoryList">
+<div created="20211105112439797" creator="0neir0s" list="[[3. Moving to modern C++]] [[Effective Modern C++]]" modified="20211105142946051" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -11670,6 +11670,60 @@ f(expr)
 * &quot;Invisible&quot; proxy classes like vector&lt;bool&gt;::reference don't play well with auto as a general rule.
 * Use static_cast to explicitly type it. </pre>
 </div>
+<div created="20211105151015606" creator="0neir0s" modified="20211105183742794" modifier="0neir0s" tags="emcpp" title="3. Moving to modern C++">
+<pre>!!! Distinguish between () and {} when creating objects
+
+* It is uniform initialisation in the sense that it supports both the () and = functionalities. But, it has a tangled relationship with initializer_list and constructor overload resolution. 
+* Uniform initialisation strongly prefers initializer_list over other overloads, even move and copy. This especially affects vector as it has an initializer_list overload.
+* Template library authors chosing one of parenthesis and braces might result in confusion for callers. 
+
+!!! Prefer nullptr over 0 and NULL
+
+* nullptr being a proper pointer of all types is strongly preferred. 
+
+!!! Prefer alias declarations to typedefs
+
+* The main technical reason is that alias declarations can be templatised. alias also gives out non-dependent types, so you don't have to precede with typename keyword like it is sometimes needed in typedef. 
+
+!!! Prefer scoped enums to unscoped enums
+
+* Leaking enumerator names into the scope is undesired most of the time. 
+* In addition, scoped enums are much strongly typed. 
+* Forward declaration is possible for both, just have to mention the type in unscoped. 
+
+!!! Prefer deleted functions to private undefined ones
+
+* Any functions may be deleted, even non-member functions and template instantiations. 
+
+!!! Declare overriding functions override
+
+* It is much easier for detecting mistakes.
+* In C++ 11, for override to work, base and derived should also have the same member function reference qualifiers. 
+
+!!! Prefer const_iterators to iterators
+
+* In maximally generic code, prefer non-member versions of begin, end, rbegin etc over their member function counterparts. 
+
+!!! Declare functions nonexcept if they won't emit exceptions
+
+* Unwindability optimisations. 
+* Tricky thing is that most functions are exception-neutral, depending on the functions it calls. 
+
+!!! Use constexpr whenever possible
+
+* It is compile-time when constexpr args are passed to it. 
+* It is part of the function definition, so taking it out later might break client code. 
+
+!!! Make const member functions thread safe
+
+* Unless you are certain they will never be used in a concurrent context. 
+* Use of atomic variables might offer better performance than a mutex, but they are suited for manipulation of only a single variable or memory location. 
+
+!!! Understand special member function generation
+
+* Rule of three is expanded to accommodate move constructor and move assignment operator. 
+* Unlike copy, moves won't be generated when destructor is user-defined. Declaring moves disables copy generation. </pre>
+</div>
 <div created="20201108155655958" creator="0neir0s" modified="20201108155815806" modifier="0neir0s" tags="hcloud" title="Acropolis">
 <pre>* The data management layer
 * Main functions
@@ -12184,32 +12238,6 @@ These are the salient points jotted down while going through the book.
 </div>
 <div modified="20210911194535602" modifier="0neir0s" title="Draft of 'If you must learn C' by 0neir0s">
 <pre></pre>
-</div>
-<div created="20211105151015606" creator="0neir0s" draft.of="New Tiddler" draft.title="3. Moving to modern C++" modified="20211105172622338" modifier="0neir0s" tags="emcpp" title="Draft of 'New Tiddler' by 0neir0s">
-<pre>!!! Distinguish between () and {} when creating objects
-
-* It is uniform initialisation in the sense that it supports both the () and = functionalities. But, it has a tangled relationship with initializer_list and constructor overload resolution. 
-* Uniform initialisation strongly prefers initializer_list over other overloads, even move and copy. This especially affects vector as it has an initializer_list overload.
-* Template library authors chosing one of parenthesis and braces might result in confusion for callers. 
-
-!!! Prefer nullptr over 0 and NULL
-
-* nullptr being a proper pointer of all types is strongly preferred. 
-
-!!! Prefer alias declarations to typedefs
-
-* The main technical reason is that alias declarations can be templatised. alias also gives out non-dependent types, so you don't have to precede with typename keyword like it is sometimes needed in typedef. 
-
-!!! Prefer scoped enums to unscoped enums
-
-* Leaking enumerator names into the scope is undesired most of the time. 
-* In addition, scoped enums are much strongly typed. 
-* Forward declaration is possible for both, just have to mention the type in unscoped. 
-
-!!! Prefer deleted functions to private undefined ones
-
-* Any functions may be deleted, even non-member functions and template instantiations. 
-</pre>
 </div>
 <div created="20210507184813873" creator="0neir0s" modified="20210614042514607" modifier="0neir0s" tags="dsa-sections" title="DSA Glossary">
 <pre>* NP-completeness: In computational complexity theory, a problem is NP-complete when:
