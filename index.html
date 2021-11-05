@@ -527,8 +527,6 @@ Error message and password prompt
 
 <li>DevOps</li>
 
-<li>Draft of '1. Deducing Types' by 0neir0s</li>
-
 <li>Draft of 'If you must learn C' by 0neir0s</li>
 
 <li>DSA Glossary</li>
@@ -10227,7 +10225,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20211105112439797" creator="0neir0s" list="[[C++ Tidbits]] [[Draft of '1. Deducing Types' by 0neir0s]] [[Effective Modern C++]]" modified="20211105142946051" modifier="0neir0s" title="$:/StoryList">
+<div created="20211105112439797" creator="0neir0s" list="[[C++ Tidbits]] [[1. Deducing Types]] [[Effective Modern C++]]" modified="20211105142946051" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -11620,7 +11618,7 @@ show-kbd-hints: no</pre>
 <div created="20201116111550621" creator="0neir0s" modified="20201116111932032" modifier="0neir0s" tags="personal" title="0neir0s">
 <pre>Find my details here: https://0neir0s.github.io/</pre>
 </div>
-<div created="20211105112648554" creator="0neir0s" modified="20211105113444361" modifier="0neir0s" tags="emcpp" title="1. Deducing Types">
+<div created="20211105112648554" creator="0neir0s" modified="20211105144537496" modifier="0neir0s" tags="emcpp" title="1. Deducing Types">
 <pre>!!! Setting
 
 ```cpp
@@ -11630,9 +11628,33 @@ void f(ParamType param);
 f(expr)
 ```
 
-!!!Deducing template types
+!!! Deducing template types
 
-* If param type is a reference or pointer, but not universal reference, </pre>
+* If ParamType is a reference or pointer, but not universal reference, ignore the reference part if expr is a reference type and pattern match expr's type against ParamType (easy)
+* If ParamType is a universal reference,
+** If expr is an lvalue, both T &amp; ParamType are deduced to be lvalue references
+** If expr is rvalue, case 1 applies.
+** The reason for this is explained in Item 24. Basically, T&amp;&amp; can be an rvalue reference or 'either rvalue reference or lvalue reference' aka universal reference.
+* If ParamType is neither, then we are dealing with pass-by-value. Here, ignore expr's reference, const and volatile parts, and then pattern match. 
+* Although functions can't declare parameters that are truly arrays, they can declare parameters that are references to arrays.
+
+!!! Understanding auto type deduction
+
+* Auto type deduction  is template type deduction with one exception. 
+* When the initializer for an auto-declared variable is enclosed in the braces, the deduced type is initializer_list.
+* In C++ 14, auto may be used to deduce return types in functions and lambdas. But, these employ template type deduction, not the auto one. 
+
+!!! Understanding decltype
+
+* decltype tells you the name's or the expression's type. 
+* There are situations where you need decltype as template deduction might not yield what you want. 
+* A tricky point about decltypes is that if an lvalue expression other than a name has type T, decltype reports it as T&amp;. 
+
+!!! Knowing how to view deduced types
+
+* Deduced types can often be seen using IDE editors, compiler error messages, and the Boost Type Index library. 
+* The results of some tools may not be helpful. For example type_info mandating that type be treated as pass by value. 
+</pre>
 </div>
 <div created="20201108155655958" creator="0neir0s" modified="20201108155815806" modifier="0neir0s" tags="hcloud" title="Acropolis">
 <pre>* The data management layer
@@ -12142,39 +12164,6 @@ These are the salient points jotted down while going through the book.
 <pre>* Developer + Operations
 * If Operations is ever going to become a force multiplier that helps the business drive innovation, instead of a cost center whose primary function is to keep the lights on, it must become agile.
 * For that, Operations must be documented, democratized, and distributed.
-</pre>
-</div>
-<div created="20211105112648554" creator="0neir0s" draft.of="1. Deducing Types" draft.title="1. Deducing Types" modified="20211105142718139" modifier="0neir0s" tags="emcpp" title="Draft of '1. Deducing Types' by 0neir0s">
-<pre>!!! Setting
-
-```cpp
-template&lt;typename T&gt;
-void f(ParamType param);
-
-f(expr)
-```
-
-!!! Deducing template types
-
-* If ParamType is a reference or pointer, but not universal reference, ignore the reference part if expr is a reference type and pattern match expr's type against ParamType (easy)
-* If ParamType is a universal reference,
-** If expr is an lvalue, both T &amp; ParamType are deduced to be lvalue references
-** If expr is rvalue, case 1 applies.
-** The reason for this is explained in Item 24. Basically, T&amp;&amp; can be an rvalue reference or 'either rvalue reference or lvalue reference' aka universal reference.
-* If ParamType is neither, then we are dealing with pass-by-value. Here, ignore expr's reference, const and volatile parts, and then pattern match. 
-* Although functions can't declare parameters that are truly arrays, they can declare parameters that are references to arrays.
-
-!!! Understanding auto type deduction
-
-* Auto type deduction  is template type deduction with one exception. 
-* When the initializer for an auto-declared variable is enclosed in the braces, the deduced type is initializer_list.
-* In C++ 14, auto may be used to deduce return types in functions and lambdas. But, these employ template type deduction, not the auto one. 
-
-!!! Understanding decltype
-
-* decltype tells you the name's or the expression's type. 
-* There are situations where you need decltype as template deduction might not yield what you want. 
- 
 </pre>
 </div>
 <div modified="20210911194535602" modifier="0neir0s" title="Draft of 'If you must learn C' by 0neir0s">
