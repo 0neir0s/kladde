@@ -531,6 +531,8 @@ Error message and password prompt
 
 <li>Draft of 'If you must learn C' by 0neir0s</li>
 
+<li>Draft of 'New Tiddler' by 0neir0s</li>
+
 <li>DSA Glossary</li>
 
 <li>DynamoDB</li>
@@ -10227,7 +10229,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20211105112439797" creator="0neir0s" list="[[2. auto]] [[C++ Tidbits]] [[Effective Modern C++]]" modified="20211105142946051" modifier="0neir0s" title="$:/StoryList">
+<div created="20211105112439797" creator="0neir0s" list="[[Draft of 'New Tiddler' by 0neir0s]] [[C++ Tidbits]] [[Effective Modern C++]]" modified="20211105142946051" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -11832,8 +11834,9 @@ f(expr)
 &lt;&lt;list-links &quot;[tag[cppnotes]reverse[]]&quot;&gt;&gt;
 </pre>
 </div>
-<div created="20211105142953825" creator="0neir0s" modified="20211105143101982" modifier="0neir0s" tags="cppnotes" title="C++ Tidbits">
-<pre>* Rvalues can't bind to lvalue references unless they are lvalue references to const. </pre>
+<div created="20211105142953825" creator="0neir0s" modified="20211105171349351" modifier="0neir0s" tags="cppnotes" title="C++ Tidbits">
+<pre>* Rvalues can't bind to lvalue references unless they are lvalue references to const. 
+* &lt;type_traits&gt; allows you to transform types. Example: T -&gt; const T. </pre>
 </div>
 <div created="20210626143415676" creator="0neir0s" modified="20210626143540629" modifier="0neir0s" tags="published" title="Cloud">
 <pre>Sections of Cloud concepts
@@ -12180,6 +12183,22 @@ These are the salient points jotted down while going through the book.
 </div>
 <div modified="20210911194535602" modifier="0neir0s" title="Draft of 'If you must learn C' by 0neir0s">
 <pre></pre>
+</div>
+<div created="20211105151015606" creator="0neir0s" draft.of="New Tiddler" draft.title="3. Moving to modern C++" modified="20211105171305687" modifier="0neir0s" tags="emcpp" title="Draft of 'New Tiddler' by 0neir0s">
+<pre>!!! Distinguish between () and {} when creating objects
+
+* It is uniform initialisation in the sense that it supports both the () and = functionalities. But, it has a tangled relationship with initializer_list and constructor overload resolution. 
+* Uniform initialisation strongly prefers initializer_list over other overloads, even move and copy. This especially affects vector as it has an initializer_list overload.
+* Template library authors chosing one of parenthesis and braces might result in confusion for callers. 
+
+!!! Prefer nullptr over 0 and NULL
+
+* nullptr being a proper pointer of all types is strongly preferred. 
+
+!!! Prefer alias declarations to typedefs
+
+* The main technical reason is that alias declarations can be templatised. alias also gives out non-dependent types, so you don't have to precede with typename keyword like it is sometimes needed in typedef. 
+</pre>
 </div>
 <div created="20210507184813873" creator="0neir0s" modified="20210614042514607" modifier="0neir0s" tags="dsa-sections" title="DSA Glossary">
 <pre>* NP-completeness: In computational complexity theory, a problem is NP-complete when:
