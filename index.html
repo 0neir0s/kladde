@@ -465,6 +465,8 @@ Error message and password prompt
 
 <li>5. Rvalue references, Move semantics and Perfect forwarding</li>
 
+<li>6. Lambda Expressions</li>
+
 <li>Acropolis</li>
 
 <li>Advanced Linux Programming</li>
@@ -10200,7 +10202,7 @@ Error message and password prompt
 <pre>readme</pre>
 </div>
 <div created="20161122140345592" creator="Riz
-" modified="20211106053647414" modifier="0neir0s" title="$:/state/sidebar">
+" modified="20211106151444834" modifier="0neir0s" title="$:/state/sidebar">
 <pre>no</pre>
 </div>
 <div created="20201023055735242" creator="0neir0s" modified="20201116111403725" modifier="0neir0s" title="$:/state/tab--1963855381">
@@ -10233,7 +10235,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20211106151340544" creator="0neir0s" list="[[C++ Tidbits]] Kladde" modified="20211106151340544" modifier="0neir0s" title="$:/StoryList">
+<div created="20211106151340544" creator="0neir0s" list="[[6. Lambda Expressions]] [[Effective Modern C++]] Kladde" modified="20211106151446356" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -11798,6 +11800,26 @@ f(expr)
 
 * Perfect forwarding fails when template type deduction fails or when it deduces the wrong type. 
 * Examples include braced initialisers, 0 or NULL for null pointers, declaration only const static ints, template and overloaded function names, and bitfields.</pre>
+</div>
+<div created="20211106151453187" creator="0neir0s" modified="20211106175555807" modifier="0neir0s" tags="emcpp" title="6. Lambda Expressions">
+<pre>* Lambda vs closure vs closure classes - compile time vs runtime vs compile time
+
+!!! Avoid default mode capture modes
+
+* Default by-reference capture can lead to dangling references.
+* Default by-value capture is susceptible to dangling pointers (especially this), and it misleadingly suggests that lambdas are self-contained. 
+
+!!! Use init capture to move objects into closures
+
+* Use C++ 14's init capture to move objects into closures
+* In C++ 11, emulate init capture via hand-written classes or std::bind
+
+!!! Use decltype on auto&amp;&amp; parameters to forward them
+
+!!! Prefer lambdas to std::bind
+
+* Lambdas are more readable, expressive and may be more efficient than std::bind
+* In C++ 11 only, bind may be useful for implementing move capture or for binding objects with templatized function call operators.</pre>
 </div>
 <div created="20201108155655958" creator="0neir0s" modified="20201108155815806" modifier="0neir0s" tags="hcloud" title="Acropolis">
 <pre>* The data management layer
