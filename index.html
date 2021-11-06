@@ -463,6 +463,8 @@ Error message and password prompt
 
 <li>4. Smart Pointers</li>
 
+<li>5. Rvalue references, Move semantics and Perfect forwarding</li>
+
 <li>Acropolis</li>
 
 <li>Advanced Linux Programming</li>
@@ -533,9 +535,9 @@ Error message and password prompt
 
 <li>DevOps</li>
 
-<li>Draft of 'If you must learn C' by 0neir0s</li>
+<li>Draft of 'C++ Tidbits' by 0neir0s</li>
 
-<li>Draft of 'New Tiddler' by 0neir0s</li>
+<li>Draft of 'If you must learn C' by 0neir0s</li>
 
 <li>DSA Glossary</li>
 
@@ -10233,7 +10235,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20211105112439797" creator="0neir0s" list="[[Draft of 'New Tiddler' by 0neir0s]] [[C++ Tidbits]]" modified="20211106053645241" modifier="0neir0s" title="$:/StoryList">
+<div created="20211105112439797" creator="0neir0s" list="[[5. Rvalue references, Move semantics and Perfect forwarding]] [[Draft of 'C++ Tidbits' by 0neir0s]]" modified="20211106053645241" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -11754,6 +11756,51 @@ f(expr)
 * The Pimpl Idiom decreases build times by reducing compilation dependencies between class clients and class implementation.
 * For unique_ptr pImpl pointers, declare special member functions in the class header, but implement them in the implementation file. Do this even if the default function implementatons are acceptable. No need to do this for shared_ptr as the deleter restriction of the type being complete at the time of defining it doesn't apply to it. </pre>
 </div>
+<div created="20211106064559962" creator="0neir0s" modified="20211106085320127" modifier="0neir0s" tags="emcpp" title="5. Rvalue references, Move semantics and Perfect forwarding">
+<pre>* Rvalue references are the glue that ties Move semantics and Perfect forwarding together.
+
+!!! Understand std::move and std::forward
+
+* move performs an unconditional case to an rvalue; it actually doesn't move anything. 
+* forward casts its argument to an rvalue only if that argument is bound to an rvalue. 
+* Both are compile-time constructs. 
+
+!!! Distinguish universal references from rvalue references
+
+* Universal references correspond to lvalue references if they are initialised with lvalues, and rvalue references if they are initialised with rvalues.
+* Universal references arise in two contexts - function template parameters, and auto declarations. 
+* If the form of the type declaration is not precisely T&amp;&amp; or if type deduction does not occur, T&amp;&amp; is an rvalue reference. 
+
+!!! Use move on rvalue references and forward on lvalue references
+
+* Do the same thing for rvalue references and universal references being returned from functions that return by value. 
+* Never apply move or forward to local objects if they would otherwise be eligible for return value optimisation. 
+
+!!! Avoid overloading on universal references
+
+* Overloading on universal references almost always lead to the universal overload being called more frequently than expected.
+* Such a constructor is especially problematic, because they are typically better matches than copy constructors for non const lvalues, and they can hijack derived class calls to base class copy and move constructors. 
+
+!!! Familiarise yourself with alternatives to overloading on universal references
+
+* Alternatives to the combination of universal references and overloading include the use of distinct function names, passing parameters by  lvalue-reference-to-const, passing parameters by value, and using tag dispatch.
+* Constraining templates via enable_if permits the use of universal references and overloading together, by restricting its applicability. 
+* Universal references while having efficiency advantages, typically have usability disadvantages. 
+
+!!! Understand reference collapsing
+
+* Reference collapsing - if either reference is an lvalue reference, the result is an lvalue reference. Else, an rvalue reference. 
+* They occur in 4 contexts - template instantiation, type generation for auto variables, generation and use of typedefs and alias declarations, and uses of decltypes.
+
+!!! Assume that move operations are not present, not cheap and not used
+
+* In code with known types or support for move semantics, there is no need for assumptions.
+
+!!! Familiarize yourself with perfect forwarding failure cases
+
+* Perfect forwarding fails when template type deduction fails or when it deduces the wrong type. 
+* Examples include braced initialisers, 0 or NULL for null pointers, declaration only const static ints, template and overloaded function names, and bitfields.</pre>
+</div>
 <div created="20201108155655958" creator="0neir0s" modified="20201108155815806" modifier="0neir0s" tags="hcloud" title="Acropolis">
 <pre>* The data management layer
 * Main functions
@@ -12268,15 +12315,18 @@ These are the salient points jotted down while going through the book.
 * For that, Operations must be documented, democratized, and distributed.
 </pre>
 </div>
+<div created="20211105142953825" creator="0neir0s" draft.of="C++ Tidbits" draft.title="C++ Tidbits" modified="20211106081021146" modifier="0neir0s" tags="cppnotes" title="Draft of 'C++ Tidbits' by 0neir0s">
+<pre>* Rvalues can't bind to lvalue references unless they are lvalue references to const. 
+* &lt;type_traits&gt; allows you to transform types. Example: T -&gt; const T. 
+* Member function reference qualifiers which limits use of a member function to lvalues or rvalues only is one of C++'s less publicized features. 
+* Stateless function objects incur no size penalty. So, captureless lambda is often preferable to other alternatives. 
+*  Don't declare objects if you want to be able to move from them, as std::move making it an rvalue doesn't enable moving if it is a const rvalue. 
+* A universal reference is not a new kind of reference, it is actually an rvalue reference in a context where 2 conditions are satisfied:
+** Type deduction  distinguishes lvalues from rvalues
+** Reference collapsing occurs</pre>
+</div>
 <div modified="20210911194535602" modifier="0neir0s" title="Draft of 'If you must learn C' by 0neir0s">
 <pre></pre>
-</div>
-<div created="20211106064559962" creator="0neir0s" draft.of="New Tiddler" draft.title="5. Rvalue references, Move semantics and Perfect forwarding" modified="20211106065051243" modifier="0neir0s" tags="emcpp" title="Draft of 'New Tiddler' by 0neir0s">
-<pre>* Rvalue references are the glue that ties Move semantics and Perfect forwarding together.
-
-!!! Understand std::move and std::forward
-
-* </pre>
 </div>
 <div created="20210507184813873" creator="0neir0s" modified="20210614042514607" modifier="0neir0s" tags="dsa-sections" title="DSA Glossary">
 <pre>* NP-completeness: In computational complexity theory, a problem is NP-complete when:
