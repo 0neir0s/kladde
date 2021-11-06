@@ -535,8 +535,6 @@ Error message and password prompt
 
 <li>DevOps</li>
 
-<li>Draft of 'C++ Tidbits' by 0neir0s</li>
-
 <li>Draft of 'If you must learn C' by 0neir0s</li>
 
 <li>DSA Glossary</li>
@@ -10235,7 +10233,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20211105112439797" creator="0neir0s" list="[[5. Rvalue references, Move semantics and Perfect forwarding]] [[Draft of 'C++ Tidbits' by 0neir0s]]" modified="20211106053645241" modifier="0neir0s" title="$:/StoryList">
+<div created="20211106151340544" creator="0neir0s" list="[[C++ Tidbits]] Kladde" modified="20211106151340544" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -11965,12 +11963,15 @@ f(expr)
 &lt;&lt;list-links &quot;[tag[cppnotes]reverse[]]&quot;&gt;&gt;
 </pre>
 </div>
-<div created="20211105142953825" creator="0neir0s" modified="20211106065443664" modifier="0neir0s" tags="cppnotes" title="C++ Tidbits">
+<div created="20211105142953825" creator="0neir0s" modified="20211106151345349" modifier="0neir0s" tags="cppnotes" title="C++ Tidbits">
 <pre>* Rvalues can't bind to lvalue references unless they are lvalue references to const. 
 * &lt;type_traits&gt; allows you to transform types. Example: T -&gt; const T. 
 * Member function reference qualifiers which limits use of a member function to lvalues or rvalues only is one of C++'s less publicized features. 
 * Stateless function objects incur no size penalty. So, captureless lambda is often preferable to other alternatives. 
-*  Don't declare objects if you want to be able to move from them, as std::move making it an rvalue doesn't enable moving if it is a const rvalue. </pre>
+*  Don't declare objects if you want to be able to move from them, as std::move making it an rvalue doesn't enable moving if it is a const rvalue. 
+* A universal reference is not a new kind of reference, it is actually an rvalue reference in a context where 2 conditions are satisfied:
+** Type deduction  distinguishes lvalues from rvalues
+** Reference collapsing occurs</pre>
 </div>
 <div created="20210626143415676" creator="0neir0s" modified="20210626143540629" modifier="0neir0s" tags="published" title="Cloud">
 <pre>Sections of Cloud concepts
@@ -12314,16 +12315,6 @@ These are the salient points jotted down while going through the book.
 * If Operations is ever going to become a force multiplier that helps the business drive innovation, instead of a cost center whose primary function is to keep the lights on, it must become agile.
 * For that, Operations must be documented, democratized, and distributed.
 </pre>
-</div>
-<div created="20211105142953825" creator="0neir0s" draft.of="C++ Tidbits" draft.title="C++ Tidbits" modified="20211106081021146" modifier="0neir0s" tags="cppnotes" title="Draft of 'C++ Tidbits' by 0neir0s">
-<pre>* Rvalues can't bind to lvalue references unless they are lvalue references to const. 
-* &lt;type_traits&gt; allows you to transform types. Example: T -&gt; const T. 
-* Member function reference qualifiers which limits use of a member function to lvalues or rvalues only is one of C++'s less publicized features. 
-* Stateless function objects incur no size penalty. So, captureless lambda is often preferable to other alternatives. 
-*  Don't declare objects if you want to be able to move from them, as std::move making it an rvalue doesn't enable moving if it is a const rvalue. 
-* A universal reference is not a new kind of reference, it is actually an rvalue reference in a context where 2 conditions are satisfied:
-** Type deduction  distinguishes lvalues from rvalues
-** Reference collapsing occurs</pre>
 </div>
 <div modified="20210911194535602" modifier="0neir0s" title="Draft of 'If you must learn C' by 0neir0s">
 <pre></pre>
