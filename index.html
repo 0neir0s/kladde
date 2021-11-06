@@ -533,8 +533,6 @@ Error message and password prompt
 
 <li>DevOps</li>
 
-<li>Draft of '4. Smart Pointers' by 0neir0s</li>
-
 <li>Draft of 'If you must learn C' by 0neir0s</li>
 
 <li>DSA Glossary</li>
@@ -10233,7 +10231,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20211105112439797" creator="0neir0s" list="[[C++ Tidbits]] [[Draft of '4. Smart Pointers' by 0neir0s]]" modified="20211106053645241" modifier="0neir0s" title="$:/StoryList">
+<div created="20211105112439797" creator="0neir0s" list="[[C++ Tidbits]] [[4. Smart Pointers]]" modified="20211106053645241" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -11728,8 +11726,31 @@ f(expr)
 * Rule of three is expanded to accommodate move constructor and move assignment operator. 
 * Unlike copy, moves won't be generated when destructor is user-defined. Declaring moves disables copy generation. </pre>
 </div>
-<div created="20211105183748791" creator="0neir0s" modified="20211105191555257" modifier="0neir0s" tags="emcpp" title="4. Smart Pointers">
-<pre></pre>
+<div created="20211105183748791" creator="0neir0s" modified="20211106064553189" modifier="0neir0s" tags="emcpp" title="4. Smart Pointers">
+<pre>!!! Use unique_ptr for exclusive ownership resource management
+
+* unique_ptr is a small, fast, move-only smart pointer for managing resources with exclusive ownership semantics, with easy conversion to shared_ptr. 
+* Stateful deleters and function pointers can increase the size of std::unique_ptr objects.
+
+!!! Use shared_ptr for shared ownership resource management
+
+* shared_ptr offer convenience approaching that of garbage collection for the shared lifetime management of arbitrary resources
+* They incur overhead for control blocks, and require atomic reference count manipulations
+* Avoif creating std::shared_ptrs from variables of raw pointer type, use rvalues instead to avoid the potential of multiple control blocks for the same memory location
+
+!!! Use week_ptr for shared_ptr like pointers that can dangle
+
+* Potential use cases for week pointers includes caching, observer lists and prevention of shared_ptr cycles. 
+
+!!! Prefer make_unique and make_shared to direct use of new
+
+* Compared to the direct use of new, make functions eliminate source code duplication, improve exception safety, and, generate code that's smaller and faster.
+* For specifying custom deleters, passing braced initializers and (for shared_ptrs) using classes with custom memory management and for week_ptrs outliving corresponding shared_ptrs, make functions may be ill-adviced. 
+
+!!! When using the Pimpl idiom, define special member functions in the implementation file
+
+* The Pimpl Idiom decreases build times by reducing compilation dependencies between class clients and class implementation.
+* For unique_ptr pImpl pointers, declare special member functions in the class header, but implement them in the implementation file. Do this even if the default function implementatons are acceptable. No need to do this for shared_ptr as the deleter restriction of the type being complete at the time of defining it doesn't apply to it. </pre>
 </div>
 <div created="20201108155655958" creator="0neir0s" modified="20201108155815806" modifier="0neir0s" tags="hcloud" title="Acropolis">
 <pre>* The data management layer
@@ -12243,11 +12264,6 @@ These are the salient points jotted down while going through the book.
 * If Operations is ever going to become a force multiplier that helps the business drive innovation, instead of a cost center whose primary function is to keep the lights on, it must become agile.
 * For that, Operations must be documented, democratized, and distributed.
 </pre>
-</div>
-<div created="20211105183748791" creator="0neir0s" draft.of="4. Smart Pointers" draft.title="4. Smart Pointers" modified="20211106053430045" modifier="0neir0s" tags="emcpp" title="Draft of '4. Smart Pointers' by 0neir0s">
-<pre>!!! Use unique_ptr for exclusive ownership resource management
-
-* </pre>
 </div>
 <div modified="20210911194535602" modifier="0neir0s" title="Draft of 'If you must learn C' by 0neir0s">
 <pre></pre>
