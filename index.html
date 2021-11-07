@@ -499,6 +499,8 @@ Error message and password prompt
 
 <li>C++</li>
 
+<li>C++ 11 Memory model</li>
+
 <li>C++ Tidbits</li>
 
 <li>Cloud</li>
@@ -10206,7 +10208,7 @@ Error message and password prompt
 <pre>readme</pre>
 </div>
 <div created="20161122140345592" creator="Riz
-" modified="20211107062046731" modifier="0neir0s" title="$:/state/sidebar">
+" modified="20211107070606188" modifier="0neir0s" title="$:/state/sidebar">
 <pre>no</pre>
 </div>
 <div created="20201023055735242" creator="0neir0s" modified="20201116111403725" modifier="0neir0s" title="$:/state/tab--1963855381">
@@ -10239,7 +10241,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20211107062043726" creator="0neir0s" list="[[7. Concurrency API]] Kladde" modified="20211107062043726" modifier="0neir0s" title="$:/StoryList">
+<div created="20211107082938405" creator="0neir0s" list="[[C++ 11 Memory model]] Kladde [[Programming Languages]] C++" modified="20211107082956061" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -12037,6 +12039,18 @@ f(expr)
 
 &lt;&lt;list-links &quot;[tag[cppnotes]reverse[]]&quot;&gt;&gt;
 </pre>
+</div>
+<div created="20211107082959339" creator="0neir0s" modified="20211107083657766" modifier="0neir0s" tags="cppnotes" title="C++ 11 Memory model">
+<pre>* It makes sense to view the histories of all memory locations in a space-time diagram in which the horizontal axis represents the address space (i.e., each memory location is represented by a point on that axis) and the vertical axis represents time.
+* The characteristic feature of sequential consistency memory model is that the set of horizontal slices in the address-space-time diagram representing planes of simultaneity. 
+* In relaxed memory models, each thread will slice up address-space-time in its own way, the only restriction being that slices of each thread shall not cross each other because all threads must agree on the history of every individual memory location. 
+* That is, in a relaxed memory model, all threads still observe the same history (i.e., sequence of values) for each memory location. But they may observe different memory images (i.e., combinations of values of all memory locations). 
+* Translating Minkowski’s words (on special relativity) into the memory models realm: address space and time are shadows of address-space-time. Each observer (i.e., thread) will project shadows of events (i.e., memory stores/loads) onto his own world-line (i.e., his time axis) and his own plane of simultaneity (his address-space axis).
+* In relativity, some order is restored to the seemingly chaotic picture of partially ordered events, since the only temporal ordering that all observers agree on is the ordering among “timelike” events. Only the timelike related events are invariantly ordered. There is a similar mechanism in C++ 11 to establish these local causal relationships. 
+* Relaxed or weak memory consistency models are motivated by the fact that most memory orderings in strong models are unnecessary. If a thread updates ten data items and then a synchronization flag, programmers usually do not care if the data items are updated in order with respect to each other but only that all data items are updated before the flag is updated. 
+* An important distinction between coherence and consistency is that coherence is specified on a per-memory location basis, whereas consistency is specified with respect to all memory locations.
+
+!!!! References: A Primer on Memory Consistency and Cache Coherence, and Stack overflow</pre>
 </div>
 <div created="20211105142953825" creator="0neir0s" modified="20211106151345349" modifier="0neir0s" tags="cppnotes" title="C++ Tidbits">
 <pre>* Rvalues can't bind to lvalue references unless they are lvalue references to const. 
