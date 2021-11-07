@@ -10206,7 +10206,7 @@ Error message and password prompt
 <pre>readme</pre>
 </div>
 <div created="20161122140345592" creator="Riz
-" modified="20211106151444834" modifier="0neir0s" title="$:/state/sidebar">
+" modified="20211107062046731" modifier="0neir0s" title="$:/state/sidebar">
 <pre>no</pre>
 </div>
 <div created="20201023055735242" creator="0neir0s" modified="20201116111403725" modifier="0neir0s" title="$:/state/tab--1963855381">
@@ -10239,7 +10239,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20211106151340544" creator="0neir0s" list="[[8. Tweaks]] [[7. Concurrency API]] [[Effective Modern C++]] Kladde" modified="20211106151446356" modifier="0neir0s" title="$:/StoryList">
+<div created="20211107062043726" creator="0neir0s" list="[[7. Concurrency API]] Kladde" modified="20211107062043726" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -11825,8 +11825,41 @@ f(expr)
 * Lambdas are more readable, expressive and may be more efficient than std::bind
 * In C++ 11 only, bind may be useful for implementing move capture or for binding objects with templatized function call operators.</pre>
 </div>
-<div created="20211106175601096" creator="0neir0s" modified="20211106182206365" modifier="0neir0s" tags="emcpp" title="7. Concurrency API">
-<pre></pre>
+<div created="20211106175601096" creator="0neir0s" modified="20211107070553490" modifier="0neir0s" tags="emcpp" title="7. Concurrency API">
+<pre>!!! Prefer task based programming to thread based 
+
+* Thread API offers no way to get return values from synchronously run functions and if those functions throw, the program is terminated.
+* Thread based programming calls for manual management of thread exhaustion, oversubscription, load balancing and adaptation to new platforms. 
+* Task based programming via async with the default launch policy handles most of these issues for you.
+
+!!! Specify std::launch::async if asynchronicity is essential
+
+* The default launch policy for std::async permits both asynchronous and synchronous task execution.
+* This flexibility leads to uncertainty with thread local variables and can mess up timeout based wait calls. 
+
+!!! Make std::threads unjoinable on all paths
+
+* Reason is that destroying joinable threads can terminate the program
+* 1 other option of join-on-destruction can lead to difficult to debug performance anomalies.
+* Other option of detach-on-destruction can lead to difficult to debug undefined behaviors. 
+* Declare thread objects last in the list of data members since they may start running immediately after initialisation. 
+
+!!! Be aware of varying thread handle destructor behavior
+
+* Future destructors normally just destroy the future's data members. 
+* The final future referring to a shared state for a non-deferred task launched via std::async blocks until the task is complete. 
+
+!!! Consider void futures for one-shot event communication
+
+* For simple event communication, condvar based designs require a superfluous mutex, and check for spurious wake-ups. 
+* Designing a flag based approach works, but it uses polling. 
+* Condvar and flag can be used together, but it is somewhat stilted. 
+* Using promises and futures dodges these issues, but it uses heap for shared state and is limited to one shot communications. 
+
+!!! Use atomic for concurrency and volatile for special memory
+
+* std::atomic is for data accessed from multiple threads without using mutexes. It is a tool for writing concurrent software. 
+* volatile is for memory where reads and writes should not be optimised away. It is a tool for working with special memory.</pre>
 </div>
 <div created="20211106175624489" creator="0neir0s" modified="20211106184257061" modifier="0neir0s" tags="emcpp" title="8. Tweaks">
 <pre>!!! Consider pass-by-value for copyable parameters that are cheap to move and always copied
