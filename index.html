@@ -10208,7 +10208,7 @@ Error message and password prompt
 <pre>readme</pre>
 </div>
 <div created="20161122140345592" creator="Riz
-" modified="20211116041619732" modifier="0neir0s" title="$:/state/sidebar">
+" modified="20211116042002885" modifier="0neir0s" title="$:/state/sidebar">
 <pre>no</pre>
 </div>
 <div created="20201023055735242" creator="0neir0s" modified="20201116111403725" modifier="0neir0s" title="$:/state/tab--1963855381">
@@ -10241,7 +10241,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20211116034825030" creator="0neir0s" list="Kladde Tidbits [[Programming Languages]]" modified="20211116041646933" modifier="0neir0s" title="$:/StoryList">
+<div created="20211116034825030" creator="0neir0s" list="[[Threads cannot be implemented as a Library]] Kladde" modified="20211116042000623" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -14381,14 +14381,31 @@ Code to be correct, efficient, simple, readable and maintainable
 
 </pre>
 </div>
-<div created="20211116035506824" creator="0neir0s" modified="20211116035527688" modifier="0neir0s" tags="papernotes" title="Threads cannot be implemented as a Library">
-<pre></pre>
+<div created="20211116035506824" creator="0neir0s" modified="20211116043218683" modifier="0neir0s" tags="papernotes" title="Threads cannot be implemented as a Library">
+<pre>Author: Hans J Boehm
+
+* The key idea is that a pure library approach in which the compiler is designed independently of threading issues cannot guarantee the correctness of the resulting code. 
+* The paper explicitly does not address the message passing approach used in languages like Erlang and Go. 
+
+!!! Pthreads approach to concurrency
+
+* Any language supporting concurrency must specify the semantics of multi-threaded execution, especially the memory model. 
+* Sequential consistency, the most intuitive memory model is unlikely to be implementable with reasonable performance on conventional architectures. 
+* 2 reasons - compiler may reorder memory operations and hardware may reorder memory operations. 
+* Since the pthreads standard intentionally did not specify formal semantics for concurrency, (C++ 98 ?) standardisation committee gave an informal directive, which translates in practice to:
+** Functions like pthread_mutex_lock are guaranteed to synchronise memory preventing reordering around the call.
+** They are opaque functions, about which the compiler has no information. 
+* Unfortunately, it only works most of the time, as it does not sufficiently constrain the compiler to detect or not introduce data races. 
+
+!!! Issues
+
+# // Blah //</pre>
 </div>
-<div created="20210619173730960" creator="0neir0s" modified="20211116041845671" modifier="0neir0s" tags="published" title="Tidbits">
+<div created="20210619173730960" creator="0neir0s" modified="20211116041931293" modifier="0neir0s" tags="published" title="Tidbits">
 <pre>!!!! Psychology
 
 * To break out of habits, it is often effective to reason about it not before, but during the activity. Repeated introspection has the best chance of breaking you out of it.
-* Paring everything - possessions, actions, and perhaps even more importantly ideas - seems a good idea. [[Mnmlist|https://mnmlist.com/ideas/]]
+* Paring everything - possessions, actions, and perhaps even more importantly ideas - seems like a practical idea. ([[mnmlist|https://mnmlist.com/ideas/]])
 
 !!!! IT filing
 
