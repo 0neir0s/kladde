@@ -14381,10 +14381,10 @@ Code to be correct, efficient, simple, readable and maintainable
 
 </pre>
 </div>
-<div created="20211116035506824" creator="0neir0s" modified="20211116043218683" modifier="0neir0s" tags="papernotes" title="Threads cannot be implemented as a Library">
+<div created="20211116035506824" creator="0neir0s" modified="20211116052906324" modifier="0neir0s" tags="papernotes" title="Threads cannot be implemented as a Library">
 <pre>Author: Hans J Boehm
 
-* The key idea is that a pure library approach in which the compiler is designed independently of threading issues cannot guarantee the correctness of the resulting code. 
+* The key idea is that a pure library approach in which the compiler is designed independently of threading issues cannot guarantee the correctness of the resulting code. (C is the reference language here)
 * The paper explicitly does not address the message passing approach used in languages like Erlang and Go. 
 
 !!! Pthreads approach to concurrency
@@ -14399,7 +14399,20 @@ Code to be correct, efficient, simple, readable and maintainable
 
 !!! Issues
 
-# // Blah //</pre>
+# Concurrent modification mess-up due to certain compiler reordering optimisations.
+# Rewriting of adjacent data (mainly in bitfields) might break code that accesses fields from multiple threads.
+# Register promotion might introduce extra reads and writes while lock is not held. Specifically, speculative register promotion around unknown procedure calls is generally unsafe. 
+
+!!! Performance
+
+* The only parallel programming style sanctioned by the Pthreads standard is the mutex style where it is used to prevent concurrent modification of shared variables. 
+* Although lock-free and wait-free techniques are only appropriate for a small fraction of multi-threaded code, they are desirable in lower level libraries for the performance benefits mainly attributed to minimizing restrictions on reordering. 
+* There are cases in which properly synchronized code with 4 threads only barely exceeds the performance of a single synchronization free thread, i.e. where it appears to be impossible to gain benefit without direct fine-grained use of atomic operations on shared variables. 
+* This is  impossible to gain benefit for a purely library based implementation in which synchronization is necessary for concurrent modifications. Even if you encapsulate the primitives in something that looks to the programmer as a library, compiler needs to understand the memory ordering constraints of these primitives for full performance. 
+
+!!! Solution ?
+
+* The solution could be a proper memory model similar to JMM. Since type-safety guarantees are not present in C++ unlike in Java, there is no need to fully define the semantics of data races, and make the same tradeoffs that JMM did. </pre>
 </div>
 <div created="20210619173730960" creator="0neir0s" modified="20211116041931293" modifier="0neir0s" tags="published" title="Tidbits">
 <pre>!!!! Psychology
