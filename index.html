@@ -655,6 +655,8 @@ Error message and password prompt
 
 <li>Tidbits</li>
 
+<li>Time, Clocks and the Ordering of Events in a Distributed Systems</li>
+
 <li>Trees and Graphs</li>
 
 <li>WAF &amp; Shield</li>
@@ -10241,7 +10243,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20211120113328040" creator="0neir0s" list="Kladde [[General Computer Science]] [[Data Structures and Algorithms]] [[Effective Modern C++]]" modified="20211120114350358" modifier="0neir0s" title="$:/StoryList">
+<div created="20211120113328040" creator="0neir0s" list="[[Time, Clocks and the Ordering of Events in a Distributed Systems]] Kladde [[Technical notes]]" modified="20211120114652708" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -12025,7 +12027,7 @@ f(expr)
 ** The linker takes a collection of object files and libraries and resolves their symbolic references to produce either an executable or dynamic library. 
 * IDEs and Build systems are 2 approaches to make it less tedious for developers. While IDEs organize files into projects, build systems organize files into targets.</pre>
 </div>
-<div created="20210905121908687" creator="0neir0s" modified="20210905121950768" modifier="0neir0s" tags="proglangs" title="C++">
+<div created="20210905121908687" creator="0neir0s" modified="20211120114510166" modifier="0neir0s" tags="proglangs" title="C++">
 <pre>Sections:
 
 &lt;&lt;list-links &quot;[tag[cppnotes]reverse[]]&quot;&gt;&gt;
@@ -12501,7 +12503,7 @@ These are the salient points jotted down while going through the book.
 * For rebooting AWS does not charge a new instance hour, while every stop or restart will be charged fee for a new instance hour as a separate hour.
 * Disk encryption on NVMe instance storage does not support integration with AWS KMS system.</pre>
 </div>
-<div created="20211105112451440" creator="0neir0s" modified="20211105112645850" modifier="0neir0s" tags="booknotes" title="Effective Modern C++">
+<div created="20211105112451440" creator="0neir0s" modified="20211120114530241" modifier="0neir0s" tags="booknotes cppnotes" title="Effective Modern C++">
 <pre>Book by Scott Myers
 
 ''Topics till date''
@@ -14424,6 +14426,48 @@ Code to be correct, efficient, simple, readable and maintainable
 !!!! IT filing
 
 * Go back and fill in self-assessment tax after paying the challan to avoid headaches and revised filing.</pre>
+</div>
+<div created="20211120114656126" creator="0neir0s" modified="20211120141608097" modifier="0neir0s" tags="papernotes" title="Time, Clocks and the Ordering of Events in a Distributed Systems">
+<pre>!!! Miscellaneous
+
+* Paper by Leslie Lamport
+* Foundational paper in Distributed Systems
+* Need to read again, since I did not understand much the couple of times I read.
+
+!!! Summary
+
+* Partial ordering is defined without the use of physical clocks or explicit notion of time. 
+* A logical clock is introduced and is linked to partial ordering.
+* A total ordering is introduced and used to solve mutual exclusion problem. 
+* Physical clocks and conditions to make it good enough for total ordering are discussed. 
+
+!!! Partial ordering
+
+* Definition - &quot;happens before&quot; or -&gt; relation. 
+** If a and b are events in the same process, and a comes before b, then a-&gt;b. 
+** If a is sending of a message and b is receiving of a message, then a-&gt;b. 
+** Two distinct events a and b are said to be concurrent if a not-&gt; b and b not-&gt; a.
+* Unlike special relativity, we only consider and care about the events that did occur, and not events that could have occurred. 
+
+!!! Logical clocks
+
+* It is just a function which assigns a number to any event, and follows the Clock Condition. 
+* Clock condition: For any events a,b: if a-&gt;b then `C(a) &lt; C(b)`
+* For implementation, we just need to increment for in-process events and adjust the logical clock in case of a message reception event.
+
+!!! Total ordering
+
+* Definition: If a is an event in process Pi, and b is an event in process Pj, then a =&gt; b iff either `Ci(a)&lt;Cj(b)` or `Ci(a)=Cj(b)` and `Pi&lt;Pj`
+* The reason for implementing a correct system of logical clocks is to obtain such a total ordering. 
+
+!!! Solving distributed mutual exclusion
+
+* Each process maintains its own request queue which is never seen by any other process. 
+* The algorithm is defined by the below rules: 
+** To request the resource, Pi sends the message Tm, Pi requests resource to every other process. 
+** When Pj receives the message Tm, it places it on its request queue and sends a timestamped ack. 
+** 
+</pre>
 </div>
 <div created="20210502131453870" creator="0neir0s" modified="20210502181309832" modifier="0neir0s" tags="ctci" title="Trees and Graphs">
 <pre>* Usually more complicated than linearly organised data structures. Another gotcha is that the average and worst case time complexities may wildly vary. 
