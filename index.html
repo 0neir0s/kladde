@@ -14427,12 +14427,12 @@ Code to be correct, efficient, simple, readable and maintainable
 
 * Go back and fill in self-assessment tax after paying the challan to avoid headaches and revised filing.</pre>
 </div>
-<div created="20211120114656126" creator="0neir0s" modified="20211120141608097" modifier="0neir0s" tags="papernotes" title="Time, Clocks and the Ordering of Events in a Distributed Systems">
+<div created="20211120114656126" creator="0neir0s" modified="20211120144111108" modifier="0neir0s" tags="papernotes" title="Time, Clocks and the Ordering of Events in a Distributed Systems">
 <pre>!!! Miscellaneous
 
 * Paper by Leslie Lamport
 * Foundational paper in Distributed Systems
-* Need to read again, since I did not understand much the couple of times I read.
+* Need to read again, since I did not understand much even after 2 times.
 
 !!! Summary
 
@@ -14466,8 +14466,30 @@ Code to be correct, efficient, simple, readable and maintainable
 * The algorithm is defined by the below rules: 
 ** To request the resource, Pi sends the message Tm, Pi requests resource to every other process. 
 ** When Pj receives the message Tm, it places it on its request queue and sends a timestamped ack. 
-** 
-</pre>
+** To release, Pj receives Tm(release) to all others.
+** When Pj receives Tm(release), it removes any Tm from its request queue. 
+** Pi is granted the resource if 
+*** There is a Tm in its queue which is ordered before any other request
+*** Pi has received message from every other process timestamped later than Tm.
+* But, the assumption is none of the processes can fail. Failure is a hard problem, and becomes meaningful only in the context of physical time.
+
+!!! Anomalous Behavior
+
+* The current total ordering due to its arbitrary way of breaking ties permits anomalous behavior. 
+* There are 2 possible ways to avoid this:
+** Explicitly introduce into the system the necessary information about the ordering.
+** Use a strong clock condition which gives total order for the set of events. 
+* Special relativity states it is possible to construct independent physical clocks satisfying the strong clock condition. So, we can use physical clocks to eliminate anomalous behavior (basically, the second approach).
+
+!!! Physical Clocks
+
+* There are few assumptions involved such as clocks being continuous and piecewise differentiable (corresponds to forward resets). 
+* If the clocks are running approximately at the correct rate and are synchronised sufficiently, anomalous behavior is impossible. 
+* There exists an algorithm for insuring synchronisation which can be distilled into 2 rules.
+** Any time when Pi does not receive a message, Ci is differentiable and derivative is positive. 
+** If Pi send m at t, then m contains Tm = Ci(t) and Pj upon getting the message sets Cj(t') to max(Cj(t'-0), Tm + μm) where μm is the minimum delay 
+* The only real concern in the implementation is making sure that the discrete clock ticks are frequent enough so that clock condition is maintained.
+* We can show that this algorithm ensures the condition for impossibility of anomalous behavior using a graph theorem, which I am too dumb to understand. </pre>
 </div>
 <div created="20210502131453870" creator="0neir0s" modified="20210502181309832" modifier="0neir0s" tags="ctci" title="Trees and Graphs">
 <pre>* Usually more complicated than linearly organised data structures. Another gotcha is that the average and worst case time complexities may wildly vary. 
