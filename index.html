@@ -579,6 +579,8 @@ Error message and password prompt
 
 <li>Linked Lists</li>
 
+<li>MapReduce: Simplified Data Processing on Large Clusters</li>
+
 <li>Master Theorem</li>
 
 <li>Math and Probability</li>
@@ -10243,7 +10245,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20211120113328040" creator="0neir0s" list="[[Time, Clocks and the Ordering of Events in a Distributed Systems]] Kladde [[Technical notes]]" modified="20211120114652708" modifier="0neir0s" title="$:/StoryList">
+<div created="20211205050250959" creator="0neir0s" list="[[MapReduce: Simplified Data Processing on Large Clusters]] Kladde [[Technical notes]]" modified="20211205050314157" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -12853,6 +12855,23 @@ randoms' gen = let (value, newGen) = random gen in value:randoms' newGen  ]]</pr
 ** Deleting a node from a singly-linked list - check for null pointers, update head/tail as necessary.
 ** Runner technique - run through the linked list with a &quot;fast&quot; and &quot;slow&quot; pointer. Classic example is weaving a linked list.
 ** Often, problems involve a recursive approach. Might be possible but complex to change it to iterative.</pre>
+</div>
+<div created="20211205050318137" creator="0neir0s" modified="20211205053237774" modifier="0neir0s" tags="papernotes" title="MapReduce: Simplified Data Processing on Large Clusters">
+<pre>!!! Introduction
+
+* MapReduce is a functional style programming model and an associated implementation enabling easy parallelization.
+* The run time system takes care of partitioning the input data, scheduling, handling machine failures, and managing the inter-machine communication. 
+* Functional model with user specified map and reduce operations allows us to parallelize large operations easily and to use re-execution as the primary mechanism for fault tolerance.  
+
+!!! Programming model
+
+* Map - taken an input pair and produce a set of intermediate key/value pairs. MapReduce library groups together all intermediate values associated with the same intermediate key I and passes them to the reduce function. 
+* Reduce- accepts an intermediate key I and the set of values for that key. It merges together these values to form a possibly smaller set of values. 
+
+!!! Execution 
+
+# fefurh
+# fewhph</pre>
 </div>
 <div created="20210310071921692" creator="0neir0s" modified="20210425190455051" modifier="0neir0s" tags="dsa-sections" title="Master Theorem">
 <pre>!!! Premise
