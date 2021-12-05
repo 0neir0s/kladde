@@ -12856,7 +12856,7 @@ randoms' gen = let (value, newGen) = random gen in value:randoms' newGen  ]]</pr
 ** Runner technique - run through the linked list with a &quot;fast&quot; and &quot;slow&quot; pointer. Classic example is weaving a linked list.
 ** Often, problems involve a recursive approach. Might be possible but complex to change it to iterative.</pre>
 </div>
-<div created="20211205050318137" creator="0neir0s" modified="20211205053237774" modifier="0neir0s" tags="papernotes" title="MapReduce: Simplified Data Processing on Large Clusters">
+<div created="20211205050318137" creator="0neir0s" modified="20211205061553044" modifier="0neir0s" tags="papernotes" title="MapReduce: Simplified Data Processing on Large Clusters">
 <pre>!!! Introduction
 
 * MapReduce is a functional style programming model and an associated implementation enabling easy parallelization.
@@ -12870,8 +12870,28 @@ randoms' gen = let (value, newGen) = random gen in value:randoms' newGen  ]]</pr
 
 !!! Execution 
 
-# fefurh
-# fewhph</pre>
+# Map Reduce library in the user program first splits the input files into M pieces. It then starts up many copies of the program on a cluster of machines.
+# One of the copies of the program is special - the master. M map tasks and R reduce tasks to assign. The master picks idle workers and assign each one a task.
+# A worker who is assigned a map task reads the contents of the corresponding input split, parses k/v pairs, passes it to the Map function, and the intermediate k/v pairs are buffered in memory. 
+# Periodically, buffered pairs are written to local disk, partitioned into R regions by the partitioning function. 
+# Reduce tasks uses RPC to read the buffered data from the local disks of the map workers. Reduce workers sorts it by intermediate keys map. It is needed because many keys map to the same reduce tasks. 
+# Reduce worker iterates over the sorted intermediate data, and for each unique intermediate key encountered, it passes the key and the corresponding set of intermediate values to Reduce. 
+# When all tasks are completed, master wakes up the user program. 
+
+!!! Features
+
+* Master keeps many data structures. For each tasks, it stores the state and the identity of the worker machine. also, for each completed map task, it stores the locations and sizes of the R intermediate file regions produced by the map task. 
+* Re-execution combats worker failure. The papers says the single master failure is unlikely, so the entire thing restarts currently. But, it is easy enough to make the master write periodic checkpoints of the master data structures to spawn a new one. 
+* MapReduce tries to conserve network bandwidth by using the fact that input data is stored on the local disks of the machines that make up the cluster so that most input data is read locally. 
+* Backup tasks effectively counters the issue of straggler: a machine that takes an unusually long time to complete one of the last few map/reduce tasks due to disk or scheduling issues. 
+* Few refinements including paritioning function, combiner function (that foes partial merging of this data before it is sent over the network), support for various readers/writers, ability to skip bad records, local execution engine for debugging/testing, status UI and counters have been provided. 
+
+!!! Conclusion
+
+Achieves 3 key things.
+* A restricted programming model that makes it easy to parallelize and distribute computations while being fault-tolerant. 
+* Locality optimizations that allows us to read data from local disks and writing a single copy of intermediate data to local disk for saving network bandwidth. 
+* Redundant executions used to reduce the impact of slow machines as well as handle machine failures and data loss. </pre>
 </div>
 <div created="20210310071921692" creator="0neir0s" modified="20210425190455051" modifier="0neir0s" tags="dsa-sections" title="Master Theorem">
 <pre>!!! Premise
