@@ -471,6 +471,8 @@ Error message and password prompt
 
 <li>8. Tweaks</li>
 
+<li>A New Solution of Dijkstra's Concurrent Programming Problem</li>
+
 <li>Acropolis</li>
 
 <li>Advanced Linux Programming</li>
@@ -10245,7 +10247,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20211205050250959" creator="0neir0s" list="[[MapReduce: Simplified Data Processing on Large Clusters]] Kladde [[Technical notes]]" modified="20211205050314157" modifier="0neir0s" title="$:/StoryList">
+<div created="20211217052541339" creator="0neir0s" list="[[A New Solution of Dijkstra's Concurrent Programming Problem]] Kladde [[Technical notes]]" modified="20211217052545235" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -11879,6 +11881,27 @@ f(expr)
 * In principle, emplacement should sometimes be more efficient than insertion, and never less efficient. 
 * In practice, they are likely to be faster when value is constructed into the container, args passed differ from the type held by the container and container won't reject being added due to it being a duplicate
 * Emplacement functions may bypass explicits which would be expectedly rejected by the insertion functions.</pre>
+</div>
+<div created="20211217052552489" creator="0neir0s" modified="20211217053656539" modifier="0neir0s" tags="papernotes" title="A New Solution of Dijkstra's Concurrent Programming Problem">
+<pre>!!! Introduction
+
+* The bakery algorithm paper for the mutual exclusion problem.
+* Problem: Each computer runs a cyclic program with a critical and a non-critical section. The goal is a program such that:
+** At any time, at most one computer may be in its critical section. 
+** Each computer must eventually be able to enter critical section, unless it halts. 
+** Any computer may halt in its critical section
+
+!!! Solution
+
+* Lamport envisioned a bakery with a counter at its entrance so each customer is given a unique number.
+* Customers (threads) wait in queue till the current customer is serviced and the next number is called. 
+* The tie is broken by the processor number, i.e. (nj, j) &lt; (ni, i) is the comparison. 
+* Below is the pseudocode.
+
+```python
+print(&quot;Hello world.&quot;)
+```
+</pre>
 </div>
 <div created="20201108155655958" creator="0neir0s" modified="20201108155815806" modifier="0neir0s" tags="hcloud" title="Acropolis">
 <pre>* The data management layer
