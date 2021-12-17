@@ -11882,7 +11882,7 @@ f(expr)
 * In practice, they are likely to be faster when value is constructed into the container, args passed differ from the type held by the container and container won't reject being added due to it being a duplicate
 * Emplacement functions may bypass explicits which would be expectedly rejected by the insertion functions.</pre>
 </div>
-<div created="20211217052552489" creator="0neir0s" modified="20211217053656539" modifier="0neir0s" tags="papernotes" title="A New Solution of Dijkstra's Concurrent Programming Problem">
+<div created="20211217052552489" creator="0neir0s" modified="20211217054349477" modifier="0neir0s" tags="papernotes" title="A New Solution of Dijkstra's Concurrent Programming Problem">
 <pre>!!! Introduction
 
 * The bakery algorithm paper for the mutual exclusion problem.
@@ -11896,10 +11896,18 @@ f(expr)
 * Lamport envisioned a bakery with a counter at its entrance so each customer is given a unique number.
 * Customers (threads) wait in queue till the current customer is serviced and the next number is called. 
 * The tie is broken by the processor number, i.e. (nj, j) &lt; (ni, i) is the comparison. 
-* Below is the pseudocode.
+* Below is the pseudocode executed repeatedly for processor i.
 
 ```python
-print(&quot;Hello world.&quot;)
+choosing[i] = 0
+numbers[i] = 1 + max(numbers)
+choosing[i] = 1
+for j in range(len(numbers)):
+  while choosing[j]: pass
+  while not numbers[j] and (numbers[j],j) &lt; (numbers[i],i): pass
+critical section
+numbers[i] = 0
+non-critical section 
 ```
 </pre>
 </div>
