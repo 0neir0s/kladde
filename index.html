@@ -10090,7 +10090,8 @@ Error message and password prompt
     &quot;tiddlers&quot;: {
         &quot;Untitled&quot;: {
             &quot;title&quot;: &quot;Untitled&quot;,
-            &quot;text&quot;: &quot; &quot;
+            &quot;text&quot;: &quot;    }\n&quot;,
+            &quot;type&quot;: &quot;text/plain&quot;
         }
     }
 }</pre>
@@ -10247,7 +10248,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20211217052541339" creator="0neir0s" list="[[MapReduce: Simplified Data Processing on Large Clusters]] Kladde [[Technical notes]]" modified="20211217070221416" modifier="0neir0s" title="$:/StoryList">
+<div created="20211217052541339" creator="0neir0s" list="Kladde [[Technical notes]] [[A New Solution of Dijkstra's Concurrent Programming Problem]]" modified="20211218133852482" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -11882,7 +11883,7 @@ f(expr)
 * In practice, they are likely to be faster when value is constructed into the container, args passed differ from the type held by the container and container won't reject being added due to it being a duplicate
 * Emplacement functions may bypass explicits which would be expectedly rejected by the insertion functions.</pre>
 </div>
-<div created="20211217052552489" creator="0neir0s" modified="20211217070213094" modifier="0neir0s" tags="papernotes" title="A New Solution of Dijkstra's Concurrent Programming Problem">
+<div created="20211217052552489" creator="0neir0s" modified="20211218134108245" modifier="0neir0s" tags="papernotes" title="A New Solution of Dijkstra's Concurrent Programming Problem">
 <pre>!!! Introduction
 
 * The bakery algorithm paper solving the mutual exclusion problem.
@@ -11914,8 +11915,8 @@ non-critical section
 !!! Proof of correctness
 
 * Usages: 
-** &quot;in the doorway&quot; means choosing[i] = 1
-** &quot;in the bakery&quot; means after gateway and before resetting numbers[i]
+** &quot;in the doorway&quot; denotes the portion before the loop.
+** &quot;in the bakery&quot; denotes the portion after leaving the doorway and before resetting numbers[i].
 ** t,,Li,, is the time i executed Li for the last time. So, t,,L2,, &lt; t,,L3,,.
 ** k entered the doorway at t,,e,,, wrote numbers[k] at t,,w,,, and exited the doorway at t,,c,,. Then, t,,e,,, &lt; t,,w,,, &lt; t,,c,,,.
 
