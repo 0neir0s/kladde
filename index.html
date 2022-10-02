@@ -607,8 +607,6 @@ Error message and password prompt
 
 <li>On Abstraction</li>
 
-<li>Out of the tar pit</li>
-
 <li>Patterns to Problem Solving</li>
 
 <li>Philosophy</li>
@@ -10263,7 +10261,7 @@ Error message and password prompt
 <div created="20200818181852881" creator="0" modified="20200818181853992" modifier="0neir0" title="$:/status/UserName">
 <pre>0neir0s</pre>
 </div>
-<div created="20220829185206081" creator="0neir0s" list="Kladde [[Computer Science]] [[Technical notes]]" modified="20220829185357570" modifier="0neir0s" title="$:/StoryList">
+<div created="20221002155058247" creator="0neir0s" list="Kladde [[Computer Science]] [[Technical notes]]" modified="20221002155228417" modifier="0neir0s" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20201102085237822" creator="0neir0s" modified="20201102085237822" modifier="0neir0s" title="$:/temp/HidePluginWarning">
@@ -13214,37 +13212,6 @@ T(n) has the following asymptotic bounds (ϵ &gt; 0 is a constant):
 *** A heuristic is to club the components based on the assumptions they make. Since failure of assumption necessitates replacement of all of them.
 
 * Clojure and other lisps bias towards adaptable systems. But, use it in moderation.</pre>
-</div>
-<div created="20210918041846037" creator="0neir0s" modified="20210918043357534" modifier="0neir0s" tags="synopsis" title="Out of the tar pit">
-<pre>!!! Introduction
-* Problems with software - complexity, conformity, changeability and invisibility. Essentially, it boils down to complexity. 
-* Approaches to understanding - Testing and Informal reasoning. 
-* 2 similar problems - one related to testing and one related to state, can combine together horribly. 
-* Contamination of stateful and stateless stuff makes it even harder. 
-
-!!! Classical approaches to manage complexity
-* Object orientation - does not do a good job in state or control.
-* Functional - in general handles state well, but not good at control. 
-* Logic - does not really handle/care about state, but good at control
-
-!!! Accidental and Essential 
-* Required accidental complexity can be for performance or ease of expression. But, it should be still independent of the essential complexity and control domains. 
-* We should strive to completely avoid explicit management of accidental state.
-* Formal requirements should adopt the logic/state split, since separation allows us to restrict the power of each component.
-* 2 approaches - avoid when possible, and separate otherwise. 
-
-!!! Relational Model 
-* Elegant approach to structuring data. Not intrinsically related to database. And SQL is not a great relational model as well. 
-* 4 Aspects - Structure, Manipulation, Integrity and Data independence. 
-* In particular, think of mutable state as a variable which at any time can contain a particular value, and not as a mutable relation. 
-* Improves over the problems of hierarchical and network models of organizing data. 
-
-!!! Recommendation
-* Functional Relational programming - an amalgam of functional and logic programming
-** Essential state - relational definitions of the stateful components of the system. 
-** Essential logic - derived relation definitions, integrity constraints and pure functions. (relational+functional)
-** Accidental state and control - Declarative set of performance optimizations for the system. 
-** Other - interfaces to the outside world. </pre>
 </div>
 <div created="20210615025332581" creator="0neir0s" modified="20210629124228590" modifier="0neir0s" tags="dsa-sections" title="Patterns to Problem Solving">
 <pre>!!!! Pattern 1 - Sliding Window
